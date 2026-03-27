@@ -1,0 +1,4 @@
+// Microsoft Visual C++ generated Help ID include file.
+// Used by resource.rc
+//
+#define HIDC_EDIT_CLASS                 0x800a03e9    // IDD_PROPPAGE_LARGE

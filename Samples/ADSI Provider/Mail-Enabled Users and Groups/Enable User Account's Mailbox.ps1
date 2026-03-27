@@ -1,0 +1,2 @@
+﻿Set-QADUser "CN=John Smith,OU=Sales,DC=mydomain,DC=com" -Proxy -ObjectAttributes @{"edsaEstablishEmail"=$true;"mailNickname"="JSmith";"edsaAdminGroup"="CN=First Administrative Group,CN=Administrative Groups,CN=First Organization,CN=Microsoft Exchange,CN=Services,CN=Configuration,DC=mydomain,DC=com";"targetAddress"="SMTP:JSmith@email.com"}
+"Done!"

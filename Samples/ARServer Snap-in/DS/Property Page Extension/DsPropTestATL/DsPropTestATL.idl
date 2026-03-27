@@ -1,0 +1,37 @@
+// DsPropTestATL.idl : IDL source for DsPropTestATL
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (DsPropTestATL.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+/*
+[
+	object,
+	uuid(C182D2B4-4C48-42D5-9880-73E6BA10111C),
+	dual,
+	nonextensible,
+	helpstring("ITestDsPropSheetExt Interface"),
+	pointer_default(unique)
+]
+interface ITestDsPropSheetExt : IDispatch{
+};
+*/
+[
+	uuid(F4483D6C-7A65-499B-9AEB-C9394CF51E51),
+	version(1.0),
+	helpstring("DsPropTestATL 1.0 Type Library")
+]
+library DsPropTestATLLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(486B8AF4-DDEA-4C5B-B959-D9022922B4BA),
+		helpstring("TestDsPropSheetExt Class")
+	]
+	coclass TestDsPropSheetExt
+	{
+		interface IDispatch;
+	};
+};

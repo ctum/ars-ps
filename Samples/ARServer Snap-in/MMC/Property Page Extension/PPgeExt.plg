@@ -1,0 +1,53 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: PPgeExt - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Release/resource.res" /d "NDEBUG" "C:\Program Files\Microsoft SDK\Samples\sysmgmt\mmc\PPgeExt\resource.rc"" 
+Creating temporary file "C:\DOCUME~1\GMahov\LOCALS~1\Temp\RSP2CA.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "PPgeExt_EXPORTS" /D "UNICODE" /D "_UNICODE" /Fp"Release/PPgeExt.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Program Files\Microsoft SDK\Samples\sysmgmt\mmc\PPgeExt\About.cpp"
+"C:\Program Files\Microsoft SDK\Samples\sysmgmt\mmc\PPgeExt\BaseSnap.cpp"
+"C:\Program Files\Microsoft SDK\Samples\sysmgmt\mmc\PPgeExt\PPgeExt.cpp"
+"C:\Program Files\Microsoft SDK\Samples\sysmgmt\mmc\PPgeExt\Registry.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\GMahov\LOCALS~1\Temp\RSP2CA.tmp" 
+Creating temporary file "C:\DOCUME~1\GMahov\LOCALS~1\Temp\RSP2CB.tmp" with contents
+[
+comctl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib mmc.lib /nologo /base:"0x13000000" /dll /incremental:no /pdb:"Release/PPgeExt.pdb" /machine:I386 /def:".\BaseSnap.Def" /out:"Release/PPgeExt.dll" /implib:"Release/PPgeExt.lib" 
+".\Release\About.obj"
+".\Release\BaseSnap.obj"
+".\Release\PPgeExt.obj"
+".\Release\Registry.obj"
+".\Release\resource.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\GMahov\LOCALS~1\Temp\RSP2CB.tmp"
+Creating temporary file "C:\DOCUME~1\GMahov\LOCALS~1\Temp\RSP2CC.bat" with contents
+[
+@echo off
+regsvr32 /s /c ".\Release\PPgeExt.dll"
+echo regsvr32 exec. time > ".\Release\regsvr32.trg"
+]
+Creating command line "C:\DOCUME~1\GMahov\LOCALS~1\Temp\RSP2CC.bat"
+Compiling resources...
+Compiling...
+About.cpp
+BaseSnap.cpp
+PPgeExt.cpp
+Registry.cpp
+Linking...
+   Creating library Release/PPgeExt.lib and object Release/PPgeExt.exp
+<h3>Output Window</h3>
+Performing Registrations
+
+
+
+<h3>Results</h3>
+PPgeExt.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

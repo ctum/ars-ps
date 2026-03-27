@@ -1,0 +1,9 @@
+; DsPropTestATL.def : Declares the module parameters.
+
+LIBRARY      "DsPropTestATL.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE

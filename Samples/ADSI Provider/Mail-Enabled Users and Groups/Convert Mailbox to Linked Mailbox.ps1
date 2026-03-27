@@ -1,0 +1,2 @@
+﻿Set-QADUser "CN=John Smith,OU=Sales,DC=mydomain,DC=com" -Proxy -ObjectAttributes @{"edsva-MsExch-ConvertToLinkedMailbox"=$true;"edsva-msExch-LinkedMasterAccountDN"="CN=John Smith Shadow Copy,OU=Sales,DC=shadowDomain,DC=com"}
+"Done!"

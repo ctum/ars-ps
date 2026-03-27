@@ -1,0 +1,56 @@
+// TryIContextMenu.idl : IDL source for TryIContextMenu.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (TryIContextMenu.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+/*
+	[
+		object,
+		oleautomation,
+		uuid(249221D6-D8A6-464E-8E78-39147079ABBE),
+		helpstring("IEDMExtInit Interface"),
+		dual,
+		pointer_default(unique),
+		hidden
+	]
+	interface IEDMExtInit : IDispatch
+	{
+		[id(1), helpstring("method PutEDMServer")] HRESULT PutEDMServer(BSTR bstrServer);
+	};
+*/
+/*	[
+		object,
+		uuid(249221D6-D8A6-464E-8E78-39147079ABBE),
+		helpstring("IEDMExtInit Interface"),
+		hidden
+	]
+	dispinterface IEDMExtInit 
+	{
+		properties:
+		methods:
+			[id(1), helpstring("method PutEDMServer")] HRESULT PutEDMServer(BSTR bstrServer);
+	};
+*/
+[
+	uuid(45250BF6-882A-496A-8EEA-FA3BE4F619B2),
+	version(1.0),
+	helpstring("TryIContextMenu 1.0 Type Library")
+]
+library TRYICONTEXTMENULib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(AF5A731F-9C2E-41C2-85FA-42416A4EF62D),
+		helpstring("EDMExtInit Class")
+	]
+	coclass EDMExtInit
+	{
+		//[default] interface IEDMExtInit;
+		interface IDispatch;
+	};
+};

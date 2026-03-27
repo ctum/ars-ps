@@ -1,0 +1,9 @@
+; TryIContextMenu.def : Declares the module parameters.
+
+LIBRARY      "TryIContextMenu.DLL"
+
+EXPORTS
+	DllCanUnloadNow     PRIVATE
+	DllGetClassObject   PRIVATE
+	DllRegisterServer   PRIVATE
+	DllUnregisterServer	PRIVATE

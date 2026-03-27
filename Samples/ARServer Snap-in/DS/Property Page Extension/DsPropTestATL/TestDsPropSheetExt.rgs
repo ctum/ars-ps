@@ -1,0 +1,27 @@
+HKCR
+{
+	DsPropTestATL.TestDsPropSheetExt.1 = s 'TestDsPropSheetExt Class'
+	{
+		CLSID = s '{486B8AF4-DDEA-4C5B-B959-D9022922B4BA}'
+	}
+	DsPropTestATL.TestDsPropSheetExt = s 'TestDsPropSheetExt Class'
+	{
+		CLSID = s '{486B8AF4-DDEA-4C5B-B959-D9022922B4BA}'
+		CurVer = s 'DsPropTestATL.TestDsPropSheetExt.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {486B8AF4-DDEA-4C5B-B959-D9022922B4BA} = s 'TestDsPropSheetExt Class'
+		{
+			ProgID = s 'DsPropTestATL.TestDsPropSheetExt.1'
+			VersionIndependentProgID = s 'DsPropTestATL.TestDsPropSheetExt'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{F4483D6C-7A65-499B-9AEB-C9394CF51E51}'
+		}
+	}
+}
