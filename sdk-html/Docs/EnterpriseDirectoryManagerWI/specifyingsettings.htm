@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Web Interface|References|Customizing Active Roles Web Interface" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Specifying Customization Settings</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_SpecyfyingSettings" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="webinterface.htm">Web Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="WIReference.htm">References</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Specifying Customization Settings</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor221"></a>
+                <MadCap:concept term="a_SpecyfyingSettings" />Specifying Customization Settings</h1>
+            <p class="Body">Customization settings for the Web Interface can be changed 
+ in one of the following ways:</p>
+            <ul>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><a href="#Snapin">Using 
+ the Active Roles snap-in</a>
+                    </p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><a href="#CustomScripts">Using 
+ your custom scripts</a>
+                    </p>
+                </li>
+            </ul>
+            <h2><a name="Snapin"></a>Using the Active Roles Snap-in</h2>
+            <p class="Procedure"> <b>To specify a customization setting 
+ with Active Roles snap-in</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Choose the Raw mode for Active Roles snap-in 
+ display: </p>
+                    <ul>
+                        <li class="kadov-p-CListBullet">
+                            <p class="ListBullet">On the <b>View</b> 
+ menu, click <b>Mode</b>, and then in the <b>View Mode</b> dialog box, 
+ select the <b>Raw Mode</b> option and click <b>OK</b>.</p>
+                        </li>
+                    </ul>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">In the console 
+ tree, expand the <b>Configuration</b> node, expand the <b>Application 
+ Configuration</b> node, expand the <b>Web Interface</b> node, and then 
+ click the configuration container for the WI configuration you want to 
+ customize. The name of the WI configuration is saved in the attribute 
+ <b>edsaWIConfigurationName</b> of the corresponding configuration container.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">In the details pane, do one of the following: 
+ </p>
+                    <ul>
+                        <li class="kadov-p-CSubBullet">
+                            <p class="SubBullet">To specify a <a href="interfacesettings.htm">user interface setting</a>, double-click 
+ <b>Interface Settings</b>.</p>
+                        </li>
+                        <li class="kadov-p-CSubBullet">
+                            <p class="SubBullet">To specify a setting 
+ for menus, commands or forms, double-click <b>Customization Settings</b>.</p>
+                        </li>
+                    </ul>
+                </li>
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList">In the details 
+ pane, right-click <b>WorkingCopy</b>, point to <b>All Tasks</b>, and then 
+ click <b>Advanced Properties</b>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="5">
+                    <p class="NumberedList">In the <b>Advanced Properties</b> dialog box, 
+ do the following: </p>
+                    <ul>
+                        <li class="kadov-p-CSubBullet">
+                            <p class="SubBullet">Select the <b>Show 
+ all possible attributes</b> check box. Select the <b>Use LDAP display 
+ names</b> option. In the <a href="customizationfilesedmwi.htm">list of 
+ attributes</a>, select the attribute you want to modify, and then click 
+ <b>Edit</b> to modify its value. <i>Note that the Web Interface only uses 
+ the first value of multivalued attributes</i>.</p>
+                        </li>
+                    </ul>
+                </li>
+                <li class="kadov-p-CNumberedList" value="6">
+                    <p class="NumberedList">For changes to 
+ take effect, <a href="reloadwi.htm">reload the Web Interface</a>.</p>
+                </li>
+            </ol>
+            <h2>&#160;<a name="CustomScripts"></a>Using Your Custom Scripts</h2>
+            <p class="Body">You can read and modify values of the attributes of the WorkingCopy 
+ object with the <b>GetEx</b> and <b>PutEx</b> methods of the <b><a href="../EnterpriseDirectoryManagerADSIProvider/iads.htm">IADs</a></b> <a href="../EnterpriseDirectoryManagerADSIProvider/iads.htm">interface</a>.</p>
+            <p class="Procedure">&#160; <b>To specify a customization 
+ setting with custom scripts</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Select a customization 
+ attribute to be modified and save its value into a text file.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Make the appropriate 
+ changes to the file using any XML editor, such as XML Spy. For more information, 
+ see <a href="customizationfilesedmwi.htm">Customization Settings Format</a>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">Read customization 
+ settings from the file, and then save them into the customization attribute.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList">For changes to 
+ take effect, <a href="reloadwi.htm">reload the Web Interface</a>.</p>
+                </li>
+            </ol>
+            <p class="Body">This topic details the steps 1, 3 and 4 of the procedure 
+ above, and provides sample scripts (VBScript) that illustrate how to modify 
+ attributes of the WorkingCopy object.</p>
+            <h3>Sample Scripts</h3>
+            <p class="Procedure"> <b>To use sample scripts</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Copy the script 
+ code, paste it into Notepad or another text editor, and then save the 
+ file with a .vbs file extension.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Set constants 
+ placed between the lines "' PARAMETERS OF SCRIPT YOU MAY MODIFY" 
+ and "PLEASE, DO NOT MODIFY THE SCRIPT BELOW THIS POINT" to the 
+ appropriate values specific to your environment.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">Run the script.</p>
+                </li>
+            </ol>
+            <p class="Heading4"><a name="Write"></a>Writing the Attribute Values to a File</p>
+            <p class="Body">The following script illustrates how to write values of the 
+ <b>edsaWIStrings</b> attribute to the specified file.</p><pre class="code" xml:space="preserve">
+<p class="Syntax">'
+' -----------------------------------
+' PARAMETERS OF SCRIPT YOU MAY MODIFY
+' -----------------------------------
+' Before using the script, modify the following constants
+'
+' Path to XML file you want to create
+Const strFileName = "mysettings.xml"
+' ldapDisplayName of the attribute you want to save into XML file
+Const strAttrName = "edsaWIStrings"
+' Identifier of the Web Interface configuration you want to change
+Const strWebSiteID = "88c0ace0-bd43-4858-b4dc-43afa5d95976"
+' Configuration container name: Customization Settings or Interface Settings
+Const strConfCont = "Customization Settings"
+'
+' -------------------------------------------------
+' PLEASE, DO NOT MODIFY THE SCRIPT BELOW THIS POINT
+' -------------------------------------------------
+strWorkingCopyDN = "EDMS://CN=WorkingCopy,CN=" &amp; strConfCont &amp; ",CN=" &amp; strWebSiteID &amp; ",CN=Web Interface,CN=Application Configuration,CN=Configuration"&#160;
+set objWorkingCopy = GetObject(strWorkingCopyDN)&#160;
+objWorkingCopy.GetInfoEx Array(strAttrName),0&#160;
+arrayXML = objWorkingCopy.GetEx(strAttrName)
+strXml = ""
+For Each arrItem In arrayXML
+ &#160;strXml = strXml &amp; arrItem
+Next&#160;
+Set xmlDoc = CreateObject("Msxml2.DOMDocument.6.0")
+xmlDoc.async = False
+xmlDoc.loadXML(strXML)
+If xmlDoc.parseError.errorCode &lt;&gt; 0 Then
+ &#160;Err.Raise vbObjectError + 1, nothing, "Error parse xml : " &amp; mlDoc.parseError.reason
+End If
+xmlDoc.save(strFileName)
+Set xmlDoc = nothing
+MsgBox "The file " &amp; strFileName &amp; " has been created."</p>
+</pre>
+            <p class="Heading4"><a name="Read"></a>Reading Customization Settings from 
+ a File</p>
+            <p class="Body">The following script illustrates how to read customization 
+ settings from the specified file, and then save them to the <b>edsaWIStrings</b> 
+ attribute of the WorkingCopy object.</p><pre class="code" xml:space="preserve">
+<p class="Syntax">' This script allows you to read the  Active Roles Web Interface customization settings from an XML file
+' and save them into the appropriate attribute of the object WorkingCopy
+'
+' -----------------------------------
+' PARAMETERS OF SCRIPT YOU MAY MODIFY
+' -----------------------------------
+' Before using the script, modify the following constants
+'
+' Path to XML file you want to use
+Const strFileName = "mysettings.xml"
+' ldapDisplayName of the attribute you want to set
+Const strAttrName = "edsaWIStrings"
+' Identifier of the Web Interface configuration container where the WorkingCopy object resides
+Const strWebSiteID = "88c0ace0-bd43-4858-b4dc-43afa5d95976"
+' Configuration container name: Customization Settings or Interface Settings
+Const strConfCont = "Customization Settings"
+'
+' -------------------------------------------------
+' PLEASE, DO NOT MODIFY THE SCRIPT BELOW THIS POINT
+' -------------------------------------------------
+Const &#160;ADS_PROPERTY_CLEAR = 1
+Const &#160;ADS_PROPERTY_UPDATE = 2
+strWorkingCopyDN = "EDMS://CN=WorkingCopy,CN=" &amp; strConfCont &amp; ",CN=" &amp; strWebSiteID &amp; ",CN=Web Interface,CN=Application Configuration,CN=Configuration"
+Set objWorkingCopy = GetObject(strWorkingCopyDN)
+Dim 	xmlDoc
+Set xmlDoc = CreateObject("Msxml2.DOMDocument.4.0")
+xmlDoc.async = False
+xmlDoc.load(strFileName)
+If xmlDoc.parseError.errorCode &lt;&gt; 0 Then
+ &#160;Err.Raice vbObjectError + 1, nothing, "Error parse xml : " &amp; mlDoc.parseError.reason
+End If
+objWorkingCopy.PutEx ADS_PROPERTY_CLEAR, strAttrName, Array("0")
+objWorkingCopy.SetInfo
+objWorkingCopy.PutEx ADS_PROPERTY_UPDATE, strAttrName, Array(xmlDoc.xml)
+objWorkingCopy.SetInfo
+Set xmlDoc = nothing
+MsgBox "The attribute " &amp; strAttrName &amp; " of the object WorkingCopy has been set"</p>
+</pre>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Web Interface|How to..." MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Using Server-Side Controls</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_StubTopic" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="webinterface.htm">Web Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="howto.htm">How to...</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Using Server-Side Controls</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor225"></a>
+                <MadCap:concept term="a_StubTopic" />Using Server-Side Controls</h1>
+            <p class="Body">This topic explains how you can create and use the custom 
+ <a href="../EnterpriseDirectoryManagerADSIProvider/edmcontrols.htm">Active 
+ Roles controls</a> your client sends to Administration Service when performing 
+ custom commands. Administration Service can process that control providing 
+ an additional way for you to customize the <a href="commandsxml.htm">menu 
+ commands</a>. The custom Active Roles controls can be defined using the 
+ child element <a href="commandsxml.htm#Setting">Setting</a> for the element 
+ <a href="commandsxml.htm#Task">Task</a> associated with your custom command. 
+ You can create any number of controls for a custom command.</p>
+            <p class="Procedure">To create Active Roles controls for a custom command</p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">In the attribute 
+ <span style="font-weight: bold;"><a href="commandsxml.htm">edsaWICommands</a></span>, 
+ for the element <a href="commandsxml.htm#Task">Task</a> associated with 
+ your custom command, create the child element <a href="commandsxml.htm#Setting">Setting</a> 
+ with the following values of its attributes:<br />
+	Name="Controls"<br />
+	Value = &lt;A comma separated list of the pairs: <span style="font-style: italic;">&lt;control 
+ name&gt;</span>, <span style="font-style: italic;">&lt;control value&gt;</span>&gt;<br />&#160;</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">For changes to 
+ take effect, <a href="reloadwi.htm">reload the Web Interface</a>.</p>
+                </li>
+            </ol>
+            <h2>Example</h2>
+            <p class="Body">To clarify the above procedure, consider the following example 
+ illustrating how to add 2 custom controls to the custom command GroupManager 
+ identified with ResID="WIS_COMMAND_GROUPMANAGER"on the Group 
+ menu. The following code snippet described in <a href="commandsxml.htm">The 
+ Commands Settings</a> topic is used:</p><pre class="code" xml:space="preserve">
+<p class="Syntax">&lt;?xml version="1.0"?&gt;
+&lt;Tasks CustomizationVersion="33" xmlns="http://quest.com/ActiveRolesServer/WebInterface"&gt;
+ &#160;&lt;Task ID="GroupProperties" ResID="WIS_COMMAND_GENPROPERTIES" ToolTipResID="WIS_COMMAND_GENPROPERTIES_DES" HelperResID="WIS_COMMAND_GENPROPERTIES_HELP"
+ &#160;&#160;&#160;TaskType="1" FormID="GroupProperties" DescriptionResID="WIS_COMMAND_GENPROPERTIES_GROUP_DESCRIPTION"/&gt;
+ &#160;&lt;Task ID="GroupManager" ResID="WIS_COMMAND_GROUPMANAGER" ToolTipResID="WIS_COMMAND__GROUPMANAGER_TOOLTIP" HelperResID="WIS_COMMAND_GROUPMANAGER_HELP"
+ &#160;&#160;&#160;TaskType="0" Action="my_groupManager.asp" DescriptionResID="WIS_COMMAND_GROUPMANAGER_DESCRIPTION"&gt; 
+ &#160;&#160;&#160;&lt;Setting Name="Controls" Value="MYCONTROL1,controlvalue1,MYCONTROL2,controlvalue2"/&gt;
+ &#160;&#160;&#160;&lt;IsCommandAllowedFilters&gt;&lt;VBSFilter MethodName="IsAvailableAttribute"/&gt;&lt;/IsCommandAllowedFilters&gt;&lt;/Task&gt;
+ &#160;&lt;Task ID="Separator" ResID="WIS_SEPARATOR_TITLE" PlainTextLabel="MySeparator" TaskType="5"/&gt;
+&lt;/Tasks&gt;</p>
+</pre>
+            <p>Clicking the GroupManager command sends two controls MYCONTROL1 and 
+ MYCONTROL2 to the Administration Service. The control MYCONTROL1 is set 
+ to the value "controlvalue1" while the control MYCONTROL2 is 
+ set to the value "controlvalue2".</p>
+            <p class="note"><b style="font-weight: bold;"><span style="font-weight: bold;">Important</span>:</b>
+            </p>
+            <p class="note">The XML schema describing the element <span style="font-weight: bold;">Task</span> 
+ requires its child elements to appear in the following order within the 
+ containing element <span style="font-weight: bold;">Task</span>:<br />
+&lt;xsd:sequence&gt;<br />
+&lt;xsd:element ref="Setting" minOccurs="0" maxOccurs="unbounded" 
+ /&gt;<br />
+&lt;xsd:element ref="IsCommandAllowedFilters" minOccurs="0" 
+ maxOccurs="unbounded" /&gt;<br />
+&lt;xsd:element ref="RunTimeVariables" minOccurs="0" 
+ maxOccurs="unbounded" /&gt;<br />
+&lt;/xsd:sequence&gt;<br /><br />
+For example, the attribute <span style="font-weight: bold;">edsaWICommands</span> 
+ must contain the element Setting before the element IsCommandAllowedFilters; 
+ otherwise, the Web Interface will fail returning an error message.<br />
+For more information, refer to "XML Schema Elements" in the <a href="http://msdn.microsoft.com/library">MSDN Library</a>.</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

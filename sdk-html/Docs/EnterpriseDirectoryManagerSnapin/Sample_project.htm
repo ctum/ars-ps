@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Snap-in|Extending Active Roles Snap-in|Customizing Object Picker" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Sample</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_ExtendingEnterpriseDirectoryManagerSnapin" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="edmsnapin.htm">Snap-in</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="extendingenterprisedirectorymanagersnapin.htm">Extending Active Roles Snap-in</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Sample</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor95"></a>
+                <MadCap:concept term="a_ExtendingEnterpriseDirectoryManagerSnapin" />Sample</h1>
+            <p class="ListBullet">This topic provides a sample Microsoft .NET project 
+ that illustrates how to create a DLL assembly used to customize the <span style="font-weight: bold;">Edit Parameter</span> dialog box. All files 
+ related to this project are saved in the folder '...\SDK\Samples\ARServer 
+ Snap-in\CustomPicker'.</p>
+            <p class="ListBullet">This topic also provides a sample policy script that 
+ declares a custom-type parameter to specify with the customized <span style="font-weight: bold;">Edit Parameter</span> dialog box.</p>
+            <p class="Procedure"> <b>To use this sample</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Using Microsoft 
+ Visual Studio 2008, build the sample project.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Add the sample 
+ policy script (see <a href="#Declaring">Declaring Parameters in Policy 
+ Script</a>) to a Policy Object.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">Using the Active 
+ Roles console, specify the policy script parameters.</p>
+                </li>
+            </ol>
+            <p class="ListBullet">This topic details the steps of the above procedure.</p>
+            <h2>Building the Sample .NET Project</h2>
+            <p class="Procedure"> <b>To build the sample project</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Start Microsoft 
+ Visual Studio 2008, and open the delivered file CustomPicker.sln.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">On the <span style="font-weight: bold;">Project</span> menu, click <span style="font-weight: bold;">Add 
+ Reference</span>.<span style="font-style: italic;"><br />
+	The </span><span style="font-weight: bold;font-style: italic;">Add 
+ Reference</span><span style="font-style: italic;"> dialog box opens.</span></p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">Using the <span style="font-weight: bold;">Add Reference</span> dialog box, add the Interop.ArsAppCntxtMenuCommand.dll 
+ and Interop.ArsSnapComponents.dll files.<span style="font-style: italic;"><br />
+	These files are available in the folder &lt; Active Roles Installation 
+ folder&gt;/MMC/.</span></p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList">On the <span style="font-weight: bold;">Build</span> menu, click <span style="font-weight: bold;">Rebuild 
+ Solution</span>.<span style="font-style: italic;"><br />
+	The CustomPicker.dll file will be created. The path to this file depends 
+ on your Visual Studio settings.</span></p>
+                </li>
+            </ol>
+            <p class="Body"><span class="QuestBlue">Important</span>
+            </p>
+            <p class="Note">Create the '<span style="font-style: italic;">&lt; Active 
+ Roles Installation folder&gt;</span>/MMC/Extensions' folder, and save 
+ the newly created DLL assembly CustomPicker.dll to this folder.</p>
+            <h2><a name="Declaring"></a>Declaring Parameters in Policy Script</h2>
+            <p class="Body">This sample policy script module uses the CustomPicker.dll 
+ file created with the sample .NET project. The script allows you to create 
+ a script policy with the following declared parameters:</p>
+            <table style="width: 100%;border-spacing: 0px;border-spacing: 0px;" cellspacing="0" width="100%">
+                <col style="width: 33.333%;" />
+                <col style="width: 33.333%;" />
+                <col style="width: 33.333%;" />
+                <tr valign="top">
+                    <td style="width: 33.333%;border-left-width: 1px;border-left-color: #000000;border-left-style: Solid;border-top-style: Solid;border-top-color: #000000;border-top-width: 1px;border-right-width: 1px;border-right-color: #000000;border-right-style: Solid;border-bottom-style: Solid;border-bottom-color: #000000;border-bottom-width: 1px;padding-right: 10px;padding-left: 10px;" width="33.333%">
+                        <p style="font-weight: bold;">Parameter Name</p>
+                    </td>
+                    <td style="width: 33.333%;border-top-style: Solid;border-top-color: #000000;border-top-width: 1px;border-right-width: 1px;border-right-color: #000000;border-right-style: Solid;border-bottom-style: Solid;border-bottom-color: #000000;border-bottom-width: 1px;padding-right: 10px;padding-left: 10px;" width="33.333%">
+                        <p style="font-weight: bold;">Parameter Type</p>
+                    </td>
+                    <td style="width: 33.333%;border-top-style: Solid;border-top-color: #000000;border-top-width: 1px;border-right-width: 1px;border-right-color: #000000;border-right-style: Solid;border-bottom-style: Solid;border-bottom-color: #000000;border-bottom-width: 1px;padding-right: 10px;padding-left: 10px;" width="33.333%">
+                        <p style="font-weight: bold;">Possible Values</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 33.333%;border-left-width: 1px;border-left-color: #000000;border-left-style: Solid;border-right-width: 1px;border-right-color: #000000;border-right-style: Solid;border-bottom-style: Solid;border-bottom-color: #000000;border-bottom-width: 1px;padding-right: 10px;padding-left: 10px;" width="33.333%">
+                        <p>OCS Server</p>
+                    </td>
+                    <td style="width: 33.333%;border-right-width: 1px;border-right-color: #000000;border-right-style: Solid;border-bottom-style: Solid;border-bottom-color: #000000;border-bottom-width: 1px;padding-right: 10px;padding-left: 10px;" width="33.333%">
+                        <p>String</p>
+                    </td>
+                    <td style="width: 33.333%;border-right-width: 1px;border-right-color: #000000;border-right-style: Solid;border-bottom-style: Solid;border-bottom-color: #000000;border-bottom-width: 1px;padding-right: 10px;padding-left: 10px;" width="33.333%">
+                        <p>srv1, srv2, srv3</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td colspan="1" rowspan="1" style="width: 33.333%;border-left-width: 1px;border-left-color: #000000;border-left-style: Solid;border-right-width: 1px;border-right-color: #000000;border-right-style: Solid;border-bottom-style: Solid;border-bottom-color: #000000;border-bottom-width: 1px;padding-right: 10px;padding-left: 10px;" width="33.333%">
+                        <p>CustomPar</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 33.333%;border-right-width: 1px;border-right-color: #000000;border-right-style: Solid;border-bottom-style: Solid;border-bottom-color: #000000;border-bottom-width: 1px;padding-right: 10px;padding-left: 10px;" width="33.333%">
+                        <p>Custom Type</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 33.333%;border-right-width: 1px;border-right-color: #000000;border-right-style: Solid;border-bottom-style: Solid;border-bottom-color: #000000;border-bottom-width: 1px;padding-right: 10px;padding-left: 10px;" width="33.333%">
+                        <p>Any appropriate value.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 33.333%;border-left-width: 1px;border-left-color: #000000;border-left-style: Solid;border-right-width: 1px;border-right-color: #000000;border-right-style: Solid;border-bottom-style: Solid;border-bottom-color: #000000;border-bottom-width: 1px;padding-right: 10px;padding-left: 10px;" width="33.333%">
+                        <p>User's manager</p>
+                    </td>
+                    <td style="width: 33.333%;border-right-width: 1px;border-right-color: #000000;border-right-style: Solid;border-bottom-style: Solid;border-bottom-color: #000000;border-bottom-width: 1px;padding-right: 10px;padding-left: 10px;" width="33.333%">
+                        <p>DN string</p>
+                    </td>
+                    <td style="width: 33.333%;border-right-width: 1px;border-right-color: #000000;border-right-style: Solid;border-bottom-style: Solid;border-bottom-color: #000000;border-bottom-width: 1px;padding-right: 10px;padding-left: 10px;" width="33.333%">
+                        <p>Any appropriate value.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <p class="Syntax"><span style="color: #0000ff;">[PowerShell]</span>
+                <br />
+function onInit($context)<br />
+{<br />
+&#160; $var = $context.AddParameter("OCS Server")<br />
+&#160; $var.DefaultValue = "First Server in Organization"<br />
+&#160; $var.Description = "Multivalued parameter."<br />
+&#160; $var.PossibleValues = "First Server in Organization", 
+ "srv1", "srv2", "srv3"<br />
+&#160; $var.MultiValued = $true<br />
+&#160; $var.Required = $true<br />
+&#160; $var1 = $context.AddParameter("CustomPar")<br />
+&#160; $var1.Description = "A custom parameter"<br />
+&#160; $var1.DefaultValue = ""<br />
+&#160; $var1.Required =$true<br />
+&#160; $var1.CustomPicker = "CustomPicker.CustomPickerObj:CustomPicker.dll"<br />
+&#160; $var1.CustomPickerInitInfo = "Custom Parameter"<br />
+&#160; $var2 = $context.AddParameter("User's manager")<br />
+&#160; $var2.DefaultValue = ""<br />
+&#160; $var2.Description = "Specifies the user manager."<br />
+&#160; $var2.Syntax = "DN" &#160;&#160;<br />
+}<br />
+#<br />
+# The policy script code goes here<br />
+#<br />
+#</p>
+            <h2>Applying Policy Script</h2>
+            <p class="Procedure"> <b>To apply the policy script module</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Register the 
+ policy script module above on the Administration Service. </p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Create a Provisioning 
+ Policy Object. </p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">Add the script 
+ module to the Policy Object. </p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList">Link the Policy 
+ Object to a container, such as a directory folder or Managed Unit, where 
+ you want to enforce the administrative policy.</p>
+                </li>
+            </ol>
+            <p class="Body">For detailed information about how to apply policy scripts, 
+ refer to <a href="../EnterpriseDirectoryManagerScriptPolicy/applyingpolicyscriptsexamples.htm">Applying 
+ Policy Scripts</a>.</p>
+            <p class="Body">&#160;</p>
+            <h2>Specifying Policy Script Parameters</h2>
+            <p class="Body">After you create a Policy Object that includes this sample 
+ script module, you can specify the policy script parameters.</p>
+            <p class="Body">The following procedure details steps to modify the value 
+ of the custom-type parameter CustomPar. In this scenario, the parameter 
+ can take any of the following values:</p>
+            <ul>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">An empty string (not 
+ set)</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">Distinguished name 
+ of a selected container object (such as domain, Organizational Unit, etc.)</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">Distinguished name 
+ of a leaf directory object (such as user, group, etc.)</p>
+                </li>
+            </ul>
+            <p class="Procedure"><b>To specify the CustomPar parameter</b>
+            </p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">In the console 
+ tree, under the <span style="font-weight: bold;">Active Roles</span> snap-in 
+ item, expand the <span style="font-weight: bold;">Configuration</span> 
+ node.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Under <span style="font-weight: bold;">Configuration</span>, 
+ click <span style="font-weight: bold;">Policies</span>, and in the details 
+ pane, double-click<span style="font-weight: bold;"> Administration</span>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">In the details 
+ pane, double-click the Policy Object that includes the sample policy script.<span style="font-style: italic;"><br />
+	The Policy Object </span><span style="font-weight: bold;font-style: italic;">Properties</span><span style="font-style: italic;"> dialog box opens.</span></p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList">In the <span style="font-weight: bold;">Properties</span> dialog box, click the <span style="font-weight: bold;">Policies</span> tab, select the policy entry 
+ associated with the sample script, and then click <span style="font-weight: bold;">View/Edit</span>.<span style="font-style: italic;"><br />
+	The </span><span style="font-weight: bold;font-style: italic;">Script 
+ Execution Policy Properties</span><span style="font-style: italic;"> dialog 
+ box opens.</span></p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="5">
+                    <p class="NumberedList">In the <span style="font-weight: bold;">Script Execution Policy Properties</span> dialog 
+ box, open the <span style="font-weight: bold;">Parameters</span> tab.<span style="font-style: italic;"><br />
+	This tab displays the names and values of all parameters <a href="#Declaring" style="font-style: italic;">declared in the sample script</a>.</span></p>
+                </li>
+                <li style="font-style: italic;" class="kadov-p-CNumberedList" value="6">
+                    <p class="NumberedList" style="font-style: italic;"><span style="font-style: normal;">On the</span> <span style="font-weight: bold;">Parameters</span> <span style="font-style: normal;">tab, under </span><span style="font-style: normal;font-weight: bold;">Parameter 
+ values</span><span style="font-style: normal;">, select </span><span style="font-style: normal;font-weight: bold;">CustomPar</span><span style="font-style: normal;">, and then click </span><span style="font-style: normal;font-weight: bold;">Edit</span><span style="font-style: normal;">.</span><br />
+	This opens the <span style="font-weight: bold;">Edit Parameter</span> 
+ dialog box similar to the following screen:</p>
+                </li>
+                <p class="Body">&#160;</p><a href="CustomPar.gif"><img src="CustomPar_Tmb.gif" style="width: 547px;height: 252px;border-style: none;border-style: none;" width="547" height="252" border="0" /> </a>
+                <p class="Body"><a href="CustomPar.gif">Enlarge figure</a>
+                </p>
+                <li class="kadov-p-CBody" value="7">
+                    <p class="Body">Under <span style="font-weight: bold;">Select Value Type</span>, 
+ select the desired type of the CustomPar parameter, and then click <span style="font-weight: bold;">Select</span> or <span style="font-weight: bold;">OK</span> 
+ (only for the <span style="font-weight: bold;">Empty</span> option):</p>
+                    <ul>
+                        <li class="kadov-p"><span style="font-weight: bold;">Empty</span>: 
+ Sets the CustomPar parameter to an empty string.</li>
+                        <li class="kadov-p"><span style="font-weight: bold;">Container Object</span>: 
+ Opens the <span style="font-weight: bold;">Select Container</span> dialog 
+ box that allows you to select a container object.</li>
+                        <li class="kadov-p"><span style="font-weight: bold;">Leaf Object</span>: 
+ Opens the <span style="font-weight: bold;">Select Object</span> dialog 
+ box that allows you to select a leaf directory object.</li>
+                    </ul>
+                </li>
+                <li class="kadov-p" value="8">When finished, click <span style="font-weight: bold;">OK</span> 
+ to close the <span style="font-weight: bold;">Edit Parameter</span> dialog 
+ box.</li>
+            </ol>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

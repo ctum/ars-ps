@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles Management Shell" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Troubleshooting Policy Scripts</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="ARSManagementShell.htm">Active Roles Management Shell</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Troubleshooting Policy Scripts</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1>Troubleshooting Policy Scripts</h1>
+            <p class="Body">When you create a policy script, you may encounter a situation 
+ where a policy based on that script does not behave as expected. It may 
+ be difficult to determine the cause of the problem. The Script Editor 
+ in the Active Roles console can help you locate general syntax errors 
+ by using color to highlight and distinguish syntax elements such as command 
+ names, statement identifiers, quoted strings, and variables. Additionally, 
+ the console is capable of reporting script syntax errors at script policy 
+ run time. But when the policy behavior is unexpected whereas the syntax 
+ of the script is correct, it may be much more difficult to diagnose the 
+ problem. For this reason the console includes simple debugging functionality 
+ to troubleshoot Windows PowerShell based policy scripts by examining each 
+ step that the script makes as it executes. This functionality is called 
+ <span style="font-style: italic;">tracing</span>.</p>
+            <p class="Procedure">To enable tracing for a given 
+ script, use the Active Roles console as follows:</p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Open the <span style="font-weight: bold;">Properties</span> dialog box for the script 
+ module containing the script in question, and go to the <span style="font-weight: bold;">Debugging</span> 
+ tab in that dialog box.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">On the <span style="font-weight: bold;">Debugging</span> tab, select the <span style="font-weight: bold;">Enable 
+ debugging</span> check box, select the appropriate option from the <span style="font-weight: bold;">Debug trace level list</span>, and then click 
+ <span style="font-weight: bold;">OK</span>.</p>
+                </li>
+            </ol>
+            <p class="Body">If you only want to examine each command step in the script, 
+ select the <span style="font-weight: bold;">Trace script lines as they 
+ are executed</span> option from the <span style="font-weight: bold;">Debug 
+ trace level</span> list. To examine each step and each variable assignment 
+ as they are made, choose the option <span style="font-weight: bold;">Trace 
+ script lines, variable assignments, and function calls</span>.</p>
+            <p class="Body">Given that tracing is enabled for a particular script, when 
+ Active Roles executes a policy based on that script, it creates a log 
+ containing the trace output. You can check the trace output in the Active 
+ Roles console, by clicking <span style="font-weight: bold;">View Log</span> 
+ on the <span style="font-weight: bold;">Debugging</span> tab in the <span style="font-weight: bold;">Properties</span> dialog box for the corresponding 
+ script module.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc365">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="Develop Policy Scripts using Active Roles Management Shell;AboutARSManagementShell.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc365.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

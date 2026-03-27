@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Snap-in|Active Roles User Interface Mappings" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Computer Object User Interface Mapping</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_ComputerObjectUserInterfaceMapping" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../EnterpriseDirectoryManagerSnapin/edmsnapin.htm">Snap-in</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="edmuserinterfacemappings.htm">Active Roles User Interface Mappings</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Computer Object User Interface Mapping</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor171"></a>
+                <MadCap:concept term="a_ComputerObjectUserInterfaceMapping" />Computer Object User Interface Mapping </h1>
+            <p class="Body">This topic discusses the tabs of the <b>Computer Properties</b> 
+ dialog box in the Active Roles MMC snap-in. </p>
+            <p class="Body">In the tables below, for each attribute, the LDAP Display 
+ Name column indicates the attribute's lDAPDisplayName, while the Display 
+ Name column indicates the attribute's display name as defined by the attributeDisplayNames 
+ property in display specifiers. If display specifiers do not define the 
+ display name, the Display Name column indicates the attribute's common 
+ name (cn). All display specifiers in Active Directory are found in the 
+ locale-specific containers under the container named "DisplaySpecifiers".</p>
+            <p class="Body"> Active Roles uses the display names in the <b>Add Permission 
+ Entries </b>wizard, and on the <b>Advanced</b> tab of the<b> Find</b> 
+ dialog box.</p>
+            <h3>General Tab </h3>
+            <p class="Body">The following table shows the correspondence between names 
+ of the UI elements on the <b>General</b> tab, LDAP display names and display 
+ names. </p>
+            <table>
+                <tr>
+                    <th style="text-align: left;width: 33%;" align="left" width="33%">
+                        <p class="TableHeading">UI Element Name</p>
+                    </th>
+                    <th style="text-align: left;width: 33%;" align="left" width="33%">
+                        <p class="TableHeading">LDAP Display Name</p>
+                    </th>
+                    <th style="text-align: left;width: 33%;" align="left" width="33%">
+                        <p class="TableHeading">Display Name</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">Computer Name</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">cn</p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">Name</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">Computer Name (pre-Windows 
+ 2000)</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">sAMAccountName</p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">Computer Name (pre-Windows 2000)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">Description</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">description</p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">Description</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">DNS Name</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">dNSHostName</p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">DNS-Host-Name</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">Role</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">edsaWorkstationAccount</p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">EDSA-Workstation-Account</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">Trust Computer for delegation</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">edsaAccountIsTrustedForDelegation</p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">EDSA-Account-Is-Trusted-For-Delegation</p>
+                    </td>
+                </tr>
+            </table>
+            <h3>Managed by Tab </h3>
+            <p class="Body">The following table shows the correspondence between names 
+ of the UI elements on the <b>Managed by</b> tab, LDAP display names and 
+ display names. </p>
+            <table>
+                <tr>
+                    <th style="text-align: left;width: 33%;" align="left" width="33%">
+                        <p class="TableHeading">UI Element Name</p>
+                    </th>
+                    <th style="text-align: left;width: 33%;" align="left" width="33%">
+                        <p class="TableHeading">LDAP Display Name</p>
+                    </th>
+                    <th style="text-align: left;width: 33%;" align="left" width="33%">
+                        <p class="TableHeading">Display Name</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">Name</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">canonicalName</p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">Canonical-Name</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">Office</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">physicalDeliveryOfficeName</p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">Office Location</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">Street</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">streetAddress</p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">Street Address</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">City</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">l</p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">City</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">State/province</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">st</p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">State/Province</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">Country/region</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">countryCode </p>
+                        <p class="TableBody">co</p>
+                        <p class="TableBody">c</p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">Country-Code </p>
+                        <p class="TableBody">Country</p>
+                        <p class="TableBody">Country Abbreviation</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">Telephone number</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">telephoneNumber</p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">Telephone Number</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">Fax number</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">facsimileTelephoneNumber</p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">Fax Number</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="note"><b style="font-weight: bold;">Note:</b>
+            </p>
+            <p class="note">The <b>Managed by</b> tab displays property values of the 
+ user managing the computer.&#160; These properties can be also found on 
+ the <b>General</b>, <b>Address</b>, <b>Telephones</b>, and <b>Object</b> 
+ tabs of the corresponding <a href="userobjectuserinterface.htm">User Properties</a> 
+ dialog box.<br />
+The distinguished name of the user that manages the computer is saved in 
+ the managedBy property of the Computer object.</p>
+            <h3>Member of Tab </h3>
+            <p class="Body">The following table shows the correspondence between names 
+ of the UI elements on the <b>Member of</b> tab, LDAP display names and 
+ display names. </p>
+            <table>
+                <tr>
+                    <th style="text-align: left;width: 33%;" align="left" width="33%">
+                        <p class="TableHeading">UI Element Name</p>
+                    </th>
+                    <th style="text-align: left;width: 33%;" align="left" width="33%">
+                        <p class="TableHeading">LDAP Display Name</p>
+                    </th>
+                    <th style="text-align: left;width: 33%;" align="left" width="33%">
+                        <p class="TableHeading">Display Name</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">Member of</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">memberOf</p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">Is-Member-Of-DL</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">Primary Group</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">primaryGroupID</p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">Primary-Group-ID</p>
+                    </td>
+                </tr>
+            </table>
+            <h3>Location Tab </h3>
+            <p class="Body">The following table shows the correspondence between names 
+ of the UI elements on the <b>Location</b> tab, LDAP display names and 
+ display names. </p>
+            <table>
+                <tr>
+                    <th style="text-align: left;width: 33%;" align="left" width="33%">
+                        <p class="TableHeading">UI Element Name</p>
+                    </th>
+                    <th style="text-align: left;width: 33%;" align="left" width="33%">
+                        <p class="TableHeading">LDAP Display Name</p>
+                    </th>
+                    <th style="text-align: left;width: 33%;" align="left" width="33%">
+                        <p class="TableHeading">Display Name</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">Location</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">location</p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">Location</p>
+                    </td>
+                </tr>
+            </table>
+            <h3>Object Tab </h3>
+            <p class="Body">The following table shows the correspondence between names 
+ of the UI elements on the <b>Object</b> tab, LDAP display names and display 
+ names. </p>
+            <table>
+                <tr>
+                    <th style="text-align: left;width: 33%;" align="left" width="33%">
+                        <p class="TableHeading">UI Element Name</p>
+                    </th>
+                    <th style="text-align: left;width: 33%;" align="left" width="33%">
+                        <p class="TableHeading">LDAP Display Name</p>
+                    </th>
+                    <th style="text-align: left;width: 33%;" align="left" width="33%">
+                        <p class="TableHeading">Display Name</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;"><span style="font-weight: bold;">Canonical</span> 
+ name of object</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" width="33%">
+                        <p class="TableBody">canonicalName</p>
+                    </td>
+                    <td style="width: 33%;" width="33%">
+                        <p class="TableBody">Canonical-Name</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">Object class</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" width="33%">
+                        <p class="TableBody">objectClass</p>
+                    </td>
+                    <td style="width: 33%;" width="33%">
+                        <p class="TableBody">Object-Class </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">Created</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" width="33%">
+                        <p class="TableBody">whenCreated</p>
+                    </td>
+                    <td style="width: 33%;" width="33%">
+                        <p class="TableBody">When-Created</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">Modified</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" width="33%">
+                        <p class="TableBody">whenChanged</p>
+                    </td>
+                    <td style="width: 33%;" width="33%">
+                        <p class="TableBody">When-Changed</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">Original USN</b>
+                        </p>
+                    </td>
+                    <td style="width: 33%;" width="33%">
+                        <p class="TableBody">uSNCreated</p>
+                    </td>
+                    <td style="width: 33%;" width="33%">
+                        <p class="TableBody">USN-Created</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 33%;" width="33%">
+                        <p class="TableBody"><b style="font-weight: bold;">Current USN</b>
+                        </p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">uSNChanged</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">USN-Changed</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 33%;" width="33%">
+                        <p class="TableBody" style="font-weight: bold;">Object GUID</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">objectGUID</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">object-GUID</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 33%;" width="33%">
+                        <p class="TableBody" style="font-weight: bold;">Object SID</p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">objectSID</p>
+                    </td>
+                    <td style="width: 33%;" valign="top" width="33%">
+                        <p class="TableBody">object-SID</p>
+                    </td>
+                </tr>
+            </table>
+            <h3>Operating System Tab </h3>
+            <p class="Body">The following table shows the correspondence between names 
+ of the UI elements on the <b>Operating System</b> tab, LDAP display names 
+ and display names. </p>
+            <table>
+                <tr>
+                    <th style="text-align: left;width: 30%;" align="left" width="30%">
+                        <p class="TableHeading">UI Element Name</p>
+                    </th>
+                    <th style="text-align: left;width: 30%;" align="left" width="30%">
+                        <p class="TableHeading">LDAP Display Name</p>
+                    </th>
+                    <th style="text-align: left;width: 40%;" align="left" width="40%">
+                        <p class="TableHeading">Display Name</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="width: 30%;" valign="top" width="30%">
+                        <p class="TableBody"><b style="font-weight: bold;">Name</b>
+                        </p>
+                    </td>
+                    <td style="width: 30%;" valign="top" width="30%">
+                        <p class="TableBody">operatingSystem</p>
+                    </td>
+                    <td style="width: 40%;" valign="top" width="40%">
+                        <p class="TableBody">Operating System</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 30%;" valign="top" width="30%">
+                        <p class="TableBody"><b style="font-weight: bold;">Version</b>
+                        </p>
+                    </td>
+                    <td style="width: 30%;" valign="top" width="30%">
+                        <p class="TableBody">operatingSystemVersion</p>
+                    </td>
+                    <td style="width: 40%;" valign="top" width="40%">
+                        <p class="TableBody">Operating System Version</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 30%;" valign="top" width="30%">
+                        <p class="TableBody"><b style="font-weight: bold;">Service pack</b>
+                        </p>
+                    </td>
+                    <td style="width: 30%;" valign="top" width="30%">
+                        <p class="TableBody">operatingSystemServicePack</p>
+                    </td>
+                    <td style="width: 40%;" valign="top" width="40%">
+                        <p class="TableBody">Operating-System-Service-Pack</p>
+                    </td>
+                </tr>
+            </table>
+            <h4>
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc332">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="Group Object User Interface Mapping;groupobjectuserinterfacemapping.htm" />
+                    <param name="Item2" value="Organizational Unit User Interface Mapping;organizationalunituserinterfacemapping.htm" />
+                    <param name="Item3" value="User Object User Interface Mapping;userobjectuserinterface.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc332.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </h4>
+            <h4>&#160;</h4>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

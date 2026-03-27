@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Introducing the Active Roles SDK|Backward Compatibility" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Discontinued Features</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_PrerequisitesUsingEDMSDK" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="aboutenterprisedirectorymanager1.htm">Introducing the Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="BackwardCompatibility.htm">Backward Compatibility</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Discontinued Features</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor313"></a>
+                <MadCap:concept term="a_PrerequisitesUsingEDMSDK" />Discontinued features</h1>
+            <h3>Web Interface</h3>
+            <p class="Body">These Web Interface features are not supported in the current 
+ version of Active Roles.</p>
+            <table style="width: 76.791%;" width="76.791%">
+                <col />
+                <col style="width: 50.399%;" />
+                <col style="width: 49.601%;" />
+                <tr>
+                    <th style="text-align: left;width: 30%;" align="left" width="30%">
+                        <p class="TableHeading">Discontinued Feature</p>
+                    </th>
+                    <th colspan="1" rowspan="1" style="width: 50.399%;text-align: left;" align="left" width="50.399%">
+                        <p class="TableHeading">Description (in Earlier Versions)</p>
+                    </th>
+                    <th style="width: 49.601%;text-align: left;" align="left" width="49.601%">
+                        <p class="TableHeading">Replacement (in Current Version)</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        <p class="TableBody">The <span style="font-weight: bold;text-decoration: underline;">IsTaskAllowedFunction</span> 
+ attribute of the XML element &#160;<span style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerWI/commandsxml.htm#Task">Task</a></span>.</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 50.399%;" valign="top" width="50.399%">
+                        <p class="TableBody">The<span style="font-weight: bold;"> IsTaskAllowedFunction</span> 
+ attribute contains the name of a function that checks whether a custom 
+ command is available for the Web Interface's user.</p>
+                    </td>
+                    <td style="width: 49.601%;" valign="top" width="49.601%">
+                        <p class="TableBody">Use the <a href="../EnterpriseDirectoryManagerWI/commandsxml.htm#IsCommandAllow">IsCommandAllowedFilters</a> 
+ &#160;element 
+ and its child elements <a href="../EnterpriseDirectoryManagerWI/commandsxml.htm#AVFilter">AVFilter</a>, 
+ <a href="../EnterpriseDirectoryManagerWI/commandsxml.htm#AAEFilter">AAEFilter</a>, 
+ and <a href="../EnterpriseDirectoryManagerWI/commandsxml.htm#VBSFilter">VBSFilter</a> 
+ instead.</p>
+                        <p class="TableBody">The &#160;element 
+ <a href="../EnterpriseDirectoryManagerWI/commandsxml.htm#IsCommandAllow">IsCommandAllowedFilters</a> 
+ describes a collection of the command filters that enable/disable a custom 
+ command basing on the certain criteria.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">
+                        <p class="TableBody">The <span style="font-weight: bold;">GoToObjectpageAfterSave</span> 
+ attribute of the XML element <span style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerWI/interfacesettings.htm#UIPolices">UIPolicies</a></span>.</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 50.399%;" valign="top" width="50.399%">
+                        <p class="TableBody">Specifies whether to open the &#160;<span style="font-weight: bold;">Properties</span> 
+ form for a newly created object.</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 49.601%;" valign="top" width="49.601%">
+                        <p class="TableBody">Use the <span style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerWI/interfacesettings.htm#WizardFinishOptionSettings">WizardFinishOptionSettings</a></span> 
+ element instead.</p>
+                        <p class="TableBody">The <span style="font-weight: bold;">WizardFinishOptionSettings</span> 
+ element describes settings applied to the <span style="font-weight: bold;">Open 
+ properties for this object when I click Finish</span> check box displayed 
+ on the Completion page of the Create New Object wizard.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">
+                        <p class="TableBody">The <span style="font-weight: bold;">Elements</span> 
+ XML element - a child element of the XML element <span style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerWI/interfacesettings.htm#Settings">Settings</a></span>.</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 50.399%;" valign="top" width="50.399%">
+                        <p class="TableBody">Describes a collection of UI elements displayed on the 
+ Web Interface.</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 49.601%;" valign="top" width="49.601%">
+                        <p class="TableBody">Use the <span style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerWI/interfacesettings.htm#UIPolicy">UIPolicy</a></span> 
+ element instead.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3>Script Policies</h3>
+            <p class="Body">These features are not supported in the current version of 
+ Active Roles.</p>
+            <p class="Body">&#160;</p>
+            <table style="width: 76.791%;" width="76.791%">
+                <col />
+                <col style="width: 50.399%;" />
+                <col style="width: 49.601%;" />
+                <tr>
+                    <th style="text-align: left;width: 30%;" align="left" width="30%">
+                        <p class="TableHeading">Discontinued Feature</p>
+                    </th>
+                    <th colspan="1" rowspan="1" style="width: 50.399%;text-align: left;" align="left" width="50.399%">
+                        <p class="TableHeading">Description &#160;(in 
+ Earlier Versions)</p>
+                    </th>
+                    <th style="width: 49.601%;text-align: left;" align="left" width="49.601%">
+                        <p class="TableHeading">Replacement &#160;(in 
+ Current Version)</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        <p class="TableBody">Add/Remove <a href="../EnterpriseDirectoryManagerScriptPolicy/usingparameterspolicyscripts.htm">script 
+ policy parameters</a> using the Active Roles MMC snap-in.</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 50.399%;" valign="top" width="50.399%">
+                        <p class="TableBody">The<span style="font-weight: bold;"> Policies</span> 
+ tab of the<span style="font-weight: bold;"> Policy Object Properties</span> 
+ dialog box allows you to add/remove custom parameters used in policy scripts.</p>
+                    </td>
+                    <td style="width: 49.601%;" valign="top" width="49.601%">
+                        <p class="TableBody">To add or remove custom parameters used in policy scripts, 
+ use the <span style="font-weight: bold;">onInit</span> handler or the 
+ appropriate methods provided by the <span style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerADSIProvider/iedmpolicyentry_properties.htm">IEDMPolicyEntry</a></span> 
+ interface. For details, refer to <a href="../EnterpriseDirectoryManagerScriptPolicy/storingparameters.htm">Specifying 
+ Parameters for Policy Scripts</a>.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <p>&#160;</p>
+            <p>&#160;</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Web Interface|How to..." MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Create a Custom Entry</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_CreatingCustomEntries" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="webinterface.htm">Web Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="howto.htm">How to...</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Create a Custom Entry</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor447"></a>
+                <MadCap:concept term="a_CreatingCustomEntries" />Creating a Custom Entry</h1>
+            <p class="Body">This topic explains how you can create your own custom entries.</p>
+            <p class="Body">If you want a form to include custom entries, you should 
+ develop the custom functions designed to create custom entries. This topic 
+ provides an <a href="#Example">example</a> that illustrates how to develop 
+ custom functions that add a text box and a text area to a form.</p>
+            <p class="Body">To create a custom entry, you should develop a couple of 
+ the functions<br />
+[<i>Get_&lt;Entry ID&gt;</i>, <i>Set_&lt;Entry ID&gt;</i>] or [ <i>Get_&lt;FunctionAction's 
+ value&gt;</i>, <i>Set_&lt;FunctionAction's value&gt;</i>]<br />
+and put them into the file:<br />
+'<i>&lt;WI folder&gt;</i>\Public\CustomCode\Entries.vbs'.</p>
+            <p class="Body">The function's name depends on whether the attribute <a href="entriesxml.htm">FunctionAction</a> 
+ of the FormEntry element is set.<br />
+The <i>&lt;WI folder&gt;</i> refers to the folder where Web Interface is 
+ installed. This folder is determined at the Web Interface installation 
+ time.</p>
+            <h2><a name="Get_XXX"></a>Get_XXX Functions</h2>
+            <p class="Body">These functions allow you to add a custom HTML code that 
+ creates custom entries.</p>
+            <p class="Body">The function <i>Get_&lt;Entry ID&gt;</i> or <i>Get_&lt;FunctionAction's 
+ value&gt;</i> (<b>Sub</b> procedure, as applied to VBScript) has the following 
+ syntax:</p><pre class="syntax" xml:space="preserve">
+<p class="Syntax"><b style="font-weight: bold;">Sub Get_<i>&lt;Entry ID&gt;</i>(</b><span style="font-weight: bold;">ByRef</span> objFormContext, <span style="font-weight: bold;">ByRef</span> objFormPage<b>)
+Sub Get_<i>&lt;FunctionAction's value&gt;</i>(</b><span style="font-weight: bold;">ByRef</span> objFormContext, <span style="font-weight: bold;">ByRef</span> objFormPage<b>)</b></p>
+</pre>
+            <h3>Arguments</h3>
+            <dl>
+                <p class="Body"><i style="font-style: italic;">objFormContext</i>
+                </p>
+                <dd>
+                    <p class="Body">[in] Required. Refers to the <span style="font-weight: bold;"><a href="FormContextObject.htm">FormContext</a></span> object that represents 
+ the current context.<br />
+	This object provides the <b>DirectoryObject</b> property that returns 
+ the reference to the directory object with which the current form is associated.</p>
+                </dd>
+                <dt><i>objFormPage</i>
+                </dt>
+                <dd>
+                    <p class="Body">[in] Required. Refers to the <span style="font-weight: bold;"><a href="FormPageObject.htm">FormPage</a></span> object representing the 
+ current form that includes the custom entry.</p>
+                </dd>
+            </dl>
+            <h2>Set_XXX Functions</h2>
+            <p class="Body">These functions allow you to retrieve and process values 
+ passed to the server with custom entries.</p>
+            <p class="Body">The function <i>Set_&lt;Entry ID&gt;</i> or <i>Set_&lt;FunctionAction's 
+ value&gt;</i> (<b>Sub</b> procedure, as applied to VBScript) has the following 
+ syntax:</p><pre class="syntax" xml:space="preserve">
+<p class="Syntax"><b style="font-weight: bold;">Sub Set_<i>&lt;Entry ID&gt;</i>(</b><span style="font-weight: bold;">ByRef</span> objFormContext<b>)
+Sub Set_<i>&lt;FunctionAction's value&gt;</i>(</b><span style="font-weight: bold;">ByRef</span> objFormContext<b>)</b></p>
+</pre>
+            <h3>Arguments</h3>
+            <dl>
+                <dt><i>objFormContext</i>
+                </dt>
+                <dd>
+	[in] Required. Refers to the <span style="font-weight: bold;"><a href="FormContextObject.htm">FormContext</a></span> 
+ object that represents the current context.<br />
+	This object provides the <b>DirectoryObject</b> property that returns 
+ the reference to the directory object with which the current form is associated.</dd>
+            </dl>
+            <p class="Body">To process values passed to the server with custom entries, 
+ use the ASP built-in object <b>Request</b>. This object retrieves the 
+ values that the client browser passed to the server during an HTTP request. 
+ For information about the properties and methods of the <b>Request</b> 
+ object, refer to the <a href="http://msdn.microsoft.com/library">MSDN 
+ library</a>.</p>
+            <p class="note"><b style="font-weight: bold;">Important:</b>
+            </p>
+            <p class="note">Don't confuse the ASP built-in object <b>Request</b> with 
+ the Active Roles intrinsic <a href="../EnterpriseDirectoryManagerScriptPolicy/requestobject.htm">object 
+ <b>Request</b></a>.</p>
+            <h2><a name="Example"></a>Example</h2>
+            <p class="Body">To clarify the use of the custom functions, consider the 
+ following example that illustrates how to create the <b>Employee ID </b>text 
+ box and the <b>Job description</b> text area on the <b>Organization</b> 
+ tab of the <b>User Properties</b> form. The custom entries allow you to 
+ view and modify the following properties of the selected user:</p>
+            <ul>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">employeeID: Contains 
+ the user's employeeID</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">extensionAttribute2: 
+ Contains the description of the job that the user performs</p>
+                </li>
+            </ul>
+            <p class="note"><b style="font-weight: bold;">Note:</b>
+            </p>
+            <p class="note">In this example, the information about the user's job is 
+ stored into the extensionAttribute2 attribute. This attribute is added 
+ to the Active Directory schema only if you have installed Microsoft Exchange. 
+ Otherwise, use any other available attribute instead.</p>
+            <p class="Procedure"><b>To use this example</b>
+            </p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">In the attribute <b><a href="formsxml.htm">edsaWIForms</a></b>, 
+ define the following child elements FormEntry for the<br />
+	&lt;FormTab ID="organization"&gt; that is a child element 
+ of the &lt;Form ID="UserProperties"...&gt;:<br />&#160;</p>
+                    <p><span style="font-style: italic;">&lt;FormEntry ID="cst_employeeID"/&gt;<br />
+	&lt;FormEntry ID="cst_JobDescription"/&gt;</span> </p>
+                    <p class="Body">For information about XML elements used in this file, 
+ see <a href="formsxml.htm">The Forms Settings</a>. </p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Append the following entries to entries defined 
+ in the first value of <b><a href="entriesxml.htm">edsaWIEntries</a></b>: 
+ <br />&#160;</p>
+                    <p style="font-style: italic;">&lt;FormEntry ID="cst_employeeID" 
+ Properties="employeeID" EntryType="0"&#160;<br />
+	FunctionAction="cst_EmployeeID"<br />
+	ReadOnly="False" SingleValue="True" ResID="CST_ENTRY_EMPLOYEE_ID"<br />
+	DescriptionResID="CST_ENTRY_EMPLOYEE_ID_DES"<br />
+	/&gt;<br />
+	&lt;FormEntry ID="cst_JobDescription" Properties="extensionAttribute2" 
+ EntryType="0"<br />
+	FunctionAction="cst_JobDescription" ReadOnly="False" 
+ SingleValue="False"<br />
+	ResID="CST_ENTRY_JOBDESCRIPTION"<br />
+	DescriptionResID="CST_ENTRY_JOBDESCRIPTION_DES"<br />
+	/&gt;</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">Append the following entries to entries defined 
+ in the first value of <b><a href="languagefiles.htm">edsaWIStrings</a></b>: 
+ <br />&#160;</p>
+                    <p style="font-style: italic;">&lt;Res ID="CST_ENTRY_EMPLOYEE_ID" 
+ Value="Employee ID"/&gt;<br />
+	&lt;Res ID="CST_ENTRY_EMPLOYEE_ID_DES" Value="Allows 
+ you to view or modify the user employeeID"/&gt;<br />
+	&lt;Res ID="CST_ENTRY_JOBDESCRIPTION" Value="Job description"/&gt;<br />
+	&lt;Res ID="CST_ENTRY_JOBDESCRIPTION_DES" Value="Describes 
+ the job the user performs at your organization"/&gt;</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList">Add the following 
+ <b>Sub</b> procedures to the file '<i>&lt;WI folder&gt;</i>\Public\CustomCode\Entries.vbs':<br />&#160;</p>
+                </li>
+                <p>'<span style="font-style: italic;"> Create the EmployeeID text box<br />
+	Sub Get_cst_EmployeeID(ByRef objFormContext, ByRef objFormPage)<br />
+	Dim strHTML, strEmployeeID<br />
+	strEmployeeID = CStr(objFormContext.GetValue("employeeID"))<br />
+	strHTML = "&lt;input type='text' id='cst_employeeIDControl' name='cst_employeeIDControl' 
+ value='" &amp; strEmployeeID &amp; "'&gt;"<br />
+	Call objFormPage.Write(strHtml)<br /><br />
+	End Sub<br /><br />
+	' Save value of the employeeID attribute<br />
+	Sub Set_cst_EmployeeID(ByRef objFormContext)<br />
+	Dim strEmployeeID<br />
+	' Retrieve the value passed with the EmployeeID text box<br />
+	strEmployeeID = Request("cst_employeeIDControl")<br />
+	objFormContext.SetValue "employeeID", strEmployeeID<br />
+	End Sub<br /><br />
+	' Create the Job description text area<br />
+	Sub Get_cst_JobDescription(ByRef objFormContext, ByRef objFormPage)<br />
+	Dim strHTML, strJob<br />
+	strJob = CStr(objFormContext.GetValue("extensionAttribute2"))<br />
+	strHTML = "&lt;textarea id='cst_jobDescriptionIDControl' name='cst_jobDescriptionIDControl' 
+ rows=3 cols=80&gt;" &amp; strJob &amp; "&lt;/textarea&gt;"<br />
+	Call objFormPage.Write(strHtml)<br />
+	End Sub<br /><br />
+	' Save the user's job description into the extensionAttribute2 attribute<br />
+	Sub Set_cst_JobDescription(ByRef objFormContext)<br />
+	Dim strJob<br />
+	' Retrieve the value passed with the Job description text area<br />
+	strJob = Request("cst_jobDescriptionIDControl")<br />
+	objFormContext.SetValue "extensionAttribute2", strJob<br />
+	End Sub</span> </p>
+                <li class="kadov-p-CNumberedList" value="5">
+                    <p class="NumberedList">For changes to 
+ take effect after customizing, reload the Web Interface (WI) site. To 
+ reload the WI site, use the special designed <a href="reloadwi.htm">custom 
+ script</a>.</p>
+                </li>
+            </ol>
+            <p class="StepNote">For information about how to make changes to the attributes 
+ <b>edsaWIEntries</b>, <b>edsaWIForms</b>, and <b>edsaWIStrings</b>, see 
+ <a href="specifyingsettings.htm">Specifying Customization Settings</a>.</p>
+            <p class="Body">&#160;</p>
+            <h3>Remarks</h3>
+            <p class="Body">We recommend that you don't call the <b>GetInfoEx</b> method 
+ of the <b><a href="../EnterpriseDirectoryManagerADSIProvider/iads.htm">IADs</a></b> 
+ interface for the object properties listed in the <a href="entriesxml.htm">Properties</a> 
+ attribute of the FormEntry element.</p>
+            <p class="Body">We <i>strongly</i> recommend that you don't call the <b>SetInfo</b> 
+ method of the <b><a href="../EnterpriseDirectoryManagerADSIProvider/iads.htm">IADs</a></b> 
+ interface. When you don't call this method, the server checks whether 
+ values of the directory object properties are in compliance with administrative 
+ policy.</p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc348">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="The Entries Settings;entriesxml.htm" />
+                    <param name="Item2" value="Specifying Customization Settings;specifyingsettings.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc348.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

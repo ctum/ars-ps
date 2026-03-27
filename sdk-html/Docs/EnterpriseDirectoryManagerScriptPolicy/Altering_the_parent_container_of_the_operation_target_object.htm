@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Script Policies, Scheduled Tasks and Workflows|Using Script Policy and Scheduled Tasks" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Altering the parent container of the operation target object</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_StoringParameters" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanagerscriptpolicy.htm">Script Policies, Scheduled Tasks and Workflows</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="usingedmscriptpolicy.htm">Using Script Policy and Scheduled Tasks</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Altering the parent container of the operation target object</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor255"></a>
+                <MadCap:concept term="a_StoringParameters" />Altering the parent container of the operation target object</h1>
+            <p class="Body">When you configure a workflow, you may need a method that 
+ would change the Distinguished Name of the container that holds the target 
+ object of the request that is being processed by the workflow (parent 
+ container of the request target object). This requirement arises from 
+ the need to apply the policies and workflows of an alternative container 
+ instead of those of the container originally specified in the request. 
+ Another option is to change the container where to create a new object 
+ while ensuring that the policies and workflows are applied from the container 
+ where the object will actually be created rather than from the container 
+ that was originally specified in the object creation request.</p>
+            <p class="Body">To address this requirement, Active Roles offers the ChangeParentDN 
+ method which modifies the operation request to set the Distinguished Name 
+ of the alternative container for the operation target object. As a result, 
+ the request is being processed as if the operation target object were 
+ located in the alternative container rather than the container originally 
+ specified in the request. When used in a script-based workflow activity, 
+ this method ensures that the workflows and policies of the alternative 
+ container are applied to the operation target object. For an object creation 
+ operation, this method causes the object to be created in the alternative 
+ container.</p>
+            <h3>ChangeParentDN method</h3>
+            <p class="Body">Use the <span class="SyntaxChar">ChangeParentDN</span> method 
+ to set the Distinguished Name of an alternative parent container for the 
+ operation target object. This method causes Active Roles to processes the 
+ operation request as if the operation target object were located in the 
+ alternative container rather than the container originally specified in 
+ the request. When used in a script-based workflow activity, ensures that 
+ the workflows and policies of the alternative container are applied to 
+ the operation target object. For an object creation operation, causes 
+ the object to be created in the alternative container.</p>
+            <p class="Heading4">Syntax</p>
+            <p class="SyntaxIndent">$Request.ChangeParentDN (DNString)</p>
+            <p class="Heading4">Arguments</p>
+            <p class="SyntaxIndent">DNString</p>
+            <p class="StepPara">[in] Required. String. Specifies the Distinguished Name 
+ of the parent container to set.</p>
+            <p class="Heading4">Examples</p>
+            <p class="StepPara">The following script function causes Active Roles to create 
+ the object in the container whose Distinguished Name is specified by the 
+ workflow parameter named <span class="SyntaxChar">Container</span>. This 
+ script function is intended to be used within a script activity of a workflow 
+ that would be triggered by the object creation request.</p>
+            <p class="SyntaxIndent">Function ChangeCreationContainer($Request)</p>
+            <p class="SyntaxIndent">{</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;$request.ChangeParentDN($workflow.Parameter("Container"))</p>
+            <p class="SyntaxIndent">}</p>
+
+&#160;
+
+<p class="StepPara">The following example illustrates the use of the <span class="SyntaxChar">ChangeParentDN</span> method in the <span class="SyntaxChar">onGetEffectivePolicy</span> 
+ event handler to retrieve the policy settings that are in effect on the 
+ request target object as if it were in the container with the Distinguished 
+ Name specified by the workflow parameter <span class="SyntaxChar">Container</span>. 
+ If you do not use the <span class="SyntaxChar">ChangeParentDN</span> method, 
+ the event handler shows the policy settings that the operation target 
+ object receives from its parent container originally specified in the 
+ request. This example applies to script-based workflow activities as the 
+ <span class="SyntaxChar">ChangeParentDN</span> method has no effect on the 
+ policy settings when used within a script-based policy.</p><p class="SyntaxIndent">Function onGetEffectivePolicy($Request)</p><p class="SyntaxIndent">{</p><p class="SyntaxIndent">&#160;&#160;&#160;&#160;$request.ChangeParentDN($workflow.Parameter("Container"))</p><p class="SyntaxIndent">}</p><p class="Body">&#160;</p></div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

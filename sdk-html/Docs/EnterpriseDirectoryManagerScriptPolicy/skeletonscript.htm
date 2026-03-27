@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Skeleton Script</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_SkeletonScript" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor160"></a>
+                <MadCap:concept term="a_SkeletonScript" />Skeleton Script</h1>
+            <p class="Body">You can use the following skeleton script to develop your 
+ own policy scripts. </p>
+            <p class="Procedure"> <b>To use the skeleton script</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Copy the script 
+ source to a file.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">In the file, 
+ only retain the event handlers you want to use.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">Follow the procedure 
+ outlined in <a href="applyingpolicyscriptsexamples.htm">Applying Policy 
+ Scripts</a>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList">When creating 
+ a new script module, copy the script code from this file and paste it 
+ in the script editor.</p>
+                </li>
+            </ol>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading">VBScript</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading"><span>PowerShell</span>
+                        </p>
+                    </th>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        <p class="Syntax">Sub onPreCreate(Request)<br />
+&#160; &#160;' 
+ Here goes the event handler code<br />
+End Sub<br /><br />
+Sub onPreDelete(Request)<br />
+&#160; &#160;' 
+ Here goes the event handler code<br />
+End Sub<br /><br />
+Sub onPreModify(Request)<br />
+&#160; &#160;' 
+ Here goes the event handler code<br />
+End Sub<br /><br />
+Sub onPreMove(Request)<br />
+&#160; &#160;' 
+ Here goes the event handler code<br />
+End Sub<br /><br />
+Sub onPreRename(Request)<br />
+&#160; &#160;' 
+ Here goes the event handler code<br />
+End Sub<br /><br />
+Sub onPostCreate(Request)<br />
+&#160; &#160;' 
+ Here goes the event handler code<br />
+End Sub<br /><br />
+Sub onPostDelete(Request)<br />
+&#160; &#160;' 
+ Here goes the event handler code<br />
+End Sub<br /><br />
+Sub onPostModify(Request)<br />
+&#160; &#160;' 
+ Here goes the event handler code<br />
+End Sub<br /><br />
+Sub onPostMove(Request)<br />
+&#160; &#160;' 
+ Here goes the event handler code<br />
+End Sub<br /><br />
+Sub onPostRename(Request)<br />
+&#160; &#160;' 
+ Here goes the event handler code<br />
+End Sub<br /><br />
+Sub onCheckPropertyValues(Request)<br />
+' Here goes the event handler code<br />
+End Sub<br /><br />
+Sub onGetEffectivePolicy(Request)<br />
+' Here goes the event handler code<br />
+End Sub<br /><br />
+Sub onInit(Context)</p>
+                        <p class="Syntax">' Use this handler to declare the<br />
+' script parameters<br /><br />
+' Here goes the event handler code<br />
+End Sub</p>
+                    </td>
+                    <td valign="top">
+                        <p class="Syntax">function onPreCreate($Request)<br />
+{<br />
+ &#160;# Here 
+ goes the event handler code<br />
+}<br />
+function onPreDelete($Request)<br />
+{<br />
+&#160; &#160;&#160;# 
+ Here goes the event handler code<br />
+}<br />
+function onPreModify($Request)<br />
+{<br />
+&#160; &#160;&#160;# 
+ Here goes the event handler code<br />
+}<br />
+function onPreMove($Request)<br />
+{<br />
+&#160; &#160;&#160;# 
+ Here goes the event handler code<br />
+}<br />
+function onPreRename($Request)<br />
+{<br />
+&#160; &#160;&#160;# 
+ Here goes the event handler code<br />
+}<br />
+function onPostCreate($Request)<br />
+{<br />
+&#160; &#160;# 
+ Here goes the event handler code<br />
+}<br />
+function onPostDelete($Request)<br />
+{<br />
+&#160; &#160;&#160;# 
+ Here goes the event handler code<br />
+}<br />
+function onPostModify($Request)<br />
+{<br />
+&#160; &#160;&#160;# 
+ Here goes the event handler code<br />
+}<br />
+function onPostMove($Request)<br />
+{<br />
+&#160; &#160;&#160;# 
+ Here goes the event handler code<br />
+}<br />
+function onPostRename($Request)<br />
+{<br />
+&#160; &#160;&#160;# 
+ Here goes the event handler code<br />
+}<br />
+function onCheckPropertyValues($Request)<br />
+{<br />
+# Here goes the event handler code<br />
+}<br />
+function onGetEffectivePolicy($Request)<br />
+{<br />
+# Here goes the event handler code<br />
+}<br />
+function onInit($Context)</p>
+                        <p class="Syntax">{<br />
+# Use this handler to declare the<br />
+# script parameters<br />&#160;</p>
+                        <p class="Syntax"># Here goes the event handler code<br />
+}</p>
+                    </td>
+                </tr>
+            </table>
+
+&#160;
+
+<h4><object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc436"><param name="Command" value="Related Topics,MENU" /><param name="Item1" value="Event Handlers;eventhandlers.htm" /><param name="Item2" value="Sample Policy Scripts;samplepolicyscripts.htm" /><param name="Item3" value="Understanding Event Handlers;understandingeventhandlers.htm" /></object><a class="MCRelatedTopics" href="javascript:mc436.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a></h4></div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

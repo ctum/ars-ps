@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles ADSI Provider|Tutorial: ADSI Scripting|Sample Scripts|Managing Active Roles Configuration|Monitoring Active Roles Replication" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Notifying Administrator When Failing the Replication</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_ReplicationNotify" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanageradsiprovider.htm">Active Roles ADSI Provider</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="tutorialadsi.htm">Tutorial: ADSI Scripting</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Notifying Administrator When Failing the Replication</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor128"></a>
+                <MadCap:concept term="a_ReplicationNotify" />Notifying Administrator When Failing the Replication</h1>
+            <p class="Body">File name: NotifyingAdmin.vbs</p>
+            <p class="Body">This code snippet illustrates how to send a email message 
+ to the Active Roles Admin when the Active Roles replication 
+ failed.</p>
+            <p class="Body">Parameters to be set in the script source:</p>
+            <ul>
+                <li class="kadov-P-CListBullet">
+                    <p class="ListBullet">Const strMailTo = 
+ <i>&lt;Email of the Active Roles Administrator to which the notification 
+ will be sent&gt;</i></p>
+                </li>
+                <li class="kadov-P-CListBullet">
+                    <p class="ListBullet">Const strMailFrom 
+ = <i>&lt;Email of your system administrator&gt;</i></p>
+                </li>
+                <li class="kadov-P-CListBullet">
+                    <p class="ListBullet">Const strSmtpServe 
+ = <i>&lt;The DNS or NetBIOS name of the host to which to post the message<br />
+	&#160;using the SMTP protocol&gt;</i></p>
+                </li>
+                <li class="kadov-P-CListBullet">
+                    <p class="ListBullet">Const intSmtpPort 
+ = <i>&lt;The port number on which the SMTP service is listening&gt;</i></p>
+                </li>
+            </ul><pre class="code" xml:space="preserve">
+<p class="Syntax">' Set the AR Server Admin's email
+Const strMailTo = "ARServerAdmin@mail.mycompany.com"
+' Set the system Admin's email
+Const strMailFrom = "administrator@mail.mycompany.com"
+' Set the DNS or NetBIOS name of the host to which to post the message
+' using the SMTP protocol.
+Const strSmtpServer = "smtp.mycompany.com"
+' Set the port on which the SMTP service is listening
+Const intSmtpPort = 25
+ '
+ ' PLEASE, DO NOT MODIFY THE SCRIPT BELOW THIS POINT
+ ' -------------------------------------------------
+ '
+const strRGContainerDN= "EDMS://CN=Configuration Databases,CN=Server Configuration,cn=Configuration"
+ 
+Set oRGContainer=GetObject(strRGContainerDN)
+Set oConnect = CreateObject("ADODB.Connection")
+oConnect.Provider = "ADsDSOObject"
+oConnect.Open "DS Query", "", ""
+Set oCommand = CreateObject("ADODB.Command")
+Set oCommand.ActiveConnection = oConnect
+' Set the search string
+oCommand.CommandText = "SELECT edsvaARServices, edsaReplicationRole, edsaErrorMessage, edsaReplicationStatus FROM '" + strRGContainerDN + "' WHERE objectClass = 'edsReplicationPartner'"
+' Set additional properties of the search string
+oCommand.Properties("Timeout") = 30 'seconds
+' Start the search
+Set oRes = oCommand.Execute
+strResult=""
+' Process the search results
+Do Until oRes.EOF
+ &#160;&#160;&#160;sComp = oRes.Fields("edsvaARServices").Value
+ &#160;&#160;&#160;If oRes.Fields("edsaReplicationStatus").Value = 6 Then
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;strResult = strResult + "Computer: " + join (sComp, ", ") + vbNewLine
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;strResult = strResult + "Replication role: "
+	 &#160;&#160;&#160;Select Case oRes.Fields("edsaReplicationRole").Value
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Case 1 strResult = strResult + "[Publisher]"
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Case 2 strResult = strResult + "[Subscriber]"
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Case 3 strResult = strResult + "[standalone]"
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Case Else strResult = strResult + "[unknown replication role]"
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;End Select
+	strResult = strResult + vbNewLine + "Replication failed!" + vbNewLine
+	
+	If (VarType(oRes.Fields("edsaErrorMessage").Value) &lt;&gt; vbNull) Then
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;strResult = strResult + "Last action message: " + oRes.Fields("edsaErrorMessage").Value
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;End If
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;strResult = strResult + vbNewLine + "===============================" + vbNewLine
+ &#160;&#160;&#160;End If &#160;&#160;&#160;
+ &#160;&#160;&#160;oRes.MoveNext
+Loop
+If strResult &lt;&gt; "" Then
+ &#160;&#160;&#160;SendMail strResult, "Replication failed!", strMailTo, strMailFrom
+End If
+Sub SendMail(ByVal strMsg, ByVal strSubj, ByVal strMailTo, ByVal strMailFrom )
+ ' Specify that the message will be sent using the network
+ ' (SMTP over the network).
+Const CdoSendUsingPort =2
+Set iMsg = CreateObject("CDO.Message")
+With iMsg
+ &#160;&#160;.From &#160;&#160;&#160;= strMailFrom
+ &#160;&#160;.To &#160;&#160;&#160;&#160;&#160;= strMailTo
+ &#160;&#160;.Subject = strSubj
+End With
+Set iBp = iMsg.BodyPart
+iBp.ContentMediaType = "multipart/mixed"
+Set iBp2 = iBp.AddBodyPart
+With iBp2
+ &#160;&#160;.ContentMediaType &#160;&#160;&#160;&#160;&#160;&#160;&#160;= "text/plain"
+ &#160;&#160;.ContentTransferEncoding = "7bit"
+ &#160;&#160;Set Stm = .GetDecodedContentStream
+ &#160;&#160;Stm.WriteText strMsg
+ &#160;&#160;Stm.Flush
+End With
+' Configure message
+Set iConf = CreateObject("CDO.Configuration")
+Set Flds = iConf.Fields
+Flds("http://schemas.microsoft.com/cdo/configuration/sendusing") &#160;= CdoSendUsingPort
+Flds("http://schemas.microsoft.com/cdo/configuration/smtpserver") = strSmtpServer 
+Flds("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = intSmtpPort 
+Flds.Update
+Set iMsg.Configuration = iConf
+' Send message
+iMsg.Send
+End Sub</p>
+</pre>
+            <p class="Body">You can save this script as a scheduled task script module 
+ in the Administration database, and then specify the time you want the 
+ script to start using the Scheduled Tasks feature provided by the Active Roles snap-in. For more information about that feature, refer to <a href="../EnterpriseDirectoryManagerScriptPolicy/understandingscheduledtasks.htm">Understanding 
+ Scheduled Tasks</a>. </p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc287">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="Monitoring Status of Replication Partners;replication_monitor.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc287.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

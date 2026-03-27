@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Script Policies, Scheduled Tasks and Workflows|Using Script Policy and Scheduled Tasks|Advanced" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Using Policy Identifier</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_UsingPolicyID" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanagerscriptpolicy.htm">Script Policies, Scheduled Tasks and Workflows</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="usingedmscriptpolicy.htm">Using Script Policy and Scheduled Tasks</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Using Policy Identifier</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor241"></a>
+                <MadCap:concept term="a_UsingPolicyID" />Using Policy Identifier</h1>
+            <p class="Body">The Active Roles Administration Service automatically assigns 
+ a unique identifier (<i>policy ID</i>) to each Policy Object Entry (referred 
+ to as <i>policy</i>) you create with Active Roles snap-in or using 
+ <a href="../EnterpriseDirectoryManagerADSIProvider/poedminterfaces.htm">Policy 
+ Object interfaces</a>. Custom policies (such as script policies, mailbox 
+ creation policies, etc.) are marked with binary policy IDs while Active Roles built-in policies have fixed policy IDs listed in this <a href="../EnterpriseDirectoryManagerADSIProvider/iedmpolicyentry_properties.htm#BuiltInPolicies">table</a>.</p>
+            <p class="Body"> Active Roles allows you to assign a user-defined policy 
+ ID to your script policies with the special <b>Function</b> procedure 
+ (VBScript) onGetPolicyMarker. This function must return the policy ID 
+ (any string) you want to assign to your script policy.&#160; You should 
+ insert onGetPolicyMarker in the source of your policy script.<br />
+For example, the following code snippet assigns the policy ID "MyPolicyMarker" 
+ to your script policy:</p><pre class="code" xml:space="preserve">
+<p class="Syntax">Function OnGetPolicyMarker()
+ &#160;&#160;&#160;OnGetPolicyMarker = "MyPolicyMarker"
+End Function</p>
+</pre>
+            <p class="Body">The use of onGetPolicyMarker enables you to completely override 
+ a policy. You can also override only the specified <a href="eventhandlers.htm">event 
+ handler</a> in your script policy. </p>
+            <h2>Overriding Policies</h2>
+            <p class="Body">You can override both the <a href="overridingbuiltinpolicies.htm"> Active Roles built-in policies</a> and your custom script policies.</p>
+            <p class="Body">If two policies have the same policy ID, Administration Service 
+ will consider them as the same policy. In this case, Administration Service 
+ will process the policy that is linked closer to the directory object 
+ the policy affects.</p>
+            <p class="Body">To clarify this, consider an example: you have created two 
+ Policy Objects (PO1 and PO2) and each PO includes a script policy marked 
+ with the same policy ID. PO1 is linked to an Organizational Unit (OU) 
+ while PO2 is linked to a user object residing within that OU. In this 
+ case, the user object will be affected only by PO2 while other directory 
+ objects that reside in that OU will be affected only by PO1.</p>
+            <p class="Body">If you have marked your script policy with one from the Active Roles built-in policy&#160;identifiers, your script policy will override 
+ the corresponding Active Roles built-in policy. For more information, 
+ please refer to <a href="overridingbuiltinpolicies.htm">Overriding Active Roles Built-in Policies</a>.</p>
+            <h2>Overriding Event Handlers</h2>
+            <p class="Body">You can override the specified event handler(s) of the <i>same 
+ type</i> defined in your script policies. Event handlers of other types 
+ will be not affected.</p>
+            <p class="Procedure"><b style="font-weight: bold;">To override an event handler</b>
+            </p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Using onGetPolicyMarker, 
+ assign any policy ID to the script policy (SP1) that includes the event 
+ handler you want to override.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">In other policy 
+ script (SP2), within the event handler of the same type, call the method 
+ <b><a href="iedsrequestparameters.htm">OverridePolicy</a></b> (provided 
+ by the interface <b>IEDsRequestParameters</b>) and pass that policy ID 
+ to this method.</p>
+                </li>
+            </ol>
+            <p class="Body">To clarify this procedure, consider the following example. 
+ </p>
+            <p class="Body">These code snippets (SP1 and SP2) illustrate how you can 
+ disable the onPreModify event handler in SP1. Administration Service will 
+ activate the onPreModify event handler defined in the script SP2 if you 
+ send a request to modify a User object. Otherwise, the event handler defined 
+ in SP1 will be activated. </p>
+            <p class="Body"><b style="font-weight: bold;">SP1</b> </p><pre class="code" xml:space="preserve">
+<p class="Syntax"><span style="color: #0000ff;">[VBScript]</span>
+Sub onPreModify(Request)
+' Here goes your code
+'
+End Sub
+' Identify the Policy
+Function onGetPolicyMarker()
+ onGetPolicyMarker="Script1"
+End Function<span style="color: #0000ff;">
+[PowerShell]</span>
+function onPreModify($Request)
+{
+ &#160;&#160;&#160;# Here goes your code
+ &#160;&#160;&#160;#
+}
+# Identify the Policy
+function onGetPolicyMarker()
+{
+ &#160;&#160;&#160;return "Script1"
+}&#160;</p>
+</pre>
+            <p class="Body"><b style="font-weight: bold;">SP2</b> </p><pre class="code" xml:space="preserve">
+<p class="Syntax"><span style="color: #0000ff;">[VBScript]</span>
+Sub onPreModify(Request)
+' Here goes your code
+'
+' Disable the onPreModify event handler in the policy script SP1
+If Request.Class = "user" Then
+ &#160;&#160;&#160;Request.OverridePolicy "Script1"
+End If
+End Sub</p>
+
+<p class="Syntax"><span style="color: #0000ff;">
+[PowerShell]</span>
+function onPreModify($Request)
+{
+ &#160;&#160;&#160;# Here goes your code
+ &#160;&#160;&#160;#
+ &#160;&#160;&#160;# Disable the onPreModify event handler in the policy script SP1
+ &#160;&#160;&#160;If($Request.Class -eq "user")
+ &#160;&#160;&#160;{
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;$Request.OverridePolicy("Script1")
+ &#160;&#160;&#160;}
+}</p>
+</pre>
+            <p class="note"><b style="font-weight: bold;">Note:</b>
+            </p>
+            <p class="note">In this example, the script SP2 is thought to be processed 
+ earlier than SP1. Otherwise, the use of the <b>OverridePolicy</b> method 
+ takes no effect. </p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc317">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="Event Handlers;eventhandlers.htm" />
+                    <param name="Item2" value="IEDsRequestParameters;iedsrequestparameters.htm" />
+                    <param name="Item3" value="Overriding Active Roles Built-In Policies;overridingbuiltinpolicies.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc317.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

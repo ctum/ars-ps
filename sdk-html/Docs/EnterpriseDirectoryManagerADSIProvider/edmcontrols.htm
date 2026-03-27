@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Script Policies, Scheduled Tasks and Workflows|Using Script Policy and Scheduled Tasks|Advanced" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Using Active Roles Controls</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_EDMControls" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../EnterpriseDirectoryManagerScriptPolicy/enterprisedirectorymanagerscriptpolicy.htm">Script Policies, Scheduled Tasks and Workflows</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../EnterpriseDirectoryManagerScriptPolicy/usingedmscriptpolicy.htm">Using Script Policy and Scheduled Tasks</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Using Active Roles Controls</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor420"></a>
+                <MadCap:concept term="a_EDMControls" />Using Active Roles Controls</h1>
+            <p class="Body"> Active Roles implements special parameters called 
+ <i> Active Roles controls</i>. Active Roles controls 
+ allow you to customize the request processing.</p>
+            <p class="Body">The Active Roles client can send a control to 
+ Administration Service with a request to perform an administrative operation. 
+ Administration Service can process that control.&#160;On the other hand, 
+ Administration Service can return its own control to the request source 
+ (client) and the client can process that control. The controls a client 
+ sends to Administration Service are referred to as <i>InControls</i> while 
+ the controls Administration Service returns to the client are referred 
+ to as <i>OutControls</i>.</p>
+            <p class="Body"> Active Roles supports <i>built-in controls</i> 
+ and <i>custom controls</i>.&#160;The controls are described below, in 
+ this topic.</p>
+            <h2><a name="BuiltIn"></a><b>Built-In Controls</b>
+            </h2>
+            <p class="Body">The built-in controls are processed by Administration Service 
+ in the predefined way described in the following table.&#160;In the table, 
+ the column 1 lists the control constants (if exist) while the column 2 
+ lists the control IDs. For built-in controls, IDs can be string values 
+ or integers.</p>
+            <p class="Body">The following built-in controls are available:</p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Constant</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Control ID</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Details</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">EDS_CONTROL_FIX</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">4</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">This control can be used only in the request to check 
+ policy compliance. </p>
+                        <p class="TableBody">When this control is set, the policy(ies) processing 
+ the request can change the object's property values that don't meet the 
+ policy.</p>
+                        <p class="TableBody">You can set this control to an array that contains GUIDs 
+ of the selected Policy Objects. In this case, only the policies you have 
+ specified will be able to change the object's property values that don't 
+ meet the policy.&#160;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">EDS_CONTROL_CHECK_POLICY_COMPLIANCE</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">5</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">This control can be used only in the request to check 
+ policy compliance. </p>
+                        <p class="TableBody">When this control is set, the policy(ies) processing 
+ the request will validate all properties of the processed object. </p>
+                        <p class="TableBody">You can set this control to an array that contains GUIDs 
+ of the selected Policy Objects. In this case, only the policies you have 
+ specified will validate all properties of the processed object.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">EDS_CONTROL_GC_SERVER_DOMAIN</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">7</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">This control can be used in a request to search Active 
+ Directory. Setting this control causes the Administration Service to search 
+ the global catalog.</p>
+                        <p class="TableBody">The control sets the distinguished name of the domain 
+ used to select the Global Catalog server to search the global catalog.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">EDS_CONTROL_BYPASS_DIRECTORY_REQUEST</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">8</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">This control can be used in any request. </p>
+                        <p class="TableBody">When this control is set, the request will be only processed 
+ by Administrative Policies. Administration Service will not propagate 
+ changes to the underlying directory store or to the Active Roles configuration 
+ database.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">EDS_CONTROL_SILENT_MODE</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">9</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">This control can be used in any request. </p>
+                        <p class="TableBody">By default, the policy scripts can <a href="../EnterpriseDirectoryManagerScriptPolicy/returningcustomerrormessages.htm">return 
+ the error messages</a>. When a request sets this control to any value, 
+ all exceptions raised during the request processing will be disabled.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><a name="EDS_CONTROL_TREE_DELETE"></a>EDS_CONTROL_TREE_DELETE</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">10</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">This control can be used in a request to delete a directory 
+ object. </p>
+                        <p class="TableBody">By default, Active Roles clients cannot 
+ delete a container object when it has child objects. If the request to 
+ delete the container sets this control to any value, the container and 
+ all its children will be deleted (see <a href="#SamplePolicyScript">Sample 
+ Policy Script</a> below). </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody"><a name="EDS_CONTROL_OBJECT_DN"></a>EDS_CONTROL_OBJECT_DN</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">11</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">This control can be used in a request to create, move, 
+ rename, modify or deprovision a directory object. In your policy scripts, 
+ this control is available within the onPostCreate, onPostMove, onPostRename, 
+ onPostModify, and onPostDeprovision <a href="../EnterpriseDirectoryManagerScriptPolicy/understandingeventhandlers.htm">event 
+ handlers</a>.</p>
+                        <p class="TableBody">The control contains the distinguished name the directory 
+ object has after the appropriate operation results have been committed.</p>
+                        <p class="TableBody">For a sample script that illustrates the use of this 
+ control, refer to <a href="User_Deprovis.htm">Deprovisioning User Account</a>.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">EDS_CONTROL_LDAP_SERVER</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">13</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">This control can be used in any request. </p>
+                        <p class="TableBody">When this control is not set, the domain controller 
+ (DC) Active Roles uses to process the request is determined 
+ by the Active Roles default settings.</p>
+                        <p class="TableBody">Setting this control to the DC name causes 
+ Active Roles to use that DC for the request processing (see <a href="#SampleCustomScript">Sample 
+ Custom Script </a>below).</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">EDS_CONTROL_DELETE_LINKS</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">14</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">This control can be used in a request to delete a Policy 
+ Object or an Access Template. </p>
+                        <p class="TableBody">By default, Active Roles clients cannot 
+ delete Policy Objects or Access Templates that are linked to directory 
+ objects.</p>
+                        <p class="TableBody">When this control is set, Active Roles 
+ clients can delete any Policy Object or Access Template.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">EDS_CONTROL_FULL_EFFECTIVE_POLICY_INFO</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">31</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">This control can be used only in request to get effetive 
+ policy information. </p>
+                        <p class="TableBody">For performance reasons, by default, the GetEffectivePolicyInfo 
+ request does not return the attributes whose values are normally generated 
+ by Active Roles.</p>
+                        <p class="TableBody">To obtain the attributes values, the client must request 
+ them from Active Roles by setting the control with an array 
+ of ldapName for each attribute whose value(s) is requested.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">EDS_CONTROL_GET_HEAVY_ATTRIBUTES</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>43</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Add this control to a Get request if you want to retrieve 
+ so-called "heavy" attributes - the attributes that Active Roles 
+ takes long time to calculate. Without this control, a Get request does 
+ not retrieve "heavy" attributes for performance reasons.</p>
+                        <p class="TableBody">"Heavy" attributes are marked with the EDS_ATTRIBUTEFLAG_HEAVY_ATTRIBUTE 
+ = 0x00000800 flag in the edsaAttributeFlags attribute of the attributeSchema 
+ object in the Active Roles directory schema. Some examples of "heavy" 
+ attributes are EDSA-Mailbox-Security-Descriptor (edsaMailboxSecurityDescriptor) 
+ and EDSVA-MsExch-Shared-Mailbox-Users (edsva-MsExch-SharedMailboxUsers).</p>
+                        <p class="TableBody">You can add this control to a Get request by using a 
+ policy script with the following onPreGet event handler function:</p>
+                        <p class="SyntaxIndent">function onPreGet($Request)<br />
+{ $Request.PutInControl("43",0,0) }</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">EDS_CONTROL_SOURCE_OBJECT_DN</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>&#160;</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Contains the DN of the object to copy.</p>
+                        <p class="TableBody">This control is available within the onPreCreate, onPostCreate, 
+ onGetEffectivePolicy and onCheckPropertyValues <a href="../EnterpriseDirectoryManagerScriptPolicy/understandingeventhandlers.htm">event 
+ handlers</a>.</p>
+                        <p class="TableBody">&#160;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">-</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p><a name="AllowApproval"></a>AllowApproval</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">This control is used in the <a href="../EnterpriseDirectoryManagerScriptPolicy/understandingapprovalrules.htm">approval 
+ workflow</a>. If the operation does not require approval, this control 
+ has no effect, otherwise:</p>
+                        <ul>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">if not set, and 
+ the user is an Active Roles Admin, the operation will be executed without 
+ approval</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">if not set, and 
+ the user is not an Active Roles Admin, the operation will fail with an 
+ error</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">if the control 
+ is set to "Check", the information about the approval will be 
+ returned, however, the operation will not be stored or executed</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">if the control 
+ is set to "Confirm", the information about the approval will 
+ be returned, and the operation will be stored for subsequent approval 
+ by designated approvers.</p>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">-</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>ApplicationID</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Allows to perform an operation on behalf of an edsApplication 
+ object. </p>
+                        <p class="TableBody">The control must be set to a string containing a GUID 
+ of an existing edsApplication object, such as '12345678-1234-1234-1234-123456789012'.</p>
+                        <p class="TableBody">When this control is set, the specified application 
+ is considered as an initiator of the operation, which affects Approval 
+ and Change History behavior.</p>
+                        <p class="TableBody">Note that this control can only be specified by an Active 
+ Roles Admin.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">-</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p><a name="IndirectMembership-GetData"></a>IndirectMembership-GetData</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">When set in an <a href="asqsearch.htm">ASQ search</a> 
+ request for group memberships, this control causes the search result set 
+ to include the objects whose membership is because of group nesting.</p>
+                        <p class="TableBody">Can be set to any string value, such as "1".</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">-</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p><a name="InheritInitiatorInfo"></a>InheritInitiatorInfo</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">This control can be used in policy or workflow scripts. 
+ Can be set to any string value, such as "1".</p>
+                        <p class="TableBody">When this control is set in a request initiated from 
+ a script, the Administration Service treats the request as if it were 
+ initiated by the client that requested the operation that caused the script 
+ to execute. As a result, the requested changes are properly recorded in 
+ the management history trail (change history), and are submitted for approval 
+ if this is required by the approval rules that are in effect.</p>
+                        <p class="TableBody">When this control is not set, the Administration Service 
+ itself is considered the initiator of the request. The result is that 
+ the requested changes do not appear in the management history trail (change 
+ history), nor are they submitted for approval.</p>
+                        <p class="TableBody">For a sample script that illustrates how to set this 
+ control, see <a href="../EnterpriseDirectoryManagerScriptPolicy/iedsrequestparameters_putincontrol.htm#Sample">IEDsRequestParameters::PutInControl</a>.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">-</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p><a name="OperationID"></a>OperationID</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Returned by Administration Service to indicate the current 
+ operation ID.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">&#160;</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>OperationReason</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">This control can be used in any request to perform an 
+ administrative operation.</p>
+                        <p class="TableBody">The control contains any information message a client 
+ (such as your custom ADSI script) sends to Administration Service. </p>
+                        <p class="TableBody">If the operation requires approval, the information 
+ message will be sent to <a href="../EnterpriseDirectoryManagerScriptPolicy/understandingterminology.htm#Approvers">approver</a>.</p>
+                        <p class="TableBody">After performing the requested operation, the information 
+ message is displayed in Change History report for modified objects.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">-</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p><a name="OperationStatus"></a>OperationStatus</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Returned by Administration Service to indicate the current 
+ operation status.</p>
+                        <p class="TableBody">The returned string corresponds to the value of the 
+ "status" attribute in the XML operation and can take any of 
+ the following values:</p>
+                        <ul>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">"Canceled" 
+ - The operation has been canceled.</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">"Completed" 
+ - All tasks were successfully completed.</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">"Denied" 
+ - The operation was denied because one of the approval tasks was Completed-Rejected.</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">"Failed" 
+ -An error occurred when executing the operation.</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">"InProgress" 
+ - The operation is in progress (this status does not include a post-policy 
+ processing)</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">"Pending" 
+ - The operation is waiting for a task completion.</p>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">-</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>PreventHomeFolderPermissionsChange</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">This control determines the behavior of the Administration 
+ Service upon processing a request to set home folder on a user account 
+ in Active Directory.</p>
+                        <p class="TableBody">Setting this control to any value, such as "1", 
+ ensures that the Administration Service does not attempt to modify security 
+ settings on the home folder.<br />
+If this control is not set, the behavior of the Administration Service 
+ depends on whether the user is affected by the Home Folder Autoprovisioning 
+ Policy. &#160;For 
+ more information, refer to "Home Folder AutoProvisioning" in 
+ the Active Roles Administrator Guide.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">-</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p><a name="PrimaryGroup-GetData"></a>PrimaryGroup-GetData</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">When set in an <a href="asqsearch.htm">ASQ search</a> 
+ request for group memberships, this control causes the search result set 
+ to include the objects whose membership is because of primary group setting.</p>
+                        <p class="TableBody">Can be set to any string value, such as "1".</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">-</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>ReturnXmlOperation </p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">When set, this control instructs the Administration 
+ Service to return the information about the performed operation in the 
+ XmlOperation output control.</p>
+                        <p class="TableBody">Can be set to any string value, such as "1".</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">&#160;-</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p><a name="ScheduledOperation-SetTime"></a>ScheduledOperation-SetTime</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBullet">In a request to perform a particular operation, specifies 
+ the date and time when the operation is to occur. This control must conform 
+ to the GeneralizedTime syntax.</p>
+                        <p class="TableBullet">For example, if in the request to add an object to 
+ a group you set this control to specific time, the object will be actually 
+ added to the group members list only at the scheduled time.</p>
+                        <p class="TableBullet"><span style="font-weight: bold;">Note</span> Setting 
+ the ScheduledOperation-SetTime &#160;control 
+ to "Now" causes Active Roles to immediately add 
+ object to a group. However, this operation does not change the time when 
+ object will be removed from the group.</p>
+                        <p class="TableBullet">Setting the ScheduledOperation-SetTime &#160;control 
+ to "Never" cancels the scheduled removing of object from the 
+ group. However, this operation does not change the time when object will 
+ be added to the group.</p>
+                        <p class="TableBullet">For sample codes that illustrate how to use this control, 
+ refer to <a href="ManagingTempGroupMemberships.htm">Managing Temporal 
+ Group Memberships</a>.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">-</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p><a name="ScheduledLink-GetStartEndTime"></a>ScheduledLink-GetStartEndTime</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBullet">When set in an <a href="asqsearch.htm">ASQ search</a> 
+ request against a linked attribute, this control causes objects returned 
+ by the search to contain information about when creation or deletion of 
+ the link for each of those objects is scheduled to occur.</p>
+                        <p class="TableBullet">For sample codes that illustrate how to use this control, 
+ refer to <a href="ManagingTempGroupMemberships.htm">Managing Temporal 
+ Group Memberships</a>.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">-</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p><a name="ScheduledLink-GetPending"></a>ScheduledLink-GetPending</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBullet">When set in an ASQ search request against a linked 
+ attribute, this control causes the search result set to include the objects 
+ for which creation of the link is scheduled to occur in the future.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">-</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>ShowDeletedObjectsContainer</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">This control is available only within the onPreSearch 
+ <a href="../EnterpriseDirectoryManagerScriptPolicy/understandingeventhandlers.htm">event 
+ handler</a>.</p>
+                        <p class="TableBody">Set this control to any value when performing a one-level 
+ search on the Active Directory node if you want the search results to 
+ include the Deleted Objects container.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">-</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>ShowRecycledObjects</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">This control is available only within the onPreSearch 
+ <a href="../EnterpriseDirectoryManagerScriptPolicy/understandingeventhandlers.htm">event 
+ handler</a>.</p>
+                        <p class="TableBody">Set this control to any value to specify that the search 
+ results should include recycled objects. When searching the Deleted Objects 
+ container, a client has to add this control to the Search request in order 
+ for the server to return both the deleted and recycled objects that match 
+ the search filter. Without this control, the server returns only deleted 
+ objects.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">&#160;-</p>
+                    </td>
+                    <td>
+                        <p><a name="XmlOperation"></a>XmlOperation</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Returned by the Administration Service if the ReturnXmlOperation 
+ control was specified.</p>
+                        <p class="TableBody">Contains information about the performed operation in 
+ XML format. For more information, refer to <a href="XMLSchemaReference.htm">XML 
+ Schema Reference</a>.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">-</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>FunctiontoDeclareParameters</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">This control is used to a request for parameter definitions 
+ in order to pass the name of the function that is used to declare parameters 
+ in the script module.</p>
+                        <p class="TableBody">If not set, the parameters are declared using the onInit 
+ function.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="note"><b style="font-weight: bold;">Note:</b>
+            </p>
+            <p class="note">All built-in controls are InControls, except the EDS_CONTROL_OBJECT_DN, 
+ OperationID, OperationStatus and XmlOperation controls. All built-in controls 
+ must have values of the CaseIgnoreString type.</p>
+            <h2><b style="font-weight: bold;">Custom Controls</b>
+            </h2>
+            <p class="Body">You can create your own custom controls that can be sent 
+ to the Administration Service and then processed by your custom policy 
+ scripts. Depending on the custom control value, the policy scripts can 
+ affect the way the request is processed by Administration Service.</p>
+            <h2><b style="font-weight: bold;">Getting and Setting Active 
+ Roles Controls</b>
+            </h2>
+            <p class="Body">You can get/set values of the custom or built-in 
+ Active Roles controls in one of the following ways:</p>
+            <ul>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">For the 
+ Active Roles clients, such as your custom scripts, use the <b>Control</b> 
+ property provided by the <b><a href="iedm.htm">IEDM</a></b> interface.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">For Policy scripts, 
+ use the <b>GetInControl</b>, <b>GetOutControl</b>/<b>PutInControl</b>, 
+ <b>PutOutControl</b> methods of the <b><a href="../EnterpriseDirectoryManagerScriptPolicy/iedsrequestparameters.htm">IEDsRequestParameters</a></b> 
+ interface.</p>
+                </li>
+            </ul>
+            <h3>Examples</h3>
+            <p class="Body">To clarify how you can use Active Roles controls, 
+ consider the following examples.</p><a name="SamplePolicyScript"></a>
+            <p class="Body"><b style="font-weight: bold;">Sample Policy Script</b> </p>
+            <p class="Body">The following policy script illustrates how you can set the 
+ value of the built-in control EDS_CONTROL_TREE_DELETE.</p><pre class="code" xml:space="preserve">
+<p class="Syntax" style="color: #0000ff;">[VBScript]<span style="color: #000000;">
+Sub onPreDelete(Request)
+ &#160;&#160;&#160;Request.PutInControl EDS_CONTROL_TREE_DELETE, ADSTYPE_CASE_IGNORE_STRING, Array("any")
+End Sub</span></p>
+
+<p class="Syntax"><span style="color: #0000ff;">
+[PowerShell]</span>
+function onPreDelete($Request)
+{
+ &#160;&#160;$Request.PutInControl($Constants.EDS_CONTROL_TREE_DELETE,$Constants.ADSTYPE_CASE_IGNORE_STRING, "Any")
+)</p>
+</pre>
+            <p class="Body">If you <a href="../EnterpriseDirectoryManagerScriptPolicy/applyingpolicyscriptsexamples.htm">apply</a> 
+ the Policy Object that includes this script policy to a container object, 
+ such as an Organizational Unit, you will be able to delete the container, 
+ even if that container has child objects. Note that you may set the control 
+ EDS_CONTROL_TREE_DELETE to any string value ("any" in this example).</p>
+            <p class="Body"><b style="font-weight: bold;"><a name="SampleCustomScript"></a>Sample 
+ Custom Script</b> </p>
+            <p class="Body">The following sample code illustrates how you can set the 
+ Active Roles built-in control in your custom script. </p><pre class="code" xml:space="preserve">
+<p class="Syntax"><span style="color: #0000ff;">[VBScript]</span>
+const EDS_CONTROL_LDAP_SERVER = 13
+ ' Create User object in the specified OU
+Set cont = GetObject("EDMS://OU=Sales,DC=Mycompany,DC=com")
+Set usr = cont.Create("user", "CN=John MCDuglas")
+ ' Set the User properties
+usr.Put "samAccountName", "JMCDuglas"
+usr.Put "edsaAccountIsDisabled", FALSE
+ ' Set the InControl value
+usr.Control(EDS_CONTROL_LDAP_SERVER)="FirstDC.Mycompany.com"
+ ' Commit changes
+usr.SetInfo</p>
+
+<p class="Syntax"><span style="color: #0000ff;">
+[PowerShell]</span>
+$EDS_CONTROL_LDAP_SERVER = 13
+# Create User object in the specified OU
+$cont = [ADSI]"EDMS://OU=Sales,DC=Mycompany,DC=com"
+$usr = $cont.Create("user", "CN=John MCDuglas")
+# Set the User properties
+$usr.Put("samAccountName", "JMCDuglas")
+$usr.Put("edsaAccountIsDisabled", $false)
+# Set the InControl value
+$usr.Control($EDS_CONTROL_LDAP_SERVER) = "FirstDC.Mycompany.com"
+# Commit changes
+$usr.SetInfo()</p>
+</pre>
+            <p class="Body">This script creates the new user John MCDuglas and sets the 
+ built-in control EDS_CONTROL_LDAP_SERVER to the name of the domain controller 
+ FirstDC.Mycompany.com. When the Administration Service receives that control, 
+ the request&#160; to create the user will be processed by the specified 
+ DC.</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

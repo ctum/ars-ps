@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Web Interface|References|Customizing Active Roles Web Interface|Customization Settings Format" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>The Entries Settings</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_EntriesXML" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="webinterface.htm">Web Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="WIReference.htm">References</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The Entries Settings</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor453"></a>
+                <MadCap:concept term="a_EntriesXML" />The Entries Settings</h1>
+            <p class="Body">This&#160;section provides information about the format of 
+ settings for entries used in the forms defined in the attribute <a href="formsxml.htm">edsaWIForms</a>. 
+ </p>
+            <p class="Body">An <i>entry</i> is a group of form elements such as text 
+ boxes, check boxes, option buttons, and command buttons. Each entry is 
+ used to view and modify a value of a certain object property. </p>
+            <p class="Body">Settings for entries are stored in the attribute <b>edsaWIEntries</b>. 
+ Modifying this attribute, you can set or modify properties of entries, 
+ such as the entry type, entry caption, etc.&#160;You can also create your 
+ <a href="customentries.htm">custom entries</a>. </p>
+            <h2>XML Elements </h2>
+            <p class="Body">The attribute <b>edsaWIEntries </b>stores information in 
+ the Extensible Markup Language (XML) format.&#160; XML elements you can 
+ use are listed below. </p>
+            <p class="note"><b style="font-weight: bold;">Important:</b>
+            </p>
+            <p class="note">After you modify the attribute <b>edsaWIEntries</b>, for 
+ changes to take effect, <a href="reloadwi.htm">reload the Web Interface</a>. 
+ &#160; </p>
+            <h3><a name="Entries"></a>Entries </h3>
+            <p class="Body">Describes the collection of entries. </p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: None </p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#FormEntry">FormEntry</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">CustomizationVersion</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Identifies the current customization version 
+ number. Must be the same for all attributes of the WorkingCopy object. 
+ </p>
+                        <p class="note"><b style="font-weight: bold;">Important:</b>
+                        </p>
+                        <p class="note">The value of this attribute depends on the application version. 
+ This value is stored into the attribute <b>edsaWITemplateVersion </b>of 
+ the WI configuration container objects (see <a href="storingsettings.htm">Storing 
+ Customization Settings</a>).</p>
+                    </td>
+                </tr>
+            </table>
+            <h3><a name="FormEntry"></a>FormEntry</h3>
+            <p class="Body">Describes an entry and its properties. </p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#Entries">Entries</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#Setting">Setting</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">Arguments</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. String. Contains the value to be set to the 
+ object's properties used by the entry.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">DescriptionResID</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. Identifier of the string constant containing 
+ a description of the entry.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">DontShowCaption</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. Specifies whether the entry caption is displayed 
+ on the form. The possible values are: </p>
+                        <p class="TableBody"><b style="font-weight: bold;">False </b>(default value) 
+ - The Web Interface displays the entry caption.</p>
+                        <p class="TableBody"><b style="font-weight: bold;">True</b> - The Web Interface 
+ does not display the entry caption.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">EntryType</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. The type of the entry. </p>
+                        <p class="TableBody">The possible values are:</p>
+                        <p class="TableBody"><b>0</b> - Custom entry. For more information, see <a href="customentries.htm">Creating a Custom Entry</a>.</p>
+                        <p class="TableBody"><b>1</b> - Auto entry. An auto entry depends on the 
+ syntax of the directory object's property viewed or modified with that 
+ entry.</p>
+                        <p class="TableBody"><b>3</b> - Text label entry. The text label entry displays 
+ the value of the property the entry uses.</p>
+                        <p class="TableBody"><span style="font-weight: bold;">8</span> - Static text 
+ entry (text area). Use this entry type to display static text specified 
+ by the settings of the entry. </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">Flags (deprecated)</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. An integer that determines a behavior of certain 
+ predefined entries. </p>
+                        <p class="TableBody">For example, when this attribute is set to <b>2</b>, 
+ the Web Interface displays the Large Integer attributes (such as lastLogon, 
+ lastLogoff) in the standard Date-Time format: YYYY-MM-DDThh:mm:ssTZD.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">FunctionAction</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. Specifies functions used for creating the 
+ custom entries (EntryType=0). </p>
+                        <p class="TableBody">When this attributes is set, the appropriate custom 
+ entry will be created using the functions Get_<i>&lt;FunctionAction's 
+ value&gt;</i> and Set_<i>&lt;FunctionAction's value&gt;</i>.</p>
+                        <p class="TableBody">When this attribute is not set, the functions Get_<i>&lt;Entry 
+ ID&gt; </i>and<i> </i>Set_<i>&lt;Entry_ID&gt; </i>are used to create the 
+ custom entry. The <i>&lt;Entry_ID&gt;</i> is the value of the attribute 
+ ID, described below in this table.</p>
+                        <p class="note"><b style="font-weight: bold;">Notes:</b>
+                        </p>
+                        <ul>
+                            <li class="kadov-p-CNoteBullet">
+                                <p class="NoteBullet">For the auto entries 
+ (EntryType=1), the FunctionAction attribute takes no effect. </p>
+                            </li>
+                            <li class="kadov-p-CNoteBullet">
+                                <p class="NoteBullet">For more information 
+ about functions Get_<i>&lt;Entry ID&gt;</i>, Set_<i>&lt;Entry_ID&gt;</i>,&#160; 
+ Get_<i>&lt;FunctionAction's value&gt;</i>, and Set_<i>&lt;FunctionAction's 
+ value&gt;</i>, see <a href="customentries.htm">Creating Custom Entries</a>. 
+ </p>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ID</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Unique identifier of the entry. The entry 
+ identifier cannot begin with a number, and can only contain "A-Z", 
+ "a-z", and "0-9" characters. Note that the attribute 
+ <a href="formsxml.htm">edsaWIForms</a> must contain the <a href="formsxml.htm#FormEntry">FormEntry</a> 
+ element with the same attribute ID.&#160;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">IsHidden</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. Boolean. Specifies whether the entry is hidden. 
+ </p>
+                        <p class="TableBody">The possible values are:</p>
+                        <p class="TableBody"><b style="font-weight: bold;">False</b> (default value) 
+ - The entry is visible.<b><br />True</b> - The entry is hidden.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">IsStatic</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Optional. Boolean. Specifies whether the entry is a 
+ static label.</p>
+                        <p class="TableBody">The possible values are:</p>
+                        <p class="TableBody"><span style="font-weight: bold;">False</span> (default 
+ value) - The entry is not a label.</p>
+                        <p class="TableBody"><span style="font-weight: bold;">True</span> - The entry 
+ is a label.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">Properties</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. A comma-separated list of the object property's 
+ ldapDisplayNames used by the entry.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ReadOnly</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. Specifies whether the Web Interface's user 
+ can modify the entry's value(s). </p>
+                        <p class="TableBody">The possible values are:</p>
+                        <p class="TableBody"><b style="font-weight: bold;">False</b> (default value) 
+ - The user can modify the entry's value(s).<b><br />True</b> - The user can only view the entry's value(s).</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ResID</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Identifier of the string constant containing 
+ the caption of the entry when it is displayed on the form, such as <b>Description</b> 
+ on the <b>User Properties</b> form.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">SingleValue</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. Specifies whether an object's multi-valued 
+ property associated with the entry will be processed as a single-valued 
+ property. </p>
+                        <p class="TableBody">The possible values are:</p>
+                        <p class="TableBody"><b style="font-weight: bold;">True</b> - Setting this 
+ attribute to <span style="font-weight: bold;">True</span> for a multi-valued 
+ property, have the Web Interface consider that property as a single-valued 
+ one.</p>
+                        <p class="note"><b style="font-weight: bold;">Note:</b>
+                        </p>
+                        <p class="note">The SingleValue&#160; attribute is used only for the auto 
+ entries (EntryType=1) and for multi-valued object's properties. Otherwise, 
+ setting this attribute takes no effect. </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ToolTipResID</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. Identifier of the string constant containing 
+ the entry tooltip.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="note"><b style="font-weight: bold;">Note:</b>
+            </p>
+            <p class="note">Identifiers and values of the string constants are saved 
+ in the attribute <a href="languagefiles.htm"><b>edsaWIStrings</b></a>. 
+ We <i>strongly</i> recommend that the names of your custom string constants, 
+ such as identifiers or function names, begin with the prefix cst_, for 
+ example cst_employeeID, cst_jobDescriptionIDControl, etc.&#160; </p>
+            <p class="Caution"><span style="font-weight: bold;">Caution</span>:<br /><br />The Flags attribute is considered obsolete. While this attribute is still 
+ supported in the current version of Active Roles, it may be removed 
+ in the future. When developing new applications, you should avoid using 
+ this attribute. When modifying existing applications, you are strongly 
+ encouraged to remove any dependency on this attribute.</p>
+            <h3><a name="Setting"></a>Setting</h3>
+            <p class="Body">Describes additional&#160;properties of certain entries. 
+ For example, using these elements you can customize the <span style="font-weight: bold;">Select 
+ Object</span> dialog box displayed when you click auto entries (EntryType=1) 
+ used to modify the object's attributes conforming to the DN syntax (see 
+ <a href="#Exampl">Example</a>).</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#FormEntry">FormEntry</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None </p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">Name</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. The property name.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">Value</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. The property value.</p>
+                    </td>
+                </tr>
+            </table>
+
+&#160; 
+
+<p class="note"><b style="font-weight: bold;">Note:</b></p><p class="note">All elements have the optional attribute PlainTextLabel that 
+ allows you to label elements. The use of your custom labels allows your 
+ applications to easily update or remove custom elements from the configuration 
+ settings.</p><h2>&#160;<a name="Exampl"></a>Example: Customization of the Select Object 
+ Dialog Box</h2><p class="Body">This example illustrates how to customize the <span style="font-weight: bold;">Select 
+ Object</span> dialog box displayed when you click the auto entry (EntryType=1) 
+ used to modify a user object virtual attribute <span style="font-weight: bold;">edsvaManagers</span> 
+ that contains DN's of the user's managers. </p><p class="Procedure">To customize the Select Object dialog box</p><ol><li class="kadov-p-CNumberedList" value="1"><p class="NumberedList">For the User 
+ object, define the multivalued <span style="text-decoration: underline;">stored</span> 
+ custom virtual attribute <span style="font-weight: bold;">edsvaManagers</span> 
+ that conforms to the syntax DN. For information about how to create and 
+ modify your custom virtual attributes, refer to <a href="../EnterpriseDirectoryManagerADSIProvider/usingvirtualattributes.htm#CreateVA">Using 
+ Virtual Attributes</a>. </p></li><li class="kadov-p-CNumberedList" value="2"><p class="NumberedList">Add the following code to the attribute <b>edsaWIEntries</b>:<br />&#160;</p><p><span style="font-style: italic;">&lt;FormEntry ID="edsvaManagers" 
+ ResID="CST_ID_STR" DescriptionResID="" ToolTipResID=""<br />	Properties="edsvaManagers" SingleValue="false" 
+ ReadOnly="false" EntryType="1" DontShowCaption="false"<br />	IsHidden="false" IsStatic="false" Flags="0" 
+ Arguments="" FunctionAction=""&gt;<br />	&lt;Setting Name="Filters" Value="(objectClass=user)" 
+ /&gt;<br />	&lt;Setting Name="DNListAttributes" Value="name,description,title" 
+ /&gt;<br />	&lt;Setting Name="ResultAutomatic" Value="False" 
+ /&gt;<br />	&lt;Setting Name="ShowFindIn" Value="True" /&gt;<br />	&lt;Setting Name="ShowObjectName" Value="True" 
+ /&gt;<br />	&lt;Setting Name="SearchRootDN" Value=&lt;Container's DN&gt; 
+ /&gt;<br />	&lt;Setting Name="SearchScope" Value="2" /&gt;<br />	&lt;Setting Name="UseAsq" Value="False" /&gt;<br />	&lt;Setting Name="ASQAttribute" Value="" /&gt;<br />	&lt;Setting Name="ShowSearchButton" Value="False" 
+ /&gt;<br />	&lt;/FormEntry&gt;</span> </p></li>
+	
+	&#160; 
+	
+	<p class="Note"><span style="font-weight: bold;">Note</span>:<br />	The <span style="font-style: italic;">&lt;Container's DN&gt; </span>refers 
+ to the distinguished name of the container where you want the search to 
+ start. For example:<br />	&lt;Setting Name="SearchRootDN" Value="Ou=Sales,DC=MyCompany,DC=Com"&gt;</p><li class="kadov-p-CNumberedList" value="3"><p class="NumberedList">In the attribute <a href="formsxml.htm" style="font-weight: bold;">edsaWIForms</a>, 
+ define the child element <span style="font-style: italic;">&lt;FormEntry 
+ ID="edsvaManagers" /&gt;</span> for the element<span style="font-style: italic;"><br />	&lt;FormTab ID="general" ...&gt;</span> under <span style="font-style: italic;">&lt;Form 
+ ID="UserProperties" FormType="1" ... &gt;</span>. 
+ Your changes will be similar to the &#160;following 
+ code snippet:<br />&#160;</p><p style="font-style: italic;">&lt;Form ID="UserProperties" 
+ FormType="1" ResID="WIS_FORM_USER_PROPERTIES" TargetClass="user"<br />	DescriptionResID=""&gt;<br />	&lt;FormTab ID="general" ResID="WIS_UP_GENERAL"&gt;<br />	&lt;FormEntry ID="edsvaManagers"/&gt;<br />	.......<br />	&lt;/FormTab&gt;<br />	&lt;/Form&gt;</p></li><li class="kadov-p-CNumberedList" value="4"><p class="NumberedList">In the attribute 
+ <span style="font-weight: bold;"><a href="languagefiles.htm">edsaWIStrings</a></span>, 
+ define the constant CST_ID_STR. Set this constant to any string value, 
+ such as "Employee's Manager": <span style="font-style: italic;"><br />	&lt;Res ID="CST_ID_STR" Value="Employee's Managers"/&gt;</span></p></li><li class="kadov-p-CNumberedList" value="5"><p class="NumberedList">When finished, 
+ <a href="reloadwi.htm">reload the Web Interface</a> for changes to take 
+ effect.</p></li></ol><p class="Body">To view the results of the customization, run the Web Interface 
+ and perform the following steps:</p><ol><li class="kadov-p-CNumberedList" value="1"><p class="NumberedList">On the Navigation 
+ Bar, point to <span style="font-weight: bold;">Directory Management</span> 
+ and then click <span style="font-weight: bold;">Active Directory</span>. 
+ This displays a list of the managed Active Directory domains.</p></li><li class="kadov-p-CNumberedList" value="2"><p class="NumberedList">In the List of 
+ Objects area, click a user object you want to administer.</p></li><li class="kadov-p-CNumberedList" value="3"><p class="NumberedList">On the Command 
+ Menu of the user object, click <span style="font-weight: bold;">General 
+ Properties</span>. In the right pane, under <span style="font-weight: bold;">Employee's 
+ Managers</span>, the Web interface lists the user's managers if any. To 
+ modify this list, click <span style="font-weight: bold;">Add</span> beneath 
+ the list, and complete the <span style="font-weight: bold;">Select Object</span> 
+ dialog box.</p></li></ol><p class="Body">The <span style="font-weight: bold;">Select Object</span> 
+ dialog box will be similar to the following screen:</p><p class="Body">&#160;</p><a href="selectobject.gif"><img src="selectobject_thn.gif" style="width: 400px;height: 292px;" width="400" height="292" border="0" class="Image" /></a><p class="Body"><a href="selectobject_thn.gif">Enlarge figure</a></p><p class="Body">The attributes Name of the elements Setting defined in Step 
+ 2 of the first procedure allow you to customize the <span style="font-weight: bold;">Select 
+ Object</span> dialog box in the following way:</p><p class="Body">&#160;</p><table><tr><th><p class="TableHeading" style="text-align: left;" align="left">The "Name" attribute value</p></th><th><p class="TableHeading" style="text-align: left;" align="left">Description</p></th></tr><tr><td><p class="TableBody">Filters</p></td><td><p class="TableBody">String. Contains the <a href="../EnterpriseDirectoryManagerADSIProvider/ldapsearchfiltersyntax.htm">LDAP 
+ search filter</a> that defines criteria for objects to be found and displayed 
+ in the dialog box.</p></td></tr><tr><td><p class="TableBody">DNListAttributes</p></td><td><p class="TableBody">String. Contains a comma separated list of LDAP display 
+ names of the attributes to be displayed in the dialog box.</p></td></tr><tr><td><p class="TableBody">ResultAutomatic</p></td><td><p class="TableBody">Boolean. When False, in the dialog box, you need to 
+ click the link "Click here to display the objects" to view the 
+ list of the found objects.</p></td></tr><tr><td><p class="TableBody">ShowFindIn</p></td><td><p class="TableBody">Boolean. When<span style="font-weight: bold;"> </span>True, 
+ the<span style="font-weight: bold;"> Find in</span> text box is displayed.</p></td></tr><tr><td><p class="TableBody">ShowObjectName</p></td><td><p>Boolean. When<span style="font-weight: bold;"> </span>True, the<span style="font-weight: bold;"> Object name</span> text box is displayed.</p></td></tr><tr><td><p class="TableBody">SearchRootDN</p></td><td><p class="TableBody">String. Specifies a container object, such as a domain 
+ or Organizational Unit, where the search will start. </p></td></tr><tr><td><p class="TableBody">SearchScope</p></td><td><p class="TableBody">String. Specifies the depth of the search. The possible 
+ values are:</p><ul><li class="kadov-p-CTableBullet"><p class="TableBullet">"0" - 
+ the Base search</p></li><li class="kadov-p-CTableBullet"><p class="TableBullet">"1" - 
+ OneLevel search</p></li><li class="kadov-p-CTableBullet"><p class="TableBullet">"2" - 
+ SubTree search</p></li></ul><p class="TableBody">For more information, see <a href="../EnterpriseDirectoryManagerADSIProvider/searchingforadsiobjects.htm">Searching 
+ for Directory Objects Using ADO</a>.</p></td></tr><tr><td><p class="TableBody">UseAsq</p></td><td><p class="TableBody">Boolean. When True, the ASQ search will started. For 
+ more information, refer to <a href="../EnterpriseDirectoryManagerADSIProvider/asqsearch.htm">Searching 
+ Using an Attribute Scope Query</a>.</p></td></tr><tr><td><p class="TableBody">ASQAttribute</p></td><td><p class="TableBody">String. Contains the name of the DN type attribute you 
+ want to search. For more information, refer to <a href="../EnterpriseDirectoryManagerADSIProvider/asqsearch.htm">Searching 
+ Using an Attribute Scope Query</a>.</p></td></tr><tr><td><p class="TableBody">ShowSearchButton</p></td><td><p class="TableBody">Boolean. When True, the <span style="font-weight: bold;">Search</span> 
+ button next to the <span style="font-weight: bold;">Object name</span> 
+ box is displayed.</p></td></tr></table><p class="Body">&#160;</p><h4><object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc361"><param name="Command" value="Related Topics,MENU" /><param name="Item1" value="Searching Using an Attribute Scope Query;../EnterpriseDirectoryManagerADSIProvider/asqsearch.htm" /><param name="Item2" value="Create a Custom Entry;customentries.htm" /><param name="Item3" value="Customization Settings Format;customizationfilesedmwi.htm" /><param name="Item4" value="The Language Settings;languagefiles.htm" /><param name="Item5" value="Searching for Directory Objects Using ADO;../EnterpriseDirectoryManagerADSIProvider/searchingforadsiobjects.htm" /></object><a class="MCRelatedTopics" href="javascript:mc361.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a></h4></div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

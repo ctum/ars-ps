@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Script Policies, Scheduled Tasks and Workflows|Using Script Policy and Scheduled Tasks|Advanced|Parameterizing Script Policies and Scheduled Tasks" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Using Parameters in Scheduled Task Scripts</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_UsingParametersSchTask" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanagerscriptpolicy.htm">Script Policies, Scheduled Tasks and Workflows</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="usingedmscriptpolicy.htm">Using Script Policy and Scheduled Tasks</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Using Parameters in Scheduled Task Scripts</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor137"></a>
+                <MadCap:concept term="a_UsingParametersSchTask" />Using Parameters in Scheduled Task Scripts</h1>
+            <p class="Body"> Active Roles enables your scheduled task scripts 
+ to read or write values of&#160; parameters stored in the scheduled task 
+ object that executes the script. To access a parameter, bind to the appropriate 
+ scheduled task object using the <b>DirObj</b> property of the Active Roles 
+ intrinsic object <a href="objecttask.htm"><b>Task</b></a>, and then read 
+ or write the parameter using the <b>Parameters </b>property of the <b><a href="../EnterpriseDirectoryManagerADSIProvider/iedm.htm">IEDM</a></b> 
+ interface as shown in the following sample scheduled task script. </p>
+            <p class="Body">This script reads the scheduled task's parameter paramDN 
+ that contains the distinguished name of a container. The script enumerates 
+ all users that reside within that container and deletes only users that 
+ have the "description" property set to "To be deleted". 
+ </p><pre class="code" xml:space="preserve">
+<p class="Syntax"><span style="color: #0000ff;">[VBScript]</span>
+' Read the scheduled task parameter
+strDN = Task.DirObj.Parameters("paramDN")
+ ' Bind to a container
+Set objCon= GetObject("EDMS://" &amp; strDN)
+ ' Apply the filter
+objCon.Filter=Array("user")
+ ' Enumerate the container's child user objects
+For Each obj In objCon
+ &#160;&#160;&#160;If obj.Description = "To be deleted" Then &#160;&#160;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;objCon.Delete "user", obj.Name
+ &#160;&#160;&#160;End If &#160;&#160;&#160;
+Next
+objCon.SetInfo</p>
+
+<p class="Syntax"><span style="color: #0000ff;">
+[PowerShell]</span>
+# Read the scheduled task parameter
+$DN = $Task.DirObj.Parameters.Value("paramDN").Value
+# Search the container's child user objects
+$objs = Get-QADObject -SearchRoot $DN -SearchScope OneLevel -Type "user"
+foreach($obj in $objs)
+{
+ &#160;&#160;&#160;if($obj.Description -eq "To be deleted")
+ &#160;&#160;&#160;{
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;Remove-QADObject $obj -Force
+ &#160;&#160;&#160;}
+}</p>
+</pre>
+            <p class="Procedure"> <b>To use this scheduled task script</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Register this 
+ script as a scheduled task script module on the Administration Service.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Create a scheduled 
+ task that will run this script.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">Add to the scheduled 
+ task the parameter named paramDN, and set it to the distinguished name 
+ of the container within which you want the scheduled task to delete the 
+ user objects.&#160; To add the parameter, use the information from <a href="ParametersScheduledTasks.htm">Specifying Parameters for Scheduled 
+ Tasks</a>.</p>
+                </li>
+            </ol>
+            <p class="NumberedList">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc327">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="IEDM;../EnterpriseDirectoryManagerADSIProvider/iedm.htm" />
+                    <param name="Item2" value="Object Policy;objectpolicy.htm" />
+                    <param name="Item3" value="Task Object;objecttask.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc327.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Script Policies, Scheduled Tasks and Workflows|Using Script Policy and Scheduled Tasks" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Retrieving data from workflow context</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_StoringParameters" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanagerscriptpolicy.htm">Script Policies, Scheduled Tasks and Workflows</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="usingedmscriptpolicy.htm">Using Script Policy and Scheduled Tasks</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Retrieving data from workflow context</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor363"></a>
+                <MadCap:concept term="a_StoringParameters" />Retrieving data from workflow context</h1>
+            <p class="Body">When creating a script to be used in a workflow activity, 
+ you may need your script to retrieve and use information from the workflow 
+ run-time context, such as:</p>
+            <ul>
+                <li class="kadov-p-CListBulletTight">
+                    <p class="ListBulletTight">The value 
+ of a certain workflow parameter (parameter value)</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">The object returned 
+ by a certain Search activity (found object)</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">The object created 
+ or modified by a certain workflow activity (activity target)</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">The value of a certain 
+ attribute saved by a Save Object Properties activity (saved object property)</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">The name of the button 
+ that the approver chose to click when performing the approval task (approver 
+ action choice)</p>
+                </li>
+            </ul>
+            <p class="Body">This topic provides information and examples demonstrating 
+ how to retrieve:</p>
+            <ul>
+                <li class="kadov-P-CListBulletTight">
+                    <p class="ListBulletTight"><a href="#Retrieving_workflow_name">Workflow 
+ name</a>
+                    </p>
+                </li>
+                <li class="kadov-P-CListBullet">
+                    <p class="ListBullet"><a href="#Retrieving_parameter_value">Parameter 
+ value</a>
+                    </p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><a href="#Retrieving_found_object">Found 
+ object</a>
+                    </p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><a href="#Retrieving_activity_target">Activity 
+ target</a>
+                    </p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><a href="#Retrieving_saved_object_property">Saved 
+ object property</a>
+                    </p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><a href="#Retrieving_approver_action_choice">Approver 
+ action choice</a>
+                    </p>
+                </li>
+            </ul>
+            <p class="Body">Active Roles has a built-in object named <span class="SyntaxChar">$workflow</span> 
+ that provides the properties and methods for retrieving this workflow 
+ context data. The <span class="SyntaxChar">$workflow</span> object is accessible 
+ from Windows PowerShell scripts held in Active Roles script modules and 
+ executed by Active Roles workflow activities or script policies.</p>
+            <h2><a name="Retrieving_workflow_name"></a>Retrieving workflow name</h2>
+            <p class="Body">To identify the workflow that runs a given script, you can 
+ use the <span class="SyntaxChar">WorkflowName</span> property of the <span class="SyntaxChar">$workflow</span> object in that script.</p>
+            <h3>WorkflowName property</h3>
+            <p class="Body">Use the <span class="SyntaxChar">WorkflowName</span> property 
+ to retrieve the name of the workflow that the <span class="SyntaxChar">$workflow</span> 
+ object represents.</p>
+            <p class="Heading4">Syntax</p>
+            <p class="SyntaxIndent">$workflow.WorkflowName</p>
+            <p class="Heading4">Return value</p>
+            <p class="StepPara">This property returns the name of the workflow definition 
+ object from which the current workflow instance is derived.</p>
+            <h2><a name="Retrieving_parameter_value"></a>Retrieving parameter value</h2>
+            <p class="Body">Workflow parameters and their values are normally defined 
+ at the workflow design time. Some parameters may be configured so that 
+ the user can supply or change the parameter value when starting the workflow 
+ by hand. In either case, the workflow parameter values are determined 
+ upon starting the workflow, stored in the workflow run-time environment, 
+ and can be retrieved by using the <span class="SyntaxChar">Parameter</span> 
+ or <span class="SyntaxChar">ParameterEx</span> method of the <span class="SyntaxChar">$workflow</span> 
+ object.</p>
+            <h3>Parameter method</h3>
+            <p class="Body">Use the <span class="SyntaxChar">Parameter</span> method to 
+ retrieve the value of a single-value parameter.</p>
+            <p class="Heading4">Syntax</p>
+            <p class="SyntaxIndent">$workflow.Parameter(name)</p>
+            <p class="Heading4">Arguments</p>
+            <p class="SyntaxIndent">name</p>
+            <p class="StepPara">[in] Required. String. Identifies the name of the parameter 
+ whose value you want to retrieve.</p>
+            <p class="Heading4">Return value</p>
+            <p class="StepPara">Depending upon the syntax of the parameter, this method 
+ returns the String, DateTime, ObjectGUID, DN, SID, or SecureString object 
+ representing the parameter value.</p>
+            <h3 class="Body">ParameterEx method</h3>
+            <p class="Body">Use the <span class="SyntaxChar">ParameterEx</span> method 
+ to retrieve the values of a multi-value parameter.</p>
+            <p class="Heading4">Syntax</p>
+            <p class="SyntaxIndent">$workflow.ParameterEx(name)</p>
+            <p class="Heading4">Arguments</p>
+            <p class="SyntaxIndent">name</p>
+            <p class="StepPara">[in] Required. String. Identifies the name of the parameter 
+ whose values you want to retrieve.</p>
+            <p class="Heading4">Return value</p>
+            <p class="StepPara">Depending upon the syntax of the parameter, this method 
+ returns an array of the String, DateTime, ObjectGUID, DN, SID, or SecureString 
+ objects representing the parameter values.</p>
+            <p class="Heading4">Example</p>
+            <p class="StepPara">The following script function is intended to be used 
+ by a Script activity included in an automation workflow. This function 
+ starts Windows service "QSVC" on the remote computers specified 
+ by workflow parameter "Computers". To perform this task, the 
+ function logs on to each remote computer with the user name and password 
+ specified by the "LogonName" parameter and "Password" 
+ parameter, respectively.</p>
+            <p class="StepPara">The workflow parameters used by this script must be configured 
+ as follows:</p>
+            <ul>
+                <li class="kadov-p-CSubBulletTight">
+                    <p class="SubBulletTight">Computers 
+ - Multi-valued, String parameter</p>
+                </li>
+                <li class="kadov-p-CSubBullet">
+                    <p class="SubBullet">LogonName - Single-valued, 
+ String parameter</p>
+                </li>
+                <li class="kadov-p-CSubBullet">
+                    <p class="SubBullet">Password - Single-valued, 
+ SecureString parameter</p>
+                </li>
+            </ul>
+            <p class="SubBulletParaTight">For instructions on how to create a workflow 
+ parameter, see the Active Roles Administrator Guide.</p>
+            <p class="SyntaxIndent">Function StartService()</p>
+            <p class="SyntaxIndent">{</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;$computers 
+ = $workflow.ParameterEx("Computers")</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;$logonName 
+ = $workflow.Parameter("LogonName")</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;$password 
+ = $workflow.Parameter("Password")</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;$securePassword 
+ = ConvertTo-SecureString $Security.Cryptography.decryptfromstring($password) 
+ -asplaintext -force</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;$cred 
+ = New-Object System.Management.Automation.PSCredential ($logonName, $securePassword)</p>
+            <p class="SyntaxIndent">&#160;</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;foreach 
+ ($computer in $computers)</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;{</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;trap 
+ {continue}</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$ps 
+ = New-PSSession -computername $computer -Credential $cred</p>
+            <p class="SyntaxIndent">&#160;</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Invoke-Command 
+ -session $ps -scriptblock { Start-Service QCSVC }</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Remove-PSSession 
+ $ps</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;}</p>
+            <p class="SyntaxIndent">}</p>
+            <p class="Body"><a href="#">Back to top</a>
+            </p>
+            <h2 class="Body"><a name="Retrieving_found_object"></a>Retrieving found object</h2>
+            <p class="Body">Found objects represent the results of a search performed 
+ by a certain Search activity. You can retrieve them by using the <span class="SyntaxChar">FoundObject</span> method of the <span class="SyntaxChar">$workflow</span> 
+ object.</p>
+            <h3>FoundObject method</h3>
+            <p class="Body">Use the <span class="SyntaxChar">FoundObject</span> method 
+ to retrieve the object returned by a certain Search activity.</p>
+            <p class="Heading4">Syntax</p>
+            <p class="SyntaxIndent">$workflow.FoundObject(name)</p>
+            <p class="Heading4">Arguments</p>
+            <p class="SyntaxIndent">name</p>
+            <p class="StepPara">[in] Required. String. Identifies the name of the Search 
+ activity whose search results you want to retrieve.</p>
+            <p class="Heading4">Return value</p>
+            <p class="StepPara">An object possessing the methods and properties of the 
+ <span class="SyntaxChar">IADs</span> and <span class="SyntaxChar">IADsPropertyList</span> 
+ interfaces with the exception of the <span class="SyntaxChar">GetInfo</span>, 
+ <span class="SyntaxChar">GetInfoEx</span>, <span class="SyntaxChar">SetInfo</span>, 
+ <span class="SyntaxChar">ResetPropertyCache</span> methods.</p>
+            <p class="Heading4">Example</p>
+            <p class="StepPara">The following script function disables the user accounts 
+ found by the Search activity named "Find Inactive Users".</p>
+            <p class="SyntaxIndent">Function DisableInactiveUsers($Request)</p>
+            <p class="SyntaxIndent">{</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;disable-QADUser 
+ $workflow.FoundObject("Find Inactive Users").get("distinguishedName")</p>
+            <p class="SyntaxIndent">}</p>
+            <p class="Body"><a href="#">Back to top</a>
+            </p>
+            <h2 class="Body"><a name="Retrieving_activity_target"></a>Retrieving activity 
+ target</h2>
+            <p class="Body">The target object of a given activity is the directory object 
+ the activity acts upon. For a create activity, this is the object to be 
+ created; for a change or delete activity, this is the object to be modified 
+ or deleted, respectively. You can retrieve the target object of the activity 
+ by using the <span class="SyntaxChar">ActivityTarget</span> method of the 
+ <span class="SyntaxChar">$workflow</span> object.</p>
+            <h3>ActivityTarget method</h3>
+            <p class="Body">Use the <span class="SyntaxChar">ActivityTarget</span> method 
+ to retrieve the target object of a certain activity. For example, you 
+ can use this method to retrieve the object created by a "Create" 
+ activity.</p>
+            <p class="Heading4">Syntax</p>
+            <p class="SyntaxIndent">$workflow.ActivityTarget(name)</p>
+            <p class="Heading4">Arguments</p>
+            <p class="SyntaxIndent">name</p>
+            <p class="StepPara">[in] Required. String. Identifies the name of the activity 
+ whose target object you want to retrieve.</p>
+            <p class="Heading4">Return value</p>
+            <p class="StepPara">An object possessing the methods and properties of the 
+ <span class="SyntaxChar">IADs</span> and <span class="SyntaxChar">IADsPropertyList</span> 
+ interfaces with the exception of the <span class="SyntaxChar">GetInfo</span>, 
+ <span class="SyntaxChar">GetInfoEx</span>, <span class="SyntaxChar">SetInfo</span>, 
+ <span class="SyntaxChar">ResetPropertyCache</span> methods. The property 
+ cache of the object returned by this method is initialized with the following 
+ attributes of the corresponding directory object: <span class="SyntaxChar">distinguishedName</span>, 
+ <span class="SyntaxChar">displayName</span>, <span class="SyntaxChar">objectClass</span>, 
+ <span class="SyntaxChar">objectSid</span>, <span class="SyntaxChar">objectGUID</span>, 
+ <span class="SyntaxChar">sAMAccountName</span>.</p>
+            <p class="Heading4">Example</p>
+            <p class="StepPara">The following script function disables the user account 
+ created by the "Create" activity named "Create Shadow Account".</p>
+            <p class="SyntaxIndent">Function DisableShadowAccount($Request)</p>
+            <p class="SyntaxIndent">{</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;disable-QADUser 
+ $workflow.ActivityTarget("Create Shadow Account").get("distinguishedName")</p>
+            <p class="SyntaxIndent">}</p>
+            <p class="Body"><a href="#">Back to top</a>
+            </p>
+            <h2 class="Body"><a name="Retrieving_saved_object_property"></a>Retrieving 
+ saved object property</h2>
+            <p class="Body">Active Roles workflow provides the Save Object Properties 
+ activity type for saving properties of a particular object at workflow 
+ execution time. The properties are saved in the workflow data context, 
+ and can be retrieved by other activities before or after the object has 
+ changed. In a workflow that includes an activity of the Save Object Properties 
+ type, you can use the SavedObjectProperties method to retrieve object 
+ properties saved by that activity.</p>
+            <h3>SavedObjectProperties method</h3>
+            <p class="Heading4">Syntax</p>
+            <p class="SyntaxIndent">$workflow.SavedObjectProperties(activityName).get(attributeName)</p>
+            <p class="SyntaxIndent">$workflow.SavedObjectProperties(activityName).getEx(attributeName)</p>
+            <p class="Heading4">Arguments</p>
+            <p class="SyntaxIndent">activityName</p>
+            <p class="StepPara">[in] Required. String. Identifies the name of the Save 
+ Object Properties activity.</p>
+            <p class="StepPara">You should specify the display name of the Save Object 
+ Properties activity that exists in the workflow; otherwise, the method 
+ returns no value.</p>
+            <p class="SyntaxIndent">attributeName</p>
+            <p class="StepPara">[in] Required. String. Identifies the LDAP display name 
+ of the attribute you want to retrieve.</p>
+            <p class="StepPara" style="font-weight: normal;">You should specify the name of one of 
+ the attributes listed in the "Target properties" setting of 
+ the Save Object Properties activity; otherwise, the method returns no 
+ value.</p>
+            <p class="Heading4">Return value</p>
+            <p class="StepPara">The attribute value or values as of the time of executing 
+ the Save Object Properties activity.</p>
+            <p class="StepPara"><span class="SyntaxChar">$workflow.SavedObjectProperties(activityName).get(attributeName)</span> 
+ returns a single value in case of a single-value attribute or an array 
+ of values in case of a multi-value attribute.</p>
+            <p class="StepPara"><span class="SyntaxChar">$workflow.SavedObjectProperties(activityName).getEx(attributeName)</span> 
+ returns an array of values for a single-value or multi-value attribute. 
+ In case of a single-value attribute, the array contains a single element.</p>
+            <p class="Heading4">Example</p>
+            <p class="StepPara">In a workflow that starts upon deletion of an object 
+ and uses a Save Object Properties activity to save the object's properties 
+ before the object is deleted, you can use the following script function 
+ to retrieve the object's display name after the object is deleted. This 
+ example assumes the name of the activity that saves object properties 
+ in the workflow is "Save Object Properties 1".</p>
+            <p class="SyntaxIndent">Function SavedDisplayName($Request)</p>
+            <p class="SyntaxIndent">{</p>
+            <p class="SyntaxIndent"><span style="margin-left: 80px;">&#160;&#160;&#160;&#160;return 
+ $workflow.SavedObjectProperties("Save Object Properties 1").get("displayName")</span>
+            </p>
+            <p class="SyntaxIndent">}</p>
+            <p class="StepPara">Another example demonstrates how to process the values 
+ of a saved multi-value attribute:</p>
+            <p class="SyntaxIndent">Function onPostDelete($Request)</p>
+            <p class="SyntaxIndent">{</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;$OtherHomephones 
+ = $workflow.SavedObjectProperties("Save Object Properties 1").GetEx("otherHomePhone")</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;foreach($homeNum 
+ in $OtherHomephones)</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;{</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;#</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;# 
+ Your code goes here that uses the retrieved $homeNum</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;#</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;}</p>
+            <p class="SyntaxIndent">}</p>
+            <p class="Body"><a href="#">Back to top</a>
+            </p>
+            <h2 class="Body"><a name="Retrieving_approver_action_choice"></a>Retrieving 
+ approver action choice</h2>
+            <p class="Body">When performing an approval task, the approver is required 
+ to choose one of the action buttons provided by the approval rule. Action 
+ buttons appear on the pages for performing the approval task. Each button 
+ applies a certain action to the task. Normally, two built-in buttons, 
+ named "Approve" and "Reject" by default, are displayed 
+ for each approval task. The approval rule can be configured to add custom 
+ action buttons. Depending on the button's action type, clicking a custom 
+ action button causes the workflow to allow ("Complete" action 
+ type) or cancel ("Reject" action type) the operation that is 
+ subject to approval. You can use the <span class="SyntaxChar">ApproverAction</span> 
+ method of the <span class="SyntaxChar">$workflow</span> object to retrieve 
+ the name of the action button the approver chose to click, and then have 
+ your script perform the custom actions appropriate to the button chosen 
+ by the approver.</p>
+            <h3>ApproverAction method</h3>
+            <p class="Body">Use the <span class="SyntaxChar">ApproverAction</span> method 
+ to retrieve the name of the action button the approver chose to click 
+ on the pages for performing the approval task.</p>
+            <p class="Heading4">Syntax</p>
+            <p class="SyntaxIndent">$workflow.ApproverAction(name)</p>
+            <p class="Heading4">Arguments</p>
+            <p class="SyntaxIndent">name</p>
+            <p class="StepPara">[in] Required. String. Identifies the name of the Approval 
+ activity that created the approval task.</p>
+            <p class="Heading4">Return value</p>
+            <p class="StepPara">The name of the action button the approver chose to click.</p>
+            <p class="Heading4">Example</p>
+            <p class="StepPara">The following script function checks to see if the approver 
+ has clicked the "Cancel Operation" action button when performing 
+ the approval task, and, if so, updates the virtual attributes <span class="SyntaxChar">edsaCustomActionActivator</span> 
+ and <span class="SyntaxChar">edsvaCustomActionDescription</span> accordingly. 
+ In this example, "Custom Approval" is assumed to be the name 
+ of the Approval activity whose approval tasks you want the script to keep 
+ track of.</p>
+            <p class="SyntaxIndent">Function CheckApproverActon($Request)</p>
+            <p class="SyntaxIndent">{</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;if 
+ ($workflow.ApproverActon("Custom Approval") -eq "Cancel 
+ Operation")</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;{</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$request.ResetPropertyItem("edsaCustomActionActivator")</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$request.Put("edsvaCustomActionDescription", 
+ "Operation cancelled")</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;}</p>
+            <p class="SyntaxIndent">}</p>
+            <p class="Body"><a href="#">Back to top</a>
+            </p>
+            <p class="body">&#160;</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

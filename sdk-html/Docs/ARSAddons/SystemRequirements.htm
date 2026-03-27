@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles Add-ons" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>SystemRequirements</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="activeroles_server_add-ons.htm">Active Roles Add-ons</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">SystemRequirements</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1>SystemRequirements Section</h1>
+            <h2>XML Elements </h2>
+            <h3><a name="SystemRequirements"></a>SystemRequirements </h3>
+            <p class="Body">Describes system requirements for an add-on.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="Add-on_Configuration.htm#AddonDocument">AddonDocument</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#ActiveRolesServer">ActiveRolesServer</a>, 
+ <a href="#InstalledAddons">InstalledAddons</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="ActiveRolesServer"></a>ActiveRolesServer</h3>
+            <p class="Body">Describes what version of Active Roles is required 
+ for an add-on.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#SystemRequirements">SystemRequirements</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#MinVersion">MinVersion</a>, 
+ <a href="#MaxVersion">MaxVersion</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="MinVersion"></a>MinVersion</h3>
+            <p class="Body">Describes the minimum version of Active Roles required 
+ to install an add-on. </p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#ActiveRolesServer">ActiveRolesServer</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p style="font-weight: normal;">Major</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p style="font-weight: normal;">Required. Represents the major part of 
+ the version number. For example, 3 in 3.2.1.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p style="font-weight: normal;">Minor</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p style="font-weight: normal;">Optional. Represents the minor part of 
+ the version number. For example, 2 in 3.2.1.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Build</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Optional. Represents the build part of the version number. For example, 
+ 1 in 3.2.1.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3 class="Body"><a name="MaxVersion"></a>MaxVersion</h3>
+            <p class="Body">Describes the maximum version of Active Roles required 
+ to install an add-on. &#160;</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#ActiveRolesServer">ActiveRolesServer</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Major</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p style="font-weight: normal;">Required. Represents the major part of 
+ the version number. For example, 3 in 3.2.1.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Minor</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Optional. Represents the minor part of the version number. For example, 
+ 2 in 3.2.1.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Build</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Optional. Represents the build part of the version number. For example, 
+ 1 in 3.2.1.</p>
+                    </td>
+                </tr>
+            </table>
+            <p>&#160;</p>
+            <h3><a name="InstalledAddons"></a>InstalledAddons</h3>
+            <p class="Body">Describes what add-ons are required to install a new add-on.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#SystemRequirements">SystemRequirements</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#InstalledAddon">InstalledAddon</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="InstalledAddon"></a>InstalledAddon</h3>
+            <p class="Body">Describes an add-on and its version required to install a 
+ new add-on.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#InstalledAddons">InstalledAddons</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#MinVersion1">MinVersion</a>, 
+ <a href="#MaxVersion1">MaxVersion</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p style="font-weight: normal;">AddonName</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p style="font-weight: normal;">Required. Name of the required add-on.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="MinVersion1"></a>MinVersion</h3>
+            <p class="Body">Describes the minimum version of the add-on required to install 
+ a new add-on.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#InstalledAddon">InstalledAddon</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Major</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p style="font-weight: normal;">Required. Represents the major part of 
+ the version number. For example, 3 in 3.2.1.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Minor</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Optional. Represents the minor part of the version number. For example, 
+ 2 in 3.2.1.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Build</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Optional. Represents the build part of the version number. For example, 
+ 1 in 3.2.1.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="MaxVersion1"></a>MaxVersion</h3>
+            <p class="Body">Describes the maximum version of the add-on required to install 
+ a new add-on.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#InstalledAddon">InstalledAddon</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Major</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p style="font-weight: normal;">Required. Represents the major part of 
+ the version number. For example, 3 in 3.2.1.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Minor</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Optional. Represents the minor part of the version number. For example, 
+ 2 in 3.2.1.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Build</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Optional. Represents the build part of the version number. For example, 
+ 1 in 3.2.1.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="body">&#160;</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

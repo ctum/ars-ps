@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Script Policies, Scheduled Tasks and Workflows|Using Script Policy and Scheduled Tasks|Advanced|Parameterizing Script Policies and Scheduled Tasks" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Specifying Parameters for Scheduled Tasks</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_StoringParameters" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanagerscriptpolicy.htm">Script Policies, Scheduled Tasks and Workflows</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="usingedmscriptpolicy.htm">Using Script Policy and Scheduled Tasks</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Specifying Parameters for Scheduled Tasks</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor83"></a>
+                <MadCap:concept term="a_StoringParameters" />Specifying Parameters for Scheduled Tasks</h1>
+            <p class="Body">Parameters for scheduled task scripts are stored into the 
+ <a href="../EnterpriseDirectoryManagerADSIProvider/edstopclass.htm#edsaParam">edsaParameters</a> 
+ property of the scheduled task object (the object class edsScheduledTask).</p>
+            <p class="Body">You can add, remove or modify parameters for schedules tasks 
+ in one of the following ways: </p>
+            <ul>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">With the Active Roles MMC snap-in. For more information, see "Specifying Parameters 
+ with MMC Snap-in" in Related Topics</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">With your custom 
+ scripts (see the sample code below)</p>
+                </li>
+            </ul>
+            <p class="Body">To add, remove or modify parameters used by scheduled task 
+ scripts, use the property <b>Value</b> and the method <b>Remove</b> provided 
+ by the <b>IEDMParameters</b> interface. </p>
+            <p class="Body">The following code snippet illustrates how to add (modify) 
+ the parameter Par1 for the scheduled task MyTask and set that parameter 
+ to 100. </p><pre class="code" xml:space="preserve">
+<p class="Syntax">Set objSchT = GetObject("EDMS://CN=MyTask,CN=Scheduled Tasks,CN=Server Configuration,cn=Configuration")
+objSchT.Parameters("Par1") = "100"
+objSchT.SetInfo</p>
+</pre>
+            <p class="Body">The following code snippet illustrates how to remove the 
+ parameter Par1 from the scheduled task object MyTask.</p><pre class="code" xml:space="preserve">
+<p class="Syntax">Set objSchT = GetObject("EDMS://CN=MyTask,CN=Scheduled Tasks,CN=Server Configuration,cn=Configuration")
+objSchT.Parameters.Remove "Par1"
+objSchT.SetInfo</p>
+</pre>
+            <p class="Body">Since the property <b>Value</b> is declared as the default 
+ property for the <b>IEDMParameters</b> interface, you can make your source 
+ code more compact by omitting the property name <b>Value</b>, as shown 
+ in the code snippet above. </p>
+            <p class="Body">For example, the following code fragments use both standard 
+ and default property syntax:&#160; </p><pre class="code" xml:space="preserve">
+<p class="Syntax">' Standard syntax
+objSchT.Parameters.Value("Par1") = "100"</p>
+</pre><pre class="code" xml:space="preserve">
+<p class="Syntax">' Default property syntax
+objSchT.Parameters("Par1") = "100"</p>
+</pre>
+            <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc325">
+                <param name="Command" value="Related Topics,MENU" />
+                <param name="Item1" value="IEDM;../EnterpriseDirectoryManagerADSIProvider/iedm.htm" />
+                <param name="Item2" value="Object Policy;objectpolicy.htm" />
+                <param name="Item3" value="Task Object;objecttask.htm" />
+                <param name="Item4" value="Specifying Parameters with MMC Snap-in;specifyingwithmmcsnapin.htm" />
+            </object><a class="MCRelatedTopics" href="javascript:mc325.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

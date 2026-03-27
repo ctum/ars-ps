@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles Add-ons" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>ARSWebUICustomization</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="activeroles_server_add-ons.htm">Active Roles Add-ons</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">ARSWebUICustomization</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1>ARSWebUICustomization Section</h1>
+            <h2>XML Elements </h2>
+            <h3><a name="ARSWebUICustomization"></a>ARSWebUICustomization </h3>
+            <p class="Body">Contains objects related to Web Interface customization.</p>
+            <p class="Body"><span style="font-weight: bold;"><b style="font-weight: bold;">Parent 
+ Element</b></span>: <a href="Add-on_Configuration.htm#AddonDocument">AddonDocument</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#SupportedCustomizationVersion">SupportedCustomizationVersion</a>, 
+ <a href="#CustomizationItems">CustomizationItems</a>, <a href="#ApplyCustomizationToAdminSiteFlag">ApplyCustomizationToAdminSiteFlag</a>, 
+ <a href="#ApplyCustomizationToHelpDeskSiteFlag">ApplyCustomizationToHelpDeskSiteFlag</a>, 
+ <a href="#ApplyCustomizationToSSSiteFlag">ApplyCustomizationToSSSiteFlag</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>PlainTextLabel</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Optional. Contains any string. This attribute allows you to label elements 
+ modified by an add-on. The use of your custom labels allows your applications 
+ to easily update or remove custom elements from the configuration settings. 
+ </p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="SupportedCustomizationVersion"></a>SupportedCustomizationVersion</h3>
+            <p class="Body">Contains a list of supported Web Interface customization 
+ versions.</p>
+            <p class="Body"><span style="font-weight: bold;"><b style="font-weight: bold;">Parent 
+ Element</b></span>: <a href="#ARSWebUICustomization">ARSWebUICustomization</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#Version">Version</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="Version"></a>Version</h3>
+            <p class="Body">Number of the supported Web Interface customization version.</p>
+            <p class="Body"><span style="font-weight: bold;"><b style="font-weight: bold;">Parent 
+ Element</b></span>: <a href="#SupportedCustomizationVersion">SupportedCustomizationVersion</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="CustomizationItems"></a>CustomizationItems</h3>
+            <p class="Body">Contains a list of Web Interface customization items.</p>
+            <p class="Body"><span style="font-weight: bold;"><b style="font-weight: bold;">Parent 
+ Element</b></span>: <a href="#ARSWebUICustomization">ARSWebUICustomization</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#CustomizationItem">CustomizationItem</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="CustomizationItem"></a>CustomizationItem</h3>
+            <p class="Body" style="font-style: normal;">Contains a Web Interface customization 
+ item for a specified configuration template and operation.</p>
+            <p class="Body"><span style="font-weight: bold;"><b style="font-weight: bold;">Parent 
+ Element</b></span>: <a href="#CustomizationItems">CustomizationItems</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#edsaWIMenus">edsaWIMenus</a>, 
+ <a href="#edsaWICommands">edsaWICommands</a>, <a href="#edsaWIForms">edsaWIForms</a>, 
+ <a href="#edsaWIEntries">edsaWIEntries</a>, <a href="#edsaWIStrings">edsaWIStrings</a>, 
+ <a href="#edsaWISettings">edsaWISettings</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>configurationTemplate</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Required. The name of a configuration template. The specified Web Interface 
+ customization item will be applied or removed from all Web Interface sites 
+ of this configuration template. The possible values are:</p>
+                        <ul>
+                            <li style="font-weight: bold;" class="kadov-p-CTableBullet">
+                                <p class="TableBullet">FullDirectoryManagement 
+ <span style="font-weight: normal;">- Site for Administrators</span></p>
+                            </li>
+                            <li style="font-weight: bold;" class="kadov-p-CTableBullet">
+                                <p class="TableBullet">HelpDesk<span style="font-weight: normal;"> 
+ - Site for Help Desk</span></p>
+                            </li>
+                            <li style="font-weight: bold;" class="kadov-p-CTableBullet">
+                                <p class="TableBullet">SelfService <span style="font-weight: normal;">- Site for user self-administration</span></p>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>operation</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Required. The possible values are:</p>
+                        <ul>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet" style="font-weight: bold;">Change<span style="font-weight: normal;"> - Default value. Adds or updates Web Interface 
+ customization items.</span></p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet" style="font-weight: bold;">Remove 
+ <span style="font-weight: normal;">- Removes Web Interface customization 
+ items. This operation applies to leaf elements only.</span></p>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>configurationId</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Optional. GUID of a configuration from which a Web Interface customization 
+ item was exported.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>configurationName</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Optional. The name of a configuration from which a Web Interface customization 
+ item was exported.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>configurationVersion</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Optional. The version of a configuration from which a Web Interface 
+ customization item was exported.</p>
+                    </td>
+                </tr>
+            </table>
+            <h3><a name="edsaWIMenus"></a>edsaWIMenus</h3>
+            <p class="Body">Describes the <span style="font-weight: bold;">edsaWIMenus</span> 
+ attribute. For detailed information on this attribute, see <a href="../EnterpriseDirectoryManagerWI/menusxml.htm">The 
+ Menus Settings</a>.</p>
+            <p class="Body"><span style="font-weight: bold;"><b style="font-weight: bold;">Parent 
+ Element</b></span>: <a href="#CustomizationItem">CustomizationItem</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="../EnterpriseDirectoryManagerWI/menusxml.htm#Tasklists">TaskLists</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <p class="Note" style="font-weight: bold;">Note:</p>
+            <p class="Note">Child elements of the <span style="font-weight: bold;">edsaWIMenus 
+ </span>element may contain an optional attribute <span style="font-weight: bold;">overwriteIfExist</span>. 
+ The attribute <span style="font-weight: bold;">overwriteIfExist </span>is 
+ set to TRUE for the Web Interface customization items that you select 
+ to include in your add-on when creating the add-on in the Add-on Editor. 
+ When the attribute <span style="font-weight: bold;">overwriteIfExist </span>is 
+ set to TRUE, the corresponding Web Interface customization items will 
+ be overwritten when the add-on is installed.</p>
+            <h3><a name="edsaWICommands"></a>edsaWICommands</h3>
+            <p class="Body">Describes the <span style="font-weight: bold;">edsaWICommands</span> 
+ attribute. For detailed information on this attribute, see <a href="../EnterpriseDirectoryManagerWI/commandsxml.htm">The 
+ Commands Settings</a>.</p>
+            <p class="Body"><span style="font-weight: bold;"><b style="font-weight: bold;">Parent 
+ Element</b></span>: <a href="#CustomizationItem">CustomizationItem</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="../EnterpriseDirectoryManagerWI/commandsxml.htm#Tasks">Tasks</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <p class="Note" style="font-weight: bold;"><span style="font-weight: bold;">Note:</span>
+            </p>
+            <p class="Note">Child elements of the <span style="font-weight: bold;">edsaWICommands 
+ </span>element may contain an optional attribute <span style="font-weight: bold;">overwriteIfExist</span>. 
+ The attribute <span style="font-weight: bold;">overwriteIfExist </span>is 
+ set to TRUE for the Web Interface customization items that you select 
+ to include in your add-on when creating the add-on in the Add-on Editor. 
+ When the attribute <span style="font-weight: bold;">overwriteIfExist </span>is 
+ set to TRUE, the corresponding Web Interface customization items will 
+ be overwritten when the add-on is installed.</p>
+            <h3><a name="edsaWIForms"></a>edsaWIForms</h3>
+            <p class="Body">Describes the <span style="font-weight: bold;">edsaWIForms</span> 
+ attribute. For detailed information on this attribute, see <a href="../EnterpriseDirectoryManagerWI/formsxml.htm">The 
+ Forms Settings</a>.</p>
+            <p class="Body"><span style="font-weight: bold;"><b style="font-weight: bold;">Parent 
+ Element</b></span>: <a href="#CustomizationItem">CustomizationItem</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="../EnterpriseDirectoryManagerWI/formsxml.htm#Forms">Forms</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <p class="Note" style="font-weight: bold;"><span style="font-weight: bold;">Note:</span>
+            </p>
+            <p class="Note">Child elements of the <span style="font-weight: bold;">edsaWIForms 
+ </span>element may contain an optional attribute <span style="font-weight: bold;">overwriteIfExist</span>. 
+ The attribute <span style="font-weight: bold;">overwriteIfExist </span>is 
+ set to TRUE for the Web Interface customization items that you select 
+ to include in your add-on when creating the add-on in the Add-on Editor. 
+ When the attribute <span style="font-weight: bold;">overwriteIfExist </span>is 
+ set to TRUE, the corresponding Web Interface customization items will 
+ be overwritten when the add-on is installed.</p>
+            <h3><a name="edsaWIEntries"></a>edsaWIEntries</h3>
+            <p class="Body">Describes the <span style="font-weight: bold;">edsaWIEntries</span> 
+ attribute. For detailed information on this attribute, see <a href="../EnterpriseDirectoryManagerWI/entriesxml.htm">The 
+ Entries Settings</a>.</p>
+            <p class="Body"><span style="font-weight: bold;"><b style="font-weight: bold;">Parent 
+ Element</b></span>: <a href="#CustomizationItem">CustomizationItem</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="../EnterpriseDirectoryManagerWI/entriesxml.htm#Entries">Entries</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <p class="Note" style="font-weight: bold;"><span style="font-weight: bold;">Note:</span>
+            </p>
+            <p class="Note">Child elements of the <span style="font-weight: bold;">edsaWIEntries 
+ </span>element may contain an optional attribute <span style="font-weight: bold;">overwriteIfExist</span>. 
+ The attribute <span style="font-weight: bold;">overwriteIfExist </span>is 
+ set to TRUE for the Web Interface customization items that you select 
+ to include in your add-on when creating the add-on in the Add-on Editor. 
+ When the attribute <span style="font-weight: bold;">overwriteIfExist </span>is 
+ set to TRUE, the corresponding Web Interface customization items will 
+ be overwritten when the add-on is installed.</p>
+            <h3><a name="edsaWIStrings"></a>edsaWIStrings</h3>
+            <p class="Body">Describes the <span style="font-weight: bold;">edsaWIStrings</span> 
+ attribute. For detailed information on this attribute, see <a href="../EnterpriseDirectoryManagerWI/languagefiles.htm">The 
+ Language Settings</a>.</p>
+            <p class="Body"><span style="font-weight: bold;"><b style="font-weight: bold;">Parent 
+ Element</b></span>: <a href="#CustomizationItem">CustomizationItem</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="../EnterpriseDirectoryManagerWI/languagefiles.htm#Resources">Resources</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <p class="Note" style="font-weight: bold;"><span style="font-weight: bold;">Note:</span>
+            </p>
+            <p class="Note">Child elements of the <span style="font-weight: bold;">edsaWIStrings 
+ </span>element may contain an optional attribute <span style="font-weight: bold;">overwriteIfExist</span>. 
+ The attribute <span style="font-weight: bold;">overwriteIfExist </span>is 
+ set to TRUE for the Web Interface customization items that you select 
+ to include in your add-on when creating the add-on in the Add-on Editor. 
+ When the attribute <span style="font-weight: bold;">overwriteIfExist </span>is 
+ set to TRUE, the corresponding Web Interface customization items will 
+ be overwritten when the add-on is installed.</p>
+            <h3><a name="edsaWISettings"></a>edsaWISettings</h3>
+            <p class="Body">Describes the <span style="font-weight: bold;">edsaWISettings</span> 
+ attribute. For detailed information on this attribute, see <a href="../EnterpriseDirectoryManagerWI/interfacesettings.htm">The 
+ Interface Settings</a>.</p>
+            <p class="Body"><span style="font-weight: bold;"><b style="font-weight: bold;">Parent 
+ Element</b></span>: <a href="#CustomizationItem">CustomizationItem</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="../EnterpriseDirectoryManagerWI/interfacesettings.htm#Settings">Settings</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <p class="Note" style="font-weight: bold;"><span style="font-weight: bold;">Note:</span>
+            </p>
+            <p class="Note">Child elements of the <span style="font-weight: bold;">edsaWISettings 
+ </span>element may contain an optional attribute <span style="font-weight: bold;">overwriteIfExist</span>. 
+ The attribute <span style="font-weight: bold;">overwriteIfExist </span>is 
+ set to TRUE for the Web Interface customization items that you select 
+ to include in your add-on when creating the add-on in the Add-on Editor. 
+ When the attribute <span style="font-weight: bold;">overwriteIfExist </span>is 
+ set to TRUE, the corresponding Web Interface customization items will 
+ be overwritten when the add-on is installed.</p>
+            <h3><a name="ApplyCustomizationToAdminSiteFlag"></a>ApplyCustomizationToAdminSiteFlag</h3>
+            <p class="Body">When set to TRUE, Web Interface customization for sites for 
+ Administrators will be applied when an add-on is installed.</p>
+            <p class="Body"><span style="font-weight: bold;"><b style="font-weight: bold;">Parent 
+ Element</b></span>: <a href="#ARSWebUICustomization">ARSWebUICustomization</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="ApplyCustomizationToHelpDeskSiteFlag"></a>ApplyCustomizationToHelpDeskSiteFlag</h3>
+            <p class="Body">When set to TRUE, Web Interface customization for Help Desk 
+ sites will be applied when an add-on is installed.</p>
+            <p class="Body"><span style="font-weight: bold;"><b style="font-weight: bold;">Parent 
+ Element</b></span>: <a href="#ARSWebUICustomization">ARSWebUICustomization</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="ApplyCustomizationToSSSiteFlag"></a>ApplyCustomizationToSSSiteFlag 
+ </h3>
+            <p class="Body">When set to TRUE, Web Interface customization for user self-administration 
+ sites will be applied when an add-on is installed.</p>
+            <p class="Body"><span style="font-weight: bold;"><b style="font-weight: bold;">Parent 
+ Element</b></span>: <a href="#ARSWebUICustomization">ARSWebUICustomization</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

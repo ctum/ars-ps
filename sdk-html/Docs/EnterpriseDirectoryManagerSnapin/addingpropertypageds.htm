@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Adding Property Page</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_AddingPropertyPageDS" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor81"></a>
+                <MadCap:concept term="a_AddingPropertyPageDS" />Adding Property Page</h1>
+            <p class="Body">This sample C++ project demonstrates how to add an extension 
+ snap-in's property page to a property sheet displayed by the primary Active 
+ Roles snap-in. </p>
+            <p class="Body">All files related to this project are saved in the folder 
+ '...\SDK\Samples\ARServer Snap-in\Ds\Property Page Extension'. </p>
+            <h2>Building the Sample</h2>
+            <p class="Procedure"><b style="font-weight: bold;">To build the sample project</b>
+            </p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">In Microsoft 
+ Visual Studio 2008, open the solution file DsPropTest.sln.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">On the Standard 
+ toolbar, choose <b>Release</b> from the <b>Solution Configurations</b> 
+ list box.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">On the <b>Build</b> 
+ menu, click <b>Rebuild Solution</b>.</p>
+                </li>
+            </ol>
+            <h2>Registering the Property Sheet Extension DLL in a Display Specifier</h2>
+            <p class="Body">After you build the project, register the property sheet 
+ extension DLL under any of the following attributes of the appropriate 
+ <a href="displayspecifiers.htm">display specifier</a>: edsaEDMSPropertyPages, 
+ edsaLDAPPropertyPages. The format of values for those attributes are described 
+ in <a href="registeringcomobjects.htm#RegContextMenu">Registering Property 
+ Page and Context Menu Extensions</a>.</p>
+            <p class="Body">To clarify the registration procedure, consider the steps 
+ you should perform to extend the property sheet for Organization Units.</p>
+            <p class="Procedure"> <b>To register the property sheet extension 
+ DLL in the user-Display DS</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Choose the Raw mode for Active Roles snap-in 
+ display: </p>
+                    <ul>
+                        <li class="kadov-p-CSubBullet">
+                            <p class="SubBullet">On the <b>View</b> 
+ menu, click <b>Mode</b>, and then in the <b>View Mode</b> dialog box, 
+ select the <b>Raw Mode</b> option and click <b>OK</b>.</p>
+                        </li>
+                    </ul>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">In the console 
+ tree, expand the <b>Configuration</b> node, expand the <b>Application 
+ Configuration</b> node, expand <b>Active Roles Display Specifiers (Custom)</b>, 
+ and then click the appropriate locale-specific container (the locale container 
+ for US-English is 409). Note that if the locale-specific container does 
+ not exist, you should create that container using this <a href="displayspecifiers.htm#DS">procedure</a>. 
+ </p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">In the details 
+ pane, right-click the display specifier organizationalUnit-Display, point 
+ to <b>All Tasks</b> and then click <b>Advanced Properties</b>. Note that 
+ if the DS organizationalUnit-Display is absent within the locale-specific 
+ container, you should create that DS using this <a href="displayspecifiers.htm#DS">procedure</a>. 
+ </p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList">Using the <b>Advanced 
+ Properties </b>dialog box, set the attribute edsaLDAPPropertyPages to 
+ the following value: 1,{486B8AF4-DDEA-4C5B-B959-D9022922B4BA}</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="5">
+                    <p class="NumberedList">Close the <b>Advanced 
+ Properties </b>dialog box and restart the Active Roles Administration 
+ Service. </p>
+                </li>
+            </ol>
+            <p class="StepNote"><b style="font-weight: bold;">Note:</b>
+            </p>
+            <p class="StepNote">&#160;</p>
+            <p class="StepNote">{486B8AF4-DDEA-4C5B-B959-D9022922B4BA} is the string 
+ representation of the CLSID for the property page extension created with 
+ this sample project. This value is set in the file \DsPropTestATL\DSPropTest.idl 
+ (see the line: uuid(486B8AF4-DDEA-4C5B-B959-D9022922B4BA)).</p>
+            <h2>How the Sample Works</h2>
+            <p class="Body">After you build this project and register the created property 
+ page DLL in the display specifier organizationalUnit-Display, the Active 
+ Roles console will display a new tab <b>Page From DSPropTestAtl.dll</b> 
+ in&#160;the <b>Properties</b> dialog box for the OU objects.</p><a href="propertypageds.gif"><img src="propertypageds_thn.gif" style="width: 310px;height: 350px;" width="310" height="350" border="0" class="Image" /> </a>
+            <p class="Body"><a href="propertypageds_thn.gif">Enlarge figure</a>
+            </p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc421">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="About Active Roles;../IntroducingEDMSoftwareDevelopmentKit/aboutenterprisedirectorymanager.htm" />
+                    <param name="Item2" value="Extending Active Roles snap-in with the MMC Extension Snap-ins;extendingsnapinwithmmc.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc421.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

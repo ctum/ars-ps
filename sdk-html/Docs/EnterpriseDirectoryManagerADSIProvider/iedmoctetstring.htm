@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles ADSI Provider|ADSI Provider Reference|Interfaces|Active Roles-Specific Interfaces|Utility Interfaces" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>IEDMOctetString</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_IEDMOctetString" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanageradsiprovider.htm">Active Roles ADSI Provider</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="edmadsiproviderreference.htm">ADSI Provider Reference</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">IEDMOctetString</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor202"></a>
+                <MadCap:concept term="a_IEDMOctetString" />IEDMOctetString</h1>
+            <p class="Body"> Active Roles defines the Automation object <b>AelitaEDM.EDMOctetString</b> 
+ that supports the <b>IEDMOctetString</b> interface. This interface defines 
+ properties and methods that help you create and process the binary AD 
+ attributes such as objectGUID, objectSid, etc. For example, with this 
+ interface you can generate GUID for directory objects you want to create. 
+ </p>
+            <p class="Body">To use this interface, you must first create an instance 
+ of the object <b>AelitaEDM.EDMOctetString</b> with the function CreateObject, 
+ as shown in the following example: </p><pre class="code" xml:space="preserve">
+<p class="Syntax">set objOctetString = CreateObject("AelitaEDM.EDMOctetString")</p>
+</pre>
+            <h2>Properties </h2>
+            <p class="Body">The <b>IEDMOctetString</b> interface has the following properties. 
+ </p>
+            <table>
+                <tr>
+                    <th style="text-align: left;width: 30%;" align="left" width="30%">
+                        <p class="TableHeading">Property</p>
+                    </th>
+                    <th style="text-align: left;width: 70%;" align="left" width="70%">
+                        <p class="TableHeading">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;">Length</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Sets and returns the length of the binary array (in 
+ bytes) processed with the object <b>AelitaEDM.EDMOctetString</b>. Note 
+ that the object <b>AelitaEDM.EDMOctetString </b>stores the binary value 
+ to be processed as an array of bytes. </p>
+                    </td>
+                </tr>
+            </table>
+            <h2>Methods </h2>
+            <p class="Body">The <b>IEDMOctetString</b> interface defines the following 
+ methods:</p>
+            <table>
+                <tr>
+                    <th style="text-align: left;width: 30%;" align="left" width="30%">
+                        <p class="TableHeading">Method</p>
+                    </th>
+                    <th style="text-align: left;width: 70%;" align="left" width="70%">
+                        <p class="TableHeading">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;"><a href="iedmoctetstring_set.htm">Set</a></b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Sets the binary value to be processed with the object 
+ <b>AelitaEDM.EDMOctetString</b>. </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;"><a href="iedmoctetstring_getstring.htm">GetString</a></b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Returns a string representing the binary value defined 
+ in the object <b>AelitaEDM.EDMOctetString</b>. </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;"><a href="iedmoctetstring_getoctetstring.htm">GetOctetString</a></b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Returns an array of bytes representing the binary value 
+ defined in the object <b>AelitaEDM.EDMOctetString</b>. </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;"><a href="iedmoctetstring_getsidstring.htm">GetSidString</a></b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Returns a string conforming to the syntax Sid (Syntax 
+ ID: 2.5.5.17). </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;"><a href="iedmoctetstring_setsidstring.htm">SetSidString</a></b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Sets the binary value to be processed with the object 
+ <b>AelitaEDM.EDMOctetString</b>. </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;"><a href="iedmoctetstring_getguidstring.htm">GetGuidString</a></b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Returns a string conforming to the syntax OctetString 
+ (Syntax ID: 2.5.5.10).&#160; </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;"><a href="iedmoctetstring_setguidstring.htm">SetGuidString</a></b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Sets the binary value to be processed with the object 
+ <b>AelitaEDM.EDMOctetString</b>. </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;"><a href="iedmoctetstring_generateguid.htm">GenerateGuid</a></b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Generates a new GUID and stores it in the object <b>AelitaEDM.EDMOctetString</b>. 
+ </p>
+                    </td>
+                </tr>
+            </table>
+            <h2>Example Code (VBScript)</h2>
+            <p class="Body">The following code snippet illustrates how to use the object 
+ <b>AelitaEDM.EDMOctetString </b>to output GUID and SID of the specified 
+ user object.</p><pre class="code" xml:space="preserve">
+<p class="Syntax">'Set the User object's DN
+Const strDN="CN=Douglas P. Joyse,OU=Sales,DC=MyDomain,DC=local"
+ss="Object: " + strDN + vbNewLine + vbNewLine
+Set obj = GetObject("EDMS://" + strDN)
+Set OctetString=CreateObject("AelitaEDM.EDMOctetString")
+With OctetString
+ &#160;&#160;&#160;.Set obj.Get("objectGUID")
+ &#160;&#160;&#160;ss = ss + "GUID: " + .GetGuidString + vbNewLine
+ &#160;&#160;&#160;ss = ss + "GUID length= " + Cstr(.Length) + " bytes" + vbNewLine
+ &#160;&#160;&#160;.Set obj.Get("objectSid")
+ &#160;&#160;&#160;ss = ss + "SID: " + .GetSidString + vbNewLine
+ &#160;&#160;&#160;ss = ss + "SID length= " + Cstr(.Length) + " bytes" + vbNewLine
+End With
+MsgBox ss</p>
+</pre>
+            <p class="Body">For more examples of the code snippets using the <b>IEDMOctetString</b> 
+ interface, refer to <a href="managingaccesstemplates.htm">Managing Access 
+ Templates</a>, <a href="managingpolicyobjects.htm">Managing Policy Objects</a>.</p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc146">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="Managing Access Templates;managingaccesstemplates.htm" />
+                    <param name="Item2" value="Managing&#160;Computer Resources;managingcompresources.htm" />
+                    <param name="Item3" value="Managing Policy Objects;managingpolicyobjects.htm" />
+                    <param name="Item4" value="Utility Interfaces;utilityinterfaces.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc146.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

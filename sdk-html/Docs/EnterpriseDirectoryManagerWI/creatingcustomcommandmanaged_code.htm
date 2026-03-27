@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Web Interface|How to...|Developing Custom Web Pages" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Creating a custom command using a managed code</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_StubTopic" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="webinterface.htm">Web Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="howto.htm">How to...</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Creating a custom command using a managed code</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor412"></a>
+                <MadCap:concept term="a_StubTopic" />Creating a Custom Command Using Managed Code</h1>
+            <p class="Body">This topic explains how you can create a custom command that 
+ uses a managed code. The following managed languages are supported: C#, 
+ JScript...</p>
+            <p class="Body">The custom command of this type displays a user interface 
+ that renders the state of a directory object to which the command applies. 
+ The user interface allows you to modify the directory object properties 
+ using the managed code associated with that command.</p>
+            <p class="Body">&#160;</p>
+            <p class="Procedure"> <b>To create a command that uses a managed 
+ code</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Create a class 
+ that implements the interface <span style="font-weight: bold;">ICustomCommand</span>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Using Microsoft 
+ Visual Studio, create an assembly that uses that class.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">Save the assembly 
+ (such as a .dll file) to the folder <span style="font-style: italic;">&lt;WI 
+ Installation Folder&gt;/bin/&gt;</span></p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList">Define your command 
+ in the attribute <span style="font-weight: bold;"><a href="commandsxml.htm">edsaWICommands</a></span>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="5">
+                    <p class="NumberedList">Make the appropriate 
+ changes to the attributes <span style="font-weight: bold;"><a href="menusxml.htm">edsaWIMenus</a></span> 
+ and <span style="font-weight: bold;"><a href="languagefiles.htm">edsaWIStrings</a></span> 
+ of the WorkingCopy object.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="6">
+                    <p class="NumberedList">For changes to 
+ take effect, restart IIS Admin Service.</p>
+                </li>
+            </ol>
+            <h2><a name="Example"></a>Example</h2>
+            <p class="Body">To clarify the procedure above, consider the following example. 
+ </p>
+            <h3>Sample Managed Code</h3>
+            <p class="Body">The file ...\Samples\WI\managedcode.cs contains an example 
+ of the managed C# code that implements the interface <span style="font-weight: bold;">ICustomCommand</span>. 
+ The methods provided by this interface allow you to define where to display 
+ the UI associated with the command. This code displays the command UI 
+ in the console right pane. Note that the interface <span style="font-weight: bold;">ICustomCommand</span> 
+ is defined in the library Web.Interfaces. The sample code also uses the 
+ libraries Interop.ActiveDS, System.Drawing, and System.Web.</p>
+            <p class="Procedure"> <b>To create an assembly using the sample 
+ managed code</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">On the computer 
+ where the Web Interface is installed, run Microsoft Visual Studio.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">On the <span style="font-weight: bold;">File</span> menu, point to <span style="font-weight: bold;">New</span>, 
+ and then click <span style="font-weight: bold;">Project</span>. &#160;This 
+ opens the <span style="font-weight: bold;">New Project</span> dialog box.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">In the <span style="font-weight: bold;">New Project</span> dialog box, do the following:</p>
+                </li>
+                <ul>
+                    <li class="kadov-p-CSubBullet">
+                        <p class="SubBullet">Under <span style="font-weight: bold;">Project 
+ types</span>, select <span style="font-weight: bold;">Other Languages 
+ | Visual C# | Windows</span></p>
+                    </li>
+                    <li class="kadov-p-CSubBullet">
+                        <p class="SubBullet">Under <span style="font-weight: bold;">Templates</span>, 
+ select <span style="font-weight: bold;">Class Library</span></p>
+                    </li>
+                    <li class="kadov-p-CSubBullet">
+                        <p class="SubBullet">In the <span style="font-weight: bold;">Name</span> 
+ text box, type in CustomDevProject</p>
+                    </li>
+                    <li class="kadov-p-CSubBullet">
+                        <p class="SubBullet">When finished, 
+ click <span style="font-weight: bold;">OK</span>.</p>
+                    </li>
+                </ul>
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList">On the <span style="font-weight: bold;">View</span> menu, click <span style="font-weight: bold;">Solution 
+ Explorer</span>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="5">
+                    <p class="NumberedList">In the Solution 
+ Explorer view, right-click your solution (CustomDevProject), on the shortcut 
+ menu, point to <span style="font-weight: bold;">Add</span>, and then click 
+ <span style="font-weight: bold;">Existing Item</span>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="6">
+                    <p class="NumberedList">Add the delivered 
+ source managedcode.cs using the <span style="font-weight: bold;">Add Existing 
+ Items - Solution Item</span> dialog box.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="7">
+                    <p class="NumberedList">Build the project, 
+ and then save the created assembly (CustomDevProject.dll file) to the 
+ folder <span style="font-style: italic;">&lt;WI installation folder&gt;</span>\bin, 
+ where <span style="font-style: italic;">&lt;WI installation folder&gt;</span> 
+ refers to the folder where the Web Interface is installed.</p>
+                </li>
+            </ol>
+            <p class="Note" style="font-weight: bold;">Note</p>
+            <p class="Note">For more information about how to create Visual Studio projects, 
+ refer to the Microsoft Visual Studio documentation.</p>
+            <h3>Changes to the WorkingCopy Object</h3>
+            <p class="Body">The attribute <span style="font-weight: bold;">edsaWICommands</span> 
+ must contain the definition of your command. The appropriate changes must 
+ be also made to the attributes <span style="font-weight: bold;">edsaWIMenus</span>, 
+ <span style="font-weight: bold;">edsaWIStrings</span>. The following procedures 
+ help you make these changes.</p>
+            <p class="Body">&#160;</p>
+            <p class="Procedure"> <b>To make changes to the edsaWICommands 
+ attribute </b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Write">Save</a> 
+ the value of the <b>edsaWICommands </b>attribute &#160;into 
+ a text file.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Open this file with any XML editor, such as XML 
+ Spy, and insert the following element Task:</p>
+                    <p>&lt;Task ID="SimpleManagedCustomCommand"<br />	ResID="WIS_SIMPLE_MANAGED_CUSTOM_COMMAND"<br />	DescriptionResID="WIS_SIMPLE_MANAGED_CUSTOM_COMMAND"<br />	ToolTipResID="WIS_SIMPLE_MANAGED_CUSTOM_COMMAND"<br />	HelperResID="WIS_SIMPLE_MANAGED_CUSTOM_COMMAND"<br />	TaskType="0"<br />	Action="CustomCommands.aspx"<br />	ClassNames="user"<br />	FullQualifiedTypeName="CustomDevelopment.SimpleCustomCommand,CustomDevProject"&gt;<br />	&lt;Setting Name="Setting_1" Value="SettingValue_1"/&gt;<br />	&lt;Setting Name="Setting_2" Value="SettingValue_2"/&gt;<br />	&lt;Setting Name="Setting_3" Value="SettingValue_3"/&gt;<br />	&lt;Setting Name="Setting_4" Value="SettingValue_4"/&gt;<br />	&lt;RuntimeVariables&gt;<br />	&lt;Variable Name="LCID" QueryParamName="LCID" 
+ Scope="Application" /&gt;<br />	&lt;Variable Name="TaskId" QueryParamName="TaskId" 
+ Scope="Application" /&gt;<br />	&lt;Variable Name="IsDSAdmin" QueryParamName="IsDSAdmin" 
+ Scope="Application" /&gt;<br />	&lt;Variable Name="BindInfo" QueryParamName="BindInfo" 
+ Scope="Application" /&gt;<br />	&lt;Variable Name="OperationalDC" QueryParamName="OperationalDC" 
+ Scope="Application" /&gt;<br />	&lt;Variable Name="userPrincipalName" QueryParamName="(SO)userPrincipalName" 
+ Scope="SecurableObject" /&gt;<br />	&lt;Variable Name="distinguishedName" QueryParamName="(T)distinguishedName" 
+ Scope="Trustee" /&gt;<br />	&lt;/RuntimeVariables&gt;<br />	&lt;/Task&gt;</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Read">Save 
+ changes</a> to the <b>edsaWICommands </b>attribute.</p>
+                </li>
+            </ol>
+            <p class="Body">Note that the attribute FullQualifiedTypeName of the element 
+ Task refers to the class that implements the custom command. The value 
+ of this attribute conforms the following syntax:<span style="font-style: italic;"><br />TopNamespace.SubNameSpace.ContainingClass+NestedClass, MyAssembly</span><br /><br />where TopNamespace, &#160;Subnamespace, 
+ etc. - refer to the namespaces defined in your project. For more information, 
+ refer to the MSDN Library. </p>
+            <p class="Procedure"> <b>To make changes to the attribute edsaWIMenus</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Write">Save</a> 
+ the value of the attribute <b>edsaWIMenus</b> into a text file.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Open this file with any XML editor, such as XML 
+ Spy, and under the appropriate element <a href="menusxml.htm#TaskList">TaskList</a> 
+ insert the element <a href="menusxml.htm#Task">Task</a> that describes 
+ your command:</p>
+                    <p class="MsoNormal"><span style="font-size: 9.0pt;font-family: 'Courier New';">&lt;TaskList 
+ TargetClass="user" DefaultTask="UserProperties"&gt;<br />	&lt;Task ID="DisableAccount" /&gt;<br />	…<br />	&lt;Task ID="SimpleManagedCustomCommand" /&gt;<br />	&lt;/TaskList&gt;</span>
+                    </p>
+	
+	&#160; 
+	
+	<p class="NumberedList">This adds your command identified with ID=<span style="font-size: 9.0pt;font-family: 'Courier New';">"SimpleManagedCustomCommand" 
+ </span>to the bottom of the <span style="font-weight: bold;">User</span> 
+ menu.</p></li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Read">Save 
+ changes</a> to the attribute <b>edsaWIMenus</b>.</p>
+                </li>
+            </ol>
+            <p class="Procedure"> <b>To make changes to the attribute edsaWIStrings</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList"><b style="font-weight: normal;"><a href="specifyingsettings.htm#Write">S</a></b>ave the value of the attribute 
+ <b>edsaWIStrings</b> into a text file.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Open this file 
+ with any XML editor, such as XML Spy, and insert the description of the 
+ resource WIS_SIMPLE_MANAGED_CUSTOM_COMMAND used in the attribute <span style="font-weight: bold;">edsaWICommands</span>:<br />	&lt;Res ID="WIS_SIMPLE_MANAGED_CUSTOM_COMMAND" Value="Simple 
+ Managed Custom Command" /&gt;</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Read">Save 
+ changes</a> to the attribute <b>edsaWIStrings</b>.</p>
+                </li>
+            </ol>
+            <p class="Body">&#160;</p>
+            <p class="Body">&#160;</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

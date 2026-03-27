@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Event Handlers</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_EventHandlers" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor191"></a>
+                <MadCap:concept term="a_EventHandlers" />Event Handlers</h1>
+            <p class="Body">A policy script includes one or more <a href="understandingeventhandlers.htm">event 
+ handlers</a>. Each event handler (except the onInit and onFilter event 
+ handlers) is a function (<b>Sub</b> procedure, as applied to VBScript) 
+ that has the following syntax:</p><pre xml:space="preserve">
+<p class="Syntax"><span style="color: #0000ff;">[VBScript]</span>
+Sub <i>EventHandlerName</i>(<span style="font-style: italic;">Request</span>)
+' Event handler code goes here
+End Sub</p>
+
+<p class="Syntax"><span style="color: #0000ff;">
+[PowerShell]</span>
+function <i>EventHandlerName</i>($<span style="font-style: italic;">Request</span>)
+{
+# Event handler code goes here
+}&#160;&#160;</p>
+</pre>
+            <h3 class="Body">Arguments</h3>
+            <dl>
+                <p class="Body"><span style="font-style: italic;">Request</span>
+                </p>
+                <dd>
+                    <p class="Body">[in] Required. A reference to the intrinsic object <span style="font-weight: bold;"><a href="requestobject.htm">Request</a></span>.</p>
+                </dd>
+            </dl>
+            <p class="Body">&#160;</p>
+            <p class="Body">In the preceding code snippet, the <i>EventHandlerName</i> 
+ refers to one of&#160; the following event handler names: </p>
+            <table>
+                <tr>
+                    <th style="text-align: left;width: 36%;" align="left" width="36%">
+                        <p class="TableHeading">Event Handler Name</p>
+                    </th>
+                    <th style="text-align: left;width: 64%;" align="left" width="64%">
+                        <p class="TableHeading">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody"><b style="font-weight: bold;">onPreCreate</b>
+                        </p>
+                    </td>
+                    <td style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">In a script policy applied to a container, receives 
+ control upon a request to create an object in that container. This enables 
+ a script to perform custom actions prior to creating an object.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody"><b style="font-weight: bold;">onPostCreate</b>
+                        </p>
+                    </td>
+                    <td style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">The handler is activated immediately after an object 
+ is successfully created in the underlying directory store. </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody"><b style="font-weight: bold;">onPreDelete</b>
+                        </p>
+                    </td>
+                    <td style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">In a script policy applied to a container, receives 
+ control after a request to create an object in that container is completed. 
+ This enables a script to perform custom actions further to creating an 
+ object.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody"><b style="font-weight: bold;">onPostDelete</b>
+                        </p>
+                    </td>
+                    <td style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">Receives control after a request to delete an object 
+ is completed. Enables a script to perform custom actions further to deleting 
+ an object.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody" style="font-weight: bold;">onPreUnDelete</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">Receives control upon a request to execute the object 
+ restore (undelete) operation (only for Windows 2008 R2 with Recycle Bin 
+ enabled). Enables the use of a script for customizing the behavior of 
+ the operation.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody" style="font-weight: bold;">onPostUnDelete</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">Receives control after a request to execute the object 
+ restore (undelete) operation (only for Windows 2008 R2 with Recycle Bin 
+ enabled). Enables the use of a script for customizing the behavior of 
+ the operation.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody" style="font-weight: bold;">onPreDeprovision</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">Receives control upon a request to execute the Deprovision 
+ operation. Enables a script to perform custom actions prior to starting 
+ the operation.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody" style="font-weight: bold;">onDeprovision</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">Receives control in the course of processing a request 
+ to execute the Deprovision operation. Enables the use of a script for 
+ customizing the behavior of the operation.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody" style="font-weight: bold;">onPostDeprovision</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">Receives control after a request to execute the Deprovision 
+ operation is completed. Enables a script to perform custom actions following 
+ the operation.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody" style="font-weight: bold;">onPreUnDeprovision</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">Receives control upon a request to execute the Undo 
+ Deprovisioning operation. Enables a script to perform custom actions prior 
+ to starting the operation.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody" style="font-weight: bold;">onUnDeprovision</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">Receives control in the course of processing a request 
+ to execute the Undo Deprovisioning operation. Enables the use of a script 
+ for customizing the behavior of the operation.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody" style="font-weight: bold;">onPostUnDeprovision</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">Receives control after a request to execute the Undo 
+ Deprovisioning operation is completed. Enables a script to perform custom 
+ actions following the operation.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody"><b style="font-weight: bold;">onPreModify</b>
+                        </p>
+                    </td>
+                    <td style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">Receives control upon a request to start changing object 
+ properties. Enables a script to perform custom actions prior to applying 
+ changes to an object. </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody"><b style="font-weight: bold;">onPostModify</b>
+                        </p>
+                    </td>
+                    <td style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">Receives control after a request to change object properties 
+ is completed. Enables a script to perform custom action further to changing 
+ an object's property values. </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody"><b style="font-weight: bold;">onPreMove</b>
+                        </p>
+                    </td>
+                    <td style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">In a script policy applied to a container, this function 
+ receives control upon a request to start moving an object from that container. 
+ This enables a script to perform custom actions prior to moving an object. 
+ </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody"><b style="font-weight: bold;">onPostMove</b>
+                        </p>
+                    </td>
+                    <td style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">In a script policy applied to a container, this function 
+ receives control after a request to move an object to that container is 
+ completed. This enables a script to perform custom actions further to 
+ moving an object. </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody"><b style="font-weight: bold;">onPreRename</b>
+                        </p>
+                    </td>
+                    <td style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">Receives control upon a request to start renaming an 
+ object. Enables a script to perform custom actions prior to renaming an 
+ object.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody"><b style="font-weight: bold;">onPostRename</b>
+                        </p>
+                    </td>
+                    <td style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">Receives control after a request to rename an object 
+ is completed. Enables a script to perform custom actions further to renaming 
+ an object. </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody"><b style="font-weight: bold;">onPreGet</b>
+                        </p>
+                    </td>
+                    <td style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">Receives control upon a request to retrieve object properties. 
+ Enables a script to perform custom actions prior to starting the retrieval 
+ of an object's property values.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody"><b style="font-weight: bold;">onPostGet</b>
+                        </p>
+                    </td>
+                    <td style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">Receives control after a request to retrieve object 
+ properties is completed. Enables a script to perform custom actions following 
+ the retrieval of an object's property values.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody"><b style="font-weight: bold;">onPreSearch</b>
+                        </p>
+                    </td>
+                    <td style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">Receives control upon a request to start a search. Enables 
+ a script to perform custom actions prior to starting a search.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody"><b style="font-weight: bold;">onCheckPropertyValues</b>
+                        </p>
+                    </td>
+                    <td style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">Receives control upon a request to verify and validate 
+ the changes that are going to be made to an object. Enables a script to 
+ perform custom actions further to normal validity checks on an object.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 36%;" valign="top" width="36%">
+                        <p class="TableBody"><b style="font-weight: bold;">onGetEffectivePolicy</b>
+                        </p>
+                    </td>
+                    <td style="width: 64%;" valign="top" width="64%">
+                        <p class="TableBody">Receives control upon a request to retrieve the policy 
+ settings that are in effect on a particular object (such as policy constraints 
+ on property values). Enables a script to perform custom actions further 
+ to retrieval of policy settings.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body"><span class="QuestBlue">Note</span>
+            </p>
+            <p class="Note">For information about the syntax of the onInit and onFilter 
+ event handlers, refer to <a href="understandingeventhandlers.htm">Understanding 
+ Event Handlers</a>.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc408">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="Applying Policy Scripts;applyingpolicyscriptsexamples.htm" />
+                    <param name="Item2" value="Skeleton Script;skeletonscript.htm" />
+                    <param name="Item3" value="Understanding Event Handlers;understandingeventhandlers.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc408.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

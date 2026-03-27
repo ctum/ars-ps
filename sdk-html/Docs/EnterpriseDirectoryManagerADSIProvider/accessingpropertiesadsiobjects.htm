@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles ADSI Provider|Tutorial: ADSI Scripting" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Accessing Properties of ADSI Objects</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_AccessingPropertiesADSIObjects" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanageradsiprovider.htm">Active Roles ADSI Provider</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="tutorialadsi.htm">Tutorial: ADSI Scripting</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Accessing Properties of ADSI Objects</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor41"></a>
+                <MadCap:concept term="a_AccessingPropertiesADSIObjects" />Accessing Properties of ADSI Objects </h1>
+            <p class="Body">All ADSI objects have methods to retrieve the properties 
+ of the directory object that the ADSI object represents. There are a number 
+ of ways you can retrieve properties of an object: </p>
+            <ul>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><i style="font-style: italic;">Get a specific property 
+ by name</i>. All ADSI objects implement the <b><a href="iads.htm">IADs</a></b> 
+ interface, whose properties and methods allow you to access and modify 
+ properties of the directory object to which you have bound (see <a href="bindingadsiobject.htm">Binding 
+ to Directory Objects</a>). In Automation applications, you can use the 
+ dot operator to access the so called basic <b>IADs</b> properties of directory 
+ objects listed in the table under <b>IADs Properties</b> in the <a href="iads.htm"><b>IADs</b></a> 
+ topic.&#160; </p>
+                    <p class="Body">The following script will display the basic <b>IADs</b> 
+ properties for a specific user: </p><pre xml:space="preserve">
+		Dim usr, ss
+		ss="The User object properties: "+ VbCrLf
+		' Bind to the user object
+		Set usr=GetObject("EDMS://MyServer/CN=John Doe,OU=Sales,DC=mycompany,DC=COM")
+		' Retrieve the user object basic IADs properties
+		ss=ss+"Name: "+CStr(usr.Name) + VbCrLf
+		ss=ss+"ADsPath: "+CStr(usr.ADsPath) + VbCrLf
+		ss=ss+"Parent: "+CStr(usr.Parent)
+		MsgBox ss
+		
+	</pre>
+                    <p class="Body">The basic <b>IADs </b>properties allow you to identify 
+ a directory object and locate it in the directory hierarchy, but most 
+ of the useful information about the object is stored in other properties 
+ that are specific to that object's class. These properties can be accessed 
+ by their LDAP display names using both the <b>Get</b>/<b>GetEx</b> method 
+ of the <b>IADs</b> interface and the dot operator. The following script 
+ shows how to retrieve properties of the user object: </p><pre xml:space="preserve">
+		Dim usr, location, otherNumbers,ss, lname
+		on error resume next
+		' Bind to the user object
+		Set usr = GetObject("EDMS://MyServer/CN=John Doe,OU=Sales,DC=mycompany,DC=COM")
+		' Load all the user object properties from Administration Service to the property cache
+		usr.GetInfo
+		' Retrieve the single value property ("l") using the Get method
+		location = usr.Get("l")
+		MsgBox "Locality: " + VbCrLf + Cstr(location)
+		' Retrieve the single value property ("sn") using the dot operator
+		lname=usr.sn
+		MsgBox "Last Name: " + VbCrLf + Cstr(lname)
+		' Retrieve the multiple value property ("otherHomePhone") using the GetEx method
+		otherNumbers = usr.GetEx("otherHomePhone")
+		ss=""
+		For Each homeNum In otherNumbers
+		ss=ss+ Cstr(homeNum) + VbCrLf
+		Next
+		MsgBox "Other home numbers: " + VbCrLf + ss
+		
+	</pre>
+                    <p class="note"><b>Note:</b> <br />	To avoid slow network calls, the Active Roles ADSI Provider 
+ caches properties locally. When you first bind to an object using the 
+ <b>GetObject</b> function, the object's properties are empty in the property 
+ cache. When you access property values using the dot operator or&#160; 
+ the <b>Get</b> method, the Active Roles ADSI Provider loads all 
+ the property values for that object from the Active Roles Administration 
+ Service and places them in the property cache. All further retrieval of 
+ properties, using either syntax, will retrieve the values from the property 
+ cache.<br />	You can explicitly fill an object's property cache by using the <b>GetInfo</b> 
+ or <b>GetInfoEx</b> method of <b><a href="iads.htm">IADs</a></b>. </p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><i style="font-style: italic;">Get 
+ a specified list of properties</i>. The non-Automation clients (for example, 
+ C++ applications) can use methods of the <b><a href="idirectoryobject.htm">IDirectoryObject</a></b> 
+ to directly access properties of directory objects. For more information 
+ about using <b>IDirectoryObject</b>, refer to the <a href="http://msdn.microsoft.com/library">MSDN 
+ Library</a>. </p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><i style="font-style: italic;">Enumerate 
+ all properties on the object</i>. The <b><a href="iadspropertylist.htm">IADsPropertyList</a></b> 
+ interface allows you to enumerate all the initialized properties on an 
+ object. For more information about using <b>IADsPropertyList</b>, refer 
+ to the <a href="http://msdn.microsoft.com/library">MSDN Library</a>. </p>
+                </li>
+            </ul>
+            <h4>
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc202">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="IADs;iads.htm" />
+                    <param name="Item2" value="Modifying Properties of ADSI Objects;modifyingpropertiesadsiobjects.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc202.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </h4>
+            <h4>&#160;</h4>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

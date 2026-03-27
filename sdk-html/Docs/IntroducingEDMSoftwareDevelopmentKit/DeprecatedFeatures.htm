@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Introducing the Active Roles SDK|Backward Compatibility" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Deprecated Features</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_PrerequisitesUsingEDMSDK" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="aboutenterprisedirectorymanager1.htm">Introducing the Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="BackwardCompatibility.htm">Backward Compatibility</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Deprecated Features</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor254"></a>
+                <MadCap:concept term="a_PrerequisitesUsingEDMSDK" />Deprecated features</h1>
+            <p>Deprecated features include features that are still supported in the 
+ current version of Active Roles, but they may be removed in the future.</p>
+            <p>When developing new applications, you should avoid using deprecated 
+ features. When modifying existing codes, you are strongly encouraged to 
+ remove any dependency on deprecated features. We recommend that you replace 
+ these features with the replacement item if possible.</p>
+            <h3>ADSI Provider</h3>
+            <p class="Body">These Active Roles ADSI provider features will not be supported 
+ in a future version of Active Roles.</p>
+            <p>&#160;</p>
+            <table style="width: 100%;">
+                <col />
+                <col />
+                <col />
+                <tbody>
+                    <tr>
+                        <td style="font-weight: bold;text-align: center;">Interface</td>
+                        <td style="font-weight: bold;text-align: center;">
+                            <p class="TableHeading">Deprecated<br></br>Property or Method</p>
+                        </td>
+                        <td style="font-weight: bold;text-align: center;">Replacement</td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerADSIProvider/iedmdynamicgroup_properties.htm"><a href="../EnterpriseDirectoryManagerADSIProvider/iedmdynamicgroup.htm" class="MCXref_0"><span style="color: #04aada;" class="mcFormatColor">IEDMDynamicGroup</span></a></a></span>
+                        </td>
+                        <td> <a href="../EnterpriseDirectoryManagerADSIProvider/iedmdynamicgroup.htm">MembershipRules</a> property: Sets and returns an array of membership rules for a dynamic group.</td>
+                        <td>Use the <a href="../EnterpriseDirectoryManagerADSIProvider/iedmdynamicgroup_properties.htm">MemberShipRuleCollection</a> property instead.</td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerADSIProvider/iedmdynamicgroup_properties.htm"><a href="../EnterpriseDirectoryManagerADSIProvider/iedmdynamicgroup.htm" class="MCXref_0"><span style="color: #04aada;" class="mcFormatColor">IEDMDynamicGroup</span></a></a></span>
+                        </td>
+                        <td> <a href="../EnterpriseDirectoryManagerADSIProvider/iedmdynamicgroup_converttodynamicgroup.htm">ConvertToDynamicGroup</a> method: Allows you to convert a basic group to a dynamic group.</td>
+                        <td>For sample code that illustrates how to convert a basic group to a dynamic group, see <span style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerADSIProvider/iedmdynamicgroup_properties.htm" style="font-weight: normal;">IEDMDynamicGroup</a></span>.</td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerADSIProvider/iedmdynamicgroup_properties.htm"><a href="../EnterpriseDirectoryManagerADSIProvider/iedmmanagedunit.htm" class="MCXref_0"><span style="color: #04aada;" class="mcFormatColor">IEDMManagedUnit </span></a></a></span>
+                        </td>
+                        <td> <a href="../EnterpriseDirectoryManagerADSIProvider/iedmmanagedunit.htm">MembershipRules</a> property:Sets and returns an array of membership rules for Managed Unit.</td>
+                        <td>Use the  <a href="../EnterpriseDirectoryManagerADSIProvider/iedmdynamicgroup_properties.htm">MeberShipRuleCollection</a> property instead.</td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerADSIProvider/iedmdynamicgroup_properties.htm"><a href="../EnterpriseDirectoryManagerADSIProvider/iedmpolicyentry.htm" class="MCXref_0"><span style="color: #04aada;" class="mcFormatColor">IEDMPolicyEntry </span></a></a></span>
+                        </td>
+                        <td><a href="../EnterpriseDirectoryManagerADSIProvider/iedmpolicyentry_removepolicysetting.htm"> </a><a href="../EnterpriseDirectoryManagerADSIProvider/iedmpolicyentry_removepolicysetting.htm">RemovePolicySetting</a> method: removes the specified parameter from Policy Object entry.</td>
+                        <td>Use the  <a href="../EnterpriseDirectoryManagerADSIProvider/iedmmanagedunit.htm">RemovePolicySettingbyName</a> method instead.</td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerADSIProvider/iedmdynamicgroup_properties.htm"><a href="../EnterpriseDirectoryManagerADSIProvider/iedmpolicysetting.htm" class="MCXref_0"><span style="color: #04aada;" class="mcFormatColor"> IEDMPolicySetting </span></a></a></span>
+                        </td>
+                        <td> <a href="../EnterpriseDirectoryManagerADSIProvider/iedmpolicyentry_properties.htm">SettingID</a> property: Sets and returns the ID of the Policy Object entry parameter.</td>
+                        <td>Use the <a href="../EnterpriseDirectoryManagerADSIProvider/iedmpolicyentry_removepolicysettingbyname.htm">Name</a> property instead.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>&#160;</p>
+            <p>&#160;</p>
+            <table>
+                <col />
+                <col style="width: 35.279%;" />
+                <col style="width: 34.721%;" />
+                <tr>
+                    <th style="text-align: left;width: 30%;" align="left" width="30%">
+                        <p class="TableHeading">Object Class</p>
+                    </th>
+                    <th colspan="1" rowspan="1" style="width: 35.279%;text-align: left;" align="left" width="35.279%">
+                        <p class="TableHeading">Deprecated<br />Property</p>
+                    </th>
+                    <th style="width: 34.721%;text-align: left;" align="left" width="34.721%">
+                        <p class="TableHeading">Replacement</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        <p class="TableBody" style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerADSIProvider/policyobjectclass.htm">edsPolicyObject</a>
+                        </p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 35.279%;" valign="top" width="35.279%">
+                        <p class="TableBody" style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerADSIProvider/edstopclass.htm#edsaParam">edsaParameters</a>
+                        </p>
+                    </td>
+                    <td style="width: 34.721%;" valign="top" width="34.721%">
+                        <p class="TableBody">Use the script policy entry parameters instead.</p>
+                    </td>
+                </tr>
+            </table>
+            <p>&#160;</p>
+            <p>&#160;</p>
+            <table>
+                <col style="width: 25.773%;" />
+                <col style="width: 35.279%;" />
+                <col style="width: 34.721%;" />
+                <tr>
+                    <th style="width: 25.773%;text-align: left;" align="left" width="25.773%">
+                        <p class="TableHeading">Feature Name</p>
+                    </th>
+                    <th colspan="1" rowspan="1" style="width: 35.279%;text-align: left;" align="left" width="35.279%">
+                        <p class="TableHeading">Deprecated<br />Technique</p>
+                    </th>
+                    <th style="width: 34.721%;text-align: left;" align="left" width="34.721%">
+                        <p class="TableHeading">Replacement</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="width: 25.773%;" valign="top" width="25.773%">
+                        <p class="TableBody" style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerADSIProvider/asqsearch.htm">Searching 
+ for directory objects using an attribute scope query (ASQ)</a>
+                        </p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 35.279%;" valign="top" width="35.279%">
+                        <p class="TableBody" style="font-weight: normal;">The ASQ search on the <span style="font-weight: bold;">edsaMember 
+ </span>and <span style="font-weight: bold;">edsaMemberIndirect </span>attributes 
+ of groups.</p>
+                        <p class="TableBody" style="font-weight: normal;">The ASQ search on the <span style="font-weight: bold;">edsaMemberOf</span> 
+ and <span style="font-weight: bold;">edsaMemberOfIndirect</span> attributes 
+ of groups and users.</p>
+                    </td>
+                    <td style="width: 34.721%;" valign="top" width="34.721%">
+                        <p class="TableBody">Use the ASQ search on the <span style="font-weight: bold;">member</span> 
+ and <span style="font-weight: bold;">memberOf</span> attributes with the 
+ specified appropriate <a href="../EnterpriseDirectoryManagerADSIProvider/edmcontrols.htm">Active 
+ Roles controls</a> instead. For details and sample scripts, refer to <a href="../EnterpriseDirectoryManagerADSIProvider/asqsearch.htm">Searching 
+ Using an Attribute Scope Query</a>.</p>
+                    </td>
+                </tr>
+            </table>
+            <p>&#160;</p>
+            <h3>Web Interface</h3>
+            <p class="Body">These Web Interface features will not be supported in a future 
+ version of Active Roles.</p>
+            <p class="Body">&#160;</p>
+            <table>
+                <col />
+                <col style="width: 35.279%;" />
+                <col style="width: 34.721%;" />
+                <tr>
+                    <th style="text-align: left;width: 30%;" align="left" width="30%">
+                        <p class="TableHeading">Object</p>
+                    </th>
+                    <th colspan="1" rowspan="1" style="width: 35.279%;text-align: left;" align="left" width="35.279%">
+                        <p class="TableHeading">Deprecated<br />Property or Method</p>
+                    </th>
+                    <th style="width: 34.721%;text-align: left;" align="left" width="34.721%">
+                        <p class="TableHeading">Replacement</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">
+                        <p class="TableBody" style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerWI/FormPageObject.htm">FormPage</a>
+                        </p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 35.279%;" valign="top" width="35.279%">
+                        <p class="TableBody"><span style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerWI/FormPageObject.htm#AddCustomHTML">AddCustomHTML</a></span> 
+ method: adds a custom HTML code used to create the custom entry</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 34.721%;" valign="top" width="34.721%">
+                        <p class="TableBody">Use the <span style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerWI/FormPageObject.htm#Write">Write</a></span> 
+ method instead.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        <p class="TableBody" style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerWI/FormContextObject.htm">FormContext</a>
+                        </p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 35.279%;" valign="top" width="35.279%">
+                        <p class="TableBody"><span style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerWI/FormContextObject.htm#Object">Object</a></span> 
+ property: returns the reference to the directory object with which the 
+ current form is associated. </p>
+                    </td>
+                    <td style="width: 34.721%;" valign="top" width="34.721%">
+                        <p class="TableBody">Use the <span style="font-weight: bold;"><a href="../EnterpriseDirectoryManagerWI/FormContextObject.htm#DirectoryObject">DirectoryObject</a></span> 
+ property instead.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <p class="Body">&#160;</p>
+            <p>&#160;</p>
+            <p>&#160;</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

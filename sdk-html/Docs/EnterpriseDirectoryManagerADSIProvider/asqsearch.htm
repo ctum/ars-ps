@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles ADSI Provider|Using ADSI Provider|Searching for Directory Objects" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Searching Using an Attribute Scope Query</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_ASQSearch" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanageradsiprovider.htm">Active Roles ADSI Provider</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="usingedmadsiprovider.htm">Using ADSI Provider</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Searching Using an Attribute Scope Query</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor156"></a>
+                <MadCap:concept term="a_ASQSearch" />Search Using an Attribute Scope Query</h1>
+            <p class="Body">The Active Roles ADSI Provider supports the <a href="searchingforadsiobjects.htm">ADO 
+ search for directory objects</a> using an attribute scope query (referred 
+ to as <i>ASQ</i>).</p>
+            <p class="Body">The ASQ is a new search preference that enables a search 
+ of an object's distinguished name valued attributes to be performed. The 
+ attribute to search must be of the DN type (syntax ID: 2.5.5.1). Examples 
+ of the DN type attributes are: member, memberOf, edsaMember, etc. When 
+ the search is performed, the provider will enumerate the distinguished 
+ name values of the attribute and perform the search on the objects represented 
+ by the distinguished names. For example, if an attribute scoped search 
+ is performed on the <span style="font-weight: bold;"><a href="managedunitclass.htm#edsaMember">edsaMember</a></span> 
+ attribute of a Managed Unit, the provider will enumerate the distinguished 
+ names in the edsaMember attribute and search each of the members of the 
+ Managed Unit for the specified search criteria.</p>
+            <p class="Body">To specify the ASQ, the <a href="searchingforadsiobjects.htm#ScopeSearch">search 
+ scope</a> must include the distinguished name of the object whose the 
+ DN type attribute you want to search followed by the string:<br />&#160;"//EDS_SEARCHPREF_ATTRIBUTE_QUERY=<i>DN_valued_attr</i>"<br />where <i>DN_valued_attr</i> is referred to the LDAP display name of the&#160;DN 
+ type attribute to search.</p>
+            <p class="note"><b style="font-weight: bold;">Important:</b>
+            </p>
+            <p class="note">If an ASQ is performed on an attribute that is not of the 
+ DN type, the search will fail. ASQ also requires that the <a href="searchingforadsiobjects.htm#DepthSearch">search 
+ depth</a> be set to Base. Otherwise, the search will fail.</p>
+            <h2>Examples of Search Strings</h2>
+            <p class="Body">Let us consider the following search string that allows you 
+ to search the member attribute of the Administrators group of the mycompany.com 
+ domain.</p><pre xml:space="preserve">
+<p class="Syntax">"&lt;EDMS://CN=Administrators,CN=Builtin,DC=mycompany,DC=com//EDS_SEARCHPREF_ATTRIBUTE_QUERY=member&gt;;(objectClass=*);mail;Base"</p>
+</pre>
+
+Optionally, the search string may include <a href="edmcontrols.htm">Active 
+ Roles controls</a> (InControls) to send to the Administration Service. 
+ For example, the following search string allows you to search indirect 
+ members of the Domain Guests group of the mycompany.com domain. 
+
+<p class="Syntax">"&lt;EDMS://CN=Domain Guests,CN=Builtin,DC=mycompany,DC=com//EDS_SEARCHPREF_ATTRIBUTE_QUERY=member//IndirectMembership-GetData=1//PrimaryGroup-GetData=1&gt;;(objectClass=*);mail;Base"</p><p class="Body">When performing an ASQ on the <span style="font-weight: bold;">member</span> 
+ and <span style="font-weight: bold;">memberOf</span> attributes of groups, 
+ the search string can include the following Active Roles controls:</p><ul><li class="kadov-p-CListBullet"><p class="ListBullet"><a href="edmcontrols.htm#PrimaryGroup-GetData">PrimaryGroup-GetData</a></p></li><li class="kadov-p-CListBullet"><p class="ListBullet"><a href="edmcontrols.htm#IndirectMembership-GetData">IndirectMembership-GetData</a></p></li><li class="kadov-p-CListBullet"><p class="ListBullet"><a href="edmcontrols.htm#ScheduledLink-GetPending">ScheduledLink-GetPending</a></p></li><li class="kadov-p-CListBullet"><p class="ListBullet"><a href="edmcontrols.htm#ScheduledLink-GetStartEndTime">ScheduledLink-GetStartEndTime</a></p></li></ul><p class="note"><b style="font-weight: bold;">Important:</b></p><p class="note">The ASQ on the <span style="font-weight: bold;">edsaMember</span>, 
+ <span style="font-weight: bold;">edsaMemberIndirect</span>, <span style="font-weight: bold;">edsaMemberOf</span>, 
+ and <span style="font-weight: bold;">edsaMemberOfIndirect</span> attributes 
+ of groups and users is considered obsolete. Instead, perform ASQ search 
+ on the <span style="font-weight: bold;">member</span> and <span style="font-weight: bold;">memberOf</span> 
+ attributes using an appropriate combination of Active Roles controls.</p><h2><a name="Sample"></a>Sample Script (VBScript)</h2><p class="Body">The following sample scripts illustrate how to perform an 
+ ASQ on the Managed Unit and group attributes.</p><h3>Listing the Mail-Enabled Members of Managed Unit</h3><p class="Body">The following script shows how to find all the mail-enabled 
+ members of the specified Managed Unit. The search result set contains 
+ &#160;the distinguished 
+ name, class, and email address of all the mail-enabled objects contained 
+ in the <span style="font-weight: bold;"><a href="managedunitclass.htm#edsaMember">edsaMember</a></span> 
+ attribute of the "MyMU" Managed Unit.</p><pre xml:space="preserve">
+<p class="Syntax">' Set the DN of Managed Unit
+strMU = "CN=MyMU,CN=Managed Units,cn=Configuration"
+Set oConnect = CreateObject("ADODB.Connection")
+oConnect.Provider = "ADsDSOObject"
+oConnect.Open "DS Query", "", ""
+Set Command = CreateObject("ADODB.Command")
+Set Command.ActiveConnection = oConnect
+ ' Specify the search criteria
+Command.CommandText = _
+"&lt;EDMS://" + strMU + "//EDS_SEARCHPREF_ATTRIBUTE_QUERY=edsaMember&gt;;(objectClass=*);distinguishedName,mail;base"
+ss = "Managed Unit: " + " contains the following mail-enabled recipients: " + vbNewLine
+Set rs = Command.Execute
+Do Until rs.EOF
+ &#160;&#160;&#160;If rs.Fields("mail").Value &lt;&gt; "" Then
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;ss = ss + "Object: " + rs.Fields("distinguishedName").Value &#160;+ vbNewLine
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;ss = ss + "Object class: " + OClass(rs.Fields("distinguishedName").Value) &#160;+ vbNewLine
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;ss = ss + "Email: " + rs.Fields("mail").Value + vbNewLine
+ &#160;&#160;&#160;End If
+ &#160;&#160;&#160;rs.MoveNext
+Loop
+MsgBox ss
+Function OClass(byVal strDN)
+ ' This function gets the object class
+ &#160;Set obj = GetObject("EDMS://" + strDN)
+ &#160;OClass = obj.Class
+ &#160;Set obj = Nothing
+End Function</p>
+</pre><h3>Listing Indirect Members of Group</h3><p class="Body">The following script shows how to find indirect members of 
+ the specified group.</p><p class="Body">The script performs the ASQ on the <span style="font-weight: bold;">member</span> 
+ attribute of the "MyGroup" group with the <a href="edmcontrols.htm#IndirectMembership-GetData">IndirectMembership-GetData</a> 
+ and <a href="edmcontrols.htm#PrimaryGroup-GetData">PrimaryGroup-GetData</a> 
+ controls specified. The search result set contains values of the <span style="font-weight: bold;">distinguishedname</span> and <span style="font-weight: bold;">edsva-IsIndirectMembership</span> 
+ attributes of the found objects. The script outputs distinguished names 
+ of all indirect members of the "MyGroup" group.</p><p class="Syntax">' --- Set DN of the group to search<br />const strDN = "CN=MyGroup,OU=Custom Groups,DC=mycompany,DC=com"<br />Set oConnect = CreateObject("ADODB.Connection")<br />oConnect.Provider = "ADsDSOObject"<br />oConnect.Open "DS Query", "", ""<br />Set Command = CreateObject("ADODB.Command")<br />Set Command.ActiveConnection = oConnect<br />' --- Specify the search criteria<br />Command.CommandText = "&lt;EDMS://" &amp; strDN &amp; _<br />"//EDS_SEARCHPREF_ATTRIBUTE_QUERY=member//IndirectMembership-GetData=1//PrimaryGroup-GetData=1&gt;;(objectClass=*);distinguishedName,edsva-IsIndirectMembership;base"<br />Dim output<br />output = "Indirect members of the " &amp; strDN &amp; " 
+ group: " &amp; vbNewLine &amp; vbNewLine<br />' --- Process the search result set<br />Set rs = Command.Execute<br />Do Until rs.EOF<br />if rs.Fields("edsva-IsIndirectMembership").Value = true &#160;Then<br />output = output &amp; rs.Fields("distinguishedName").Value &amp; 
+ vbNewLine<br />End If<br />rs.MoveNext<br />Loop<br />MsgBox output</p><p class="Body">&#160;</p><p class="Body">For a sample script that illustrate how to perform ASQ using 
+ the <a href="edmcontrols.htm#ScheduledLink-GetPending">ScheduledLink-GetPending</a> 
+ and <a href="edmcontrols.htm#ScheduledLink-GetStartEndTime">ScheduledLink-GetStartEndTime</a> 
+ controls, refer to "Managing Temporal Group Memberships" in 
+ Related Topics.</p><p class="Body"><object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc23"><param name="Command" value="Related Topics,MENU" /><param name="Item1" value="Using Active Roles Controls;edmcontrols.htm" /><param name="Item2" value="LDAP Search Filter Syntax;ldapsearchfiltersyntax.htm" /><param name="Item3" value="Managing Temporal Group Memberships;ManagingTempGroupMemberships.htm" /><param name="Item4" value="Searching for Directory Objects Using ADO;searchingforadsiobjects.htm" /></object><a class="MCRelatedTopics" href="javascript:mc23.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a></p><h4>&#160;</h4></div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

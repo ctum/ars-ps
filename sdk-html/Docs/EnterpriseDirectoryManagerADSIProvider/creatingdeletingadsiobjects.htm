@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles ADSI Provider|Using ADSI Provider" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Creating and Deleting Directory Objects</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_CreatingDeletingADSIObjects" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanageradsiprovider.htm">Active Roles ADSI Provider</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="usingedmadsiprovider.htm">Using ADSI Provider</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Creating and Deleting Directory Objects</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor499"></a>
+                <MadCap:concept term="a_CreatingDeletingADSIObjects" />Creating and Deleting Directory Objects </h1>
+            <p class="Body">This topic discusses how to create and delete directory objects 
+ using the <b><a href="iadscontainer.htm">IADsContainer</a></b> interface. 
+ </p>
+            <h3>Creating Directory Objects</h3>
+            <p class="Body">The <b>Create</b> and <b>CopyHere</b> methods of the <b>IADsContainer</b> 
+ interface allow you to create directory objects within a container object. 
+ Examples of containers are domains, folders and Organizational Units.</p>
+            <p class="Procedure"> <b>To create a new directory object</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList"><a href="bindingadsiobject.htm">Bind</a> 
+ to a directory container within which you want to create a new directory 
+ object.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Do one of the following: </p>
+                    <ul>
+                        <li class="kadov-p-CSubBullet">
+                            <p class="SubBullet">Invoke the <b>Create 
+ </b>method of <b>IADsContainer</b>. This method requires two arguments: 
+ class of the object to be created and the object relative distinguished 
+ name.</p>
+                        </li>
+                        <li class="kadov-p-CSubBullet">
+                            <p class="SubBullet">If you have a directory 
+ object, you can create a copy of that object within the current container 
+ using the<b> CopyHere</b> method of <b>IADsContainer</b>. This method 
+ requires two arguments: ADsPath to the existing object and the relative 
+ distinguished name of the object to be created.</p>
+                        </li>
+                    </ul>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">Set or modify 
+ the appropriate properties of the newly created object (see <a href="modifyingpropertiesadsiobjects.htm">Modifying 
+ Properties of ADSI Objects</a>).&#160; </p>
+                </li>
+            </ol>
+            <p class="Body">&#160; The following code snippet (VBScript) shows how to 
+ create a new user object using the <b>Create</b> method of <b>IADsContainer</b>.</p><pre xml:space="preserve">
+<p class="Syntax">Dim cont
+Dim usr
+' Bind to the container within which a user will be created
+Set cont = GetObject("EDMS://OU=Sales,DC=mycompany,DC=COM")
+' Invoke the Create method of IADsContainer
+Set usr = cont.Create("user", "CN=John MCDuglas")
+' Set properties of the newly created user
+usr.Put "samAccountName", "JMCDuglas"
+usr.Description="Sales manager"
+' Send the changes you made to Administration Service
+usr.SetInfo</p>
+</pre>
+            <p class="Body">The following code snippet (VBScript) shows how to create 
+ a new user object using the <b>CopyHere </b>method of <b>IADsContainer</b>.</p><pre xml:space="preserve">
+<p class="Syntax">Dim objOU, newuser, sourceObjectPath
+' Set the ADsPath to the source object to be used as a template object
+sourceObjectPath="EDMS://CN=SourceUser,OU=Sales,DC=mycompany,DC=COM"
+' Bind to the container where the source object resides
+Set objOU = GetObject("EDMS://OU=Sales,DC=mycompany,DC=COM")
+' Copy the existing ADSI object (the user object in the given example)
+Set newuser = objOU.CopyHere(sourceObjectPath, "CN=Jane MCCornic")
+' Set or modify properties of the newly created user object
+newuser.Put "EmployeeID", "151"
+newuser.FirstName = "Jane"
+newuser.Put "sAMAccountName", "JMCCornic"
+newuser.Put "sn","McCormic"
+' Send the changes you made to Administration Service
+newuser.setInfo</p>
+</pre>
+            <p class="note"><b style="font-weight: bold;">Note:</b>
+            </p>
+            <p class="note">The <b>CopyHere</b> method only allows you to create a copy 
+ of a user, a group, a Managed Unit, an inetOrgPerson within a certain 
+ Organizational Unit (OU). Copying objects across OUs is not supported.</p>
+            <h3>Deleting Directory Objects</h3>
+            <p class="Body">The <b>Delete</b> method of <b>IADsContainer</b> allows you 
+ to delete directory objects that reside into a directory container.</p>
+            <p class="Procedure"> <b>To delete a directory object</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Bind to the directory 
+ container where the object you want to delete resides. </p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Invoke the <b>Delete</b> 
+ method of <b>IADsContainer</b>. This method requires two arguments: the 
+ class of the object to be deleted and the object relative distinguished 
+ name. </p>
+                </li>
+            </ol>
+            <p class="Body">The following code snippet (VBScript) shows how to delete 
+ a user object:</p><pre xml:space="preserve">
+<p class="Syntax">Dim objContainer
+' Bind to the container where the user to be deleted resides
+Set objContainer = GetObject("EDMS://cn=Users,DC=mycompany,DC=Com")
+' Delete the user
+objContainer.Delete "user", "cn=John Doe"</p>
+</pre>
+            <h4>
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc17">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="IADsContainer;iadscontainer.htm" />
+                    <param name="Item2" value="Modifying Properties of ADSI Objects;modifyingpropertiesadsiobjects.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc17.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </h4>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

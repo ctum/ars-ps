@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Snap-in|Extending Active Roles Snap-in|Extending Active Roles snap-in with Display Specifiers" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Registering Property Page and Context Menu Extensions</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_RegisteringCOMObjects" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="edmsnapin.htm">Snap-in</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="extendingenterprisedirectorymanagersnapin.htm">Extending Active Roles Snap-in</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Registering Property Page and Context Menu Extensions</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor403"></a>
+                <MadCap:concept term="a_RegisteringCOMObjects" />Registering Property Page and Context Menu Extensions</h1>
+            <p class="Body">After you create a <a href="extendingcontextmenuds.htm">context 
+ menu extension</a>&#160;DLL or a <a href="extendingpropertysheetds.htm">property 
+ sheet extension</a>&#160;DLL, it must be registered with the Windows registry 
+ and Active Directory to make COM and the Active Roles snap-in aware 
+ of the extension. </p>
+            <h2>Registering in the Windows Registry </h2>
+            <p class="BestPractice">Like all COM servers, a context menu or property 
+ sheet extension must be registered in the Windows registry. The extension 
+ is registered under the following key: </p><pre xml:space="preserve">
+<p class="Syntax">HKEY_CLASSES_ROOT\
+ &#160;&#160;&#160;&#160;CLSID\
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;clsid&gt;</p>
+</pre>
+            <p class="Body">&lt;clsid&gt; is the string representation of the CLSID as 
+ produced by the StringFromCLSID function. Under the &lt;clsid&gt; key, 
+ there is an InProcServer32 key that identifies the object as a 32-bit 
+ in-proc server. Under the InProcServer32 key, the location of the DLL 
+ is specified in the default value and the threading model is specified 
+ in the ThreadingModel value. All context menu and property sheet extensions 
+ must use the Apartment threading model. </p>
+            <p class="Body">For examples of the C++ codes that demonstrate how to perform 
+ the registration in the Windows registry, refer to the section <a href="samplesusingds.htm">Samples</a>.&#160;</p>
+            <h2>Registering in a Display Specifier</h2>
+            <p class="Body">The registration of the property sheet and context menu extension&#160; 
+ is specific to one locale. If an extension applies to all locales,&#160; 
+ it must be registered in the object class <b>displaySpecifier</b> object 
+ in all of the locale subcontainers in the <a href="displayspecifiers.htm">Display 
+ Specifiers</a> container.</p>
+            <h3><a name="RegPropPage"></a> Registering the Property Page COM Object in 
+ a Display Specifier </h3>
+            <p class="Body"> Active Roles provides two display specifier attributes 
+ edsaEDMSPropertyPages and edsaLDAPPropertyPages that a property sheet 
+ extension can be registered under. These attributes identify property 
+ pages to display in the Active Roles snap-in. </p>
+            <p class="Body">The attribute edsaEDMSPropertyPages identifies the property 
+ pages that use the <a href="../EnterpriseDirectoryManagerADSIProvider/bindingadsiobject.htm"> Active Roles ADSI provider binding string</a> to bind to directory objects, 
+ while edsaLDAPPropertyPages identifies the property pages that use the 
+ standard LDAP binding string. </p>
+            <p class="Body">All of these attributes are multi-valued. The values of the 
+ attributes require the following format. </p><pre xml:space="preserve">
+<p class="Syntax">&lt;order number&gt;,&lt;clsid&gt;,&lt;optional data&gt;</p>
+</pre>
+            <p class="Body">The &lt;order number&gt; is an unsigned number that represents 
+ the page position in the sheet. When a property sheet is displayed, the 
+ values are sorted using a comparison of each value's &lt;order number&gt;. 
+ If more than one value has the same &lt;order number&gt;, those property 
+ page COM objects are loaded in the order they are read from Active Directory. 
+ If possible, you should use a non-existing &lt;order number&gt;; that 
+ is, one not used by other values in the property. There is no prescribed 
+ starting position, and gaps are allowed in the &lt;order number&gt; sequence. 
+ </p>
+            <p class="Body">The &lt;clsid&gt; is the string representation of the CLSID 
+ as produced by the <b>StringFromCLSID</b> function.</p>
+            <p class="Body">The &lt;optional data&gt; is a string value that is not required. 
+ This value can be retrieved by the property page COM object using the 
+ <b>IDataObject</b> pointer passed to its <b>IShellExtInit::Initialize</b> 
+ method. The property page COM object obtains this data by calling <b>IDataObject::GetData</b> 
+ with the <b>CFSTR_DSPROPERTYPAGEINFO</b> clipboard format. This provides 
+ an <b>HGLOBAL</b> that contains a <b>DSPROPERTYPAGEINFO</b> structure 
+ The <b>DSPROPERTYPAGEINFO</b> structure contains a Unicode string that 
+ contains the &lt;optional data&gt;. For more information, refer to the 
+ <a href="http://msdn.microsoft.com/library">MSDN library</a>.</p>
+            <h3><a name="RegContextMenu"></a> Registering the Context Menu COM Object 
+ in a Display Specifier </h3>
+            <p class="Body"> Active Roles provides two display specifier attributes 
+ edsaEDMSContextMenu and edsaLDAPContextMenu that a context menu extension 
+ item can be registered under. These attributes identify administrative 
+ context menus to display in the Active Roles snap-in. </p>
+            <p class="Body">The attribute edsaEDMSContextMenu&#160; identifies the context 
+ menu extensions that use the <a href="../EnterpriseDirectoryManagerADSIProvider/bindingadsiobject.htm"> Active Roles 
+ ADSI Provider binding string</a> to bind to directory objects, 
+ while edsaLDAPContextMenu&#160; identifies the context menu extensions 
+ that use the standard LDAP binding string. </p>
+            <p class="Body">All of these attributes are multi-valued and they require 
+ the following format. </p><pre xml:space="preserve">
+<p class="Syntax">&lt;order number&gt;,&lt;clsid&gt;</p>
+</pre>
+            <p class="Body">The &lt;order number&gt; is an unsigned number that represents 
+ the item's position in the context menu. When a context menu is displayed, 
+ the values are sorted using a comparison of each value's &lt;order number&gt;. 
+ If more than one value has the same &lt;order number&gt;, those context 
+ menu extensions are loaded in the order they are read from Active Directory. 
+ If possible, use a non-existing &lt;order number&gt;, that is, one that 
+ has not been used by other values in the property. There is no prescribed 
+ starting position and gaps are allowed in the &lt;order number&gt; sequence.</p>
+            <p class="Body">The &lt;clsid&gt; is the string representation of the CLSID 
+ as produced by the <b>StringFromCLSID </b>function.</p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc345">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="About Active Roles;../IntroducingEDMSoftwareDevelopmentKit/aboutenterprisedirectorymanager.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc345.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

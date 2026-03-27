@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles ADSI Provider|Tutorial: ADSI Scripting|Sample Scripts|Managing Active Roles-Specific Objects|Managing Policy Objects" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Finding Policy Objects Linked to a Directory Object</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_FindingPolicyObjectsLinked" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanageradsiprovider.htm">Active Roles ADSI Provider</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="tutorialadsi.htm">Tutorial: ADSI Scripting</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Finding Policy Objects Linked to a Directory Object</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor43"></a>
+                <MadCap:concept term="a_FindingPolicyObjectsLinked" />Finding Policy Objects Linked to a Directory Object</h1>
+            <p class="Body">File name: APOLinks.vbs</p>
+            <p class="Body">This code snippet illustrates how to find Policy Objects&#160; 
+ linked to the specified directory object. The script finds both POs directly 
+ linked to the object and those linked to the object's parents.</p><pre class="code" xml:space="preserve">
+<p class="Syntax">' Set DN of the directory object in question.
+const strObjDN = "EDMS://CN=DistrGroup,OU=Sales,DC=mycompany,DC=com"
+set Obj = GetObject(strObjDN)
+objGuid = Obj.Get("objectGUID")
+Set OctetString=CreateObject("AelitaEDM.EDMOctetString")
+OctetString.Set objGuid
+strFilter = "(edsaSecObjectGUID=" &amp; OctetString.GetGuidString &amp; ")"
+Set oConnect = CreateObject("ADODB.Connection")
+oConnect.Provider = "ADsDSOObject"
+oConnect.Open "DS Query", "", ""
+Set Command = CreateObject("ADODB.Command")
+Set Command.ActiveConnection = oConnect
+Command.CommandText = "&lt;EDMS://CN=AP Links,cn=Configuration&gt;;" &amp; strFilter &amp; ";edsaAPOGUID,edsaSecObjectGUID;OneLevel"
+Set rs = Command.Execute
+ss = "Policy Objects that are linked to the object " + strObjDN + vbNewLine + vbNewLine
+ss = ss + vbNewLine
+Do Until rs.EOF
+ &#160;&#160;&#160;ss = ss + "Policy Object DN: "
+ &#160;&#160;&#160;ss = ss + LookupGUID(rs.Fields("edsaAPOGUID").Value) + vbNewLine
+ &#160;&#160;&#160;ss = ss + "Inherited from: "
+ &#160;&#160;&#160;ss = ss + LookupGUID(rs.Fields("edsaSecObjectGUID").Value) + vbNewLine
+ &#160;&#160;&#160;ss = ss + "----------------------------------------------------" + vbNewLine
+ &#160;&#160;&#160;rs.MoveNext
+Loop
+Set rs = Nothing
+Set Command = Nothing
+Set oConnect = Nothing
+Wscript.Echo ss
+ '====================================================
+Function LookupGUID (binGuid)
+ ' This function looks up the object by GUID
+ &#160;&#160;&#160;Set objLookup = CreateObject("EDSILookup")
+ &#160;&#160;&#160;objLookup.Initialize2 "", "", "", 0
+ &#160;&#160;&#160;&#160;Set objLookupInfoCollection = objLookup.LookupGUIDs(Array(binGuid))
+ &#160;&#160;For Each objLookupInfo In objLookupInfoCollection
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;IF objLookupInfo.DN &lt;&gt; "" Then
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LookupGUID = objLookupInfo.DN
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Else
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LookupGUID = objLookupInfo.printableName
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;END IF
+ &#160;&#160;Next
+ &#160;&#160;Set objLookup = Nothing
+ &#160;&#160;Set objLookupInfoCollection = Nothing
+End Function</p>
+</pre>
+            <p class="Body">This script lists all POs applied to the group DistrGroup 
+ residing in the OU Sales in the domain mycompany.com. In the list, each 
+ entry includes the distinguished names of the Policy Object and the directory 
+ object to which that Policy Object is directly linked. </p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc276">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="IEDM;iedm.htm" />
+                    <param name="Item2" value="IEDMPolicyEntry;iedmpolicyentry.htm" />
+                    <param name="Item3" value="IEDMPolicyObject;iedmpolicyobject.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc276.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+            <h4>&#160;</h4>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

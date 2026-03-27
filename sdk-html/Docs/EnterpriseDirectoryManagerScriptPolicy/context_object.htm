@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Context object</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div role="main" id="mc-main-content">
+            <h1>Context Object</h1>
+            <p class="Body">Active Roles provides an internal object "Context" 
+ that implements the <span style="font-weight: bold;">AddParameter</span> 
+ method used to add a new parameter to your policy script. The <span style="font-weight: bold;">Context</span> 
+ object is accessible in the <span style="font-weight: bold;">onInit</span> 
+ function and in policy types.</p>
+            <h2 class="Body">Methods</h2>
+            <p class="Body">The <span style="font-weight: bold;">Context </span>object 
+ supports the following methods:</p>
+            <ul>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><a href="#AddParameter_method"><span style="font-weight: bold;">AddParameter</span> Method</a>
+                    </p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><b style="font-weight: bold;"><a href="#Parameter">Parameter</a></b> Method</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><b style="font-weight: bold;"><a href="#ParameterEx">ParameterEx</a></b> Method</p>
+                </li>
+            </ul>
+            <h3 class="Body"><a name="AddParameter_method"></a>AddParameter Method</h3>
+            <p class="Body">The <span style="font-weight: bold;">AddParameter</span> 
+ method is applicable only inside functions which declare script parameters, 
+ for example, onInit(). The <span style="font-weight: bold;">AddParameter</span> 
+ method uses the following syntax:</p>
+            <p class="Syntax"><span style="color: #0000ff;">[VBScript]</span><span style="font-weight: bold;"><br />
+Context.AddParameter</span>(<span style="font-weight: bold;">byVal</span> <span style="font-style: italic;">Name</span>)<span style="color: #0000ff;"><br /><br />
+[PowerShell]</span><span style="font-weight: bold;"><br />
+$Context.AddParameter</span>(<span style="font-style: italic;">$Name</span>)<span style="color: #0000ff;">&#160;</span></p>
+            <h5 style="font-weight: bold;">Arguments</h5>
+            <dl>
+                <dt style="font-style: italic;">Name</dt>
+                <dd>
+                    <p class="Body">[in] Required. String. Specifies the name for a newly 
+ created parameter.</p>
+                </dd>
+            </dl>
+            <p class="Body">The following table describes properties implemented by the 
+ object returned by the <span style="font-weight: bold;">AddParameter</span> 
+ method. This object allows you to define characteristics of your custom 
+ parameter.</p>
+            <p class="Body">&#160;</p>
+            <table style="background-color: Transparent;border-spacing: 0px;border-spacing: 0px;" cellspacing="0">
+                <tr valign="middle">
+                    <th style="text-align: left;width: 30%;border-left-color: #999999;border-top-color: #999999;border-top-style: Solid;border-bottom-color: #999999;border-bottom-width: 2px;border-bottom-style: Solid;border-right-color: #999999;border-right-width: 2px;border-right-style: Solid;border-left-width: 2px;border-left-style: solid;border-top-width: 2px;" align="left" width="30%">
+                        <p class="TableHeading">Property</p>
+                    </th>
+                    <th style="text-align: left;width: 70%;border-top-color: #999999;border-top-style: Solid;border-right-color: #999999;border-right-style: Solid;border-bottom-color: #999999;border-bottom-width: 2px;border-bottom-style: Solid;border-top-width: 2px;border-right-width: 2px;" align="left" width="70%">
+                        <p class="TableHeading">Description</p>
+                    </th>
+                </tr>
+                <tr valign="middle">
+                    <td style="border-left-color: #999999;border-bottom-color: #999999;border-bottom-width: 2px;border-bottom-style: Solid;border-right-color: #999999;border-right-width: 2px;border-right-style: Solid;border-left-width: 2px;border-left-style: solid;">
+                        <p class="TableBody" style="font-weight: bold;">DefaultValue</p>
+                    </td>
+                    <td style="border-right-color: #999999;border-right-style: Solid;border-bottom-color: #999999;border-bottom-width: 2px;border-bottom-style: Solid;border-right-width: 2px;" valign="top">
+                        <p class="TableBody">Access: Read/Write</p>
+                        <p class="TableBody">Data type: Depends on the parameter syntax</p>
+                        <p class="TableBody">Optional. Sets and returns the default value for the 
+ custom parameter, if any.</p>
+                    </td>
+                </tr>
+                <tr valign="middle">
+                    <td colspan="1" rowspan="1" style="border-left-color: #999999;border-bottom-color: #999999;border-bottom-width: 2px;border-bottom-style: Solid;border-right-color: #999999;border-right-width: 2px;border-right-style: Solid;border-left-width: 2px;border-left-style: solid;">
+                        <p class="TableBody" style="font-weight: bold;">Description</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="border-right-color: #999999;border-right-style: Solid;border-bottom-color: #999999;border-bottom-width: 2px;border-bottom-style: Solid;border-right-width: 2px;">
+                        <p class="TableBody">Access: Read/Write</p>
+                        <p class="TableBody">Data type: String</p>
+                        <p class="TableBody">Optional. Sets and returns the parameter description.</p>
+                    </td>
+                </tr>
+                <tr valign="middle">
+                    <td colspan="1" rowspan="1" style="border-left-color: #999999;border-bottom-color: #999999;border-bottom-width: 2px;border-bottom-style: Solid;border-right-color: #999999;border-right-width: 2px;border-right-style: Solid;border-left-width: 2px;border-left-style: solid;">
+                        <p class="TableBody" style="font-weight: bold;">MultiValued</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="border-right-color: #999999;border-right-style: Solid;border-bottom-color: #999999;border-bottom-width: 2px;border-bottom-style: Solid;border-right-width: 2px;">
+                        <p class="TableBody">Access: Read/Write</p>
+                        <p class="TableBody">Data type: Boolean</p>
+                        <p class="TableBody">Optional. The default value is FALSE. When TRUE, the 
+ parameter is multivalued.</p>
+                    </td>
+                </tr>
+                <tr valign="middle">
+                    <td colspan="1" rowspan="1" style="border-left-color: #999999;border-bottom-color: #999999;border-bottom-width: 2px;border-bottom-style: Solid;border-right-color: #999999;border-right-width: 2px;border-right-style: Solid;border-left-width: 2px;border-left-style: solid;">
+                        <p style="font-weight: bold;">PossibleValues</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="border-right-color: #999999;border-right-style: Solid;border-bottom-color: #999999;border-bottom-width: 2px;border-bottom-style: Solid;border-right-width: 2px;">
+                        <p class="TableBody">Access: Read/Write</p>
+                        <p class="TableBody">Data type: a single value or an array of values.</p>
+                        <p class="TableBody">Optional. Sets and returns acceptable value(s) for the 
+ parameter.</p>
+                        <p class="TableBody"><span style="font-weight: bold;">Note</span>: The<span style="font-weight: bold;"> PossibleValues</span> property is used only 
+ if the <span style="font-weight: bold;">CustomPicker </span>property is 
+ not set. Otherwise, setting this property takes no effect.</p>
+                    </td>
+                </tr>
+                <tr valign="middle">
+                    <td colspan="1" rowspan="1" style="border-left-color: #999999;border-bottom-color: #999999;border-bottom-width: 2px;border-bottom-style: Solid;border-right-color: #999999;border-right-width: 2px;border-right-style: Solid;border-left-width: 2px;border-left-style: solid;">
+                        <p class="TableBody" style="font-weight: bold;">Required</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="border-right-color: #999999;border-right-style: Solid;border-bottom-color: #999999;border-bottom-width: 2px;border-bottom-style: Solid;border-right-width: 2px;">
+                        <p class="TableBody">Access: Read/Write</p>
+                        <p class="TableBody">Data type: Boolean</p>
+                        <p class="TableBody">Optional. The default value is FALSE. When TRUE, specifies 
+ that this parameter is mandatory.</p>
+                    </td>
+                </tr>
+                <tr valign="middle">
+                    <td colspan="1" rowspan="1" style="border-left-color: #999999;border-bottom-color: #999999;border-bottom-width: 2px;border-bottom-style: Solid;border-right-color: #999999;border-right-width: 2px;border-right-style: Solid;border-left-width: 2px;border-left-style: solid;">
+                        <p class="TableBody" style="font-weight: bold;">Syntax </p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="border-right-color: #999999;border-right-style: Solid;border-bottom-color: #999999;border-bottom-width: 2px;border-bottom-style: Solid;border-right-width: 2px;">
+                        <p class="TableBody">Access: Read/Write</p>
+                        <p class="TableBody">Data type: String</p>
+                        <p class="TableBody">Optional. The default value is String. You can use this 
+ property to control how Active Roles treats the parameter value and to 
+ have the console provide appropriate tools for setting up the parameter 
+ value. This property can take one of the following values:</p>
+                        <ul>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet"><span class="SyntaxChar">DN</span> 
+ &#160;The parameter 
+ stores the Distinguished Name of a certain object. The console provides 
+ an object picker for setting the parameter value of this syntax.</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet"><span class="SyntaxChar">GeneralizedTime</span> 
+ &#160;The parameter 
+ stores a date and time value. The console provides a date/time picker 
+ for setting the parameter value of this syntax.</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet"><span class="SyntaxChar">SID</span> 
+ &#160;The parameter 
+ stores the Security Identifier of a certain object. The console provides 
+ an object picker for setting the parameter value of this syntax.</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet"><span class="SyntaxChar">ObjectGUID</span> 
+ &#160;The parameter 
+ stores the Globally Unique Identifier of a certain object. The console 
+ provides an object picker for setting the parameter value of this syntax.</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet"><span class="SyntaxChar">Boolean</span> 
+ &#160;Indicates 
+ that the parameter stores a TRUE or FALSE value. The console provides 
+ a value picker for setting the parameter value of this syntax.</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet"><span class="SyntaxChar">SecureString</span> 
+ &#160;The console 
+ displays a string of asterisks when you set the parameter value of this 
+ syntax, to mask the parameter value.</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet"><span class="SyntaxChar">Attribute,&lt;objectClass&gt;,&lt;restrict&gt;,&lt;single&gt;</span> 
+ &#160;Indicates 
+ that the parameter stores the LDAP Display Name of a certain attribute. 
+ The console provides an attribute picker for setting the parameter value 
+ of this syntax. The syntax options such as &lt;objectClass&gt;, &lt;restrict&gt; 
+ and &lt;single&gt; control the behavior of the attribute picker.</p>
+                            </li>
+                        </ul>
+                        <p class="StepParaTight"><span class="SyntaxChar">&lt;objectClass&gt;</span> 
+ &#160;The LDAP 
+ Display Name of the object class whose attributes are listed in the attribute 
+ picker by default. Depending on the &lt;restrict&gt; option, the attribute 
+ picker may allow a different object class to be selected.</p>
+                        <p class="StepPara"><span class="SyntaxChar">&lt;restrict&gt;</span> &#160;The 
+ <span class="SyntaxChar">true</span> or <span class="SyntaxChar">false</span> 
+ literal indicating whether or not the attribute picker allows you to change 
+ selection of the object class. If <span class="SyntaxChar">true</span>, 
+ you can select attributes of any object class. If <span class="SyntaxChar">false</span>, 
+ you can select only attributes of the object class identified by the &lt;objectClass&gt; 
+ option.</p>
+                        <p class="StepPara"><span class="SyntaxChar">&lt;single&gt;</span> &#160;The 
+ <span class="SyntaxChar">true</span> or <span class="SyntaxChar">false</span> 
+ literal indicating whether or not the attribute picker allows multiple 
+ attributes to be selected. If <span class="SyntaxChar">true</span>, you 
+ can select a single attribute. If <span class="SyntaxChar">false</span>, 
+ you can select more than one attribute at a time (this requires the <span style="font-weight: bold;">MultiValued</span> property of the parameter 
+ to be set to TRUE).</p>
+                        <p class="StepPara">For instance, <span class="SyntaxChar">$param1.Syntax = 
+ "Attribute,user,true,true"</span> configures the attribute picker 
+ so that you can select a single attribute of the <span class="SyntaxChar">user</span> 
+ object class and cannot change the object class.</p>
+                        <ul>
+                            <li class="kadov-p-CTableBulletTight">
+                                <p class="TableBulletTight"><span class="SyntaxChar">GenerationRule,&lt;objectClass&gt;,&lt;attribute&gt;</span> 
+ &#160;Indicates 
+ that the parameter stores a policy rule representing an instruction on 
+ how to generate the value of a certain attribute based on values of other 
+ attributes. The console provides a rule builder for setting the parameter 
+ value of this syntax. The syntax options such as &lt;objectClass&gt; and 
+ &lt;attribute&gt; control the behavior of the rule builder.</p>
+                            </li>
+                        </ul>
+                        <p class="StepParaTight"><span class="SyntaxChar">&lt;objectClass&gt;</span> 
+ &#160;The LDAP 
+ Display Name of the object class to which the policy rule applies. The 
+ rule builder configures a rule to generate the attribute value based on 
+ attributes of this object class.</p>
+                        <p class="StepPara"><span class="SyntaxChar">&lt;attribute&gt;</span> &#160;The 
+ LDAP Display Name of the attribute to which the policy rule applies. The 
+ rule builder configures a rule to generate the value of this attribute.</p>
+                        <p class="StepPara">For instance, <span class="SyntaxChar">$param1.Syntax = 
+ "GenerationRule,user,sAMAccountName"</span> indicates that the 
+ parameter stores a rule for generating the value of the <span class="SyntaxChar">sAMAccountName</span> 
+ attribute based on other attributes of the <span class="SyntaxChar">user</span> 
+ object class.</p>
+                        <p class="StepPara">For information about the structure of a generation policy 
+ rule, see <a href="eds_epi_ui_policy_rule.htm">EDS_EPI_UI_POLICY_RULE</a>.</p>
+                        <p class="TableBody">&#160;</p>
+                        <p class="TableBody"><span style="font-weight: bold;">Note</span>: If a given 
+ parameter has the <span style="font-weight: bold;">CustomPicker</span> 
+ property set, then the <span style="font-weight: bold;">Syntax</span> 
+ property has no effect for that parameter.</p>
+                    </td>
+                </tr>
+                <tr valign="middle">
+                    <td colspan="1" rowspan="1" style="border-left-color: #999999;border-bottom-color: #999999;border-bottom-width: 2px;border-bottom-style: Solid;border-right-color: #999999;border-right-width: 2px;border-right-style: Solid;border-left-width: 2px;border-left-style: solid;">
+                        <p class="TableBody" style="font-weight: bold;">CustomPicker</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="border-right-color: #999999;border-right-style: Solid;border-bottom-color: #999999;border-bottom-width: 2px;border-bottom-style: Solid;border-right-width: 2px;">
+                        <p class="TableBody">Access: Read/Write</p>
+                        <p class="TableBody">Date type: String</p>
+                        <p class="TableBody">Optional. Used for parameters of a custom type. Specifies 
+ a DLL assembly file in the following format: "<span style="font-style: italic;">Namespace.Classname:Libraryname.dll</span>, 
+ for example, CustomPickerDialog.CustomPickerObj:CustomPickerDialog.dll.</p>
+                        <p class="TableBody">The .dll file must be stored in the \MMC\Extensions 
+ sub-folder of the Active Roles installation folder.</p>
+                    </td>
+                </tr>
+                <tr valign="middle">
+                    <td colspan="1" rowspan="1" style="border-left-color: #999999;border-bottom-color: #999999;border-bottom-width: 2px;border-bottom-style: Solid;border-right-color: #999999;border-right-width: 2px;border-right-style: Solid;border-left-width: 2px;border-left-style: solid;">
+                        <p class="TableBody" style="font-weight: bold;">CustomPickerInitInfo</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="border-right-color: #999999;border-right-style: Solid;border-bottom-color: #999999;border-bottom-width: 2px;border-bottom-style: Solid;border-right-width: 2px;">
+                        <p class="TableBody">Access: Read/Write</p>
+                        <p class="TableBody">Date type: String</p>
+                        <p class="TableBody">Optional. Specifies a parameter to be passed to the 
+ DLL assembly specified in <span style="font-weight: bold;">CustomPicker</span>.</p>
+                        <p class="TableBody"><span style="font-weight: bold;">Note</span>: This property 
+ is used only if the <span style="font-weight: bold;">CustomPicker </span>property 
+ is specified. Otherwise, setting this property takes no effect.</p>
+                    </td>
+                </tr>
+                <tr valign="middle">
+                    <td colspan="1" rowspan="1" style="border-left-color: #999999;border-bottom-color: #999999;border-bottom-style: Solid;border-right-color: #999999;border-right-width: 2px;border-right-style: Solid;border-left-width: 2px;border-left-style: solid;border-bottom-width: 2px;">
+                        <p class="TableBody" style="font-weight: bold;">displayName</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="border-right-color: #999999;border-right-style: Solid;border-bottom-color: #999999;border-bottom-style: Solid;border-bottom-width: 2px;border-right-width: 2px;">
+                        <p class="TableBody">Access: Read/Write</p>
+                        <p class="TableBody">Date type: String</p>
+                        <p class="TableBody">Optional. Specifies the name of the parameter to be 
+ displayed on UI.</p>
+                    </td>
+                </tr>
+            </table>
+
+&#160; 
+
+<h3><a name="Parameter"></a>Parameter Method</h3><p class="Body">The <span style="font-weight: bold;">Parameter</span> method 
+ is used in script policy event handlers, such as onPreCreate, onPostModify, 
+ etc, to retrieve the value of a single-valued parameter.</p><pre class="syntax" xml:space="preserve">
+<p class="Syntax">Object.<b>Parameter(ByVal </b>paramID<b>)</b></p>
+</pre><p class="Body" style="font-weight: bold;">Arguments</p><dl><dt><i>Object</i></dt><dd>
+	Required. Always&#160;the <span style="font-weight: bold;">Context</span> 
+ object.</dd><dt>paramID</dt><dd>
+	[in] Required. String. Identifies the custom parameter of the policy 
+ script.</dd></dl><h3><a name="ParameterEx"></a>ParameterEx Method</h3><p class="Body">The <span style="font-weight: bold;">ParameterEx</span> method 
+ is used in script policy event handlers, such as onPreCreate, onPostModify, 
+ etc, to retrieve the value of a multi-valued parameter.</p><pre class="syntax" xml:space="preserve">
+<p class="Syntax">Object.<b>ParameterEx(ByVal </b>paramID<b style="font-weight: normal;">)</b></p>
+</pre><p class="Body" style="font-weight: bold;">Arguments</p><dl><dt><i>Object</i></dt><dd>
+	Required. Always&#160;the <span style="font-weight: bold;">Context</span> 
+ object.</dd><dt>paramID</dt><dd>
+	[in] Required. String. Identifies the custom parameter of the policy 
+ script. </dd></dl><h3>Sample Script</h3><p class="Body">The following code snippets illustrate how to declare and 
+ use the UserDept parameter in your policy script.</p><pre class="code" xml:space="preserve">
+<p class="Syntax"><span style="color: #0000ff;">[VBScript]</span>
+Sub OnInit(Context)
+ &#160;&#160;Set param1 = Context.AddParameter("UserDept")
+ &#160;&#160;param1.MultiValued = False
+ &#160;&#160;param1.Description = "Employee's department"
+ &#160;&#160;param1.Defaultvalue = "Sales"
+ &#160;&#160;param1.PossibleValues = Array("Sales", "HR", "Software Development")
+End Sub
+Sub onPreCreate(Request)
+ &#160;&#160;strClass = Request.Class
+ &#160;&#160;If (strClass &lt;&gt; "user") Then Exit Sub &#160;&#160;
+ &#160;&#160;strDept = CStr(PolicyEntry.Parameter("UserDept"))
+ &#160;&#160;Request.Put "department", strDept &#160;&#160;
+End Sub</p>
+
+<p class="Syntax"><span style="color: #0000ff;">
+[PowerShell]</span>
+function onInit($Context)
+ {
+ &#160;&#160;$par1 = $Context.AddParameter("UserDept")
+ &#160;&#160;$par1.MultiValued = $False
+ &#160;&#160;$par1.Description = "User department"
+ &#160;&#160;$par1.Defaultvalue = "Sales"
+ &#160;&#160;$par1.PossibleValues = "Sales", "HR", "Software development"
+ }</p>
+
+<p class="Syntax">
+ function onPreCreate($Request)
+ {
+ &#160;&#160;$strClass = $Request.Class
+ &#160;&#160;if ($strClass -eq "user") &#160;{
+ &#160;&#160;&#160;&#160;&#160;$strDept = [string]$Context.Parameter("UserDept")
+ &#160;&#160;&#160;&#160;&#160;$Request.Put("department", $strDept)
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}
+ }</p>
+</pre><p class="Body"><object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc395"><param name="Command" value="Related Topics,MENU" /><param name="Item1" value="Active Roles Administration Service Intrinsic Objects;edmintrinsicobjects.htm" /></object><a class="MCRelatedTopics" href="javascript:mc395.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a></p></div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

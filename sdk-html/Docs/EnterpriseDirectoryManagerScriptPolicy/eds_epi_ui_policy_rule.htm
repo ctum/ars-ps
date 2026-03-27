@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>EDS_EPI_UI_POLICY_RULE</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div role="main" id="mc-main-content">
+            <h1>EDS_EPI_UI_POLICY_RULE</h1>
+            <p class="Body">In the methods of the <a href="iedseffectivepolicyrequest.htm">IEDSEffectivePolicyRequest</a> 
+ interface, the EDS_EPI_UI_POLICY_RULE type indicates that the <span style="font-style: italic;">Arr</span> 
+ argument is a policy rule based on which an Active Roles client application 
+ can generate the value of the <span style="font-style: italic;">AttrName</span> 
+ property. A policy rule can be a literal value or it can be an instruction 
+ to compose a value by combining values of other properties. Such an instruction 
+ may use one or more tokens of the following syntax, representing the value 
+ of a particular property: %<span style="font-style: italic;">xy</span>&lt;<span style="font-style: italic;">name</span>&gt; where <span style="font-style: italic;">name</span> 
+ is the LDAP display name of the property.</p><pre class="syntax" xml:space="preserve">
+<p class="Syntax">Request.SetEffectivePolicyInfo <span style="font-style: italic;">AttrName</span>, <b>EDS_EPI_UI_POLICY_RULE</b>, <span style="font-style: italic;">Arr</span></p>
+</pre>
+            <p class="Body"><b style="font-weight: bold;"><span style="font-weight: bold;">Arr</span> 
+ Syntax</b>
+            </p>
+            <table style="width: 90%;" width="90%">
+                <tr>
+                    <th style="width: 10%;" width="10%">
+                        <p class="TableHeading" style="text-align: left;" align="left">Type</p>
+                    </th>
+                    <th style="width: 26%;" width="26%">
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                    <th style="width: 64%;" width="64%">
+                        <p class="TableHeading" style="text-align: left;" align="left">Syntax</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="width: 10%;" width="10%">
+                        <p class="TableBody">Literal value</p>
+                    </td>
+                    <td style="width: 26%;" width="26%">
+                        <p class="TableBody">The value of the <span style="font-style: italic;">AttrName</span> 
+ property is a literal string of character.</p>
+                    </td>
+                    <td style="width: 64%;" width="64%">
+                        <p class="TableBody">Plain text</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 10%;" width="10%">
+                        <p class="TableBody">Dynamic value</p>
+                    </td>
+                    <td style="width: 26%;" width="26%">
+                        <p class="TableBody">Other properties are used to build the value of the 
+ <span style="font-style: italic;">AttrName</span> property.</p>
+                    </td>
+                    <td style="width: 64%;" width="64%">
+                        <p class="TableBody"><span>Literal characters combined with tokens of the 
+ following syntax:</span>
+                        </p>
+                        <p class="TableBody"><i>%xy<span style="font-style: normal;">&lt;</span>name<span style="font-style: normal;">&gt;</span></i> </p>
+                        <ul>
+                            <li class="kadov-P-CTableBulletTight">
+                                <p class="TableBulletTight"><span style="font-style: italic;">name</span> stands for the LDAP display name 
+ of a certain property. The token indicates that the value of the <span style="font-style: italic;">name</span> property is to be used for building 
+ the <span style="font-style: italic;">AttrName</span> property value.</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet"><span style="font-style: italic;">y</span> 
+ is an optional integer parameter. When <span style="font-style: italic;">y</span> 
+ is supplied, the token indicates that not more than <span style="font-style: italic;">y</span> 
+ leading characters of the <span style="font-style: italic;">name</span> 
+ property value are to be used. If <span style="font-style: italic;">y</span> 
+ is omitted, the entire value of the <span style="font-style: italic;">name</span> 
+ property is to be used for building the <span style="font-style: italic;">AttrName</span> 
+ property value.</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet"><span style="font-style: italic;">x</span> 
+ is an optional character that complements the <span style="font-style: italic;">y</span> 
+ parameter. When <span style="font-style: italic;">x</span> is supplied, 
+ the token indicates that exactly <span style="font-style: italic;">y</span> 
+ leading characters of the <span style="font-style: italic;">name</span> 
+ property value are to be used. The appropriate number of <span style="font-style: italic;">x</span> 
+ characters is to be added at the end of the value if the current value 
+ of the <span style="font-style: italic;">name</span> property is less 
+ than <span style="font-style: italic;">y</span> characters, to ensure 
+ that the resulting value is exactly <span style="font-style: italic;">y</span> 
+ characters long.</p>
+                            </li>
+                        </ul>
+                        <p class="TableBody"><b><span style="font-weight: normal;">For instance, 
+ </span></b>%*5&lt;displayName&gt; represents an instruction to use exactly 
+ 5 leading characters of the display name, appending asterisk characters 
+ if needed.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body"><b style="font-weight: bold;">Example</b>
+            </p>
+            <p class="Body">The following policy rule instructs an Active Roles client 
+ application to compose the display name of the first name, initial and 
+ last name, such as John F. Smith (notice blank spaces between tokens and 
+ a period character following the %&lt;initials&gt; token):</p><pre class="code" xml:space="preserve">
+<p class="Syntax">Request.SetEffectivePolicyInfo "displayName", EDS_EPI_UI_POLICY_RULE, "%&lt;givenName&gt; %&lt;initials&gt;<span style="font-weight: bold;">.</span> %&lt;sn&gt;"</p>
+</pre>
+            <p>&#160;</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

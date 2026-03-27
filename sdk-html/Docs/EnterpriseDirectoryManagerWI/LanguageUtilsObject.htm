@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Web Interface|References|Intrinsic Objects" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>LanguageUtils Object</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_ObjectTask" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="webinterface.htm">Web Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="WIReference.htm">References</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">LanguageUtils Object</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor378"></a>
+                <MadCap:concept term="a_ObjectTask" /><a name="Top"></a>LanguageUtils Object</h1>
+            <p class="Body">The <span style="font-weight: bold;">LanguageUtils</span><b></b>object provides methods used to access the WI <a href="languagefiles.htm">language 
+ settings</a>. The <span style="font-weight: bold;">LanguageUtils</span><b></b>object is available within the Get_XXX and Set_XXX functions used 
+ to create the custom entries. For more information about these functions, 
+ refer to <a href="customentries.htm">Creating Custom Entries</a>.</p>
+            <h2>Methods </h2>
+            <p class="Body">The <span style="font-weight: bold;">LanguageUtils</span><b></b>object supports the following methods: </p>
+            <ul>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet" style="font-weight: bold;"><b style="font-weight: bold;"><a href="#DN"><span style="font-weight: bold;">LoadString</span><span style="font-weight: normal;"> 
+ Method</span></a></b>
+                    </p>
+                </li>
+            </ul>
+            <h3><a name="DN"></a>LoadString Method</h3>
+            <p class="Body">The <span style="font-weight: bold;">Function</span> procedure 
+ that returns the resource string identified by its resource ID.</p><pre class="syntax" xml:space="preserve">
+<p class="Syntax"><span style="font-weight: bold;">LanguageUtils</span>.LoadString<b>(ByVal <span style="font-weight: normal;">resID</span>)</b></p>
+</pre>
+            <p class="Heading4">Arguments</p>
+            <dl>
+                <dt>resID</dt>
+                <dd>
+	[in] Required. Specifies the ID of the resource string to load.</dd>
+            </dl>
+
+&#160; 
+
+<p class="Heading4">Remarks</p><p class="body">The <span style="font-weight: bold;">LoadString</span> method 
+ searches the WI <a href="languagefiles.htm">language settings</a> for 
+ the requested resource string. The built-in language settings are stored 
+ in language files (.lng) located in the locale specific containers, while 
+ your custom language settings are stored into the <span style="font-weight: bold;">edsaWIString</span> 
+ attribute of the <span style="font-weight: bold;">WorkingCopy</span> object. 
+ For detailed information, see <a href="languagefiles.htm">The Language 
+ Settings</a>.</p><p class="body">The <span style="font-weight: bold;">LoadString</span> method 
+ first searches your custom language settings and the language files specific 
+ to the WI language (e.g. US-English, French, etc.). If the requested resource 
+ string is not found, the <span style="font-weight: bold;">LoadString</span> 
+ method tries to search the language files for US-English.</p><p class="body">If the <span style="font-weight: bold;">LoadString</span> 
+ method fails to find the requested resource string, it returns the empty 
+ string.<br />&#160;</p><p class="Body"><a href="#Top">Back to top</a> </p><h2>Example Code (VBScript) </h2><p class="Body">This code snippet illustrates how to load the resource string 
+ with the Res ID="WIS_POLICY_RULE".</p><p class="Syntax">strResource = LanguageUtils.LoadString("WIS_POLICY_RULE")</p><p class="Body">&#160;</p><p class="Body"><object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc352"><param name="Command" value="Related Topics,MENU" /><param name="Item1" value="Customization Settings Format;customizationfilesedmwi.htm" /><param name="Item2" value="The Language Settings;languagefiles.htm" /><param name="Item3" value="Intrinsic Objects;WI_IntrinsicObjects.htm" /></object><a class="MCRelatedTopics" href="javascript:mc352.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a></p></div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

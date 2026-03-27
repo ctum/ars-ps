@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles ADSI Provider|ADSI Provider Reference|Interfaces|Core Interfaces" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>IADsContainer</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_IADsContainer" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanageradsiprovider.htm">Active Roles ADSI Provider</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="edmadsiproviderreference.htm">ADSI Provider Reference</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">IADsContainer</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor196"></a>
+                <MadCap:concept term="a_IADsContainer" />IADsContainer </h1>
+            <p class="Body">The <b>IADsContainer</b> interface enables a container object 
+ to create, delete and manage contained objects. Examples of container 
+ objects are domains and Organizational Units.</p>
+            <p class="Body">You can use the <b>IADsContainer</b> interface to either 
+ enumerate contained objects or manage these objects' life-cycle. An example 
+ would be to recursively navigate down a directory tree. By querying the 
+ <b>IADsContainer</b> interface on an ADSI object, you can determine if 
+ the object it represents has child objects. If the interface is not supported, 
+ the object is a leaf. Otherwise, it is a container. You can continue this 
+ process for the newly found container objects. To create, copy, or delete 
+ an object within a container, you can use the appropriate methods of the 
+ <b>IADsContainer</b> interface.</p>
+            <h2>IADsContainer Methods</h2>
+            <p class="Body">The <b>IADsContainer</b> interface defines the following 
+ methods:</p>
+            <ol>
+                <table>
+                    <tr>
+                        <th style="text-align: left;width: 37%;" align="left" width="37%">
+                            <p class="TableHeading">IADsContainer Methods</p>
+                        </th>
+                        <th style="text-align: left;width: 63%;" align="left" width="63%">
+                            <p class="TableHeading">Description</p>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td style="width: 37%;" valign="top" width="37%">
+                            <p class="TableBody"><b style="font-weight: bold;">get__NewEnum</b>
+                            </p>
+                        </td>
+                        <td style="width: 63%;" valign="top" width="63%">
+                            <p class="TableBody">Creates an enumerator object that implements the 
+ <b>IEnumVARIANT</b> interface to enumerate through the children of the 
+ container object.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 37%;" valign="top" width="37%">
+                            <p class="TableBody"><b style="font-weight: bold;">GetObject</b>
+                            </p>
+                        </td>
+                        <td style="width: 63%;" valign="top" width="63%">
+                            <p class="TableBody">Obtains an <b>IADs</b> interface pointer to a directory 
+ object in the container. The object is identified by its schema class 
+ and the relative name. If the schema class name is not provided, retrieves 
+ an interface pointer on the first object found in the container with the 
+ specified name.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 37%;" valign="top" width="37%">
+                            <p class="TableBody"><b style="font-weight: bold;">Create</b>
+                            </p>
+                        </td>
+                        <td style="width: 63%;" valign="top" width="63%">
+                            <p class="TableBody">Sets up a request to create a directory object of 
+ the specified schema class and a given name in the container. The object 
+ is not made persistent until <b>SetInfo</b> is called on the new object. 
+ This allows for setting mandatory properties on the new object.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 37%;" valign="top" width="37%">
+                            <p class="TableBody"><b style="font-weight: bold;">Delete</b>
+                            </p>
+                        </td>
+                        <td style="width: 63%;" valign="top" width="63%">
+                            <p class="TableBody">Given the name of a directory object, deletes that 
+ object from the container. The object to be deleted must be a leaf object 
+ or an empty sub-container.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 37%;" valign="top" width="37%">
+                            <p class="TableBody"><b style="font-weight: bold;">CopyHere</b>
+                            </p>
+                        </td>
+                        <td style="width: 63%;" valign="top" width="63%">
+                            <p class="TableBody">Creates a new copy of the specified directory object 
+ in the container.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 37%;" valign="top" width="37%">
+                            <p class="TableBody"><b style="font-weight: bold;">MoveHere</b>
+                            </p>
+                        </td>
+                        <td style="width: 63%;" valign="top" width="63%">
+                            <p class="TableBody">Moves a specified object within a directory service.<br />
+	Note, that when you move an object, you cannot rename that object simultaneously.</p>
+                        </td>
+                    </tr>
+                </table>
+            </ol>
+            <h3>Remarks</h3>
+            <p class="Body">In Visual Basic, you can use the <b>For Each</b> statement 
+ to invoke the <b>get__NewEnum</b> method implicitly (see <a href="#SamCode">Sample 
+ Code</a> below).<br />
+The <b>CopyHere</b> method only allows you to create a copy of a user, 
+ a group, a Managed Unit, and an inetOrgPerson. Copying other objects is 
+ not supported as well as copying objects across OUs.</p>
+            <h2>IADsContainer Properties</h2>
+            <p class="Body">In addition, the <b>IADsContainer</b> interface property 
+ methods provide access to the following properties: </p>
+            <table>
+                <tr>
+                    <th style="text-align: left;width: 45%;" align="left" width="45%">
+                        <p class="TableHeading">Property</p>
+                    </th>
+                    <th style="text-align: left;width: 55%;" align="left" width="55%">
+                        <p class="TableHeading">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="width: 45%;" valign="top" width="45%">
+                        <p class="TableBody"><b style="font-weight: bold;">Filter</b> </p>
+                        <p class="TableBody">Access: Read /Write</p>
+                        <p class="TableBody">Data Type: <b>Variant</b></p>
+                    </td>
+                    <td style="width: 55%;" valign="top" width="55%">
+                        <p class="TableBody">The filter is used to select object classes in a given 
+ enumeration. This is a variant array, each element of which is the name 
+ of a schema class. If <b>Filter</b> is not set or set to empty, all objects 
+ of all classes are retrieved by the enumerator.</p>
+                    </td>
+                </tr>
+            </table>
+            <h3>&#160;<a name="SamCode"></a>Sample Code (Visual Basic)</h3>
+            <p class="Body">The following code snippet shows how to enumerate objects 
+ using the <b>Filter</b> property of the <b>IADsContainer</b> interface.</p><pre xml:space="preserve">
+<p class="Syntax">Dim cont As IADsContainer
+Dim usr As IADsUser
+Set cont = GetObject("EDMS://OU=Sales,DC=mycompany,DC=com")
+' Define the filter to only enumerate the user and computer objects
+cont.Filter = Array("user","computer")
+For Each usr In cont
+ &#160;&#160;Debug.Print usr.Name
+Next</p>
+</pre>
+            <h4>
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc29">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="Creating and Deleting Directory Objects;creatingdeletingadsiobjects.htm" />
+                    <param name="Item2" value="Enumerating Directory Objects;enumeratingadsiobjects.htm" />
+                    <param name="Item3" value="IADs;iads.htm" />
+                    <param name="Item4" value="IADsOpenDSObject;iadsopendsobject.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc29.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </h4>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Web Interface|How to..." MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Creating Tab</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_CreateTab" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="webinterface.htm">Web Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="howto.htm">How to...</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Creating Tab</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor337"></a>
+                <MadCap:concept term="a_CreateTab" />Creating Tab</h1>
+            <p class="Body">This topic explains how you can create a <i>tab</i>. A form 
+ includes one or several <i>tabs</i> that group related elements on the 
+ same page. Each set of related elements is presented within the tab labeled 
+ with the name of the set, such as <b>General</b>, <b>Managed by</b>, and 
+ <b>Object</b> on the <b>Properties</b> form. The form tabs are defined 
+ using the XML element <a href="formsxml.htm#FormTab">FormTab</a>.</p>
+            <p class="Body">To create a tab, use the following procedure to make the 
+ appropriate changes to the attribute <b>edsaWIForms</b> of the object 
+ WorkingCopy residing in the Customization Settings container.</p>
+            <p class="Procedure"> <b>To create a custom tab</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Write">Save</a> 
+ the value of the attribute <b>edsaWIForms</b> into a text file.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Open this file 
+ with any XML editor, such as XML Spy, and find the element Form that defines 
+ the form you want to include the tab to be created.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">For the element 
+ Form, insert the child element Formtab in the following way:<br /><br />
+	&lt;FormTab ID=<i>TabID</i> ResID=<i>strResID</i> ToolTipResID=<i>strToolTip</i>&gt;<br />
+	Where:<i><br />
+	TabID</i> - The tab identifier (any string);<i><br />
+	strResID</i> - Identifier of the string constant containing the tab 
+ name (optional attribute);<i><br />
+	strToolTip</i> - Identifier of the string constant containing the tab 
+ tooltip (optional attribute);<br />
+	For more information about attributes of the element FormTab, refer 
+ to <a href="formsxml.htm#FormTab">The Form Settings</a>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList">Optionally, add 
+ entries to the tab. When finished, insert the tag &lt;/FormTab&gt; and 
+ save the file.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="5">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Read">Save 
+ changes</a> to the attribute <b>edsaWISettings</b>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="6">
+                    <p class="NumberedList"><a href="reloadwi.htm">Reload 
+ the Web Interface</a>.</p>
+                </li>
+            </ol>
+            <h2>Example</h2>
+            <p class="Body">The following code snippet illustrates how to add the <b>General</b> 
+ tab to the <b>Computer Properties</b> form. The tab includes custom entries.&#160;</p><pre class="code" xml:space="preserve">
+<p class="Syntax">&lt;Forms CustomizationVersion="33"&gt;
+ &#160;&#160;&#160;&lt;Form ID="ComputerProperties" FormType="1" ResID="WIS_FORM_COMPUTER_PROPERTIES" TargetClass="computer" DescriptionResID=""&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;FormTab ID="general" ResID="WIS_UP_GENERAL"&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;FormEntry ID="sAMAccountNameComp"/&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;FormEntry ID="dNSHostName"/&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;FormEntry ID="role"/&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;FormEntry ID="description"/&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;FormEntry ID="trustForDelegation"/&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/FormTab&gt;
+ &#160;&#160;&#160;&lt;/Form&gt;
+&lt;/Forms&gt;</p>
+</pre>
+            <p class="note"><b style="font-weight: bold;">Note:</b>
+            </p>
+            <p class="note">The constants WIS_FORM_COMPUTER_PROPERTIES and WIS_UP_GENERAL 
+ must be defined in the language settings stored in <b><a href="languagefiles.htm">edsaWIStrings</a></b>.</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Script Policies, Scheduled Tasks and Workflows|Using Script Policy and Scheduled Tasks" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Scripting: PowerShell vs VBScript</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../EnterpriseDirectoryManagerScriptPolicy/enterprisedirectorymanagerscriptpolicy.htm">Script Policies, Scheduled Tasks and Workflows</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="../EnterpriseDirectoryManagerScriptPolicy/usingedmscriptpolicy.htm">Using Script Policy and Scheduled Tasks</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Scripting: PowerShell vs VBScript</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1>Scripting: PowerShell vs VBScript</h1>
+            <p class="Body">Script development practices in PowerShell and VBScript are 
+ basically the same, although when developing PowerShell scripts, you should 
+ keep in mind some consideration which are specific for PowerShell as compared 
+ to VBScript. This topic highlights the key differences between PowerShell 
+ and VBScript when used to develop scripts for Active Roles.</p>
+            <h2>Using Functions</h2>
+            <p>In PowerShell, functions pipeline all the output instead of returning 
+ a single return value. Here is an example:</p>
+            <p class="Syntax">Function foo<br />
+{<br />
+"Start processing"<br />
+Get-qadobject "CN=Active Directory"<br />
+Return 0<br />
+}</p>
+            <p class="Body">This function will return three values instead of a single 
+ value.</p>
+            <p class="Body">To have function return only one value, you need to suppress 
+ unwanted output. The following function returns only one value:</p>
+            <p class="Syntax">Function foo<br />
+{<br />
+"Start processing" | out-null<br />
+Get-qadobject "CN=Active Directory" | out-null<br />
+Return 0<br />
+}</p>
+            <h2>Properties in PowerShell</h2>
+            <p class="Body">In PowerShell, the <span style="font-style: italic;">IEDM:Control</span> 
+ property may be used only as a method. Here is an example:</p>
+            <p class="Syntax">&#160;</p>
+            <p class="Syntax"><span style="color: #0000ff;">[VBScript]</span>
+                <br />
+DirObj.Control("AllowApproval")="Confirm"</p>
+            <p class="Syntax">&#160;</p>
+            <p class="Syntax"><span style="color: #0000ff;">[PowerShell]</span>
+                <br />
+$DirObj.Control("AllowApproval", "Confirm")</p>
+            <p class="Syntax">&#160;</p>
+            <p class="Syntax">&#160;</p>
+            <p class="syntaxindent">&#160;</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

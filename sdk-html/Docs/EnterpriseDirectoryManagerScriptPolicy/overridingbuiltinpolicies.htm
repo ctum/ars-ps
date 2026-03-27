@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Script Policies, Scheduled Tasks and Workflows|Using Script Policy and Scheduled Tasks|Advanced" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Overriding Active Roles Built-In Policies</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_OverridingBuiltinPolicies" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanagerscriptpolicy.htm">Script Policies, Scheduled Tasks and Workflows</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="usingedmscriptpolicy.htm">Using Script Policy and Scheduled Tasks</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Overriding Active Roles Built-In Policies</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor227"></a>
+                <MadCap:concept term="a_OverridingBuiltinPolicies" />Overriding Active Roles Built-In Policies</h1>
+            <p class="Body"> Active Roles built-in policies are used in the built-in 
+ Policy Objects created during the installation of the Administration Service. 
+ The built-in policies are listed in this <a href="../EnterpriseDirectoryManagerADSIProvider/iedmpolicyentry_properties.htm#BuiltInPolicies">table</a>.</p>
+            <p class="Body">A direct modification of built-in policies is not advised. 
+ When it is necessary, we recommend that you override those policies with 
+ the custom policy scripts instead.</p>
+            <p class="Procedure"> <b>To override a built-in policy</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Create a policy 
+ script with which you want to override the policy in question.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Add the <b>Function</b> 
+ procedure onGetPolicyMarker to that script. Note that onGetPolicyMarker 
+ must return the <a href="usingpolicyid.htm">policy ID</a> of the policy 
+ you want to override. Policy IDs for the built-in policies are listed 
+ in the column 1 of this <a href="../EnterpriseDirectoryManagerADSIProvider/iedmpolicyentry_properties.htm#BuiltInPolicies">table</a>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">Apply the policy 
+ script to the container on which you want to override the policy. For 
+ related procedures, see <a href="applyingpolicyscriptsexamples.htm">Applying 
+ Policy Scripts</a>.</p>
+                </li>
+            </ol>
+            <p class="Body">For more information about onGetPolicyMarker, refer to <a href="usingpolicyid.htm">Using Policy Identifier</a>. </p>
+            <h2>Example Code</h2>
+            <p class="Body">The following sample policy script allows you to override 
+ the EDS_APE_TYPE_MOVE_TARGETS built-in policy for User objects. </p><pre xml:space="preserve">
+<p class="Syntax"><span style="color: #0000ff;">[VBScript]</span>
+Sub onPostGet(Request)
+ &#160;&#160;&#160;If Request.Class = "user" Then
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;If Request.IsAttributeRequested ("edsvaMoveTargets") Then
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Request.Put "edsvaMoveTargets","ou=London_Branch,dc=mycompany,dc=com"
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;End If 
+ &#160;&#160;&#160;End If
+End Sub
+Function onGetPolicyMarker()
+ &#160;&#160;' Identify your policy with the same policy ID that is used for a built-in policy 
+ &#160;&#160;onGetPolicyMarker=EDS_APE_TYPE_MOVE_TARGETS
+End Function</p>
+
+<p class="Syntax">
+<span style="color: #0000ff;">[PowerShell]
+</span>function onPostGet($Request)
+{
+ &#160;&#160;&#160;if($Request.Class -eq "user")
+ &#160;&#160;&#160;{
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;if($Request.IsAttributeRequested("edsvaMoveTargets"))
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;{
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$Request.Put("edsvaMoveTargets", "ou=London_Branch,dc=mycompany,dc=com")
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;}
+ &#160;&#160;&#160;}
+}
+function onGetPolicyMarker()
+{
+ &#160;&#160;&#160;# Identify your policy with the same policy ID that is used for a built-in policy 
+ &#160;&#160;&#160;return $Constants.EDS_APE_TYPE_MOVE_TARGETS
+}</p>
+</pre>
+            <p class="Body">The policy changes the value of the <a href="../EnterpriseDirectoryManagerADSIProvider/topclass.htm#MoveTarget"><b>edsvaMoveTargets</b></a> 
+ property in the object <b>Request</b>. The <b>edsvaMoveTargets</b> property 
+ specifies a list of possible target containers for Move operation. In 
+ the given example, the <b>Move</b> dialog box will allow you to move users 
+ only to folders residing within the Organizational Unit London_Branch 
+ in the domain mycompany.com.</p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc318">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="Event Handlers;eventhandlers.htm" />
+                    <param name="Item2" value="IEDMPolicySetting;../EnterpriseDirectoryManagerADSIProvider/iedmpolicysetting.htm" />
+                    <param name="Item3" value="IEDsRequestParameters;iedsrequestparameters.htm" />
+                    <param name="Item4" value="Using Policy Identifier;usingpolicyid.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc318.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Introducing the Active Roles SDK" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Frequently Asked Questions</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_FrequentlyAskedQuestions" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="aboutenterprisedirectorymanager1.htm">Introducing the Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Frequently Asked Questions</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor10"></a>
+                <MadCap:concept term="a_FrequentlyAskedQuestions" />Frequently asked questions</h1>
+            <h3>Can I use scripts to manage Computer Resources with Active Roles?</h3>
+            <p class="Body">Yes. In this documentation, you can find some examples of 
+ scripts for Computer Resources management (see <a href="../EnterpriseDirectoryManagerADSIProvider/managingresources.htm">Managing 
+ Computer Resources</a>). </p>
+            <h3>What development languages can be used to write policy scripts?</h3>
+            <p class="Body">Any scripting language supported by the Microsoft Windows 
+ Script Host, such as Windows PowerShell, VBScript and JScript, can be 
+ used to develop policy scripts.</p>
+            <h3>What development languages can be used to work with Active Roles ADSI 
+ Provider?</h3>
+            <p class="Body">Any language that supports COM objects can be used to work 
+ with the Active Roles ADSI Provider, such as C, C++ and C#, as well as 
+ automation-compliant languages such as Microsoft Visual Basic and Microsoft 
+ Visual Basic Scripting Edition (VBScript).</p>
+            <h3>Can policy scripts display messages to Active Roles users?</h3>
+            <p class="Body">Policy scripts can only return error messages by generating 
+ run-time errors. If a pre-event handler generates an error, the error 
+ message is displayed to the Active Roles user and Administration Service 
+ terminates the execution of the in-process operation. If a post-event 
+ handler generates an error, the error message is recorded into the EDM 
+ Server event log without terminating the in-process operation. For more 
+ information about using custom error messages in policy scripts, see <a href="../EnterpriseDirectoryManagerScriptPolicy/returningcustomerrormessages.htm">Returning 
+ Custom Error Messages</a>.</p>
+            <h3>Can policy scripts prompt Active Roles users for data?</h3>
+            <p class="Body">Currently, Active Roles does not enable policy scripts to 
+ prompt Active Roles users for data. <!-- Policy scripts can only access and modify the data that clients send to
+Administration Service when requesting operations to be performed.
+--></p>
+            <h3>In what security context do policy scripts run?</h3>
+            <p class="Body">Policy scripts are executed in the security context of the 
+ user account under which the Administration Service service is running.</p>
+            <h3>Do policy scripts run synchronously or asynchronously?</h3>
+            <p class="Body">Whether a policy script runs synchronously or asynchronously 
+ depends on the type of the event handler that receives control. The following 
+ event handlers are executed as part of the requested administrative operation: 
+ </p>
+            <ul>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">Any pre-event handler</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">onGetEffectivePolicy</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">onCheckPropertyValues</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">onPostGet</p>
+                </li>
+            </ul>
+            <p class="Body">When such a handler receives control, the service continues 
+ to process the request only after the script execution completes.<br />
+The situation changes with post-event handlers (except onPostGet): the 
+ service executes post-event handlers independently of processing the requested 
+ operation. For example, a post-delete handler may continue to run after 
+ the deletion operation is completed. </p>
+            <h3>When the Active Roles user defines a script policy, is the policy script 
+ automatically replicated among Administration Services?</h3>
+            <p class="Body">Since Administration Service stores policy scripts in Administration 
+ Database, the scripts are replicated as part of the overall Active Roles 
+ configuration information among all Administration Services that are configured 
+ to be replication partners.</p>
+            <h3>Policy script fails to retrieve a property value from the in-process 
+ object although the property has a value in Active Directory. What's wrong?</h3>
+            <p class="Body">The in-process object (object <b>Request</b>) only contains 
+ the property values that are required to complete the requested operation. 
+ For example, if the client requests the service to modify the Description 
+ property but not the other properties of a user object, only the new value 
+ for the user Description appears in the object <b>Request</b>. Since the 
+ object <b>Request</b> contains no information about the other properties, 
+ attempts to retrieve their values will fail.</p>
+            <h3>How can a policy script access a property value that is not in the 
+ object Request?</h3>
+            <p class="Body">The only property values in the object <b>Request</b> are 
+ those required to complete the requested operation. To retrieve the value 
+ of a property that is not in the object <b>Request</b>, a policy script 
+ needs to use the ADSI provider. For example, the following code (VBScript) 
+ retrieves the Department property:</p><pre xml:space="preserve">
+<p class="Syntax">Set objUser = GetObject(Request.Get("ADsPath"))
+objUser.GetInfoEx Array("department"), 0
+vPropertyValue = objUser.Get("department")</p>
+</pre>
+            <p class="Body">For more examples, see <a href="../EnterpriseDirectoryManagerScriptPolicy/bindingobjectbeingprocessed.htm">Binding 
+ to the Object Being Processed</a>, <b><a href="../EnterpriseDirectoryManagerScriptPolicy/dirobj.htm">DirObj</a></b> 
+ object.</p>
+            <h3>How can a policy script determine if a property value is set in the 
+ object Request?</h3>
+            <p class="Body">All the property values that are defined in the object <b>Request</b> 
+ (in-process property values) can be enumerated and retrieved using methods 
+ of the interface <b><a href="../EnterpriseDirectoryManagerScriptPolicy/iadspropertylist.htm">IADsPropertyList</a></b>.</p>
+            <h3>Can policy scripts keep user-defined variables in the objects Request?</h3>
+            <p class="Body">Yes. The <b>Parameter</b> property of the <a href="../EnterpriseDirectoryManagerScriptPolicy/requestobject.htm">object 
+ <b>Request</b> </a>makes it possible to get and set the values of user-defined 
+ variables by variable name. For more information, refer to <a href="../EnterpriseDirectoryManagerScriptPolicy/iedsrequestparameters.htm"><b>IEDSRequestParameters</b></a>.</p>
+            <h3>It seems that the onPostMove event handler does not work. What's wrong?</h3>
+            <p class="Body">In a script policy applied to a container, the onPostMove 
+ event handler is activated after an object is moved <i>into</i> that container, 
+ and is <i>not</i> activated after an object is moved <i>from</i> that 
+ container. To clarify this behavior, suppose the script policy PA is applied 
+ to the container A, while the script policy PB is applied to the container 
+ B. When there arrives a request to move an object from A to B, the service 
+ first invokes the onPreMove event handler in PA, then performs the requested 
+ action, and finally, after the object has been moved from A to B, the 
+ service invokes the onPostMove event handler in PB, rather than in PA. 
+ This behavior is because the object now resides in the container B and, 
+ therefore, should be affected by the policy just applied to B. See also 
+ <a href="../EnterpriseDirectoryManagerScriptPolicy/eventhandlers.htm">Event 
+ Handlers</a>.</p>
+            <h3>Is it possible to control the order in which policies are processed?</h3>
+            <p class="Body">Active Roles provides the ability to control the order in 
+ which policy entries are processed within a Policy Object. You can use 
+ the <b>Up</b> and <b>Down</b> buttons on the <b>Policy Settings</b> tab 
+ in the Policy Object <b>Properties</b> dialog box to adjust the execution 
+ order of the policy entries. The higher an entry stands in the list, the 
+ earlier it is executed. Currently, Active Roles provides no ability to 
+ control the order in which individual Policy Objects are processed.</p>
+            <h3>I have a script that works with the Microsoft ADSI (LDAP) Provider. 
+ How should I modify the script for use with the Active Roles ADSI Provider?</h3>
+            <p class="Body">You should replace LDAP: with EDMS: in all <a href="../EnterpriseDirectoryManagerADSIProvider/bindingadsiobject.htm">binding 
+ strings</a> used in your script. For example, the string<br />
+LDAP://CN=TestUser,DC=DEV,DC=FABRIKAM,DC=COM<br />
+should be replaced with<br />
+EDMS://CN=TestUser,DC=DEV,DC=FABRIKAM,DC=COM </p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc5">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value=" Active Roles ADSI Provider;../EnterpriseDirectoryManagerADSIProvider/enterprisedirectorymanageradsiprovider.htm" />
+                    <param name="Item2" value="Script Policies, Scheduled Tasks and Workflows;../EnterpriseDirectoryManagerScriptPolicy/enterprisedirectorymanagerscriptpolicy.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc5.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

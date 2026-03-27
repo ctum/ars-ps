@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles ADSI Provider|ADSI Provider Reference|Interfaces|Schema Interfaces" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>IADsClass</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_IADsClass" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanageradsiprovider.htm">Active Roles ADSI Provider</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="edmadsiproviderreference.htm">ADSI Provider Reference</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">IADsClass</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor387"></a>
+                <MadCap:concept term="a_IADsClass" />IADsClass </h1>
+            <p class="Body">The <b>IADsClass</b> interface is designed for managing schema 
+ class objects that provide class definitions for any ADSI object. Other 
+ schema management interfaces include <a href="iadsproperty.htm"><b>IADsProperty</b></a> 
+ for property definitions and <a href="iadssyntax.htm"><b>IADsSyntax</b></a> 
+ for property syntax.</p>
+            <h2>IADsClass Methods</h2>
+            <p class="Body">The <b>IADsClass</b> interface defines the following methods 
+ that can be used by Automation (Visual Basic, VBScript, JScript) clients.</p>
+            <table>
+                <tr>
+                    <th style="text-align: left;width: 36%;" align="left" width="36%">
+                        <p class="TableHeading">IADsClass Methods</p>
+                    </th>
+                    <th style="text-align: left;width: 64%;" align="left" width="64%">
+                        <p class="TableHeading">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody"><b style="font-weight: bold;">Qualifiers</b>
+                        </p>
+                    </td>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody">Returns a collection of ADSI objects that describe provider-specific 
+ qualifiers for the schema.</p>
+                    </td>
+                </tr>
+            </table>
+            <h3>Remarks</h3>
+            <p class="Body">Schema objects are organized in the schema container of a 
+ given directory. To access an object's schema class, use the object's 
+ Schema property defined in the <a href="iads.htm"><b>IADs </b></a>interface 
+ to obtain the ADsPath string and use that string to bind to its schema 
+ class object.</p>
+            <h2>IADsClass Properties</h2>
+            <p class="Body">The property methods of the<span style="font-weight: bold;"> 
+ IADsClass</span> interface get or set the following properties.</p>
+            <table>
+                <tr>
+                    <th style="text-align: left;width: 50%;" align="left" width="50%">
+                        <p class="TableHeading">IADsClass Properties</p>
+                    </th>
+                    <th style="text-align: left;width: 50%;" align="left" width="50%">
+                        <p class="TableHeading">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody"><b style="font-weight: bold;">Abstract</b> &#160; </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Boolean</b> </p>
+                    </td>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody">Boolean value indicating whether this class is Abstract 
+ or non-abstract. When TRUE, this class is an Abstract class and cannot 
+ be directly instantiated in the directory service. Abstract classes can 
+ only be used as super classes.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody"><b style="font-weight: bold;">AuxDerivedFrom</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b></p>
+                    </td>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody">Array of ADsPath strings that indicate the super Auxiliary 
+ classes this class derives from.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody"><b style="font-weight: bold;">Auxiliary</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Boolean</b>&#160;</p>
+                    </td>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody">Boolean value that indicates whether or not this class 
+ is Auxiliary. When TRUE, this class is an Auxiliary class and cannot be 
+ directly instantiated in the directory service. Auxiliary classes can 
+ only be used as super classes of other Auxiliary classes or as a source 
+ of additional properties on structural classes.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody"><b style="font-weight: bold;">Container</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Boolean</b> </p>
+                    </td>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody">Boolean value that indicates whether this class can 
+ be a container of other object classes. If this value is TRUE, you can 
+ call the <b>get_Containment</b> method to get an array of the object classes 
+ that this class can contain.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody"><b style="font-weight: bold;">Containment</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b></p>
+                    </td>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody">A <b>BSTR</b> array in which each element is the name 
+ of an object class that this class can contain.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody"><b style="font-weight: bold;">DerivedFrom</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b></p>
+                    </td>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody">Array of ADsPath strings that indicate which classes 
+ this class was derived from.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody"><b style="font-weight: bold;">MandatoryProperties</b>
+                        </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b></p>
+                    </td>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody"><b style="font-weight: bold;">SAFEARRAY</b> of <b>BSTRs</b> 
+ that lists the properties that must be set for this class to be written 
+ to storage.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody"><b style="font-weight: bold;">OptionalProperties</b>
+                        </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b></p>
+                    </td>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody"><b style="font-weight: bold;">SAFEARRAY</b> of <b>BSTRs</b> 
+ that lists the properties that are optional for this schema class.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody"><b style="font-weight: bold;">NamingProperties</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b>&#160;</p>
+                    </td>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody"><b style="font-weight: bold;">SAFEARRAY</b> of <b>BSTRs</b> 
+ that lists the properties that are used for naming attributes of this 
+ schema class. For example, in NDS, "CN" and "OU" are 
+ naming properties.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody"><b style="font-weight: bold;">OID</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>BSTR</b> </p>
+                    </td>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody">Provider-specific Object Identifier that defines this 
+ class. This is provided to allow schema extension, using Active Directory™, 
+ in directory services that require provider-specific OIDs for classes.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody"><b style="font-weight: bold;">PossibleSuperiors</b>
+                        </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b></p>
+                    </td>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody">Array of ADsPath strings that indicate the schema classes 
+ that can contain instances of this class.</p>
+                    </td>
+                </tr>
+            </table>
+            <h3>Sample Code (Visual Basic)</h3>
+            <p class="Body">The following code snippet shows how to work with the <span style="font-weight: bold;">IADsClass</span> interface.</p><pre xml:space="preserve">
+<p class="Syntax">Dim obj As IADs
+Dim cls As IADsClass
+Set obj = GetObject("EDMS://MyServer/CN=MyComputer,CN=Computers,DC=mycompany,DC=com")
+Set cls = GetObject(obj.Schema)
+' Inspecting mandatory and optional properties.
+For Each p In cls.MandatoryProperties
+ &#160;&#160;&#160;MsgBox "Must-have: " &amp; p
+Next
+For Each p In cls.OptionalProperties
+ &#160;&#160;&#160;MsgBox "May-have: " &amp; p
+Next</p>
+</pre>
+            <p class="Body">Here, p is the name of an attribute. For example, the Computer 
+ object has an optional attribute known as Owner. </p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc31">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="IADsProperty;iadsproperty.htm" />
+                    <param name="Item2" value="IADsSyntax;iadssyntax.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc31.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

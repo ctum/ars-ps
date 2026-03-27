@@ -1,0 +1,1403 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Web Interface|References|Customizing Active Roles Web Interface|Customization Settings Format" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>The Interface Settings</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_InterfaceSettings" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="webinterface.htm">Web Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="WIReference.htm">References</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The Interface Settings</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor430"></a>
+                <MadCap:concept term="a_InterfaceSettings" />The Interface Settings</h1>
+            <p class="Body">This&#160;topic provides information about&#160; the format 
+ of settings for the user interface components. For a brief description 
+ of the user interface components, refer to&#160;"User Interface Overview" 
+ in the Active Roles Web Interface Help.</p>
+            <h2>XML Elements</h2>
+            <p class="Body">The <b>edsaWISettings </b>attribute of the WorkingCopy object 
+ within the Interface Settings container stores information in the Extensible 
+ Markup Language (XML).&#160;XML elements that control the Web Interface 
+ view are listed below.</p>
+            <p class="note"><b style="font-weight: bold;"><span class="QuestBlue">Important:</span></b>
+            </p>
+            <p class="note">After you modify the <b>edsaWISettings </b>attribute, for 
+ changes to take effect, <a href="reloadwi.htm">reload the Web Interface</a>.</p>
+            <p class="Body">&#160;</p>
+            <h3><a name="Settings"></a>Settings</h3>
+            <p class="Body">Describes a collection of the interface settings.</p>
+            <p class="Body"><span style="font-weight: bold;">Parent Elements</span>: 
+ None</p>
+            <p class="Body"><span style="font-weight: bold;">Child Elements</span>: <a href="#Banner">Banner</a>, <a href="#CustomObj">CustomObjectIcons</a>, 
+ <a href="#CustomizationPageText">CustomizationPageText</a>, <a href="#DefaultMenu">DefaultMenu</a>, 
+ <a href="#GlobalSettings">GlobalSettings</a>, <a href="#HomePageText">HomePageText</a>, 
+ <a href="#RootTree">RootTreeNodes</a>, <a href="#Taskboxes">TaskBoxes</a>, 
+ <a href="#UIPolices">UIPolicies</a>, <a href="#SummaryPanes">SummaryPanes</a>, 
+ <a href="#ErrorPage">ErrorPage</a></p>
+            <p class="Body"><span style="font-weight: bold;">Attributes</span>:</p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">CustomizationVersion</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Required. Identifies the current customization version 
+ number. Must be the same for all attributes of the WorkingCopy object. 
+ </p>
+                        <p class="note"><b style="font-weight: bold;">Important:</b>
+                        </p>
+                        <p class="note">The value of this attribute depends on the application version. 
+ This value is stored in the attribute <b>edsaWITemplateVersion </b>of 
+ the WI configuration container objects (see <a href="storingsettings.htm">Storing 
+ Customization Settings</a>).</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="Banner"></a>Banner</h3>
+            <p class="Body">Describes banners and links displayed on the Web Interface.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#Settings">Settings</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:</p>
+            <table>
+                <col style="width: 130px;" />
+                <col style="width: 652px;" />
+                <tr>
+                    <th style="width: 130px;" width="130px">
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th style="width: 652px;" width="652px">
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="width: 130px;" width="130px">
+                        <p class="TableBody">LeftImage</p>
+                    </td>
+                    <td style="width: 652px;" width="652px">
+                        <p class="note" style="color: #000000;">Required. String. Contains URL of the image 
+ displayed in the left part of the WI window, above the Navigation Bar.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 130px;" width="130px">
+                        <p class="TableBody">RightImage</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 652px;" width="652px">
+                        <p class="note" style="color: #000000;">Required. String. Contains URL of the image 
+ displayed in the right part of the WI window, above the Navigation Bar.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 130px;" width="130px">
+                        <p class="TableBody">LeftImageUrl</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 652px;" width="652px">
+                        <p class="note" style="color: #000000;">Required. String. Contains URL of the page 
+ displayed after you click the image in the left part of the WI window</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 130px;" width="130px">
+                        <p class="TableBody">RightImageUrl</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 652px;" width="652px">
+                        <p class="note" style="color: #000000;">Required. String. Contains URL of the page 
+ displayed after you click the image in the right part of the WI window</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="ConditionFilterSets"></a>ConditionFilterSets</h3>
+            <p class="Body">Describes a collection of the custom filters. A filter enables/disables 
+ the corresponding menu command or item on a Web Interface page basing 
+ on the certain criteria.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#Settings">Settings</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#ConditionFilterSet">ConditionFilterSet</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <p class="Body">&#160;</p>
+            <h3 class="Body"><a name="ConditionFilterSet"></a>ConditionFilterSet</h3>
+            <p class="Body">Describes a custom filter for menu command or item on a Web 
+ Interface page.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#ConditionFilterSets">ConditionFilterSets</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#AAEFilter">AAEFilter</a>, 
+ <a href="#AVFilter">AVFilter</a>, and <a href="#VBSFilter">VBSFilter</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <col style="width: 130px;" />
+                <col style="width: 652px;" />
+                <tr>
+                    <th style="width: 130px;" width="130px">
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th style="width: 652px;" width="652px">
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="width: 130px;" width="130px">
+                        <p>ID</p>
+                    </td>
+                    <td style="width: 652px;" width="652px">
+                        <p class="TableBody">Required. Contains the identifier of the filter set.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="AAEFilter"></a>AAEFilter </h3>
+            <p class="Body">Describes the command filter based on the values of the allowedAttributesEffective 
+ property of the processed object. </p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#ConditionFilterSet">ConditionFilterSet</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None </p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:</p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">Attributes</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. A comma separated list of attribute names.&#160;</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="AVFilter"></a>AVFilter </h3>
+            <p class="Body">Describes the command filter based on the values of the processed 
+ object properties. </p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#ConditionFilterSet">ConditionFilterSet</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None </p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:&#160; </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">AttributeName</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Contains the ldapDisplay name of the processed 
+ object attribute.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">AttributeValue</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. A comma separated list of values. This filter 
+ enables the command when the value of the processed object attribute (AttributeName) 
+ is equal to any of values from the AttributeValue list.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="VBSFilter"></a>VBSFilter</h3>
+            <p class="Body">Describes the command filter based on a VBScript function 
+ that checks whether the command is available for the Web Interface's user.&#160; 
+ </p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#ConditionFilterSet">ConditionFilterSet</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None </p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:</p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">MethodName</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. The name of a function that checks whether 
+ the command is available for the Web Interface's user. Write this function 
+ into the file:<br />
+'<i>&lt;WI folder&gt;</i>\Public\CustomCode\<span lang="EN-US">IsCommandAvailable</span>.vbs'<br />
+The <i>&lt;WI folder&gt;</i> refers to the folder where Web Interface is 
+ installed. </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Scope</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Required. String. Specifies the scope of the filter. 
+ </p>
+                        <p class="TableBody">This attribute must take one of the following values:</p>
+                        <ul style="list-style: disc;" type="disc">
+                            <li class="kadov-p-CTableBody">
+                                <p class="TableBody"><span style="font-weight: bold;">DN</span> 
+ - the filter context is the object whose DN is specified in the <span style="font-weight: bold;">TargetDN</span> attribute. &#160;</p>
+                            </li>
+                            <li class="kadov-p-CTableBody">
+                                <p class="TableBody"><span style="font-weight: bold;">Trustee</span> 
+ - the filter context is set to the user account under which the Web Interface 
+ is running.</p>
+                            </li>
+                            <li class="kadov-p-CTableBody">
+                                <p class="TableBody"><span style="font-weight: bold;">SecurableObject</span> 
+ - the filter context is set to the object to which the command applies</p>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">TargetDN</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Optional, String. Specifies the DN of an object.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="CustomObj"></a>CustomObjectIcons</h3>
+            <p class="Body">Describes a collection of custom icons for directory objects 
+ the Web Interface displays.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#Settings">Settings</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#Icon">Icon</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <p class="Body">&#160;</p>
+            <h3><a name="Icon"></a>Icon</h3>
+            <p class="Body">Describes custom icons for an object class.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#CustomObj">CustomObjectIcons</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:</p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ObjectClass</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Contains the name of the object class to which 
+ the custom icon will apply.&#160;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">BigIconFileName</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Sets the file name for the big custom icon. 
+ The recommended size for big icons is 32 x 32.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">SmallIconFileName</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Required. Sets the file name for the small custom icon. 
+ The recommended size for small icons is 16 x 16.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ObjectTag</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. String. Contains the label "AD LDS Object" 
+ to be used to distinguish the ADAM objects.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="note"><b style="font-weight: bold;">Note:</b>
+            </p>
+            <p class="note">The image files set by the BigIconFileName and SmallIconFileName 
+ attributes must be saved into the folder <i>&lt;WI folder&gt;</i>\Public\images, 
+ where &lt;WI folder&gt; refers to the folder where the Web Interface is 
+ installed.</p>
+            <p class="Body">&#160;</p>
+            <h3><a name="CustomizationPageText"></a>CustomizationPageText</h3>
+            <p class="Body">Describes the text displayed under the navigation bar on 
+ the Customization page of the Web Interface. The Customization page is 
+ displayed if you click <span style="font-weight: bold;">Customization</span> 
+ on the navigation bar (see "User Interface Overview" in the 
+ Web Interface Help).</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#Settings">Settings</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:</p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">DescriptionResID</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Optional. String. This attribute is not used. Set it 
+ to an empty string.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">HelperResID</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. String. Identifier of the string constant 
+ containing the command helper.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">ResID</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Optional. String. Identifier of a string constant that 
+ contains the text to be displayed. Note, that this constant can contain 
+ an HTML code.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">ToolTipResID</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Optional. String. Identifier of the string constant 
+ containing the command tooltip.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="DefaultMenu"></a>DefaultMenu</h3>
+            <p class="Body">Describes a collection of menus on the navigation bar (see 
+ "User Interface Overview" in the Web Interface Help).</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#Settings">Settings</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#MenuItem">Item</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <p class="Body">&#160;</p>
+            <h3><a name="MenuItem"></a>Item</h3>
+            <p class="Body">Describes an item of the navigation bar menu.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#DefaultMenu">DefaultMenu</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:</p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">DescriptionResID</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Required. Contains the identifier of the string constant 
+ containing a description of the command.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ID</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Contains the identifier of the menu item.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">NavigateCommand</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Contains a JScript code snippet to be run 
+ when you click the item.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">NavigateUrl</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Required. Contains a shortcut to a Web page to be opened 
+ after clicking the item.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ResID</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Identifier of a string constant that contains 
+ the resource ID.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ToolTipResID</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Contains the identifier of the string constant 
+ containing the command tooltip.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">Visible</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. Boolean. When <span style="font-weight: bold;">True</span> 
+ (default value) the menu item is visible.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">FilterSetID</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Optional. String. Identifies the <b>ConditionFilterSet</b> 
+ element that controls visibility of the item. If all filters in that <b>ConditionFilterSet</b> 
+ element evaluate to <b>True</b>, the item is visible; otherwise, the item 
+ is hidden. The value of the <b>FilterSetID</b> attribute should be the 
+ same as the <b>ID</b> attribute value of the <b>ConditionFilterSet</b> 
+ element.</p>
+                        <p class="TableBody">The <b>FilterSetID</b> attribute has no effect if the 
+ <b>Visible</b> attribute is set to <b>False</b>.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="GlobalSettings"></a>GlobalSettings</h3>
+            <p class="Body">Describes a collection of the Web Interface global settings.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#Settings">Settings</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#AutoLogout">AutoLogout</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:</p>
+            <table>
+                <col style="width: 140px;" />
+                <col style="width: 642px;" />
+                <tr>
+                    <th style="width: 140px;" width="140px">
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th style="width: 642px;" width="642px">
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 140px;" width="140px">
+                        <p class="TableBody">SearchPageSize</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 642px;" width="642px">
+                        <p class="TableBody">Required. Integer. Specifies the maximum number of search 
+ results per page. This setting applies to any search page available in 
+ the Web Interface.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 140px;" width="140px">
+                        <p class="TableBody">FilterOn</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 642px;" width="642px">
+                        <p class="TableBody">Optional. Boolean. The default value is <span style="font-weight: bold;">true</span>. 
+ Setting this attribute to <span style="font-weight: bold;">false</span> 
+ causes the filter bar to be hidden by default on all pages and dialog 
+ boxes that display lists of objects (for example, the filter bar will 
+ be hidden on the <span style="font-weight: bold;">Select Object</span> 
+ dialog box.)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 140px;" width="140px">
+                        <p class="TableBody">ObjectPickerShowFindIn</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 642px;" width="642px">
+                        <p class="TableBody">Optional. Boolean. The default value is <span style="font-weight: bold;">true</span>. 
+ When<span style="font-weight: bold;"> true</span>, the<span style="font-weight: bold;"> 
+ Find in</span> text box and the <span style="font-weight: bold;">Browse</span> 
+ button are displayed on the <span style="font-weight: bold;">Select Object</span> 
+ dialog box. The<span style="font-weight: bold;"> Find in</span> text box 
+ displays the name of the container where you want the search for objects 
+ to start.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 140px;" width="140px">
+                        <p class="TableBody">ObjectPickerShowObjectName</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 642px;" width="642px">
+                        <p class="TableBody">Optional. Boolean. The default value is <span style="font-weight: bold;">true</span>. 
+ When<span style="font-weight: bold;"> true</span>, the<span style="font-weight: bold;"> 
+ Name</span> text box and the <span style="font-weight: bold;">Search</span> 
+ button are displayed on the <span style="font-weight: bold;">Select Object</span> 
+ dialog box. This text box provides a space for you to type the name (or 
+ multiple names separated by semicolons (;)) of directory objects to find.</p>
+                        <p class="TableBody"><span class="QuestBlue">Note</span>
+                        </p>
+                        <p class="Note">You can override the global settings specified with the <span style="font-weight: bold;">ObjectPickerShowFindIn</span> and <span style="font-weight: bold;">ObjectPickerShowObjectName</span> 
+ attributes for individual custom entries. For more information and a sample, 
+ refer to <a href="entriesxml.htm#Exampl">The Entries Settings</a>.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 140px;" width="140px">
+                        <p class="TableBody">SearchOperator</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 642px;" width="642px">
+                        <p class="TableBody">Optional. String. The default value is "StartsWith." 
+ This attribute defines the search operator used by the Web Interface search 
+ function when you search for objects using the <span style="font-weight: bold;">Select 
+ Object</span> dialog box,Quick Search or Filter Bar.</p>
+                        <p class="TableBody">The SearchOperator attribute can take any of the following 
+ values:</p>
+                        <ul>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet"><span style="font-weight: bold;">"StartsWith"</span>: 
+ Causes the search function to find objects whose naming property begins 
+ with the string of characters you typed, for example, in the <span style="font-weight: bold;">Select 
+ Object</span> dialog box or in the <span style="font-weight: bold;">Quick 
+ Search</span> text box.</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet"><span style="font-weight: bold;">"Contains"</span>: 
+ Causes the search function to find objects for which the string of characters 
+ you typed occurs anywhere in their naming property.</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet"><span style="font-weight: bold;">"Equals"</span>: 
+ Causes the search function to find only the objects whose naming property 
+ exactly matches the string of characters you typed.</p>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 140px;" width="140px">
+                        <p class="TableBody">SearchPageCount</p>
+                    </td>
+                    <td style="width: 642px;" width="642px">
+                        <p class="TableBody">Required. Integer. Specifies the number of links to 
+ available search results pages displayed at the bottom of any search results 
+ page.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 140px;" width="140px">
+                        <p>LanguageId</p>
+                    </td>
+                    <td style="width: 642px;" width="642px">
+                        <p class="TableBody">Required. Integer. Specifies the default language LCID.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 140px;" width="140px">
+                        <p>MaxRowsWhenSaveCSV</p>
+                    </td>
+                    <td style="width: 642px;" width="642px">
+                        <p>Required. Integer. Specifies the maximum number of search results to 
+ save into a CSV file.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 140px;" width="140px">
+                        <p>UIPolicyId</p>
+                    </td>
+                    <td style="width: 642px;" width="642px">
+                        <p class="TableBody">Required. String. Specifies the default UI policy ID.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 140px;" width="140px">
+                        <p>ColorScheme</p>
+                    </td>
+                    <td style="width: 642px;" width="642px">
+                        <p class="TableBody">Required. String. Specifies the default color scheme 
+ ID.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 140px;" width="140px">
+                        <p class="TableBody">LeafClasses</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 642px;" width="642px">
+                        <p class="TableBody">Required. Specifies a list of the leaf object classes. 
+ A leaf object is an object that has no child objects.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 140px;" width="140px">
+                        <p class="TableBody">QuickSearchInAdLds</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 642px;" width="642px">
+                        <p class="TableBody">Required. Boolean. When <span style="font-weight: bold;">true</span>, 
+ the Web Interface will search the managed Active Directory domains and 
+ AD LDS partitions.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 140px;" width="140px">
+                        <p class="TableBody">ShowRecycledObject</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 642px;" width="642px">
+                        <p class="TableBody">Required. Boolean. When <span style="font-weight: bold;">true</span>, 
+ cause the Web Interface to display recycled objects when viewing the Deleted 
+ Objects container.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="AutoLogout"></a>AutoLogout</h3>
+            <p class="Body">Describes the sleep idle timeout settings.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#GlobalSettings">GlobalSettings</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:</p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Timeout</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Required. Integer. Specifies the sleep idle timeout 
+ value (in seconds), with a minimum of zero, which indicates never idle 
+ to sleep. After the specified period of inactivity, the Web Interface 
+ user will receive a warning message.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ConfirmTimeout</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Integer. Specifies a time interval (in seconds) 
+ during which the Web Interface user can confirm his/here activity.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="HomePageText"></a>HomePageText</h3>
+            <p class="Body">Describes the text displayed under the navigation bar on 
+ the Web Interface home page (see "User Interface Overview" in 
+ the Web Interface Help).</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#Settings">Settings</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:</p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">DescriptionResID</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Optional. String. This attribute is not used. Set it 
+ to an empty string.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">HelperResID</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. String. Identifier of the string constant 
+ containing the command helper.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">ResID</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Optional. String. Identifier of a string constant that 
+ contains the text to be displayed. Note, that this constant can contain 
+ an HTML code.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">ToolTipResID</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Optional. String. Identifier of the string constant 
+ containing the command tooltip.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="RootTree"></a>RootTreeNodes</h3>
+            <p class="Body">Describes the collection of nodes displayed in the Tree View.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#Settings">Settings</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#Form">Node</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <p class="Body">&#160;</p>
+            <h3><a name="Form"></a>Node</h3>
+            <p class="Body">Describes a node to be added to the Tree View.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#RootTree">RootTreeNodes</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:None</p>
+            <p class="Body">To have the Web Interface display a node, between &lt;Node&gt; 
+ and &lt;/Node&gt;, insert the node's DN, such as CN=Active Directory. 
+ For details, see <a href="#Exampl">Example</a>.</p>
+            <p class="Body">&#160;</p>
+            <h3><a name="Taskboxes"></a>TaskBoxes</h3>
+            <p class="Body">Describes a collection of items on the Web Interface pages.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#Settings">Settings</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#Item">Item</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <p class="Body">&#160;</p>
+            <h3><a name="Item"></a>Item</h3>
+            <p class="Body">Describes an item on a Web Interface page.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#Taskboxes">TaskBoxes</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#Task">Task</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:</p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">Description</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Identifier of the string constant containing 
+ a description of the item.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">Header</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Identifier of the string constant containing 
+ a header of the item.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ID</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Unique identifier of the item.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">IconHoverPath</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Path and file name of an icon file that contains 
+ the icon image displayed when you move the mouse pointer into the item 
+ area.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">IconPath</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Path and file name of an icon file that contains 
+ the icon image assigned to this item.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">Location</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Defines where the item will be displayed. 
+ This attribute can take one of the following values: </p>
+                        <ul>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">"default" 
+ - The item is displayed on the Web Interface home page.</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">"customization" 
+ - The item is displayed on the Web Interface customization page.</p>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">NavigateCommand</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. Contains a code snippet to be run when you 
+ click the item area.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">NavigateUrl</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Optional. Contains a shortcut to a Web page to be opened 
+ after clicking the item.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">TaskID</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Optional. String.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">Visible</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. Boolean. When <span style="font-weight: bold;">True</span> 
+ (default value) the item is visible.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">FilterSetID</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Optional. String. Identifies the <b>ConditionFilterSet</b> 
+ element that controls visibility of the item. If all filters in that <b>ConditionFilterSet</b> 
+ element evaluate to <b>True</b>, the item is visible; otherwise, the item 
+ is hidden. The value of the <b>FilterSetID</b> attribute should be the 
+ same as the <b>ID</b> attribute value of the <b>ConditionFilterSet</b> 
+ element.</p>
+                        <p class="TableBody">The <b>FilterSetID</b> attribute has no effect if the 
+ <b>Visible</b> attribute is set to <b>False</b>.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="Task"></a>Task</h3>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#Item">Item</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:</p>
+            <table>
+                <col style="width: 118px;" />
+                <col style="width: 664px;" />
+                <tr>
+                    <th style="width: 118px;" width="118px">
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th style="width: 664px;" width="664px">
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" style="width: 118px;" width="118px">
+                        <p class="TableBody">ID</p>
+                    </td>
+                    <td colspan="1" rowspan="1" style="width: 664px;" width="664px">
+                        <p class="TableBody">Required. String.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 118px;" width="118px">
+                        <p class="TableBody">PlainTextLabel</p>
+                    </td>
+                    <td style="width: 664px;" width="664px">
+                        <p class="TableBody">Optional. String.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="UIPolices"></a>UIPolicies</h3>
+            <p class="Body">Describes a collection of the User Interface polices.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#Settings">Settings</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#UIPolicy">UIPolicy</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:</p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ShowLeftPane</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Boolean. When <b>true</b>, the Web Interface 
+ home page displays the left pane of the interface.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ShowMenuTab</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Boolean. When <b>true</b>, the Web Interface 
+ home page displays the <b>Menu</b> tab available when you click a directory 
+ object on the right pane of the interface.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ShowPathToAdObject</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Boolean. When <b>false</b>, the Web Interface 
+ does not display the ADSI path to a selected directory object.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ShowQuickSearch</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Boolean. When <b>true</b>, the Web Interface 
+ home page displays the <b>Quick Search</b> box.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">ShowTreeTab</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Required. Boolean. When <b>true</b>, the Web Interface 
+ home page displays the <b>Tree</b> tab available when you click a directory 
+ object on the right pane of the interface.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ShowTopPanel</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Boolean. When <b>true</b>, the Web Interface 
+ home page displays the top panel.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="UIPolicy"></a>UIPolicy</h3>
+            <p class="Body">Describes a UI policy to be applied to the User Interface 
+ element in question.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#UIPolices">UIPolicies</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#WizardFinishOptionSettings">WizardFinishOptionSettings</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <p class="Body">&#160;</p>
+            <h3><a name="WizardFinishOptionSettings"></a>WizardFinishOptionSettings</h3>
+            <p class="Body">Describes settings applied to the <span style="font-weight: bold;">Open 
+ properties for this object when I click Finish</span> check box displayed 
+ on the Completion page of the Create New Object wizard.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#UIPolicy">UIPolicy</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:</p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ShowFinishOptionUI</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Boolean. When <b>true</b>, the <span style="font-weight: bold;">Open 
+ properties for this object when I click Finish</span> check box is displayed. 
+ Otherwise, the check box is hidden.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">FinishOptionSelected</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Boolean. Specifies, whether the <span style="font-weight: bold;">Open 
+ properties for this object when I click Finish</span> check box is displayed 
+ by default.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>FinishAction</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Specifies the operation the Web Interface will perform 
+ after completing the Create New Object wizard. This attribute can take 
+ one of the following values:</p>
+                        <ul>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">"RestartWizard": 
+ Restarts the Create New Object wizard.</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">"GoToObjectPage": 
+ Opens the <span style="font-weight: bold;">Properties</span> form for 
+ a newly created object.</p>
+                            </li>
+                        </ul>
+                        <p class="note"><b style="font-weight: bold;"><span style="font-weight: bold;">Note</span>:</b>
+                        </p>
+                        <p class="note">This attribute is only used when the <span style="font-weight: bold;">FinishOptionSelected</span> 
+ attribute is set to <span style="font-weight: bold;">false</span>. Otherwise, 
+ setting this attribute takes no effect.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="SummaryPanes"></a>SummaryPanes</h3>
+            <p class="Body">Describes a collection of Summary Panes for different object 
+ types.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#Settings">Settings</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#SummaryPane">SummaryPane</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <p class="Body">&#160;</p>
+            <h3><a name="SummaryPane"></a>SummaryPane</h3>
+            <p class="Body">Defines the Summary Pane for a particular object type, or 
+ the default Summary Pane that apply to all object types for which a Summary 
+ Pane is not defined.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#SummaryPanes">SummaryPanes</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#SPPicture">Picture</a>, 
+ <a href="#SPProperties">Properties</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:</p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">TargetClass</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. String. Specifies the LDAP Display Name of 
+ the object type (object ckass) for which this Summary Pane is displayed. 
+ TargetClass="Default" indicates the Summary Pane that is displayed 
+ for all object types that do not have a Summary Pane defined using the 
+ TargetClass attribute.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="SPPicture"></a>Picture</h3>
+            <p class="Body">Defines the picture to display on the Summary Pane. If this 
+ element is omitted, the Summary Pane displays no picture.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#SummaryPane">SummaryPane</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:</p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">AttributeName</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. String. Specifies the LDAP Display Name of 
+ the attribute from which to retrieve the picture. For example, the Summary 
+ Pane for the User object type may retrieve the picture from the thumbnailPhoto 
+ attribute.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="SPProperties"></a>Properties</h3>
+            <p class="Body">Defines the collection of object properties to display on 
+ the Summary Pane.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#SummaryPane">SummaryPane</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#SPProperty">Property</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <p class="Body">&#160;</p>
+            <h3><a name="SPProperty"></a>Property</h3>
+            <p class="Body">Defines the object property to display on the Summary Pane.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#SummaryPane">Properties</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:</p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">LabelResId</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. String. Specifies the ID of the string resource 
+ to display on the Summary Pane next to the property value. Normally, this 
+ attribute is used to display a user-friendly name of the property.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">AttributeName</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. String. Specifies the LDAP Display Name of 
+ the object attribute from which to retrieve the property value. </p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3 class="Body"><a name="ErrorPage"></a>ErrorPage</h3>
+            <p class="Body">Defines optional items in the error message area, such as 
+ hyperlinks to resources that may help resolve the error.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#Settings">Settings</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#EHyperlinks">HyperLinks</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <p class="Body">&#160;</p>
+            <h3><a name="EHyperlinks"></a>HyperLinks</h3>
+            <p class="Body">Defines the collection of hyperlinks to display in the error 
+ message area.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#ErrorPage">ErrorPage</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#EHyperlink">HyperLink</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <p class="Body">&#160;</p>
+            <h3><a name="EHyperlink"></a>HyperLink</h3>
+            <p class="Body">Defines a hyperlink to display in the error message area.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#EHyperlinks">HyperLinks</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:</p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ResId</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. String. Specifies the ID of the string resource 
+ to display for the hyperlink.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">NavigationUrl</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. String. Specifies the dedstination address 
+ of the hyperlink, such as "http://support.company.com/activeroles/kb/".</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h2><a name="Exampl"></a>Examples</h2>
+            <p class="Body">The following snippet illustrates how to specify custom icons 
+ for the user objects.</p><pre class="code" xml:space="preserve">
+<p class="Syntax">&lt;CustomObjectIcons&gt;
+ &#160;&lt;Icon ObjectClass="user" BigIconFileName="customUser_big.gif" SmallIconFileName="customUser_small.gif" /&gt;
+&lt;/CustomObjectIcons&gt;</p>
+</pre>
+            <p class="Body">The following snippet illustrates how to display your custom 
+ item on the Web Interface home page. The constant CST_HOME_MYITEM_HEADER 
+ contains the item header to be displayed on the home page, such as "My 
+ Custom Commands."</p><pre class="code" xml:space="preserve">
+<p class="Syntax">&lt;Item ID="customization" Location="default" Header="CST_HOME_MYITEM_HEADER"
+Description="CST_HOME_MYITEM_DESCRIPTION" NavigateUrl="~/Customization/MY.aspx" NavigateCommand="" /&gt;</p>
+</pre>
+            <p class="note"><b style="font-weight: bold;"><span style="font-weight: bold;">Important</span>:</b>
+            </p>
+            <p class="note">The XML schema describing the element <span style="font-weight: bold;">Settings</span> 
+ requires its child elements to appear in the following sequence within 
+ the containing element <span style="font-weight: bold;">Settings</span>:<br />
+&lt;xsd:sequence&gt;<br />
+&lt;xsd:element ref="Banner" minOccurs="1" maxOccurs="1" 
+ /&gt;<br />
+&lt;xsd:element ref="HomePageText" minOccurs="1" maxOccurs="1" 
+ /&gt;<br />
+&lt;xsd:element ref="CustomizationPageText" minOccurs="1" 
+ maxOccurs="1" /&gt;<br />
+&lt;xsd:element ref="TaskBoxes" minOccurs="1" maxOccurs="1" 
+ /&gt;<br />
+&lt;xsd:element ref="DefaultMenu" minOccurs="1" maxOccurs="1" 
+ /&gt;<br />
+&lt;xsd:element ref="RootTreeNodes" minOccurs="0" maxOccurs="1" 
+ /&gt;<br />
+&lt;xsd:element ref="CustomObjectIcons" minOccurs="0" 
+ maxOccurs="1" /&gt;<br />
+&lt;xsd:element ref="UIPolicies" minOccurs="0" maxOccurs="1" 
+ /&gt;<br />
+&lt;xsd:element ref="ConditionFilterSets" minOccurs="0" 
+ maxOccurs="1" /&gt;<br />
+&lt;xsd:element ref="GlobalSettings" minOccurs="1" 
+ maxOccurs="1" /&gt;</p>
+            <p class="note">&lt;/xsd:sequence&gt;<br /><br />
+For example, the <span style="font-weight: bold;">edsaWISettings</span> 
+ attribute must contain the CustomObjectIcons element before the UIPolicies 
+ element, otherwise the Web Interface will fail returning an error<br />
+For more information, refer to "XML Schema Elements" in the <a href="http://msdn.microsoft.com/library">MSDN Library</a>.</p>
+            <h3>Show/Hide Menu Item Depending on User Type</h3>
+            <p class="Body">This example demonstrates how to show the <span style="font-weight: bold;">Approval</span> 
+ menu item only for users whose <span style="font-weight: bold;">Description</span> 
+ attribute is set to <span style="font-weight: bold;">Administrator</span>.</p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Add the following 
+ code into the &lt;wi_folder&gt;\CustomCode\IsCommandAvailable.vbs file:</p>
+                </li>
+            </ol><pre class="code" xml:space="preserve">
+<p class="SyntaxIndent">Function IsApprovalAvailable(ByRef objCommandContext)
+ &#160;&#160;&#160;objCommandContext.GetInfoEx Array("description"),0
+ &#160;&#160;&#160;Dim description : description = objCommandContext.Get("description")
+ &#160;&#160;&#160;Write "description = " &amp; description
+ &#160;&#160;&#160;If description = "Administrator" Then
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;IsApprovalAvailable = True
+ &#160;&#160;&#160;Else &#160;&#160;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;IsApprovalAvailable = False
+ &#160;&#160;&#160;End If
+ &#160;&#160;&#160;
+End Function</p>
+</pre>
+            <ol start="2" style="list-style: decimal;list-style-type: decimal;">
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Add the filter 
+ set into the <span style="font-weight: bold;">edsaWISettings</span> attribute 
+ of the <span style="font-weight: bold;">WorkingCopy</span> objest:</p>
+                </li>
+            </ol><pre class="code" xml:space="preserve">
+<p class="SyntaxIndent">&lt;ConditionFilterSets&gt;
+ &#160;&#160;&lt;ConditionFilterSet ID="filterSet1"&gt;
+ &#160;&#160;&#160;&#160;&lt;VBSFilter MethodName="IsApprovalAvailable" Scope="Trustee"/&gt;
+ &#160;&#160;&lt;/ConditionFilterSet&gt;
+&lt;/ConditionFilterSets&gt;</p>
+</pre>
+            <ol start="3">
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">Link the filter 
+ set you created to the <span style="font-weight: bold;">Approval</span> 
+ menu item by opening for edit the XML code included the <span style="font-weight: bold;">edsaWISettings</span> 
+ attribute and setting to <span style="font-weight: bold;">filterSet1 </span>the 
+ <span style="font-weight: bold;">Item</span> element in which the <span style="font-weight: bold;">ID</span> attribute is set to <span style="font-weight: bold;">Approval</span> 
+ and which is included into the <span style="font-weight: bold;">TaskBoxes</span> 
+ element. For example:</p>
+                </li>
+            </ol><pre class="code" xml:space="preserve">
+<p class="SyntaxIndent">&lt;Item ID="approval"
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Location="default"
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Header="WIS_TB_HOME_APPROVAL_HEADER"
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Description="WIS_TB_HOME_APPROVAL_DESCRIPTION"
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;NavigateUrl="~/Approval/SearchResult.aspx?TaskID=TASKS_TO_COMPLETE"
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;NavigateCommand=""
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;IconPath="~/images/taskApproval.png"
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;IconHoverPath="~/images/taskApproval_hover.png"
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Visible="true"<span style="font-weight: bold;">
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;FilterSetID="filterSet1"</span>
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/&gt;</p>
+</pre>
+            <ol start="4" style="list-style: decimal;list-style-type: decimal;">
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList">Select <span style="font-weight: bold;">Reload </span>in the <span style="font-weight: bold;">Customization</span> 
+ menu of the Web Interface.</p>
+                </li>
+            </ol>
+            <h4>
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc362">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="The Commands Settings;commandsxml.htm" />
+                    <param name="Item2" value="Customization Settings Format;customizationfilesedmwi.htm" />
+                    <param name="Item3" value="The Language Settings;languagefiles.htm" />
+                    <param name="Item4" value="Specifying Customization Settings;specifyingsettings.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc362.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </h4>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

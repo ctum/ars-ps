@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Web Interface|How to..." MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Creating a Menu Command</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_CreateMenu" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="webinterface.htm">Web Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="howto.htm">How to...</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Creating a Menu Command</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor226"></a>
+                <MadCap:concept term="a_CreateMenu" />Creating a Menu Command</h1>
+            <p class="Body">This topic explains how you can create a command for custom 
+ menus associated with directory objects managed with the Web Interface. 
+ A menu represents a list of commands relating to objects of the appropriate 
+ type. Examples of menus: the <b>User</b> menu, the <b>Group</b> menu, 
+ etc.</p>
+            <p class="Body">The commands used in menus are described in the attribute 
+ <b>edsaWICommands</b> while the menu structure is described in the attribute 
+ <b>edsaWIMenus</b> of the WorkingCopy object .</p>
+            <p class="Body">To create a custom menu, use the following procedure to make 
+ the appropriate changes to the attributes <b><a href="commandsxml.htm">edsaWICommands</a></b> 
+ and <a href="menusxml.htm"><b>edsaWIMenus</b></a> of the object WorkingCopy 
+ residing in the Customization Settings container.</p>
+            <p class="Procedure"> <b>To make changes to the attribute edsaWIMenus</b></p>
+            <ol>
+                <li class="kadov-P-CNumberedList" value="1">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Write">Save</a> 
+ the value of the attribute <b>edsaWIMenus</b> into a text file.</p>
+                </li>
+                <li class="kadov-P-CNumberedList" value="2">
+                    <p class="NumberedList">Open this file 
+ with any XML editor, such as XML Spy, and find the element <a href="menusxml.htm#TaskList">TaskList</a> 
+ that defines a menu to which you want to add a custom command.</p>
+                </li>
+                <li class="kadov-P-CNumberedList" value="3">
+                    <p class="NumberedList">For the element 
+ TaskList, insert the child element <a href="menusxml.htm#Task">Task</a> 
+ in the following way:<br /><br />
+	&lt;Task ID=<i>strID</i>&gt;<br />
+	Where:<i><br />
+	strID</i> - Contains the identifier of the menu command. Note, that 
+ the attribute <b><a href="commandsxml.htm">edsaWICommands</a></b> must 
+ contain the element <a href="commandsxml.htm#Task">Task</a> with the same 
+ attribute ID.</p>
+                </li>
+                <li class="kadov-P-CNumberedList" value="4">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Read">Save 
+ changes</a> to the attribute <b>edsaWIMenus</b>.</p>
+                </li>
+            </ol>
+            <p class="Procedure"><b>To make changes to the attribute edsaWICommands</b>
+            </p>
+            <ol>
+                <li class="kadov-P-CNumberedList" value="1">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Write">Save</a> 
+ the value of the attribute <b>edsaWICommands</b> into a text file.</p>
+                </li>
+                <li class="kadov-P-CNumberedList" value="2">
+                    <p class="NumberedList">Open this file 
+ with any XML editor, such as XML Spy, and insert the element Task in the 
+ following way:<br /><br />
+	&lt;Task Action=<i>strfName</i> ID=strID ResID=<i>strResID</i> ToolTipResID=<i>strToolResID</i> 
+ HelperResID=<i>strHelperResID</i> <br />
+	&#160;&#160;&#160; TaskType=<i>intType</i> FormID=<i>strFormID</i> 
+ DescriptionResID=<i>strDescrResID</i>/&gt;<br />
+	Where:<i><br />
+	strfName </i>- Required, if TaskType=0. The URL of the .asp file to 
+ be executed after you click the command.&#160;<i><br />
+	strID</i> - Unique identifier of the command. The identifier must be 
+ also defined in the property <a href="menusxml.htm"><b>edsaWIMenus</b></a>.<i><br />
+	strResID</i> - Identifier of the string constant containing the name 
+ of the resource, such as tab or dialog box, where the command is used.<i><br />
+	strToolResID</i> - Optional. Identifier of the string constant containing 
+ the command tooltip.<i><br />
+	strHelperResID</i> - Optional. Identifier of the string constant containing 
+ the command helper.<br />
+	intType - Required. The type of the command. The possible values are 
+ 0, 1 or 5.<i><br />
+	strFormID</i> - Required, if TaskType=1. Unique identifier of the form 
+ associated with the command.<i><br />
+	strDescrResID</i> - Optional. Identifier of the string constant containing 
+ a description of the command.<br /><br />
+	For detailed information about attributes of the element Task, refer 
+ to <a href="commandsxml.htm">The Commands Settings</a>.</p>
+                </li>
+                <li class="kadov-P-CNumberedList" value="3">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Read">Save 
+ changes</a> to the attribute <b>edsaWICommands</b>.</p>
+                </li>
+            </ol>
+            <p class="StepNote"><b>Note:</b>
+            </p>
+            <p class="StepNote">&#160;</p>
+            <p class="StepNote">For changes to take effect,&#160; <a href="reloadwi.htm">reload 
+ the Web Interface</a>.</p>
+            <h2>Example</h2>
+            <p class="Body">For examples that illustrate how to add a command for custom 
+ menus, refer to <a href="commandsxml.htm#Examples">The Commands Settings</a>.</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

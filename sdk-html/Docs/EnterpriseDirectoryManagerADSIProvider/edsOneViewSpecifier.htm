@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles Schema" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>edsOneViewSpecifier Class</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="edmschema.htm">Active Roles Schema</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">edsOneViewSpecifier Class</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1>edsOneViewSpecifier Class</h1>
+            <p class="Body" style="margin-left: 0px;font-weight: normal;">This class specifies 
+ the contents and appearance of a single Entitlement Profile item.</p>
+            <p class="Body" style="font-weight: bold;">edsaEntitlementType</p>
+            <p class="Body">Mandatory.</p>
+            <p class="Body">Syntax: Enumeration (possible values: 1 - self, 2 - membership, 
+ 3 - managedBy) , SingleValued</p>
+            <p class="Body">Access: Stored, Read/Write</p>
+            <p class="Body">Searchable: Yes.</p>
+            <p class="Body" style="margin-left: 0px;">Specifies how the target user is entitled 
+ to the resource to be represented by the Entitlement Profile item. Possible 
+ values:</p>
+            <ul>
+                <li class="kadov-p-CListBulletTight">
+                    <p class="ListBulletTight">For<span style="font-weight: bold;"> Personal resource entitlement</span>, target 
+ user is entitled to the resource by setting particular attributes of the 
+ target user itself.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">For <span style="font-weight: bold;">Managed 
+ resource entitlement</span>, resource is an object for which the target 
+ user is assigned to a management role, such as a group for which the target 
+ user holds the Manager role.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">For <span style="font-weight: bold;">Shared 
+ resource entitlement</span><span>,</span> target user is entitled to the 
+ resource through membership in a certain group.</p>
+                </li>
+            </ul>
+            <p class="Body" style="margin-left: 0px;font-weight: bold;">&#160;</p>
+            <p class="Body" style="margin-left: 0px;font-weight: bold;">edsaEntitlementRule</p>
+            <p class="Body">Optional</p>
+            <p class="Body">Syntax: DirectoryString, MultiValued</p>
+            <p class="Body">Access: Stored, Read/Write</p>
+            <p class="Body">Searchable: Yes.</p>
+            <p class="Body" style="margin-left: 0px;">Contains conditions that determine if the 
+ resource is to be represented by the Entitlement Profile item for a given 
+ target user:</p>
+            <ul>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">For<span style="font-weight: bold;"> 
+ Personal resource entitlement</span>, the resource is represented if the 
+ target user meets the conditions specified by this attribute.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">For <span style="font-weight: bold;">Managed 
+ resource entitlement</span>, the resource represented if the object managed 
+ by the target user meets the conditions specified by this attribute.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">For <span style="font-weight: bold;">Shared 
+ resource entitlement</span>, the resource is represented if the group 
+ that provides the target user with access to that resource meets the conditions 
+ specified by this attribute.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">If this attribute 
+ is not set, the resource is represented unconditionally.</p>
+                </li>
+            </ul>
+            <p class="Body" style="margin-left: 0px;font-weight: bold;">&#160;</p>
+            <p class="Body" style="margin-left: 0px;font-weight: bold;">edsaResourceTypeDisplayName</p>
+            <p class="Body">Optional</p>
+            <p class="Body">Syntax: DirectoryString, SingleValued</p>
+            <p class="Body">Access: Stored, Read/Write</p>
+            <p class="Body">Searchable: Yes.</p>
+            <p class="Body" style="margin-left: 0px;">Contains the display name that identifies 
+ the type of the resource represented by the Entitlement Profile item, 
+ such as Mailbox, Security Group, Distribution List, or Computer.</p>
+            <p class="Body" style="margin-left: 0px;">&#160;</p>
+            <p class="Body" style="margin-left: 0px;font-weight: bold;">edsaResourceTypeIcon</p>
+            <p class="Body">Optional</p>
+            <p class="Body">Syntax: CaseIgnoreString, SingleValued</p>
+            <p class="Body">Access: Stored, Read/Write</p>
+            <p class="Body">Searchable: Yes.</p>
+            <p class="Body" style="margin-left: 0px;">Contains an icon to distinguish the resource 
+ represented by the Entitlement Profile item.</p>
+            <p class="Body" style="margin-left: 0px;">&#160;</p>
+            <p class="Body" style="margin-left: 0px;font-weight: bold;">edsaResourceAttributes</p>
+            <p class="Body">Optional</p>
+            <p class="Body">Syntax: DirectoryString, MultiValued</p>
+            <p class="Body">Access: Stored, Read/Write</p>
+            <p class="Body">Searchable: Yes.</p>
+            <p class="Body">Lists the resource-specific attributes to be displayed by 
+ the Entitlement Profile item:</p>
+            <ul>
+                <li class="kadov-p-CListBulletTight">
+                    <p class="ListBulletTight">For<span style="font-weight: bold;"> Personal resource entitlement</span>, the 
+ attribute values are retrieved from the target user object.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">For <span style="font-weight: bold;">Managed 
+ resource entitlement</span>, the attribute values are retrieved from the 
+ object managed by the target user.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="margin-left: 0px;">For 
+ </span><span style="font-weight: bold;">Shared resource entitlement</span><span style="margin-left: 0px;">, the attribute values are retrieved from the 
+ group that provides the target user with access to the resource.</span>
+                    </p>
+                </li>
+            </ul>
+            <p class="Body" style="margin-left: 0px;">&#160;</p>
+            <p class="Body" style="margin-left: 0px;font-weight: bold;">edsaResourceNamingAttribute</p>
+            <p class="Body">Optional</p>
+            <p class="Body">Syntax: DirectoryString, SingleValued</p>
+            <p class="Body">Access: Stored, Read/Write</p>
+            <p class="Body">Searchable: Yes.</p>
+            <p class="Body" style="margin-left: 0px;">Specifies a single resource-specific attribute 
+ to identify the resource within the Entitlement Profile item:</p>
+            <ul>
+                <li class="kadov-p-CListBulletTight">
+                    <p class="ListBulletTight">For<span style="font-weight: bold;"> Personal resource entitlement</span>, the 
+ attribute value is retrieved from the target user object.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">For <span style="font-weight: bold;">Managed 
+ resource entitlement</span>, the attribute value is retrieved from the 
+ object managed by the target user.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="margin-left: 0px;">For 
+ </span><span style="font-weight: bold;">Shared resource entitlement</span><span style="margin-left: 0px;">, </span>the attribute value is retrieved from 
+ the group that provides the target user with access to the resource.</p>
+                </li>
+            </ul>
+            <p class="Body" style="margin-left: 0px;font-weight: bold;">&#160;</p>
+            <p class="Body" style="margin-left: 0px;font-weight: bold;">edsaSpecifierIsDisabled</p>
+            <p class="Body">Optional</p>
+            <p class="Body">Syntax: Boolean, SingleValued</p>
+            <p class="Body">Access: Stored, Read/Write</p>
+            <p class="Body">Searchable: Yes.</p>
+            <p class="Body" style="margin-left: 0px;">When set to TRUE, indicates that the specifier 
+ is not included into the Entitlement Profile reports.</p>
+            <p class="Body" style="margin-left: 40px;">&#160;</p>
+            <p class="Body" style="margin-left: 0px;font-weight: bold;">edsaHTMLDetailsAttribute</p>
+            <p class="Body">Optional</p>
+            <p class="Body">Syntax: DirectoryString, SingleValued</p>
+            <p class="Body">Access: Stored, Read/Write</p>
+            <p class="Body">Searchable: Yes.</p>
+            <p class="Body" style="margin-left: 0px;">Specifies the attribute of the resource target 
+ object that holds HTML to be displayed in the Details section of the Entitlement 
+ Profile report.</p>
+            <p class="Body" style="margin-left: 0px;">&#160;</p>
+            <p class="Body" style="margin-left: 0px;"><span style="font-weight: bold;">edsaPriority</span>
+            </p>
+            <p class="Body">Optional</p>
+            <p class="Body">Syntax: Integer, SingleValued</p>
+            <p class="Body">Access: Stored, Read/Write</p>
+            <p class="Body">Searchable: Yes.</p>
+            <p class="Body" style="margin-left: 0px;">If the resource target object meets the entitlement 
+ conditions of multiple specifiers, the specifier with lower value of this 
+ attribute is applied, overriding the specifiers with a higher value. This 
+ attribute is not applicable to Personal resource entitlement.</p>
+            <p class="Body" style="margin-left: 0px;">&#160;</p>
+            <p class="Body" style="margin-left: 0px;font-weight: bold;">edsaAuxiliaryInformation</p>
+            <p class="Body">Optional</p>
+            <p class="Body">Syntax: DirectoryString, MultiValued</p>
+            <p class="Body">Access: Stored, Read/Write</p>
+            <p class="Body">Searchable: Yes.</p>
+            <p class="body">Multi-valued attribute to hold auxiliary information, such 
+ as the resource type name and resource name to be displayed by the default 
+ specifier in case of multiple managed objects. <span style="margin-left: 0px;">This 
+ attribute is not applicable to Personal resource entitlement.</span></p>
+            <p class="Body">&#160;</p>
+            <p class="Body">In addition, this class has the following attributes:</p>
+            <ul>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">Attributes inherited 
+ from the <a href="edstopclass.htm">edsTop</a> class</p>
+                </li>
+            </ul>
+            <p class="ListBullet">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc378">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="Understanding ADSI Objects and Schema;understandingadsiobjectsandschema.htm" />
+                    <param name="Item2" value="Understanding Active Roles ADSI Provider;understandingedmadsiprovider.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc378.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+            <p>&#160;</p>
+            <p>&#160;</p>
+            <p>&#160;</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

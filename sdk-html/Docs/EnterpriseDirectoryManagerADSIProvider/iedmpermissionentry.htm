@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles ADSI Provider|ADSI Provider Reference|Interfaces|Active Roles-Specific Interfaces|Access Template Interfaces" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>IEDMPermissionEntry</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_IEDMPermissionEntry" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanageradsiprovider.htm">Active Roles ADSI Provider</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="edmadsiproviderreference.htm">ADSI Provider Reference</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">IEDMPermissionEntry</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor350"></a>
+                <MadCap:concept term="a_IEDMPermissionEntry" />IEDMPermissionEntry </h1>
+            <p class="Body">The <b>IEDMPermissionEntry</b> interface is designed to manage 
+ Permission Entries (Permissions) that Access Template includes. </p>
+            <h2>Properties </h2>
+            <p class="Body">The <b>IEDMPermissionEntry</b> interface has the following 
+ properties. </p>
+            <table>
+                <tr>
+                    <th style="text-align: left;width: 30%;" align="left" width="30%">
+                        <p class="TableHeading">Property</p>
+                    </th>
+                    <th style="text-align: left;width: 70%;" align="left" width="70%">
+                        <p class="TableHeading">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;"><a href="iedmpermissionentry_properties.htm">AccessMask</a></b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Sets and returns the access rights to directory objects 
+ (a category of Permission). </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;"><a href="iedmpermissionentry_properties.htm">AteType</a></b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Sets and returns a type of Permission (allow or deny). 
+ </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;"><a href="iedmpermissionentry_properties.htm">ObjectTypeADsPath</a></b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Sets and returns an object property to which Permission 
+ applies. The object class can be set using the <b>InheritedObjectTypeADsPath</b> 
+ property. </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;"><a href="iedmpermissionentry_properties.htm">InheritedObjectTypeADsPath</a></b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Sets and returns the object class to which Permission 
+ applies. The object property can be set using the <b>ObjectTypeADsPath</b> 
+ property. </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;"><a href="iedmpermissionentry_properties.htm">ObjectType</a></b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Sets and returns a value of the Schema-Id-Guid attribute 
+ for the object property identified using <b>ObjectTypeADsPath</b>. The 
+ Schema-Id-Guid attribute uniquely identifies the object property in the 
+ schema. </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;"><a href="iedmpermissionentry_properties.htm">InheritedObjectType</a></b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Sets and returns the object class to which Permission 
+ applies. The object property can be set using the <b>ObjectTypeADsPath</b> 
+ property. </p>
+                    </td>
+                </tr>
+            </table>
+            <h2>Typical Permission Entries</h2>
+            <p class="Body">The following code snippets illustrate how to create typical 
+ Permissions. For information about how to add those Permissions to an 
+ existing Access Template, refer to the <a href="#SampleCode">sample code</a> 
+ below in this topic.</p>
+            <p class="Body">In these examples, the variable <i>NewATE</i> refers to a 
+ Permission Entry you can create using the <b><a href="iedmaccesstemplate_createpermissionentry.htm">CreatePermissionEntry</a></b> 
+ method provided by the <b><a href="iedmaccesstemplate.htm">IEDMAccessTemplate</a></b> 
+ interface. The <b><a href="iedmpermissionentry_properties.htm">AteType</a></b> 
+ property of that variable is set to 0 (permission that allows administrative 
+ operations). To employ the code snippets in your custom scripts, do the 
+ following:</p>
+            <ul>
+                <li class="kadov-P-CListBullet">
+                    <p class="ListBullet">Replace <i>NewATE</i> 
+ with the actual name of the Permission Entry variable used in the script 
+ </p>
+                </li>
+                <li class="kadov-P-CListBullet">
+                    <p class="ListBullet">If you want to create 
+ a permission that denies administrative operations, replace NewATE.AteType=0 
+ with NewATE.AteType=1 </p>
+                </li>
+            </ul>
+            <h3>'Create' Permissions</h3>
+            <h3><b style="font-weight: bold;">Create All Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_CREATE_CHILD = 1
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_CREATE_CHILD</p>
+</pre>
+            <h3><b style="font-weight: bold;">Create User Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_CREATE_CHILD = 1
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_CREATE_CHILD
+NewATE.ObjectTypeADsPath = "EDMS://user,Schema"</p>
+</pre>
+            <h3><b style="font-weight: bold;">Create All Objects in OUs</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_CREATE_CHILD = 1
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_CREATE_CHILD
+NewATE.InheritedObjectTypeADsPath = "EDMS://organizationalUnit,Schema"</p>
+</pre>
+            <h3><b style="font-weight: bold;">Create User Objects in OUs</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_CREATE_CHILD = 1
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_CREATE_CHILD
+NewATE.InheritedObjectTypeADsPath = "EDMS://organizationalUnit,Schema"
+NewATE.ObjectTypeADsPath = "EDMS://user,Schema"</p>
+</pre>
+            <h3>'Delete' Permissions</h3>
+            <h3><b style="font-weight: bold;">Delete All Child Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_DELETE_CHILD = 2
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_DELETE_CHILD</p>
+</pre>
+            <h3><b style="font-weight: bold;">Delete User Child Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_DELETE_CHILD = 2
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_DELETE_CHILD
+NewATE.ObjectTypeADsPath = "EDMS://user,Schema"</p>
+</pre>
+            <h3><b style="font-weight: bold;">Delete All Child Objects in OUs</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_DELETE_CHILD = 2
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_DELETE_CHILD
+NewATE.InheritedObjectTypeADsPath = "EDMS://organizationalUnit,Schema"</p>
+</pre>
+            <h3><b style="font-weight: bold;">Delete User Child Objects in OUs</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_DELETE_CHILD = 2
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_DELETE_CHILD
+NewATE.InheritedObjectTypeADsPath = "EDMS://organizationalUnit,Schema"
+NewATE.ObjectTypeADsPath = "EDMS://user,Schema"</p>
+</pre>
+            <h3>'List Child Objects' Permissions</h3>
+            <h3><b style="font-weight: bold;">List All Child Objects in All Containers</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_LIST = 4
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_LIST</p>
+</pre>
+            <h3><b style="font-weight: bold;">List All Child Objects in OUs</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_LIST = 4
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_LIST
+NewATE.InheritedObjectTypeADsPath = "EDMS://organizationalUnit,Schema"</p>
+</pre>
+            <h3>'Read' Permissions</h3>
+            <h3><b style="font-weight: bold;">Read All Properties of All Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_READ_PROP = 16
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_READ_PROP</p>
+</pre>
+            <h3><b style="font-weight: bold;">Read the description Property of All 
+ Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_READ_PROP = 16
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_READ_PROP
+NewATE.ObjectTypeADsPath = "EDMS://description,Schema"</p>
+</pre>
+            <h3><b style="font-weight: bold;">Read All Properties of User Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_READ_PROP = 16
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_READ_PROP
+NewATE.InheritedObjectTypeADsPath = "EDMS://user,Schema"</p>
+</pre>
+            <h3><b style="font-weight: bold;">Read the description Property of User 
+ Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_READ_PROP = 16
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_READ_PROP
+NewATE.InheritedObjectTypeADsPath = "EDMS://user,Schema"
+NewATE.ObjectTypeADsPath = "EDMS://description,Schema"</p>
+</pre>
+            <h3>'Write' Permissions</h3>
+            <h3><b style="font-weight: bold;">Write All Properties of All Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_WRITE_PROP = 32
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_WRITE_PROP</p>
+</pre>
+            <h3><b style="font-weight: bold;">Write the description Property of All 
+ Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_WRITE_PROP = 32
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_WRITE_PROP
+NewATE.ObjectTypeADsPath = "EDMS://description,Schema"</p>
+</pre>
+            <h3><b style="font-weight: bold;">Write All Properties of User Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_WRITE_PROP = 32
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_WRITE_PROP
+NewATE.InheritedObjectTypeADsPath = "EDMS://user,Schema"</p>
+</pre>
+            <h3><b style="font-weight: bold;">Write the description Property of User 
+ Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_WRITE_PROP = 32
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_WRITE_PROP
+NewATE.InheritedObjectTypeADsPath = "EDMS://user,Schema"
+NewATE.ObjectTypeADsPath = "EDMS://description,Schema"</p>
+</pre>
+            <h3>'List Objects' Permissions</h3>
+            <h3><b style="font-weight: bold;">List All Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_LIST_OBJECT =128
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_LIST_OBJECT</p>
+</pre>
+            <h3><b style="font-weight: bold;">List All User Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_DS_LIST_OBJECT =128
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_DS_LIST_OBJECT
+NewATE.InheritedObjectTypeADsPath = "EDMS://user,Schema"</p>
+</pre>
+            <h3>'Security' Permissions</h3>
+            <h3><b style="font-weight: bold;">Read EDM and Native Security on All Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_READ_CONTROL =131072
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_READ_CONTROL</p>
+</pre>
+            <h3><b style="font-weight: bold;">Read EDM and Native Security on User 
+ Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_READ_CONTROL =131072
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_READ_CONTROL
+NewATE.InheritedObjectTypeADsPath = "EDMS://user,Schema"</p>
+</pre>
+            <h3><b style="font-weight: bold;">Manage EDM and Native Security on All 
+ Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_WRITE_DAC =262144
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_WRITE_DAC</p>
+</pre>
+            <h3><b style="font-weight: bold;">Manage EDM and Native Security on Users 
+ Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_WRITE_DAC =262144
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_WRITE_DAC
+NewATE.InheritedObjectTypeADsPath = "EDMS://user,Schema"</p>
+</pre>
+            <h3>'Full Control' Permissions</h3>
+            <h3><b style="font-weight: bold;">Full Control over All Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">NewATE.AteType = 0
+NewATE.AccessMask = 984063</p>
+</pre>
+            <h3><b style="font-weight: bold;">Full Control over User Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">NewATE.AteType = 0
+NewATE.AccessMask = 984063
+NewATE.InheritedObjectTypeADsPath = "EDMS://user,Schema"</p>
+</pre>
+            <h3>'Copy' Permissions</h3>
+            <h3><b style="font-weight: bold;">Copy All Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+<p class="Syntax">Const EDS_RIGHT_EDS_COPY = 512
+NewATE.AteType=0
+NewATE.AccessMask=EDS_RIGHT_EDS_COPY</p>
+</pre>
+            <h3><b style="font-weight: bold;">Copy User Objects</b>
+            </h3><pre class="code" xml:space="preserve">
+Const EDS_RIGHT_EDS_COPY = 512
+NewATE.AteType = 0
+NewATE.AccessMask = EDS_RIGHT_EDS_COPY
+NewATE.InheritedObjectTypeADsPath = "EDMS://user,Schema"
+</pre>
+            <h2><a name="SampleCode"></a>Sample Code (VBScript)</h2>
+            <p class="Body">The following sample code illustrates how to add Permission 
+ Entries to Access Template.</p><pre class="code" xml:space="preserve">
+<p class="Syntax">option explicit
+ ' DN of Access Template
+const strAccessTemplateDN = "EDMS://CN=MyAT,CN=Access Templates,cn=Configuration"
+const EDS_RIGHT_DS_READ_PROP = 16
+const EDS_RIGHT_DS_WRITE_PROP = 32
+const ACCESS_ALLOWED_ACE_TYPE = 0
+Dim atObject
+ ' Bind to Access Template
+Set atObject = GetObject(strAccessTemplateDN)
+Dim NewATE
+ ' Create a new Permission Entry
+set NewATE = atObject.CreatePermissionEntry
+ ' Set properties of the newly created Permission Entry: read all properties for all classes
+NewATE.AteType = ACCESS_ALLOWED_ACE_TYPE
+NewATE.AccessMask = EDS_RIGHT_DS_READ_PROP<span style="font-size: xx-small;"> OR </span>EDS_RIGHT_DS_WRITE_PROP
+ ' Add Permission Entry to Access Template
+atObject.AddPermissionEntry(NewATE)
+Set NewATE = Nothing
+ ' Create a new Permission Entry
+set NewATE = atObject.CreatePermissionEntry
+ ' Set properties of the newly created Permission Entry: write description for user
+NewATE.AteType = ACCESS_ALLOWED_ACE_TYPE
+NewATE.AccessMask = EDS_RIGHT_DS_WRITE_PROP
+NewATE.InheritedObjectTypeADsPath = "EDMS://user,Schema" &#160;&#160;&#160;&#160;' Apply to the User class
+NewATE.ObjectTypeADsPath = "EDMS://description,Schema" &#160;&#160;&#160;&#160;&#160;&#160;' Apply to the "description" property
+ ' Add Permission Entry to Access Template
+atObject.AddPermissionEntry(NewATE)
+Set NewATE = Nothing
+ ' Commit changes
+atObject.SetInfo</p>
+</pre>
+            <p class="Body">This script adds two permission entries to the MyAT Access 
+ Template. The first permission allows a Trustee to read/write all properties 
+ of any object. The second permission allows a Trustee to modify the description 
+ property of the user objects. For information about how to designate a 
+ Trustee, and for more examples of the VBScript codes, refer to <a href="managingaccesstemplates.htm">Managing 
+ Access Templates</a>.&#160; </p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc78">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="IEDM;iedm.htm" />
+                    <param name="Item2" value="IEDMAccessTemplate;iedmaccesstemplate.htm" />
+                    <param name="Item3" value="IEDMATLink;iedmatlink.htm" />
+                    <param name="Item4" value="IEDMATLinks;iedmatlinks.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc78.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

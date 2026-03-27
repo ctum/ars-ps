@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Web Interface|References|Customizing Active Roles Web Interface|Customization Settings Format" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>The Forms Settings</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_FormsXML" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="webinterface.htm">Web Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="WIReference.htm">References</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The Forms Settings</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor309"></a>
+                <MadCap:concept term="a_FormsXML" />The Forms Settings</h1>
+            <p class="Body">This&#160;topic provides information about&#160; the format 
+ of settings for forms associated with the Form-type commands defined in 
+ the attribute <a href="commandsxml.htm">edsaWICommands</a>. </p>
+            <p class="Body">A <i>form</i> is a structured page with predefined areas 
+ for entering and changing information about directory objects. </p>
+            <p class="Body">A form consists of elements (entries) such as text boxes, 
+ check boxes, option buttons, etc. The form elements are defined in the 
+ attribute <a href="entriesxml.htm">edsaWIEntries</a>. </p>
+            <p class="Body">A form includes one or several tabs that group related elements 
+ on the same page. Each set of related elements is presented within the 
+ tab labeled with the name of the set, such as <b>General</b>, <b>Managed 
+ by</b>, and <b>Object</b> on the <b>Properties</b> form. The form tabs 
+ are defined using the XML element <a href="#FormTab">FormTab</a>. </p>
+            <p class="Body">Settings for forms are stored in the attribute <b>edsaWIForms</b>. 
+ Modifying this attribute, you can create or modify forms associated with 
+ the menu commands. </p>
+            <h2>XML Elements </h2>
+            <p class="Body">The attribute <b>edsaWIForms </b>stores information in the 
+ Extensible Markup Language (XML).&#160; XML elements you can use are listed 
+ below. </p>
+            <p class="note"><b style="font-weight: bold;">Important:</b>
+            </p>
+            <p class="note">After you modify the attribute <b>edsaWIForms</b>, for changes 
+ to take effect, <a href="reloadwi.htm">reload the Web Interface</a>. &#160; 
+ </p>
+            <h3><a name="Forms"></a>Forms </h3>
+            <p class="Body">Describes the collection of forms. </p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: None </p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#Form">Form</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">CustomizationVersion</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Identifies the current customization version 
+ number. Must be the same for all attributes of the WorkingCopy object. 
+ </p>
+                        <p class="note"><b style="font-weight: bold;">Important:</b>
+                        </p>
+                        <p class="note">The value of this attribute depends on the application version. 
+ This value is stored into the attribute <b>edsaWITemplateVersion </b>of 
+ the WI configuration container objects (see <a href="storingsettings.htm">Storing 
+ Customization Settings</a>).</p>
+                    </td>
+                </tr>
+            </table>
+            <h3><a name="Form"></a>Form</h3>
+            <p class="Body">Describes a form and its properties. </p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#Forms">Forms</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#FormTab">FormTab</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ChildClass</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required, if FormType=2. Identifies the ldapDisplayName 
+ property of the object class to be created using the form.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">DescriptionResID</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. Identifier of the string constant containing 
+ a description of the form.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">FormType</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. The type of the form. </p>
+                        <p class="TableBody">The possible values are:</p>
+                        <p class="TableBody"><b style="font-weight: bold;">1</b> - <b>Object Properties</b> 
+ form<b><br />
+2</b> - <b>Create New Object</b> form<b><br />
+3</b> - <b>Rename </b>form<b><br />
+4</b> - <b>Copy</b> form<span style="font-weight: bold;"><br />
+9 - ModifyLooksLikeCreate</span> form: </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ID</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Unique identifier of the form. The form identifier 
+ cannot begin with a number, and can only contain "A-Z", "a-z", 
+ and "0-9" characters.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ResID</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. Identifier of the string constant containing 
+ the form name.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ShowEffectivePolicyIcons</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. Boolean. The default value is <b>TRUE</b>. 
+ When <b>FALSE</b>, the icon of the information window <b>Show Effective 
+ Policy</b> is hidden on the form.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">TargetClass</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required, if FormType&lt;&gt;2. Contains the ldapDisplayName 
+ of the object class to which the form can be applied. For example, for 
+ the <b>User Properties</b> form, this attribute must be set to "user".</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">VerificateType</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. The type of the form validation. Verifies 
+ whether the command associated with the form is available for the Web 
+ Interface's user. </p>
+                        <p class="TableBody">The possible values are:</p>
+                        <p class="TableBody"><b style="font-weight: bold;">0</b> - the command is 
+ always available (default value)<b><br />
+1</b> - the command is available if the form allows the user to modify 
+ at least one attribute of the directory object<b><br />
+2</b> - the command is available only if the form allows the user to modify 
+ all attributes of the directory object available on the form tabs</p>
+                    </td>
+                </tr>
+            </table>
+            <h3>&#160;<a name="FormTab"></a>FormTab</h3>
+            <p class="Body">Describes the form tab and its properties.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#Form">Form</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#FormEntry">FormEntry</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ID</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Unique identifier of the tab.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ResID</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. Identifier of the string constant containing 
+ the tab name.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ToolTipResID</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Optional. Identifier of the string constant containing 
+ the tab tooltip.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="note"><b style="font-weight: bold;">Note:</b>
+            </p>
+            <p class="note">Identifiers and values of the string constants are saved 
+ in the attribute <a href="languagefiles.htm">edsaWIStrings</a>. We <i>strongly</i> 
+ recommend that the names of your custom string constants, such as identifiers 
+ or function names, begin with the prefix cst_, for example cst_employeeID, 
+ cst_jobDescriptionIDControl, etc. </p>
+            <h3><a name="FormEntry"></a>FormEntry</h3>
+            <p class="TableBody">Describes the form entries.</p>
+            <p class="TableBody"><b style="font-weight: bold;">Parent Elements</b>: <a href="#FormTab">FormTab</a> </p>
+            <p class="TableBody"><b style="font-weight: bold;">Child Elements</b>: None 
+ </p>
+            <p class="TableBody"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ID</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. Unique identifier of the entry. The entry 
+ must be also defined in the attribute <a href="entriesxml.htm">edsaWIEntries</a>.</p>
+                    </td>
+                </tr>
+            </table>
+            <h2>&#160;Example</h2>
+            <p class="Body">The following snippet illustrates the use of the XML elements 
+ in the attribute <b>edsaWIForms</b>.</p><pre class="code" xml:space="preserve">
+<p class="Syntax">&lt;?xml version="1.0"?&gt;
+&lt;Forms CustomizationVersion="33"&gt;
+ &#160;&#160;&#160;&lt;Form ID="ComputerProperties" FormType="1" ResID="WIS_FORM_COMPUTER_PROPERTIES" TargetClass="computer" DescriptionResID=""&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;FormTab ID="general" ResID="WIS_UP_GENERAL"&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;FormEntry ID="sAMAccountNameComp"/&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;FormEntry ID="dNSHostName"/&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;FormEntry ID="role"/&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;FormEntry ID="description"/&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;FormEntry ID="trustForDelegation"/&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/FormTab&gt;
+ &#160;&#160;&#160;&lt;/Form&gt;
+&lt;/Forms&gt;</p>
+</pre>
+            <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc359">
+                <param name="Command" value="Related Topics,MENU" />
+                <param name="Item1" value="The Commands Settings;commandsxml.htm" />
+                <param name="Item2" value="Customization Settings Format;customizationfilesedmwi.htm" />
+                <param name="Item3" value="The Language Settings;languagefiles.htm" />
+                <param name="Item4" value="Specifying Customization Settings;specifyingsettings.htm" />
+            </object><a class="MCRelatedTopics" href="javascript:mc359.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

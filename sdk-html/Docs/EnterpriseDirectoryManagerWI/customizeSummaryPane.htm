@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Web Interface|How to..." MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Customize Summary Pane</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_CustomizeSummaryPane" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="webinterface.htm">Web Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="howto.htm">How to...</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Customize Summary Pane</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor312"></a>
+                <MadCap:concept term="a_CustomizeSummaryPane" />Customize Summary Pane</h1>
+            <p class="Body">When you select an object from the list of search results, 
+ the Web Interface displays information about that object in the Summary 
+ Pane. Depending on the type of object, the Summary Pane may provide different 
+ collections of object properties along with a picture retrieved from Active 
+ Directory. You can customize the Summary Pane on an object type basis 
+ by specifying the object properties to display, and choosing whether 
+ to display a picture and from which attribute to retrieve the picture.</p>
+            <p class="Body">The configuration of Summary Panes is determined by the <a href="interfacesettings.htm#SummaryPanes">SummaryPanes</a> child elements 
+ in the <span style="font-weight: bold;">edsaWISettings</span> attribute 
+ of the Web Interface configuration object held in the Interface Settings 
+ container (see <a href="storingsettings.htm">Storing Customization Settings</a>). 
+ The Web Interface includes an object type specific Summary Pane for a 
+ number of widely used object types, such as User, Group, and Computer, 
+ and provides the default Summary Pane for other object types.</p>
+            <p class="Body">This topic describes how to add or remove a property displayed 
+ on the Summary Pane for the User object type.</p>
+            <p class="Procedure"><b> To add a property to the Summary Pane 
+ for the User object type</b>
+            </p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Write">Save</a> 
+ the value of the attribute <b>edsaWISettings</b> into a text file.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Open this file 
+ with any XML editor, such as XML Spy.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">Under the <span style="font-weight: bold;">Properties</span> child element of the <span style="font-weight: bold;">SummaryPane</span> element that has the <span style="font-weight: bold;">TargetClass</span> attribute set to "user", 
+ add a new element named <span style="font-weight: bold;">Property</span> 
+ and specify the attributes of that child element as follows:</p>
+                </li>
+            </ol>
+            <ul>
+                <li class="kadov-P-CSubBulletTight">
+                    <p class="SubBulletTight"><span style="font-weight: bold;">AttributeName</span>="&lt;LDAP 
+ Display Name of the desired property&gt;"</p>
+                </li>
+            </ul>
+            <ul>
+                <li class="kadov-P-CSubBulletTight">
+                    <p class="SubBulletTight"><span style="font-weight: bold;">LabelResId</span>="&lt;ID 
+ of the string resource to display next to the property value on the Summary 
+ Pane&gt;"</p>
+                </li>
+            </ul>
+            <p class="SubBulletParaTight">You should define the desired string resource 
+ along with the ID by adding a <span style="font-weight: bold;">Res</span> 
+ element to the <span style="font-weight: bold;">edsaWIStrings</span> attribute 
+ (see <a href="languagefiles.htm">The Language Settings</a>).</p>
+            <ol start="4">
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Read">Save 
+ changes</a> to the attribute <b>edsaWISettings</b>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="5">
+                    <p class="NumberedList"><a href="reloadwi.htm">Reload 
+ the Web Interface</a>.</p>
+                </li>
+            </ol>
+            <p class="Procedure"><b> To remove a property from the Summary 
+ Pane for the User object type</b>
+            </p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Write">Save</a> 
+ the value of the attribute <b>edsaWISettings</b> into a text file.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Open this file 
+ with any XML editor, such as XML Spy.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">Under the <span style="font-weight: bold;">Properties</span> child element of the <span style="font-weight: bold;">SummaryPane</span> element that has the <span style="font-weight: bold;">TargetClass</span> attribute set to "user", 
+ remove the <span style="font-weight: bold;">Property</span> element whose 
+ <span style="font-weight: bold;">AttributeName</span> attribute matches 
+ the LDAP Display Name of the object property you want to remove from the 
+ Summary Pane.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Read">Save 
+ changes</a> to the attribute <b>edsaWISettings</b>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="5">
+                    <p class="NumberedList"><a href="reloadwi.htm">Reload 
+ the Web Interface</a>.</p>
+                </li>
+            </ol>
+            <p class="Body">&#160;</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

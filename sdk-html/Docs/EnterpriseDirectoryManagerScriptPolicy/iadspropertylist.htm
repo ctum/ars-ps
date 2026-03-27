@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>IADsPropertyList</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_IADsPropertyList" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor214"></a>
+                <MadCap:concept term="a_IADsPropertyList" />IADsPropertyList</h1>
+            <p class="Body">The <b>IADsPropertyList</b> interface provides all standard 
+ methods for enumerating the attribute entries in the <b>Request </b>object. 
+ Since the <b>Request </b>object<b></b>is ADSI-compliant, its <b>IADsPropertyList</b> 
+ interface conforms to the specification of properties and methods outlined 
+ in <b><a href="../EnterpriseDirectoryManagerADSIProvider/iadspropertylist.htm" style="font-weight: normal;">IADsPropertyList</a></b> ( Active Roles ADSI Provider). </p>
+            <h2>Examples of Policy Scripts (VBScript, PowerShell)</h2>
+            <p class="Body">This section provides two sample policy scripts that illustrate 
+ how to use properties and methods of the <b>IADsPropertyList</b> and <b><a href="../EnterpriseDirectoryManagerADSIProvider/iadspropertyentry.htm">IADsPropertyEntry</a></b> 
+ interfaces.</p>
+            <h3><b style="font-weight: bold;">Write Changes to the Log File</b>
+            </h3>
+            <p class="Body">The following policy script writes all the in-process property 
+ values into the specified log file.</p><pre xml:space="preserve">
+<p class="Syntax"><span style="color: #0000ff;">[VBScript]</span>
+Sub onPreModify(Request)
+ str = vbCrLf
+ str = "Property values modified in the directory object" + vbCrLf
+ str = str + "Object DN: " + Request.Name + vbCrLfEnd
+ str = str + "Object type: " + Request.Class + vbCrLf + vbCrLf
+ &#160;' Retrieve properties from in-process data
+ For i=0 To Request.PropertyCount-1
+ &#160;&#160;&#160;Set item = Request.Item(i)
+ &#160;&#160;&#160;str = str + "Property name: " + item.Name
+ &#160;&#160;&#160;str = str + ", Property value(s): "
+ ' Retrieve Property values
+ &#160;For Each value In item.Values
+ &#160;&#160;&#160;Select Case value.ADsType
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;Case ADSTYPE_DN_STRING
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;str = str + value.DNString + "// "
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;Case ADSTYPE_CASE_EXACT_STRING
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;str = str + value.CaseExactString + "// "
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;Case ADSTYPE_CASE_IGNORE_STRING
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;str = str + value.CaseIgnoreString + "// "
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;Case ADSTYPE_PRINTABLE_STRING
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;str = str + value.PrintableString + "// "
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;Case ADSTYPE_NUMERIC_STRING
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;str = str + value.NumericString + "// "
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;Case ADSTYPE_BOOLEAN
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;str = str + CStr (value.Boolean) + "// "
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;Case ADSTYPE_INTEGER
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;str = str + CStr (value.Integer) + "// "
+ &#160;&#160;&#160;End Select
+ &#160;Next
+ &#160;&#160;&#160;str = str + vbCrLf
+ Next
+' Write output into log file
+ Set fso = CreateObject("Scripting.FileSystemObject")
+ Set MyFile = fso.OpenTextFile("c:\EDMLog.txt", 8, True)
+ MyFile.WriteLine(str)
+ MyFile.Close
+End Sub</p>
+
+<p class="Syntax"><span style="color: #0000ff;">
+[PowerShell]</span>
+function onPreModify($Request)
+{
+ &#160;$str += [System.Environment]::NewLine + "Property values modified in the directory object" + [System.Environment]::NewLine
+ &#160;$str += "Object DN: " + $Request.Name + [System.Environment]::NewLine
+ &#160;$str += "Object type: " + $Request.Class + [System.Environment]::NewLine + [System.Environment]::NewLine
+ &#160;# ---- Retrieve properties from in-process data -----
+ &#160;for($i = 0; $i -lt $Request.PropertyCount; $i++)
+ &#160;&#160;{
+ &#160;&#160;&#160;$item = $Request.Item($i)
+ &#160;&#160;&#160;$str += "Property name: " + $item.Name
+ &#160;&#160;&#160;$str += ", Property value(s): "
+ &#160;&#160;&#160;# ----- Retrieve Property values -----
+ &#160;&#160;&#160;foreach($value in $item.Values)
+ &#160;&#160;&#160;&#160;&#160;{
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;switch($value.Type)
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$Constants.DSTYPE_DN_STRING {$str += [string]$value + "// "}
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$Constants.ADSTYPE_CASE_EXACT_STRING {$str += [string]$value + "// "}
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$Constants.ADSTYPE_CASE_IGNORE_STRING {$str += [string]$value + "// "}
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$Constants.ADSTYPE_PRINTABLE_STRING {$str += [string]$value + "// "}
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$Constants.ADSTYPE_NUMERIC_STRING {$str += [string]$value + "// "}
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$Constants.ADSTYPE_BOOLEAN {$str += [string]$value + "// "}
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$Constants.ADSTYPE_INTEGER {$str += [string]$value + "// "} &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}
+ &#160;&#160;&#160;&#160;&#160;}
+ &#160;&#160;&#160;&#160;$str += [System.Environment]::NewLine
+ &#160;&#160;}
+ &#160;# ----- Write output into log file ----
+ &#160;[System.IO.File]::AppendAllText("c:\EDMLog.txt", $str)
+}</p>
+</pre>
+            <p class="Body">After you link a Policy Object that uses this script to a 
+ directory folder (for related procedures, refer to <a href="applyingpolicyscriptsexamples.htm">Applying 
+ Policy Scripts</a>), the file c:\EDMLog.txt will contain values and names 
+ of the object's properties you have changed. The policy will affect any 
+ object that resides in the directory folder to which the Policy Object 
+ has been linked. </p>
+            <h3><b style="font-weight: bold;">Prohibit Removing the Group Members</b>
+            </h3>
+            <p class="Body">The following script allows you to enforce the administrative 
+ policy that prevents an administrator from removing members from groups 
+ affected by that policy.</p><pre class="code" xml:space="preserve">
+<p class="Syntax"><span style="color: #0000ff;">[VBScript]</span>
+Sub onPreModify(Request)
+ &#160;&#160;&#160;If Request.Class &lt;&gt; "group" Then Exit Sub
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;For i=0 To Request.PropertyCount-1
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Set item = Request.Item(i)
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;If item.Name = "member" Then
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ItemCC=CLng(item.ControlCode)
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;If ItemCC=ADS_PROPERTY_CLEAR Or ItemCC=ADS_PROPERTY_DELETE Then
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Err.Raise -1, "Administrative Policy",_
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;"Removing members from this group is denied by policy."
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;End If
+ &#160;&#160;&#160;End If
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;Next
+End Sub</p>
+
+<p class="Syntax"><span style="color: #0000ff;">
+[PowerShell]</span>
+function onPreModify($Request)
+{
+ &#160;if($Request.Class -ne "group"){return}
+ &#160;for($i = 0; $i -lt $Request.PropertyCount; $i++)
+ &#160;&#160;{
+ &#160;&#160;&#160;&#160;$item = $Request.Item($i)
+ &#160;&#160;&#160;&#160;if($item.Name -eq "member")
+ &#160;&#160;&#160;&#160;&#160;{
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;$Operation = $item.ControlCode
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;if(($Operation -eq $Constants.ADS_PROPERTY_CLEAR) -or ($Operation -eq $Constants.ADS_PROPERTY_DELETE))
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;throw ("Administrative Policy:" + [System.Environment]::NewLine + "Removing members from this group is denied by policy.")
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}
+ &#160;&#160;&#160;&#160;&#160;}
+ &#160;&#160;}
+}</p>
+</pre>
+            <p class="Body">After you link a Policy Object that uses this script to a 
+ directory folder, an administrator trying to remove members from any group 
+ residing in that folder will be presented with the following error message:<br />
+"Administrative Policy: Removing members from this group is denied 
+ by policy."<br />
+Note that this policy allows an administrator to add new members to groups. 
+ </p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc392">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="IADs;iadspolicy.htm" />
+                    <param name="Item2" value="IADsPropertyEntry;../EnterpriseDirectoryManagerADSIProvider/iadspropertyentry.htm" />
+                    <param name="Item3" value="IADsPropertyList;../EnterpriseDirectoryManagerADSIProvider/iadspropertylist.htm" />
+                    <param name="Item4" value="IEDsRequestParameters;iedsrequestparameters.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc392.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

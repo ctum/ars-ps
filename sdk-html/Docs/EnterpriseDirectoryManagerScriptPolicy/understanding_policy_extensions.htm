@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Script Policies, Scheduled Tasks and Workflows|About Script Policy and Scheduled Tasks" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Understanding Policy Extensions</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanagerscriptpolicy.htm">Script Policies, Scheduled Tasks and Workflows</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="aboutedmscriptpolicy.htm">About Script Policy and Scheduled Tasks</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Understanding Policy Extensions</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1>Understanding Policy Extensions</h1>
+            <p class="Body">In Active Roles, administrators can configure policies 
+ of the pre-defined types that are installed with Active Roles. It 
+ is also possible to extend the list by adding new types of policy.</p>
+            <p class="Body"> Active Roles allows the creation of custom policies 
+ based on the Script Execution built-in policy type. Once a custom policy 
+ type is deployed that points to a particular script, administrators can 
+ easily configure and apply policies of that type, having those policies 
+ perform the actions determined by the script. The policy script also defines 
+ the policy parameters specific to the policy type.</p>
+            <p class="Body">Custom policy types provide an extensible mechanism for deploying 
+ custom policies. This capability is implemented by using the Policy Type 
+ object class. Policy Type objects can be created by using the Active Roles console, with each object representing a certain type of custom 
+ policy.</p>
+            <h2>Design Elements</h2>
+            <p class="Body">The policy extensibility feature is designed around two interactions: 
+ policy type deployment and policy type usage.</p>
+            <ul>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">Policy 
+ Type Deployment</span> The deployment process involves the development 
+ of a script that implements the policy action and declares the policy 
+ parameters; the creation of a Script Module containing that script; and 
+ the creation a Policy Type object referring to that Script Module. To 
+ deploy a policy type to a different environment, an administrator can 
+ export the policy type to an export file in the source environment and 
+ then import the file in the destination environment. Using export files 
+ makes it easy to distribute custom policy types.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">Policy 
+ Type Usage</span> This is the process of configuring policies. It occurs 
+ when an administrator creates a new Policy Object or adds policies to 
+ an existing Policy Object. For example, the wizard for creating a Policy 
+ Object includes a page that prompts to select a policy. The page lists 
+ the policy types defined in Active Roles, including the custom policy 
+ types. If a custom policy type is selected, the wizard provides a page 
+ for configuring the policy parameters specific to that policy type. Once 
+ the wizard is completed, the Policy Object contains a fully functional 
+ policy of the selected custom type.</p>
+                </li>
+            </ul>
+            <h2>Policy Type Objects</h2>
+            <p class="Body">The policy extensibility feature is built upon Policy Type 
+ objects, each of which represents a single type of policy. Policy Type 
+ objects are used within both the policy type deployment and policy type 
+ usage processes. The process of deploying a new policy type involves the 
+ creation of a Policy Type object. During the process of adding a policy 
+ of a custom type, the policy type definition is retrieved from the respective 
+ Policy Type object.</p>
+            <p class="Body">Each Policy Type object holds the following data to define 
+ a single policy type:</p>
+            <ul>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">Display 
+ name</span> &#160;Identifies 
+ the policy type represented by the Policy Type object. This name is displayed 
+ on the wizard page where you select a policy to configure when creating 
+ a new Policy Object or adding a policy to an existing Policy Object.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">Description</span> 
+ &#160;A text 
+ describing the policy type. This text is displayed when you select the 
+ policy type in the wizard for creating a new Policy Object or in the wizard 
+ for adding a policy to an existing Policy Object.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">Reference 
+ to Script Module</span> &#160;Identifies 
+ the script to run upon the execution of a policy of this type. When adding 
+ a policy of a custom policy type, you effectively create a policy that 
+ runs the script from the Script Module specified by the respective Policy 
+ Type object.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">Policy 
+ Type category</span> &#160;Identifies 
+ the category of Policy Object to which a policy of this type can be added. 
+ A policy type may have the category option set to either Provisioning 
+ or Deprovisioning, allowing policies of that type to be added to either 
+ provisioning or deprovisioning Policy Objects respectively.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">Function 
+ to declare parameters</span> &#160;Identifies 
+ the name of the script function that declares the configurable parameters 
+ for the administration policy that is based on this policy type. The function 
+ must exist in the Script Module selected for the policy type. By default, 
+ it is assumed that the parameters are declared by the function named onInit.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">Policy 
+ Type icon</span> &#160;The 
+ image that appears next to the display name of the policy type on the 
+ wizard page where you select a policy to configure, to help identify and 
+ visually distinguish this policy type from the other policy types.</p>
+                </li>
+            </ul>
+            <p class="Body">To create a custom policy type, you first need to create 
+ a Script Module that holds the policy script. Then, you can create a Policy 
+ Type object referring to that Script Module. When you import a policy 
+ type, Active Roles automatically creates both the Script Module 
+ and the Policy Type object for that policy type. After the Policy Type 
+ object has been created, you can add a policy of the new type to a Policy 
+ Object.</p>
+            <h2>Creating and Managing Custom Policy Types</h2>
+            <p class="Body">In Active Roles, Policy Type objects provide the ability 
+ to store the definition of a custom policy type in a single object. Policy 
+ Type objects can be exported and imported, which makes it easy to distribute 
+ custom policies to other environments.</p>
+            <p class="Body">When creating a new Policy Object or adding a policy to an 
+ existing Policy Object, an administrator is presented with a list of policy 
+ types derived from the Policy Type objects. Selecting a custom policy 
+ type from the list causes Active Roles to create a policy based 
+ on the settings found in the respective Policy Type object.</p>
+            <p class="Body">For more information about creating a policy type object, 
+ changing an existing policy type object, using policy type containers, 
+ exporting policy types, importing policy types, configuring a policy of 
+ a custom type, and deleting a policy type object, see Active Roles 
+ Administrator Guide.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc305">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="edsPolicyType Class;../EnterpriseDirectoryManagerADSIProvider/edsPolicyTypeClass.htm" />
+                    <param name="Item2" value="IEDMPolicyEntry;../EnterpriseDirectoryManagerADSIProvider/iedmpolicyentry.htm" />
+                    <param name="Item3" value="IEDMPolicyEntry Properties;../EnterpriseDirectoryManagerADSIProvider/iedmpolicyentry_properties.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc305.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

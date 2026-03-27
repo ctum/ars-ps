@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles ADSI Provider|Tutorial: ADSI .NET" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Binding to Directory Objects</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_BindingDirectoryObjectsCSharp" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanageradsiprovider.htm">Active Roles ADSI Provider</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="tutorialcsharp.htm">Tutorial: ADSI .NET</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Binding to Directory Objects</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor150"></a>
+                <MadCap:concept term="a_BindingDirectoryObjectsCSharp" />Binding to Directory Objects</h1>
+            <p class="Body">This section contains information about how to bind to directory 
+ objects. </p>
+            <p class="Body">You should first bind to a directory object in order to navigate 
+ its namespace, search for specific information, read or modify the object 
+ properties. </p>
+            <p class="Body">You can bind directly to an object by specifying the object's 
+ <a href="distinguishednames.htm">distinguished name</a> or GUID in the 
+ binding string. After binding to an object, you can use the appropriate 
+ ADSI interfaces for that type of object. All ADSI objects support the 
+ <b><a href="iads.htm">IADs</a></b> interface. Other interfaces are supported 
+ depending on the type of the object. For example, user objects support 
+ the <a href="iadsuser.htm"><b>IADsUser</b></a> interface.</p>
+            <p class="Body">When specifying binding information, you may optionally supply 
+ additional binding characteristics, such as user name, password, domain 
+ or the domain controller name.</p>
+            <h2> Active Roles ADSI Provider Binding String</h2>
+            <p class="Body">The Active Roles ADSI Provider binding string 
+ has the following format:</p><pre xml:space="preserve">
+<p class="Syntax">EDMS://&lt;DomainDCName&gt;/&lt;<i>DistinguishedName</i>&gt;</p>
+</pre>
+            <dl>
+                <dt><i>&lt;DomainDCName&gt;</i>
+                </dt>
+                <dd>
+	Optional parameter. Specifies the name of the domain controller or 
+ domain where you want the provider to search for an available Administration 
+ Service. For information about how the provider searches for Administration 
+ Service when this parameter is omitted, see <a href="connectingserver.htm">Connecting 
+ to Service</a>.</dd>
+                <dt><i>&lt;DistinguishedName&gt;</i>
+                </dt>
+                <dd>
+	Required parameter. Specifies the LDAP distinguished name of the object 
+ to which you want to bind.</dd>
+            </dl>
+            <p class="note"><b style="font-weight: bold;">Notes:</b>
+            </p>
+            <p class="note">The ":"(colon) is part of the provider name. The 
+ provider name is case sensitive: EDMS is different from edms. </p>
+            <p class="Body">The following table contains examples of Active 
+ Roles ADSI Provider binding strings.</p>
+            <table>
+                <tr>
+                    <th style="text-align: left;width: 40%;" align="left" width="40%">
+                        <p class="TableHeading">Object</p>
+                    </th>
+                    <th style="text-align: left;width: 60%;" align="left" width="60%">
+                        <p class="TableHeading"><b style="font-weight: bold;">Binding String Example</b>
+                        </p>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="text-align: left;" align="left">
+                        <p class="TableBody">User account (name:&#160;John, container:&#160;Users, 
+ domain:&#160;gamp.com)</p>
+                    </td>
+                    <td style="text-align: left;" align="left">
+                        <p class="TableBody">EDMS://cn=John,cn=Users,dc=gamp,dc=com</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;" align="left">
+                        <p class="TableBody">Group (name:&#160;Users, container:&#160;Builtin, domain:&#160;gamp.com)</p>
+                    </td>
+                    <td style="text-align: left;" align="left">
+                        <p class="TableBody">EDMS://cn=Users,cn=Builtin,dc=gamp,dc=com</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;" align="left">
+                        <p class="TableBody">Organizational Unit (name:&#160;Sales, domain:&#160;gamp.com)</p>
+                    </td>
+                    <td style="text-align: left;" align="left">
+                        <p class="TableBody">EDMS://ou=Sales,dc=gamp,dc=com</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;" align="left">
+                        <p class="TableBody">Access Template (name:&#160;AT1, container:&#160;Access 
+ Template)</p>
+                    </td>
+                    <td style="text-align: left;" align="left">
+                        <p class="TableBody">EDMS://cn=AT1,cn=Access Templates,cn=Configuration</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;" align="left">
+                        <p class="TableBody">Managed Unit (name:&#160;MU1, container:&#160;Managed 
+ Units)</p>
+                    </td>
+                    <td style="text-align: left;" align="left">
+                        <p class="TableBody">EDMS://cn=MU1,cn=Managed Units,cn=Configuration</p>
+                    </td>
+                </tr>
+            </table>
+            <h2>Binding to an Object Using the DirectoryEntry Object</h2>
+            <p class="Body">To bind to directory objects, we recommend that you create 
+ an instance of the <b>DirectoryEntry</b> class (hereafter referred to 
+ as <b>DirectoryEntry</b> object), and then set its property <b>Path</b> 
+ to the appropriate binding string. </p>
+            <p class="Body">The following code examples show how to bind to an object 
+ using the serverless binding string or the binding string with the specified 
+ domain/domain controller name: </p>
+            <p class="Body">[Visual Basic .NET] </p><pre class="code" xml:space="preserve">
+<p class="Syntax">' The serverless binding string
+Dim ent As New DirectoryEntry("EDMS://CN=John Doe,OU=Sales,DC=mycompany,DC=com")
+' The binding string that specifies the domain or domain controller name
+Dim ent As New DirectoryEntry("EDMS://DomainDCName/CN=John Doe,OU=Sales,DC=mycompany,DC=com",<i>&lt;userName&gt;</i>,<i>&lt;password&gt;</i>)</p>
+</pre>
+            <p class="Body">[C#] </p><pre class="code" xml:space="preserve">
+<p class="Syntax">// The serverless binding string
+DirectoryEntry ent = new DirectoryEntry("EDMS://CN=John Doe,OU=Sales,DC=mycompany,DC=com");
+// The binding string that specifies the domain or domain controller name
+DirectoryEntry ent = new DirectoryEntry("EDMS://DomainDCName/CN=John Doe,OU=Sales,DC=mycompany,DC=com",<i>&lt;userName&gt;</i>,<i>&lt;password&gt;</i>);</p>
+</pre>
+            <p class="Body">For more information about the <b>DirectoryEntry </b>class, 
+ refer to the <a href="http://msdn.microsoft.com/library">MSDN library</a>. 
+ </p>
+            <h3>Remarks </h3>
+            <p class="Body">To specify the credentials with which to connect to the Administration 
+ Service, set the <b>UserName</b> and <b>Password</b> properties of the 
+ <b>DirectoryEntry</b> object to the appropriate user login and password. 
+ When those properties are not set, the provider will connect to the Administration 
+ Service using the current user's credentials. </p>
+            <p class="Body">To force ADSI to connect to the Administration Service running 
+ on the server specified by the binding string, set the <b>AuthenticationType</b> 
+ property of the <b>DirectoryEntry</b> object to ADS_EDMSERVER_BIND=32768. 
+ Without the ADS_EDMSERVER_BIND flag, ADSI connects to any Administration 
+ Service available in the domain specified by the binding string.</p>
+            <p class="Body">For more information about how the provider selects the Administration 
+ Service to connect to, see <a href="connectingserver.htm">Connecting to 
+ Service</a>. </p>
+            <h2>Binding to an Object Using GUID </h2>
+            <p class="Body">An object distinguished name changes if the object is renamed 
+ or moved, while the object's <b>objectGUID</b> property never changes. 
+ The Active Roles ADSI provider allows you to bind to an object 
+ using the object GUID. The binding string format is as follows: </p><pre class="code" xml:space="preserve">
+<p class="Syntax">EDMS://&lt;DomainDCName&gt;/&lt;GUID=XXXXX&gt;</p>
+</pre>
+            <dl>
+                <dt><i>&lt;DomainDCName&gt;</i>
+                </dt>
+                <dd>
+	Optional parameter. Specifies the name of the domain controller or 
+ domain where you want the provider to search for an available Active Roles 
+ Administration Service. For information about how the provider searches 
+ for Administration Service when this parameter is omitted, see <a href="connectingserver.htm">Connecting 
+ to Service</a>.</dd>
+                <dt><i>&lt;GUID=XXXXX&gt;</i>
+                </dt>
+                <dd>
+	Required parameter. <i>XXXXX</i> is the string representation of the 
+ hexadecimal value of the GUID.</dd>
+            </dl>
+            <p class="Body">To retrieve the GUID assigned to an object, use the <b>NativeGuid</b> 
+ property provided by the <b>DirectoryEntry</b> class. The following code 
+ example shows how to use the <b>NativeGuid </b>property. </p>
+            <p class="Body">[Visual Basic .NET] </p><pre class="code" xml:space="preserve">
+<p class="Syntax">Dim ent As New DirectoryEntry("EDMS://CN=John Doe,OU=Sales,DC=mycompany,DC=com")
+Dim ADGuid As [String] = ent.NativeGuid
+' Rebind using ADGuid.
+Dim x As New DirectoryEntry("EDMS://&lt;GUID=" + ADGuid + "&gt;")
+Console.WriteLine("These should be the same: {0} == {1}", ent.Name, x.Name)</p>
+</pre>
+            <p class="Body">[C#] </p><pre class="code" xml:space="preserve">
+<p class="Syntax">DirectoryEntry ent = new DirectoryEntry("EDMS://CN=John Doe,OU=Sales,DC=mycompany,DC=com");
+String ADGuid = ent.NativeGuid;
+// Rebind using ADGuid.
+DirectoryEntry x = new DirectoryEntry("EDMS://&lt;GUID="+ADGuid+"&gt;");
+Console.WriteLine("These should be the same: {0} == {1}", ent.Name,x.Name);</p>
+</pre>
+            <p class="note"><b style="font-weight: bold;">Note:</b>
+            </p>
+            <p class="note">Unlike the ADSI LDAP provider, the Active Roles 
+ provider supports all methods and properties of the <b><a href="iads.htm">IADs</a></b> 
+ and <a href="iadscontainer.htm"><b>IADsContainer</b></a> interfaces even 
+ for objects obtained by binding using the object GUID. </p>
+            <h2>Examples</h2>
+            <p class="Body">For the C# and Visual Basic sample projects that illustrate 
+ how to bind to directory objects, refer to <a href="samplecsharpprojects.htm">Sample 
+ Projects</a>.</p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc299">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="Connecting to a Service;connectingserver.htm" />
+                    <param name="Item2" value="Getting Started With Microsoft .NET Projects;gettingstartedcsharp.htm" />
+                    <param name="Item3" value="Sample Projects;samplecsharpprojects.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc299.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+            <h4>&#160;</h4>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Web Interface|How to...|Create a Custom Entry" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Generate a Custom Entry Value</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_CreateMenu" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="webinterface.htm">Web Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="howto.htm">How to...</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Generate a Custom Entry Value</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor52"></a>
+                <MadCap:concept term="a_CreateMenu" />Generation of Custom Entry Value</h1>
+            <p class="Body">This topic explains how you can use the <span style="font-weight: bold;"><a href="FormPageObject.htm#RegisterAttributeControl">RegisterAttributeControl</a></span> 
+ method of the <span style="font-weight: bold;">FormPage</span> object 
+ to have the web client generate a value of a custom entry affected by 
+ the property generation administrative policy.</p>
+            <p class="Body">To clarify the use of the <span style="font-weight: bold;">RegisterAttributeControl 
+ </span>method, consider the example from the <a href="customentries.htm#Example">Create 
+ a Custom Entry</a> topic that illustrates how to create the <span style="font-weight: bold;">Employee 
+ ID</span> text box and the <b>Job description</b> text area on the <span style="font-weight: bold;">Organization</span> tab of the <span style="font-weight: bold;">User 
+ Properties</span> form.</p>
+            <p class="Body">Let us apply the following property generation policy rule 
+ to the extensionAttribute2 property, associated with the <span style="font-weight: bold;">Job 
+ description</span> text area: &#160;the 
+ job description for each user must be equal to him/her job title. To do 
+ this, prepare the appropriate Policy Object and then link it to an Organizational 
+ Unit where the users reside.</p>
+            <p class="Body"><b>To prepare the Policy Object using the 
+ MMC console</b>
+            </p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">In the console 
+ tree, under the <b> Active Roles</b> snap-in item, expand 
+ the <b>Configuration</b> node.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Under <b>Configuration</b>, 
+ expand the <span style="font-weight: bold;">Policies</span> node, right-click 
+ <span style="font-weight: bold;">Administration</span>, point to <b>New</b>, 
+ and then click <b>Provisioning Policy Object</b> to start the <b>New Provisioning 
+ Policy Object</b> wizard. </p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">On the <b>Name 
+ and Description</b> page, under <b>Name</b> and <b>Description</b>, specify 
+ the name and description of the Policy Object you want to create, and 
+ then click <b>Next</b>. </p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList">On the <b>Policy 
+ to Configure</b> page, select <span style="font-weight: bold;">Property 
+ Generation and Validation</span>, and then click <b>Next</b>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="5">
+                    <p class="NumberedList">On the <span style="font-weight: bold;">Controlled Property</span> page, click <span style="font-weight: bold;">Select</span>.<span style="font-style: italic;"><br />
+	The </span><span style="font-style: italic;font-weight: bold;">Select 
+ Object Type and Property</span><span style="font-style: italic;"> dialog 
+ box opens.</span></p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="6">
+                    <p class="NumberedList">In the <span style="font-weight: bold;">Select 
+ Object Type and Property</span> dialog box, do the following: </p>
+                    <ul>
+                        <li class="kadov-p">From the <span style="font-weight: bold;">Object 
+ type</span> list, select the User object.</li>
+                        <li class="kadov-p">Select the <span style="font-weight: bold;">Show 
+ all possible properties</span> check box.</li>
+                        <li class="kadov-p">From the <span style="font-weight: bold;">Object 
+ property</span> list, select the <span style="font-weight: bold;">Custom 
+ Attribute 2</span> property (the extensionAttribute2 lDAPDisplayName), 
+ click <span style="font-weight: bold;">OK</span>, and then click <span style="font-weight: bold;">Next</span>.&#160; </li>
+                    </ul>
+                </li>
+            </ol>
+            <ol start="7" style="list-style: decimal;list-style-type: decimal;">
+                <li class="kadov-p-CNumberedList" value="7">
+                    <p class="NumberedList">On the <span style="font-weight: bold;">Configure Policy Rule</span> page, select the 
+ <span style="font-weight: bold;">'Custom Attribute 2' must be &lt;value</span>&gt;<span style="font-weight: bold;"> (generates default value)</span> check box, 
+ and then under <span style="font-weight: bold;">Edit policy rule</span>, 
+ click the <span style="font-weight: bold;">&lt;click to add value&gt;</span> 
+ link.<span style="font-style: italic;"><br />
+	The </span><span style="font-style: italic;font-weight: bold;">Add 
+ Value</span><span style="font-style: italic;"> dialog box opens.</span></p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="8">
+                    <p class="NumberedList">In the <span style="font-weight: bold;">Add Value</span> dialog box, click <span style="font-weight: bold;">Configure</span>.<span style="font-style: italic;"><br />
+	The </span><span style="font-style: italic;font-weight: bold;">Configure 
+ Value</span><span style="font-style: italic;"> dialog box opens.</span></p>
+                </li>
+                <li style="font-style: normal;" class="kadov-p-CNumberedList" value="9">
+                    <p class="NumberedList" style="font-style: normal;">In 
+ the &#160;<span style="font-weight: bold;">Configure 
+ Value</span> dialog box, click <span style="font-weight: bold;">Add</span>.<span style="font-style: italic;"><br />
+	The </span><span style="font-weight: bold;font-style: italic;">Add 
+ Entry</span><span style="font-style: italic;"> dialog box opens.</span></p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="10">
+                    <p class="NumberedList">In the <span style="font-weight: bold;">Add Entry</span> dialog box, under <span style="font-weight: bold;">Entry 
+ type</span>, select <span style="font-weight: bold;">User Property</span>, 
+ and then click the <span style="font-weight: bold;">Select</span> button 
+ next to <span style="font-weight: bold;">Property</span>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="11">
+                    <p class="NumberedList">In the <span style="font-weight: bold;">Select Object Property</span> dialog, select 
+ the <span style="font-weight: bold;">Show all possible properties</span> 
+ check box, select the <span style="font-weight: bold;">Job Title</span> 
+ property (the title lDAPDisplayName), and then click <span style="font-weight: bold;">OK</span>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="12">
+                    <p class="NumberedList">Click <span style="font-weight: bold;">OK</span> 
+ in the <span style="font-weight: bold;">Configure Value</span> and <span style="font-weight: bold;">Add Value</span> dialog boxes.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="13">
+                    <p class="NumberedList">Follow the instructions 
+ provided by the <b>New Provisioning Policy Object</b> wizard to link the 
+ Policy Object to the appropriate Organizational Unit and to complete the 
+ wizard.</p>
+                </li>
+            </ol><b>To create custom entries</b>
+            <ol>
+                <li class="kadov-p-CBody" value="1">
+                    <p class="Body">Perform Steps 1 to 3 of the procedure 
+ in the Example section of the <a href="customentries.htm#Example">Create 
+ a Custom Entry</a> topic.</p>
+                </li>
+                <li class="kadov-p-CBody" value="2">
+                    <p class="Body">In Step 4, add the <span style="font-style: italic;">objFormPage.RegisterAttributeControl 
+ "cst_jobDescriptionIDControl", "extensionAttribute2"</span> 
+ line to <span style="font-style: italic;font-weight: bold;">Sub</span><span style="font-style: italic;"> Get_cst_JobDescription</span> in the following 
+ way:<span style="font-style: italic;"><br /><br />
+	Sub Get_cst_JobDescription(ByRef objFormContext, ByRef objFormPage)<br />
+	Dim strHTML, strJob<br />
+	strJob = CStr(objFormContext.GetValue("extensionAttribute2"))<br />
+	strHTML = "&lt;textarea id='cst_jobDescriptionIDControl' name='cst_jobDescriptionIDControl' 
+ rows=3 cols=80&gt;" &amp; strJob &amp; "&lt;/textarea&gt;"<br />
+	Call objFormPage.Write(strHtml)</span><span style="font-style: italic;font-weight: bold;"><br />
+	objFormPage.RegisterAttributeControl "cst_jobDescriptionIDControl", 
+ "extensionAttribute2"</span><span style="font-style: italic;"><br />
+	End Sub</span><br /><br />
+	Do not change other functions described in Step 4.</p>
+                </li>
+                <li class="kadov-p-CBody" value="3">
+                    <p class="Body">For changes to take effect, <a href="reloadwi.htm">reload the Web Interface (WI) site</a>.</p>
+                </li>
+            </ol>
+            <p class="Body">After you perform the procedures above, try to enter any 
+ information in the <span style="font-weight: bold;">Job title</span> text 
+ box. The web client generates the same value in the <span style="font-weight: bold;">Job 
+ description</span> text area (see the figure in <a href="customentries.htm#Example">Creating 
+ a Custom Entry</a>).</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

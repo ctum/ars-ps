@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Script Policies, Scheduled Tasks and Workflows|Using Script Policy and Scheduled Tasks" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Example: Rule-based selection of container for object creation</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_StoringParameters" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanagerscriptpolicy.htm">Script Policies, Scheduled Tasks and Workflows</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="usingedmscriptpolicy.htm">Using Script Policy and Scheduled Tasks</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Example: Rule-based selection of container for object creation</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor109"></a>
+                <MadCap:concept term="a_StoringParameters" />Example: Rule-based selection of container for object creation</h1>
+            <p class="Body">This topic demonstrates how to implement a scenario of creating 
+ user accounts in the Organizational Unit (OU) being automatically selected 
+ by Active Roles based on the value of the City (l) attribute of the user 
+ account to be created.</p>
+            <p class="Body">Suppose, the OU structure in your Active Directory is organized 
+ so that each office location has a separate OU. All user accounts for 
+ a given office location are stored in the OU assigned to that location. 
+ When creating a new user account, the helpdesk operator needs to select 
+ the appropriate OU and then run the New User command on that OU.</p>
+            <p class="Body">To simplify the process of creating new user accounts, you 
+ may want to implement a solution where helpdesk would only need to specify 
+ the office location and have the appropriate OU selected automatically. 
+ Such a solution should provide a certain "victim" OU for the 
+ New User command, a page on which the helpdesk operator chooses the office 
+ location, and a rule-based mechanism that uses the office location data 
+ to select the appropriate OU. The user creation process should be performed 
+ as if the New Use command is run on that office-location OU rather than 
+ the "victim" OU, so as to execute all policies and workflows 
+ that apply to the office-location OU. You can implement this solution 
+ by using the <a href="Altering_the_parent_container_of_the_operation_target_object.htm">ChangeParentDN</a> 
+ method in a script workflow activity to change the name of the "victim" 
+ OU to the name of the office-location OU in the user creation request.</p>
+            <p class="Body">The following example assumes domain.company.com to be an 
+ Active Directory domain containing these Organizational Units:</p>
+            <ul>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">OU=London,DC=domain,DC=company,DC=com 
+ &#160;The user 
+ accounts for the London office must be in the "London" OU.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">OU=Paris,DC=domain,DC=company,DC=com 
+ &#160;The user 
+ accounts for the Paris office must be in the "Paris" OU.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">OU=New York City,DC=domain,DC=company,DC=com 
+ &#160;The user 
+ accounts for the New York City office must be in the "New York City" 
+ OU.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">OU=User Creation,DC=domain,DC=company,DC=com 
+ &#160;Helpdesk 
+ will use the "User Creation" OU to run the New User command.</p>
+                </li>
+            </ul>
+            <p class="Body">Our goal is to configure Active Roles so that the "New 
+ User" command on the "User Creation" OU in the Active Roles 
+ Web Interface prompts to select the office location (London, Paris, or 
+ New York City) and then creates the user account in the OU specific to 
+ the selected office location.</p>
+            <p class="Body">The configuration steps are as follows.</p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Create a Property 
+ Generation and Validation policy for the "City (l)" user attribute 
+ that forces the attribute value to be selected from the list of the admissible 
+ office locations. Configure a provisioning policy object with the following 
+ policy rule and apply that policy object to the "User Creation" 
+ OU.</p>
+                </li>
+            </ol>
+            <p class="SyntaxIndent">Policy rule: 'City' must be specified, and</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;must 
+ be</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'London' 
+ (default value) or </p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'Paris' 
+ or </p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'New 
+ York City'</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;Upon 
+ object creation, this policy generates default value: No</p>
+            <ol start="2" style="list-style: decimal;list-style-type: decimal;">
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Create a PowerShell 
+ script module containing the following policy script:</p>
+                </li>
+            </ol>
+            <p class="SyntaxIndent">function onPreCreate($Request)</p>
+            <p class="SyntaxIndent">{</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;changeCreationContainer($Request)</p>
+            <p class="SyntaxIndent">}</p>
+            <p class="SyntaxIndent">function onGetEffectivePolicy($Request)</p>
+            <p class="SyntaxIndent">{</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;changeCreationContainer($Request)</p>
+            <p class="SyntaxIndent">}</p>
+            <p class="SyntaxIndent">function changeCreationContainer($Request)</p>
+            <p class="SyntaxIndent">{</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;$city 
+ = $Request.Get("l")</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;if($city 
+ -eq $null -or $city -eq [string]::Empty) { return }</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;$ou 
+ = getContainerName($city)</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;if($ou 
+ -eq $null -or $ou -eq [string]::Empty) { return }</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;$Request.ChangeParentDN('OU=' 
+ + $ou + ',DC=domain,DC=company,DC=com')</p>
+            <p class="SyntaxIndent">}</p>
+            <p class="SyntaxIndent">function getContainerName($city)</p>
+            <p class="SyntaxIndent">{</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;$city 
+ = $city.ToLower()</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;switch($city)</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'london' 
+ { 'London' }</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'paris' 
+ { 'Paris' }</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'new 
+ york city' { 'New York City' }</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;default 
+ { $null }</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}</p>
+            <p class="SyntaxIndent">}</p>
+            <ol start="3" style="list-style: decimal;list-style-type: decimal;">
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">Create a change 
+ workflow with the following start conditions: </p>
+                </li>
+            </ol>
+            <p class="SyntaxIndent">Operation that starts this workflow: Create</p>
+            <p class="SyntaxIndent">Target object type: User</p>
+            <p class="SyntaxIndent">Initiator: Any user</p>
+            <p class="SyntaxIndent">Container: User Creation OU.</p>
+            <ol start="4" style="list-style: decimal;list-style-type: decimal;">
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList">Add a script 
+ activity to the workflow, above the "Operation execution" line. 
+ Configure the script activity to use the script you created in Step 2. 
+ Choose the <span class="SyntaxChar">onPreCreate</span> function to run.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="5">
+                    <p class="NumberedList">On the workflow 
+ definition object in the Active Roles console, use the Advanced Properties 
+ command to set the <span class="SyntaxChar">edsaWorkflowPriority</span> 
+ attribute to a value less than 500. This ensures that the workflow that 
+ chooses the OU where to create the user is executed prior to any other 
+ workflow that may also be matched to the operation of creating a user. 
+ For more information about the use of the <span class="SyntaxChar">edsaWorkflowPriority</span> 
+ attribute, see "Workflow Processing Overview" in the Active 
+ Roles Administrator Guide.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="6">
+                    <p class="NumberedList">Customize the 
+ Web Interface by adding an entry for the "City (l)" attribute 
+ on the "General" tab of the form associated with the "New 
+ User" command on the menu for the "Organizational Unit (organizationalUnit)" 
+ object type.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="7">
+                    <p class="NumberedList">Configure Active 
+ Roles security so that the helpdesk operators have the "Create User" 
+ permission on only the "User Creation" OU, and are not allowed 
+ to create users in any other container.</p>
+                </li>
+            </ol>
+            <p class="Body">Once you have completed these configuration steps, your helpdesk 
+ operators can create user accounts by using the "New User" command 
+ on the "User Creation" OU in the Web Interface. On the first 
+ step of the user creation wizard, the Active Roles Web Interface requires 
+ the operator to select the appropriate office location from a list; then, 
+ Active Roles ensures that the user account is created in the OU specific 
+ to the office location selected.</p>
+            <p class="Body">&#160;</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

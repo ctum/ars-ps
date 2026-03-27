@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles Add-ons" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Add-on Configuration</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="activeroles_server_add-ons.htm">Active Roles Add-ons</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Add-on Configuration</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1>AddonConfiguration Section</h1>
+            <h2>XML Elements </h2>
+            <h3><a name="AddonDocument"></a>AddonDocument</h3>
+            <p class="Body">Describes the name and GUID of an add-on.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#AddonDocument">AddonConfiguration</a>, 
+ <a href="SystemRequirements.htm#SystemRequirements">SystemRequirements</a>, 
+ <a href="ARSObjects.htm">ARSObjects</a>, <a href="ARSWebUICustomization.htm">ARSWebUICustomization</a>, 
+ <a href="PreInstallScript.htm">PreInstallScript</a>, <a href="PostInstallScript.htm">PostInstallScript</a>, 
+ <a href="PreUninstallScript.htm">PreUninstallScript</a>, <a href="PostUninstallScript.htm">PostUninstallScript</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Name</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p style="font-weight: bold;"><span style="font-weight: normal;">Required. 
+ The add-on name in the Registered Add-ons container.</span>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>GUID</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p style="font-weight: bold;"><span style="font-weight: normal;">Required. 
+ The add-on GUID.</span>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">&#160;</p>
+            <h3><a name="AddonConfiguration"></a>AddonConfiguration</h3>
+            <p class="Body">Describes the configuration of an add-on. </p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#AddonDocument">AddonDocument</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#Title">Title</a>, 
+ <a href="#Supportability">Supportability</a>, <a href="#Version">Version</a>, 
+ <a href="#ShowInRawViewOnly">ShowInRawViewOnly</a>, <a href="#HasUIConfigurationLink">HasUIConfigurationLink</a>, 
+ <a href="#UIConfigurationDN">UIConfigurationDN</a>, <a href="#HasWICustomizationLink">HasWICustomizationLink</a>, 
+ <a href="#Publisher">Publisher</a>, <a href="#HasUninstallLink">HasUninstallLink</a>, 
+ <a href="#Description">Description</a>, <a href="#Summary">Summary</a>, 
+ <a href="#HomePageURL">HomePageURL</a>, <a href="#HomePageLinkName">HomePageLinkName</a>, 
+ <a href="#AddonIcon">AddonIcon</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="Title"></a>Title</h3>
+            <p class="Body">The name of an add-on.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#AddonConfiguration">AddonConfiguration</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="Supportability"></a>Supportability</h3>
+            <p class="Body">Describes what type of support is available for an add-on.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#AddonConfiguration">AddonConfiguration</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:</p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>ID</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Required. The type of support.</p>
+                        <p>The possible values are:</p>
+                        <p style="font-weight: bold;">0 - <span style="font-weight: normal;">None</span> <span style="font-weight: normal;">(default value)</span></p>
+                        <p style="font-weight: bold;">1 - <span style="font-weight: normal;">One Identity</span></p>
+                        <p style="font-weight: bold;">2 - <span style="font-weight: normal;">Community</span></p>
+                        <p style="font-weight: bold;">3 - <span style="font-weight: normal;">Publisher</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Description</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Optional. The possible values are:</p>
+                        <ul>
+                            <li class="kadov-p-CListBullet">
+                                <p class="ListBullet" style="font-weight: bold;">None</p>
+                            </li>
+                            <li class="kadov-p-CListBullet">
+                                <p class="ListBullet" style="font-weight: bold;">One Identity</p>
+                            </li>
+                            <li class="kadov-p-CListBullet">
+                                <p class="ListBullet" style="font-weight: bold;">Community</p>
+                            </li>
+                            <li class="kadov-p-CListBullet">
+                                <p class="ListBullet" style="font-weight: bold;">Publisher</p>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <p>&#160;</p>
+            <h3><a name="Version"></a>Version</h3>
+            <p class="Body">The version of an add-on.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#AddonConfiguration">AddonConfiguration</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:</p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Major</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Required. Represents the major part of the version number. For example, 
+ 3 in 3.2.1.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Minor</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Optional. Represents the minor part of the version number. For example, 
+ 2 in 3.2.1.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Build</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Optional. Represents the build part of the version number. For example, 
+ 1 in 3.2.1.</p>
+                    </td>
+                </tr>
+            </table>
+            <h3><a name="ShowInRawViewOnly"></a>ShowInRawViewOnly</h3>
+            <p class="Body">When set to TRUE, an add-on is shown in the Raw View Mode 
+ only in the Active Roles Console. Otherwise, the add-on is always available 
+ in the Applications node in the Active Roles Console.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#AddonConfiguration">AddonConfiguration</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="HasUIConfigurationLink"></a>HasUIConfigurationLink</h3>
+            <p class="Body">When set to TRUE, the Add-on Configuration page is displayed 
+ when clicking an add-on title link on the Add-on Manager page. By default, 
+ the add-on title link opens the Add-on Details dialog box. </p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#AddonConfiguration">AddonConfiguration</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="UIConfigurationDN"></a>UIConfigurationDN</h3>
+            <p class="Body">Describes the application object DN (this application object 
+ must be included in an add-on) used as an address in the add-on title 
+ link. By default, the add-on title link opens the Add-on Details dialog 
+ box. By specifying the DN of the application object included in the add-on 
+ you configure this link to open the Add-on Configuration page.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#AddonConfiguration">AddonConfiguration</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="HasWICustomizationLink"></a>HasWICustomizationLink</h3>
+            <p class="Body">When set to TRUE, the Web Interface customization link is 
+ shown for an add-on on the Add-on Manager page in the Active Roles console.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#AddonConfiguration">AddonConfiguration</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="Publisher"></a>Publisher</h3>
+            <p class="Body">The publisher of an add-on.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#AddonConfiguration">AddonConfiguration</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:None</p>
+            <h3><a name="HasUninstallLink"></a>HasUninstallLink</h3>
+            <p class="Body">When set to TRUE, the Uninstall link is shown for an add-on 
+ on the Add-on Manager page in the Active Roles console.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#AddonConfiguration">AddonConfiguration</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="Description"></a>Description</h3>
+            <p class="Body">A detailed description of an add-on shown on the Add-on Details 
+ page in the Active Roles console.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#AddonConfiguration">AddonConfiguration</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>:None</p>
+            <h3><a name="Summary"></a>Summary</h3>
+            <p class="Body">A short description of an add-on shown on the Add-on Manager 
+ page in the Active Roles console.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#AddonConfiguration">AddonConfiguration</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="HomePageURL"></a>HomePageURL</h3>
+            <p class="Body">Describes the Web site URL of publisher's home page.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#AddonConfiguration">AddonConfiguration</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="HomePageLinkName"></a>HomePageLinkName</h3>
+            <p class="Body">Describes the name of the link to publisher's home page.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#AddonConfiguration">AddonConfiguration</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="AddonIcon"></a>AddonIcon</h3>
+            <p class="Body">Describes custom icon in a base64 string format for an add-on.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#AddonConfiguration">AddonConfiguration</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

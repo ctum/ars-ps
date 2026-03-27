@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles ADSI Provider|Tutorial: ADSI Scripting|Sample Scripts|Managing Active Roles-Specific Objects|Managing Policy Objects" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Adding Policy Entries</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_AddingPolicyEntries" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanageradsiprovider.htm">Active Roles ADSI Provider</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="tutorialadsi.htm">Tutorial: ADSI Scripting</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Adding Policy Entries</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor489"></a>
+                <MadCap:concept term="a_AddingPolicyEntries" />Adding Policy Entries</h1>
+            <p class="Body">File name: AddEntries.vbs</p>
+            <p class="Body">This code snippet illustrates how to add Policy Entries to 
+ an existing Policy Object.</p>
+            <p class="Body"><span class="QuestBlue">Note</span>
+            </p>
+            <p class="Note">Before using this sample script, ensure that the "TestPolicy" 
+ Policy Object and the "TestScriptModule" script module exist.</p><pre class="code" xml:space="preserve">
+<p class="Syntax">option explicit
+ ' PARAMETERS OF SCRIPT YOU MAY MODIFY
+ ' -----------------------------------
+ '
+ ' Before using the script, modify the following constants
+ '
+ ' DN of Policy Object to which you want to add Policy Entries. This PO must exist.
+const strPOName = "EDMS://CN=TestPolicy,CN=Administration,CN=Policies,CN=Configuration"
+ ' First Policy Entry (property validation)
+const strPolicy1ErrorMsg = "Corporate policy violation. The 'Name' property value does not conform to corporate policy."
+const strPolicy1Filter = "&lt;PVGRules Version=""1.0""&gt;&lt;PVRuleItem operator=""*="" linkID=""and""&gt;&lt;value linkID=""and""&gt;%&amp;lt;ou.ou&amp;gt;&lt;/value&gt;&lt;/PVRuleItem&gt;&lt;/PVGRules&gt;"
+const strPolicy1Attribute = "cn"
+const strPolicy1Sign = "&amp;"
+const strPolicy1RequiredProperty = "1"	'	Stands for TRUE
+const strPolicy1ApplyOnto = "group" ' The policy will only apply to Group objects.
+const strPolicy1Description = "Validates the 'Name' property values for 'Group' objects."
+const strPolicy1SkipValidation = "1"	'	Stands for TRUE
+ ' Second Policy Entry (script policy)
+const strPolicy2ErrorMsg = "Corporate policy violation. The requested operation cannot be performed due to a violation in policy."
+ ' DN of a script module. This script module must exist.
+const strPolicy2ModuleDN = "EDMS://CN=TestScriptModule,CN=Script Modules,cn=Configuration"
+const strPolicy2Events = "0xFFFF"
+const strPolicy2Description = "Starts the script 'TestScriptModule' upon selected operations."
+ ' PLEASE, DO NOT MODIFY THE SCRIPT BELOW THIS POINT
+ ' -------------------------------------------------
+ '
+const EDS_APE_PARAM_ERROR_MSG &#160;&#160;&#160;&#160;= 1
+const EDS_APE_PARAM_FILTER &#160;&#160;&#160;&#160;&#160;&#160;&#160;= 2
+const EDS_APE_PARAM_MODULE &#160;&#160;&#160;&#160;&#160;&#160;&#160;= 4
+const EDS_APE_PARAM_ATTRIBUTE &#160;&#160;&#160;&#160;= 40
+const EDS_APE_PARAM_SIGN &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;= 41
+const EDS_APE_PARAM_REQUIRED_PROPERTY = 43
+const EDS_APE_PARAM_APPLY_ONTO &#160;&#160;&#160;= 50
+const EDS_APE_PARAM_DESCRIPTION &#160;&#160;= 57
+const EDS_APE_PARAM_GUID &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;= 59
+const EDS_APE_PARAM_SKIP_VALIDATION = 66
+Dim OctetString
+Set OctetString=CreateObject("AelitaEDM.EDMOctetString")
+Dim poObject
+Set poObject=GetObject(strPoName)
+Dim APE, APS
+ ' Create a new APE
+Set APE=poObject.CreatePolicyEntry
+APE.Type=35
+Set APS=APE.CreatePolicySetting
+APS.Name=EDS_APE_PARAM_ERROR_MSG
+APS.Value=strPolicy1ErrorMsg
+APE.AddPolicySetting APS
+Set APS=APE.CreatePolicySetting
+APS.Name=EDS_APE_PARAM_FILTER
+APS.Value=strPolicy1Filter
+APE.AddPolicySetting APS
+Set APS=APE.CreatePolicySetting
+APS.Name=EDS_APE_PARAM_ATTRIBUTE
+APS.Value=strPolicy1Attribute
+APE.AddPolicySetting APS
+Set APS=APE.CreatePolicySetting
+APS.Name=EDS_APE_PARAM_SIGN
+APS.Value=strPolicy1Sign
+APE.AddPolicySetting APS
+Set APS=APE.CreatePolicySetting
+APS.Name=EDS_APE_PARAM_REQUIRED_PROPERTY
+APS.Value=strPolicy1RequiredProperty
+APE.AddPolicySetting APS
+Set APS=APE.CreatePolicySetting
+APS.Name=EDS_APE_PARAM_APPLY_ONTO
+APS.Value=strPolicy1ApplyOnto
+APE.AddPolicySetting APS
+Set APS=APE.CreatePolicySetting
+APS.Name=EDS_APE_PARAM_DESCRIPTION
+APS.Value=strPolicy1Description
+APE.AddPolicySetting APS
+Set APS=APE.CreatePolicySetting
+APS.Name=EDS_APE_PARAM_SKIP_VALIDATION
+APS.Value=strPolicy1SkipValidation
+APE.AddPolicySetting APS
+poObject.AddPolicyEntry APE
+ ' Create a new APE
+Set APE=poObject.CreatePolicyEntry
+APE.Type=3
+Set APS=APE.CreatePolicySetting
+APS.Name=EDS_APE_PARAM_ERROR_MSG
+APS.Value=strPolicy2ErrorMsg
+APE.AddPolicySetting APS
+Dim ModuleObject
+Set ModuleObject=GetObject(strPolicy2ModuleDN)
+OctetString.Set ModuleObject.Guid
+Set ModuleObject=Nothing
+Set APS=APE.CreatePolicySetting
+APS.Name=EDS_APE_PARAM_MODULE
+APS.Value=OctetString.GetGuidString
+APE.AddPolicySetting APS
+Set APS=APE.CreatePolicySetting
+APS.Name=EDS_APE_PARAM_DESCRIPTION
+APS.Value=strPolicy2Description
+APE.AddPolicySetting APS
+poObject.AddPolicyEntry APE
+poObject.SetInfo</p>
+</pre>
+            <p>
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc272">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="IEDM;iedm.htm" />
+                    <param name="Item2" value="IEDMPolicyEntry;iedmpolicyentry.htm" />
+                    <param name="Item3" value="IEDMPolicyObject;iedmpolicyobject.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc272.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+            <h4>&#160;</h4>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

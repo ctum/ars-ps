@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Script Policies, Scheduled Tasks and Workflows|Using Script Policy and Scheduled Tasks" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Example: Creating Bound List-boxes</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_StoringParameters" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanagerscriptpolicy.htm">Script Policies, Scheduled Tasks and Workflows</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="usingedmscriptpolicy.htm">Using Script Policy and Scheduled Tasks</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Example: Creating Bound List-boxes</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor188"></a>
+                <MadCap:concept term="a_StoringParameters" />Example: Creating bound list-boxes</h1>
+            <p class="Body">This topic demonstrates how to implement a scenario where 
+ a list of possible values for a given attribute entry in the Web Interface 
+ changes depending on the value selected for another attribute. We are 
+ going to create and deploy a script-based policy that</p>
+            <ul>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">Defines a list of 
+ possible values for the Department (department) attribute along with an 
+ individual list of possible values for the Job Title (title) attribute 
+ specific to each possible value of the Department attribute, and</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">Causes the Web Interface 
+ to display the appropriate "Job title" list when you select 
+ a value from the "Department" list on the "Organization" 
+ page for a user account.</p>
+                </li>
+            </ul>
+            <p class="Body">To establish the dependency between the two attributes we 
+ will use the new policy setting introduced in Active Roles version 6.9 
+ - EDS_EPI_UI_RELOAD_EPI_BY_RULE. This policy setting directs the Active Roles 
+ Web Interface to reload policy information for the target attribute every 
+ time the rule attribute changes on the Web Interface page, thereby enabling 
+ the use of different policy rules depending on the value of the rule attribute. 
+ With a policy script that defines a separate list of the target attribute's 
+ possible values for each possible value of the rule attribute, this policy 
+ setting makes it possible for the Web Interface to apply the appropriate 
+ list of possible values to the target attribute entry when a particular 
+ value is selected for the rule attribute. As applied to the scenario covered 
+ by this topic, the target attribute is Job Title (title) and the rule 
+ attribute is Department (department).</p>
+            <p class="Body">The example discussed in this topic assumes the following 
+ lists of possible values:</p>
+            <table>
+                <col />
+                <col />
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Department</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Possible Job Title</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">Customer Service</p>
+                    </td>
+                    <td>
+                        <ul>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">CS Representative</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">CSR Manager</p>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Development</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <ul>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">SD Engineer</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">SD Manager</p>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Quality Control</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <ul>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">QC Engineer</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">QC Manager</p>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p class="TableBody">Sales</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <ul>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">Sales Manager</p>
+                            </li>
+                            <li class="kadov-p-CTableBullet">
+                                <p class="TableBullet">Salesperson</p>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">Our goal is to configure Active Roles so that the Web Interface 
+ lets you select a department from the list and then displays the list 
+ of job titles for the department you have selected, allowing you to select 
+ the appropriate job title.</p>
+            <p class="Body">The configuration steps are as follows.</p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Create a PowerShell 
+ script module containing the following policy script:</p>
+                </li>
+            </ol>
+            <p class="SyntaxIndent">$listDepartments = @('Development', 'Quality Control', 
+ 'Sales', 'Customer Service')</p>
+            <p class="SyntaxIndent">$listTitlesDevelopment = @('SD Engineer', 'SD Manager')</p>
+            <p class="SyntaxIndent">$listTitlesQC = @('QC Engineer', 'QC Manager')</p>
+            <p class="SyntaxIndent">$listTitlesSales = @('Salesperson', 'Sales Manager')</p>
+            <p class="SyntaxIndent">$listTitlesCustomerService = @('CS Representative', 
+ 'CSR Manager')</p>
+            <p class="SyntaxIndent">$listAllTitles = $listTitlesDevelopment</p>
+            <p class="SyntaxIndent">$listAllTitles += $listTitlesQC | Where-Object {$listAllTitles 
+ -notcontains $_}</p>
+            <p class="SyntaxIndent">$listAllTitles += $listTitlesSales | Where-Object 
+ {$listAllTitles -notcontains $_}</p>
+            <p class="SyntaxIndent">$listAllTitles += $listTitlesCustomerService | Where-Object 
+ {$listAllTitles -notcontains $_}</p>
+            <p class="SyntaxIndent">function onGetEffectivePolicy($Request)</p>
+            <p class="SyntaxIndent">{</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;if($Request.Class 
+ -eq "user")</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;{</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$Request.SetEffectivePolicyInfo('title', 
+ $Constants.EDS_EPI_UI_RELOAD_EPI_BY_RULE, 'department')</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$Request.SetEffectivePolicyInfo('department', 
+ $Constants.EDS_EPI_UI_POSSIBLE_VALUES, [string[]]$listDepartments)</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$department 
+ = GetCurrentValue -Request $Request -AttributeName 'department'</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;switch($department)</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'Development' 
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{$possibleValues 
+ = $listTitlesDevelopment &#160;&#160;&#160;&#160;&#160;&#160;&#160;}</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'Quality 
+ Control' &#160;&#160;&#160;&#160;{$possibleValues 
+ = $listTitlesQC &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'Sales' 
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{$possibleValues 
+ = $listTitlesSales &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;'Customer 
+ Service' &#160;&#160;&#160;{$possibleValues 
+ = $listTitlesCustomerService &#160;&#160;&#160;}</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;default 
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{$possibleValues 
+ = $listAllTitles &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} 
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$Request.SetEffectivePolicyInfo('title', 
+ $Constants.EDS_EPI_UI_POSSIBLE_VALUES, [string[]]$possibleValues) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;}</p>
+            <p class="SyntaxIndent">}</p>
+            <p class="SyntaxIndent">function GetCurrentValue($Request, [string]$AttributeName)</p>
+            <p class="SyntaxIndent">{ &#160;&#160;</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;trap 
+ {continue}</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;$value 
+ = $Request.Get($AttributeName)</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;if($value 
+ -eq $null)</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$DirObj.GetInfoEx(@($AttributeName),0) 
+ | Out-Null</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;$value 
+ = $DirObj.Get($AttributeName)</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}</p>
+            <p class="SyntaxIndent">&#160;&#160;&#160;&#160;$value</p>
+            <p class="SyntaxIndent">}</p>
+            <ol start="2" style="list-style: decimal;list-style-type: decimal;">
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Create a Provisioning 
+ Policy Object containing a script execution policy based on the script 
+ module you created in Step 1.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">Apply that Policy 
+ Object to the scope (organizational unit, domain or managed unit) that 
+ holds the user accounts whose Department and Job Title you want to manage 
+ by using this policy.</p>
+                </li>
+            </ol>
+            <p class="Body">After you have completed these configuration steps, you can 
+ verify that the Web Interface performs as expected. Select a user account 
+ from the scope to which you applied the Policy Object, go to the "General 
+ Properties/Organization" page, and select a department from the "Department" 
+ list. Confirm that the "Job title" list includes only those 
+ job titles that apply to the department you selected.</p>
+            <p class="Body">&#160;</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

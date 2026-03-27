@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Adding Extension Snap-in's Property Page</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_ExtendingUserPropertySheetMMC" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor126"></a>
+                <MadCap:concept term="a_ExtendingUserPropertySheetMMC" />Adding Extension Snap-in's Property Page</h1>
+            <p class="Body">This sample C++ project demonstrates how to add an extension 
+ snap-in's property page to a property sheet displayed by the primary Active Roles snap-in. </p>
+            <p class="Body">All files related to this project are saved in the folder 
+ '...\SDK\Samples\ARServer Snap-in\MMC\Property Page Extension'. </p>
+            <h2>Building the Sample</h2>
+            <p class="Procedure"><b style="font-weight: bold;">To build the sample project</b>
+            </p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">In Microsoft 
+ Visual Studio 2008, open the solution file Ppgeext.sln.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">On the Standard 
+ toolbar, choose <b>Release</b> from the <b>Solution Configurations</b> 
+ list box.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">On the <b>Build</b> 
+ menu, click <b>Rebuild Solution</b>.</p>
+                </li>
+            </ol>
+            <h2>How the Sample Works</h2>
+            <p class="Body">The sample creates the property sheet extension snap-in and 
+ registers it for the Active Roles snap-in node type "user". 
+ After you build the project, the following entry will be automatically 
+ added to the registry:</p><pre xml:space="preserve">
+<p class="Syntax">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MMC\NodeTypes\
+{D842D417-3A24-48e8-A97B-9A0C7B02FB17}\Extensions\PropertySheet\
+{CFCDC9F3-C50E-11D2-952B-00C04FB92EC2}=REG_SZ "Extension to the Rocket Node"</p>
+</pre>
+            <p class="Body">In this registry entry, {D842D417-3A24-48e8-A97B-9A0C7B02FB17} 
+ is the<a href="edmnodetype.htm">  Active Roles snap-in node type</a> 
+ for the object class "user" while {CFCDC9F3-C50E-11D2-952B-00C04FB92EC2} 
+ is CLSID of the property sheet extension snap-in the sample project creates.</p>
+            <p class="Body">After the sample project registers the extension snap-in, 
+ the Active Roles snap-in will display a new tab <b>More Settings</b> 
+ in&#160;the <b>Properties</b> dialog box for the user objects.</p>
+            <p class="Body">&#160;</p><a href="propertypagemmc.gif"><img src="propertypagemmc_thn.gif" style="width: 289px;height: 354px;" width="289" height="354" border="0" class="Image" /> </a>
+            <p><a href="propertypagemmc.gif">Enlarge figure </a>
+            </p>
+            <p class="Body">You can easily register this property sheet extension for 
+ other object classes. To do this, add the appropriate entry to the registry. 
+ For example, if you want to create the new tab <b>More Settings</b> for 
+ computers, add the following entry to the registry:</p><pre xml:space="preserve">
+<p class="Syntax">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MMC\NodeTypes\
+{D842D405-3A24-48e8-A97B-9A0C7B02FB05}\Extensions\PropertySheet\
+{CFCDC9F3-C50E-11D2-952B-00C04FB92EC2}=REG_SZ "New tab for Computers"</p>
+</pre>
+            <p class="Body">In this entry, {D842D405-3A24-48e8-A97B-9A0C7B02FB05} is 
+ the node type for the object class "computer" (see the table 
+ in <a href="edmnodetype.htm"> Active Roles snap-in Node Types</a>).</p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc443">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="About Active Roles;../IntroducingEDMSoftwareDevelopmentKit/aboutenterprisedirectorymanager.htm" />
+                    <param name="Item2" value="Extending Active Roles snap-in with the MMC Extension Snap-ins;extendingsnapinwithmmc.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc443.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

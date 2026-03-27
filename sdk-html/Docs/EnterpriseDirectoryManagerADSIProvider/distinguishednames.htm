@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Distinguished Names</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_DistinguishedNames" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor295"></a>
+                <MadCap:concept term="a_DistinguishedNames" />Distinguished Names</h1>
+            <p class="Body">A distinguished name (DN) is a sequence of relative distinguished 
+ names (RDN) connected by commas.</p>
+            <p class="Body">An RDN is an attribute with an associated value in the form 
+ <i>attribute</i>=<i>value</i>; normally expressed in a UTF-8 string format. 
+ The following table lists typical RDN attribute types.</p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">String</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Attribute Type</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;">DC</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">domainComponent</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;">CN</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">commonName</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;">OU</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">organizationalUnitName</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;">O</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">organizationName</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;">STREET</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">streetAddress</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;">L</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">localityName</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;">ST</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">stateOrProvinceName</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;">C</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">countryName</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;">UID</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">userid</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">The following are examples of distinguished names.</p><pre class="code" xml:space="preserve">
+<p class="Syntax">CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM</p>
+</pre><pre class="code" xml:space="preserve">
+<p class="Syntax">CN=Karen Berge,CN=admin,DC=corp,DC=Fabrikam,DC=COM</p>
+</pre>
+            <p class="Body">The following table lists reserved characters that cannot 
+ be used in an attribute value. </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading">Character</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">&#160;</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">space or <b>#</b> character at the start of a string</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">&#160;</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">space character at the end of a string</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;">,</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">comma</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;">+</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">plus sign</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;">"</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">double quote</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;">\</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">backslash</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;">&lt;</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">left angle bracket</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;">&gt;</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">right angle bracket</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;">;</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">semicolon</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">If a reserved character is part of an attribute value, it 
+ must be <i>escaped</i> by prefixing it with a backslash (<b>\</b>) in 
+ the attribute string. If an attribute value contains other reserved characters, 
+ such as the equals sign (<b>=</b>) or non-UTF-8 characters, it must be 
+ encoded in hexadecimal by replacing the character with a backslash followed 
+ by two hex digits. </p>
+            <p class="Body">The following are examples of some distinguished names that 
+ include escaped characters. The first example is an organizational unit 
+ name with an embedded comma; the second example is a value containing 
+ a carriage return.</p><pre class="code" xml:space="preserve">
+<p class="Syntax">CN=Litware,OU=Docs\, Adatum,DC=Fabrikam,DC=COM</p>
+</pre><pre class="code" xml:space="preserve">
+<p class="Syntax">CN=Before\0DAfter,OU=Test,DC=North America,DC=Fabrikam,DC=COM</p>
+</pre>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles ADSI Provider|ADSI Provider Reference|Interfaces|Persistent Object Interfaces" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>IADsUser</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_IADsUser" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanageradsiprovider.htm">Active Roles ADSI Provider</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="edmadsiproviderreference.htm">ADSI Provider Reference</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">IADsUser</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor246"></a>
+                <MadCap:concept term="a_IADsUser" />IADsUser </h1>
+            <p class="Body">The <b>IADsUser</b> interface is designed for representing 
+ and managing an end-user account on a network. You can call the methods 
+ on this interface to access and manipulate the information about an end-user 
+ account. Such information includes names of the user, telephone numbers, 
+ job title, and so on.&#160;This interface also supports the functionality 
+ for determining the group association of the user, and for setting or 
+ changing the password.</p>
+            <p class="Body">The following line of code shows how to bind to a domain 
+ user through the Active Roles ADSI Provider:</p><pre xml:space="preserve">
+<p class="Syntax">GetObject("EDMS://CN=John Smith,OU=Sales,DC=mycompany,DC=com")</p>
+</pre>
+            <p class="Body"><b style="font-weight: bold;">IADsUser</b> is a dual interface 
+ that inherits from <a href="iads.htm"><b>IADs</b></a>.</p>
+            <h3>IADsUser Methods</h3>
+            <p class="Body">The <b>IADsUser</b> interface defines the following methods 
+ that can be used by Automation (Visual Basic, VBScript, JScript) clients.&#160;</p>
+            <table>
+                <tr>
+                    <th style="text-align: left;width: 50%;" align="left" width="50%">
+                        <p class="TableHeading">IADsUser Methods</p>
+                    </th>
+                    <th style="text-align: left;width: 50%;" align="left" width="50%">
+                        <p class="TableHeading">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody"><b style="font-weight: bold;">Groups</b>
+                        </p>
+                    </td>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody">Obtains a collection of the ADSI group objects to which 
+ this user belongs. The method returns an <b><a href="iadsmembers.htm">IADsMembers</a></b> 
+ interface pointer through which you can enumerate all the groups in the 
+ collection.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody"><b style="font-weight: bold;">SetPassword</b>
+                        </p>
+                    </td>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody">Sets the user password to a specified value. The user 
+ account must have been created, and&#160; you should use&#160; the <b>SetInfo</b> 
+ method of <b><a href="iads.htm">IADs</a></b> before the <b>SetPassword</b> 
+ method is called.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody"><b style="font-weight: bold;">ChangePassword</b>
+                        </p>
+                    </td>
+                    <td style="width: 50%;" valign="top" width="50%">
+                        <p class="TableBody">Changes password from the specified existing value to 
+ a new value.</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="Body">For more information about the <b>IADsUser</b> interface, 
+ refer to the <a href="http://msdn.microsoft.com/library">MSDN Library</a>.</p>
+            <h3>IADsUser Properties</h3>
+            <p class="Body">The property methods of the <b>IADsUser</b> interface get 
+ or set the properties described in the following table.&#160;</p>
+            <table>
+                <tr>
+                    <th style="text-align: left;width: 58%;" align="left" width="58%">
+                        <p class="TableHeading">Property</p>
+                    </th>
+                    <th style="text-align: left;width: 42%;" align="left" width="42%">
+                        <p class="TableHeading">Description</p>
+                    </th>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">AccountDisabled</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Boolean</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">A flag to indicate if the account is or should be disabled.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">AccountExpirationDate</b>
+                        </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Date</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The date and time after which the user cannot log in.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">BadLoginAddress</b> </p>
+                        <p class="TableBody">Access:&#160;Read</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>BSTR</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The last node that is considered a possible intruder 
+ (available if Intruder detection is active).</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">BadLoginCount</b> </p>
+                        <p class="TableBody">Access:&#160;Read</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Long</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The number of bad logon attempts since the last reset.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">Department</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>BSTR</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The department within the company to which the user 
+ belongs.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">Description</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>BSTR</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The text description of the user.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">Division</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>BSTR</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The division within a company (organization).</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">EmailAddress</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>BSTR</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The user's e-mail address.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">EmployeeID</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>BSTR</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The employee identifier of the user.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">FaxNumber</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The fax numbers of the user. In Active Directory, this 
+ property is single valued and the <b>VARIANT</b> array has one element.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">FirstName</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>BSTR</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The first name of the user.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">FullName</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>BSTR</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The full name of the user.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">GraceLoginsAllowed</b>
+                        </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Long</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The number of times the user can log on after the password 
+ has expired.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">GraceLoginsRemaining</b>
+                        </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Long</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The number of grace logons left before the account is 
+ locked.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">HomeDirectory</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>BSTR</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The user's home folder.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">HomePage</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>BSTR</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The Uniform Resource Locator (URL) for the user's home 
+ page.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">IsAccountLocked</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Boolean</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">A flag indicating if the account is locked because of 
+ intruder detection.&#160;</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">Languages</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">An array of <b>BSTR</b> language names for the user.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">LastFailedLogin</b> </p>
+                        <p class="TableBody">Access:&#160;Read</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Date</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The date and time of the last failed network login.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">LastLogin</b> </p>
+                        <p class="TableBody">Access:&#160;Read</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Date</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The date and time of the last network login.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">LastLogoff</b> </p>
+                        <p class="TableBody">Access:&#160;Read</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Date</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The date and time of the last network logoff.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">LastName</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>BSTR</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The user's last name.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">LoginHours</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">Time periods for each day of the week during which logons 
+ are permitted for the user. Represented as a table of Booleans for the 
+ week, each indicating if that time slot is a valid logon time.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">LoginScript</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>BSTR</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The logon script path.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">LoginWorkstations</b>
+                        </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">Addresses or names of workstations, of the <b>BSTR</b> 
+ data type, from which the user can log on.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">Manager</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>BSTR</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The manager of the user.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">MaxLogins</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Long</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The number of simultaneous login sessions allowed.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">MaxStorage</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Long</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The maximum amount of disk space, in kilobytes, that 
+ the user can have.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">NamePrefix</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>BSTR</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">Name prefix of the user, for example "Ms.", 
+ or "Hon."</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">NameSuffix</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>BSTR</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">Name suffix of the user, for example "Jr.", 
+ or "III".</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">OfficeLocations</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">Office location as a <b>BSTR</b> array for the user. 
+ For Active Directory, this property is single-valued and the array has 
+ one element.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">OtherName</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>BSTR</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">An additional name, for example, the middle name, for 
+ the user.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">PasswordExpirationDate</b>
+                        </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Date</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The date and time when the password expires.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">PasswordLastChanged</b>
+                        </p>
+                        <p class="TableBody">Access:&#160;Read</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Date</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The last time the password was changed.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">PasswordMinimumLength</b>
+                        </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Long</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The minimum password length.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">PasswordRequired</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Boolean</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">A flag indicating if the password is required.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">Picture</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">An OctetString array of bytes that hold an image.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">PostalAddresses</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">Postal address as a <b>BSTR</b> array. This property 
+ is multi-value to hold more than addresses of the user. The internal format 
+ of a PostalAddress should comply with CCITT F.401 as referenced in X.521-1993, 
+ which defines a PostalAddress as six elements of 30 bytes each, holding 
+ a street address, (optionally) Post Office Box, city or locality, state 
+ or province, Postal Code, and Country/Region.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">PostalCodes</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">Postal codes as a <b>BSTR</b> array. Postal codes are 
+ positionally linked to the <b>PostalAddresses</b> array. In Active Directory, 
+ however, this property is single-valued and the array has a single element.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">Profile</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>BSTR</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The path to the user profile.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">RequireUniquePassword</b>
+                        </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Boolean</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">A flag indicating if a new password should be different 
+ from those known through a password history.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">SeeAlso</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">An array of ADsPaths of other objects related to the 
+ user.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">TelephoneHome</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">An array of home telephone numbers of the user. In Active 
+ Directory, this property is single-valued and the array has one element.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">TelephoneMobile</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">An array of mobile telephone numbers of the user. In 
+ Active Directory this property is single-valued and the array has one 
+ element only.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">TelephoneNumber</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">An array of (usually work-related) telephone numbers 
+ associated with the user. In Active Directory this property is single-valued 
+ and the array is of a single element.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">TelephonePager</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>Variant</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">An array of pager numbers of the user. In Active Directory 
+ this property is single-valued and the array is of a single element.</p>
+                    </td>
+                </tr>
+                <tr valign="top">
+                    <td style="width: 58%;" width="58%">
+                        <p class="TableBody"><b style="font-weight: bold;">Title</b> </p>
+                        <p class="TableBody">Access:&#160;Read/Write</p>
+                        <p class="TableBody">Data&#160;Type:&#160;<b>BSTR</b></p>
+                    </td>
+                    <td style="width: 42%;" width="42%">
+                        <p class="TableBody">The title of the user.</p>
+                    </td>
+                </tr>
+            </table>
+            <h4>
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc40">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="IADsGroup;iadsgroup.htm" />
+                    <param name="Item2" value="IADsMembers;iadsmembers.htm" />
+                    <param name="Item3" value="IADsOU;iadsou.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc40.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </h4>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

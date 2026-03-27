@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles Schema" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>user Class</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_UserClass" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="edmschema.htm">Active Roles Schema</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">user Class</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor475"></a>
+                <MadCap:concept term="a_UserClass" />user Class </h1>
+            <p class="Body">The user class provides a formal description of a user object 
+ that is an Active Directory domain user account. In addition to the standard 
+ ADSI user class attributes, Active Roles defines the following 
+ user object attributes, which can be accessed using the Active 
+ Roles ADSI Provider.</p>
+            <p class="note"><b style="font-weight: bold;">Note:</b>
+            </p>
+            <p class="note">For more information about the User class, please refer to 
+ the <a href="http://msdn.microsoft.com/library">MSDN Library</a>.</p>
+            <p class="Body"><b style="font-weight: bold;">edsaAccountIsDisabled</b>
+            </p>
+            <p class="Body">Syntax: Boolean. </p>
+            <p class="Body">Access: Read/Write. &#160; </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the UF_ACCOUNTDISABLE flag for the userAccountControl 
+ property. This flag prevents the user from logging on with the user account. 
+ This flag is associated with the check box <b>Account is disabled</b> 
+ on the <b>Account</b> tab in the <b>User Properties</b> dialog box. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaAccountIsSensitiveAndCanNotBeDelegated</b>&#160; 
+ </p>
+            <p class="Body">Syntax: Boolean. </p>
+            <p class="Body">Access: Read/Write. &#160; </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the user account control flag UF_NOT_DELEGATED. 
+ When set to TRUE, this flag marks the account as sensitive, which means 
+ that other users cannot act as delegates of this account. This flag is 
+ associated with the check box <b>Account is sensitive and cannot be delegated</b> 
+ on the <b>Account</b> tab in the <b>User Properties</b> dialog box. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaAccountIsTrustedForDelegation</b>&#160; 
+ </p>
+            <p class="Body">Syntax: Boolean. </p>
+            <p class="Body">Access: Read/Write. &#160; </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the user account control flag UF_TRUSTED_FOR_DELEGATION. 
+ When this flag is set to TRUE, the account is enabled for delegation. 
+ This allows a service running under the account to assume a client's identity 
+ and authenticate as that user to other remote servers on the network. 
+ This flag is associated with the check box <b>Account is trusted for delegation</b> 
+ on the <b>Account</b> tab in the <b>User Properties</b> dialog box. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsaAccountLockedOut&#160; </p>
+            <p class="Body">Syntax: Boolean. </p>
+            <p class="Body">Access: Read/Write. &#160; </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Indicates whether the user account is locked out. Setting 
+ this attribute to FALSE results in unlocking the user account. Note that 
+ setting this attribute to TRUE takes no effect.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaDelegatedPermissions</b>&#160; 
+ </p>
+            <p class="Body">Syntax: Multi-value DN string. </p>
+            <p class="Body">Access: Read-only. &#160; </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Comprises information about permissions assigned to the user. 
+ Specifies a list of distinguished names of the Access Template Links (ATL). 
+ An ATL is included in that list only if the SID of the ATL's Trustee is 
+ among SIDs of the user's access token. Supports ASQ. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsvaDeprovisionCommands</b>&#160; 
+ </p>
+            <p class="Body">Syntax: Integer </p>
+            <p class="Body">Access: Read-only. &#160; </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">This <a href="usingvirtualattributes.htm">virtual attribute</a> 
+ can take one of the following values:</p>
+            <p class="StepPara"><span style="font-weight: bold;">1</span> - Indicates 
+ that the <span style="font-weight: bold;">edsvaDeprovisionStatus </span>attribute 
+ is not set, and the Active Roles user has the 'Deprovision' extended right.</p>
+            <p class="StepPara"><span style="font-weight: bold;">2</span> - Indicates 
+ that the <span style="font-weight: bold;">edsvaDeprovisionStatus </span>attribute 
+ is set to some value.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsvaDeprovisionDeletionDate</b>&#160; 
+ </p>
+            <p class="Body">Syntax: GeneralizedTime </p>
+            <p class="Body">Access: Read/Write&#160; </p>
+            <p class="Body">Searchable: Yes.</p>
+            <p class="Body">This virtual attribute specifies the date when Active Roles 
+ will delete the deprovisioned user account after a retention period. The 
+ date is specified by the built-in policy "User account permanent 
+ deletion".</p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;"><a name="edsvaDeprovisionReportXML"></a>edsvaDeprovisionReportXML</b>
+            </p>
+            <p class="Body">Syntax: CaseIgnoreString </p>
+            <p class="Body">Access: Read-only. &#160; </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">This virtual attribute contains an XML report on the user 
+ deprovisioning results.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsvaDeprovisionStatus</b>&#160; 
+ </p>
+            <p class="Body">Syntax: Integer </p>
+            <p class="Body">Access: Read/Write &#160; </p>
+            <p class="Body">Searchable: Yes.</p>
+            <p class="Body">Possible values:<br />
+0 or not set - the user is not deprovisioned;<br />
+1 - if the deprovisioning operation succeeded;<br />
+2 - if the deprovisioning operation failed.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsvaDeprovisionType</b>&#160; 
+ </p>
+            <p class="Body">Syntax: Integer </p>
+            <p class="Body">Access: Write-only. &#160; </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Setting this virtual attribute to 1 sends a request to deprovision 
+ the user to the Administration Service.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaDoNotRequireKerberosPreauthentication</b>&#160; 
+ </p>
+            <p class="Body">Syntax: Boolean. </p>
+            <p class="Body">Access: Read/Write. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the user account control flag UF_DONT_REQUIRE_PREAUTH. 
+ When this flag is set to TRUE, the account does not require Kerberos pre-authentication 
+ for logon. This flag is associated with the check box <b>Do not require 
+ Kerberos preauthentication</b> on the <b>Account</b> tab in the <b>User 
+ Properties</b> dialog box. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsvaOneViewReportXM</p>
+            <p class="Body">Syntax: : CaseIgnoreString, SingleValued. </p>
+            <p class="Body">Access: Consturcted, ReadOnly.&#160; </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Contains XML data for Entitlement Profile report. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaPassword</b>
+            </p>
+            <p class="Body">Syntax: DirectoryString. </p>
+            <p class="Body">Access: Write-Only.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the user's password. The password is stored in 
+ UTF-8 format using an encryption method specified with the user account 
+ properties. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaPasswordNeverExpires</b>&#160; 
+ </p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Read/Write. &#160; </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the user account control flag UF_DONT_EXPIRE_PASSWD. 
+ When set to TRUE, this flag prevents the password from expiring. This 
+ flag is associated with the check box <b>Password never expires</b> on 
+ the <b>Account</b> tab in the <b>User Properties</b> dialog box. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaSmartCardIsRequired</b>&#160; 
+ </p>
+            <p class="Body">Syntax: Boolean. </p>
+            <p class="Body">Access: Read/Write. &#160; </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the user account control flag UF_SMARTCARD_REQUIRED. 
+ When set to TRUE, this flag requires that the user log on to the user 
+ account with a smart card. This flag is associated with the check box 
+ <b>Smart card is required for interactive logon</b> on the <b>Account</b> 
+ tab in the <b>User Properties</b> dialog box. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaStorePasswordUsingReversibleEncryption</b>&#160; 
+ </p>
+            <p class="Body">Syntax: Boolean. </p>
+            <p class="Body">Access: Read/Write. &#160; </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the user account control flag UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED. 
+ When set to TRUE, the user's password is stored in Active Directory using 
+ reversible encryption. This flag is associated with the check box <b>Store 
+ password using reversible encryption</b> on the <b>Account</b> tab in 
+ the <b>User Properties</b> dialog box. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaUPNPrefix</b>&#160; </p>
+            <p class="Body">Syntax: DirectoryString. </p>
+            <p class="Body">Access: Read/Write. &#160; </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the prefix part of the user logon name stored in 
+ the userPrincipalName property of the user object. The prefix part is 
+ the user account name. For example, if the user logon name is JSmith@company.com, 
+ the edsaUPNPrefix property stores "JSmith". </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaUPNSuffix</b>&#160; </p>
+            <p class="Body">Syntax: DirectoryString. </p>
+            <p class="Body">Access: Read/Write. &#160; </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the suffix part of the user logon name stored in 
+ the userPrincipalName property of the user object. The suffix part is 
+ the user domain name. For example, if the user logon name is JSmith@company.com, 
+ the edsaUPNSuffix property stores "company.com". </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaUseDESEncryptionTypesForThisAccount</b>&#160; 
+ </p>
+            <p class="Body">Syntax: Boolean. </p>
+            <p class="Body">Access: Read/Write. &#160; </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the user account control flag UF_USE_DES_KEY_ONLY. 
+ When set to TRUE, this flag restricts the user to use only Data Encryption 
+ Standard (DES) encryption types for keys. This flag is associated with 
+ the check box <b>Use DES encryption types for this account</b> on the 
+ <b>Account</b> tab in the <b>User Properties</b> dialog box. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaUserCannotChangePassword</b>&#160; 
+ </p>
+            <p class="Body">Syntax: Boolean. </p>
+            <p class="Body">Access: Read/Write. &#160; </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the user account control flag UF_PASSWD_CANT_CHANGE. 
+ When set to TRUE, this flag prevents the user from changing the password. 
+ This flag is associated with the check box <b>User cannot change password</b> 
+ on the <b>Account</b> tab in the <b>User Properties</b> dialog box. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body">In addition, the class User has the following attributes: 
+ </p>
+            <ul>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">Attributes inherited 
+ from the <a href="topclass.htm">top</a> class</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><a href="wtsproperties.htm">Terminal 
+ Services-related attributes</a>
+                    </p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><a href="exchangeattributes.htm">Exchange-related 
+ attributes</a>
+                    </p>
+                </li>
+            </ul>
+            <p class="ListBullet">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc372">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="Understanding ADSI Objects and Schema;understandingadsiobjectsandschema.htm" />
+                    <param name="Item2" value="Understanding Active Roles ADSI Provider;understandingedmadsiprovider.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc372.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

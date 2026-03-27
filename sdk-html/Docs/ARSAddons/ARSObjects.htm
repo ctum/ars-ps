@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles Add-ons" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>ARSObjects</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="activeroles_server_add-ons.htm">Active Roles Add-ons</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">ARSObjects</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1>ARSObjects Section</h1>
+            <h2>XML Elements </h2>
+            <h3><a name="ARSObjects"></a>ARSObjects</h3>
+            <p class="Body">Describes all Active Roles objects supplied by an add-on.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="Add-on_Configuration.htm#AddonDocument">AddonDocument</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#ARSObject">ARSObject</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="ARSObject"></a>ARSObject</h3>
+            <p class="Body">Describes an Active Roles object supplied by an add-on.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#ARSObjects">ARSObjects</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#AllowPostInstallationModification">AllowPostInstallationModification</a>, 
+ <a href="#AllowPostInstallationDeletion">AllowPostInstallationDeletion</a>, 
+ <a href="#KeepOnUninstall">KeepOnUninstall</a>, <a href="#ReferenceOnly">ReferenceOnly</a>, 
+ <a href="#References">References</a>, <a href="#Attributes">Attributes</a>, 
+ <a href="#OnPreInstallObject">OnPreInstallObject</a>, <a href="#OnPostInstallObject">OnPostInstallObject</a>, 
+ <a href="#OnPreUninstallObject">OnPreUninstallObject</a>, <a href="#OnPostUninstallObject">OnPostUninstallObject</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p><a name="ObjectID"></a>objectID</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Required. Identifier of the Active Roles object in the XML file.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>objectClass</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Required. Contains the name of the object class to which the Active 
+ Roles object belongs.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>dn</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Required. Specifies the DN of the Active Roles object.</p>
+                    </td>
+                </tr>
+            </table>
+            <h3><a name="AllowPostInstallationModification"></a>AllowPostInstallationModification</h3>
+            <p class="Body">If set to TRUE, a user can modify an Active Roles object 
+ after its installation. Otherwise, modification of the Active Roles object 
+ is not allowed.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#ARSObject">ARSObject</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="AllowPostInstallationDeletion"></a>AllowPostInstallationDeletion</h3>
+            <p class="Body">If set to TRUE, a user can delete an Active Roles object 
+ after its installation. Otherwise, deletion of the Active Roles object 
+ is not allowed.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#ARSObject">ARSObject</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="KeepOnUninstall"></a>KeepOnUninstall</h3>
+            <p class="Body">If set to TRUE, an Active Roles object will not be deleted 
+ after the add-on is uninstalled. Otherwise, the Active Roles object will 
+ be removed when the add-on is uninstalled.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#ARSObject">ARSObject</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="ReferenceOnly"></a>ReferenceOnly</h3>
+            <p class="Body">If set to TRUE, Add-on Manager cannot modify or delete a 
+ Active Roles object. Such object will be a reference for other add-on 
+ objects only. This object should not have any attributes. </p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#ARSObject">ARSObject</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="References"></a>References</h3>
+            <p class="Body">A list of Active Roles objects upon which the current Active 
+ Roles object depends. </p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#ARSObject">ARSObject</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#ObjectReference">ObjectReference</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="ObjectReference"></a>ObjectReference</h3>
+            <p class="Body">A reference to an Active Roles object upon which the current 
+ Active Roles object depends.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#References">References</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Value</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Required. <a href="#ObjectID">ObjectID</a> of an Active Roles object 
+ upon which the current Active Roles object depends.</p>
+                    </td>
+                </tr>
+            </table>
+            <h3><a name="Attributes"></a>Attributes</h3>
+            <p class="Body">A list of attributes of an Active Roles object.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#ARSObject">ARSObject</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#Attribute">Attribute</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="Attribute"></a>Attribute</h3>
+            <p class="Body">An attribute of an Active Roles object.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#Attributes">Attributes</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#Value">Value</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Name</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Required. The attribute name.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Type</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Required. The attribute type. The following types are supported: </p>
+                        <ul>
+                            <li class="kadov-p-CListBullet">
+                                <p class="ListBullet">String</p>
+                            </li>
+                            <li class="kadov-p-CListBullet">
+                                <p class="ListBullet">Boolean</p>
+                            </li>
+                            <li class="kadov-p-CListBullet">
+                                <p class="ListBullet">Integer</p>
+                            </li>
+                            <li class="kadov-p-CListBullet">
+                                <p class="ListBullet">LargeInteger</p>
+                            </li>
+                            <li class="kadov-p-CListBullet">
+                                <p class="ListBullet">DateTime</p>
+                            </li>
+                            <li class="kadov-p-CListBullet">
+                                <p class="ListBullet">OctetString</p>
+                            </li>
+                            <li class="kadov-p-CListBullet">
+                                <p class="ListBullet">GuidString</p>
+                            </li>
+                            <li class="kadov-p-CListBullet">
+                                <p class="ListBullet">SidString</p>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>AllowPostInstallationModification</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Optional. If set to TRUE, a user can modify this attribute, and the 
+ attribute value will not be reviewed or reset when the add-on is repaired.</p>
+                    </td>
+                </tr>
+            </table>
+            <h3><a name="Value"></a>Value</h3>
+            <p class="Body">An attribute value of an Active Roles object.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#Attribute">Attribute</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="OnPreInstallObject"></a>OnPreInstallObject</h3>
+            <p class="Body">Describes a script to run before the installation of an Active 
+ Roles object.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#ARSObject">ARSObject</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#Script">Script</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Language</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Optional. The script language. Add-on Manager supports PowerShell scripts 
+ only.</p>
+                    </td>
+                </tr>
+            </table>
+            <h3><a name="Script"></a>Script</h3>
+            <p class="Body"><b style="font-weight: normal;">C</b>ontains a script to 
+ run before the installation of an Active Roles object.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#OnPreInstallObject">OnPreInstallObject</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3><a name="OnPostInstallObject"></a>OnPostInstallObject</h3>
+            <p class="Body">Describes a script to run after the installation of an Active 
+ Roles object.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#ARSObject">ARSObject</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#Script1">Script</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Language</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Optional. The script language. Add-on Manager supports PowerShell scripts 
+ only.</p>
+                    </td>
+                </tr>
+            </table>
+            <h3><a name="Script1"></a>Script</h3>
+            <p class="Body">Contains a script to run after the installation of an Active 
+ Roles object.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#OnPostInstallObject">OnPostInstallObject</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3 class="Body"><a name="OnPreUninstallObject"></a>OnPreUninstallObject</h3>
+            <p class="Body">Describes a script to run before the un-installation of a 
+ Active Roles object.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#ARSObject">ARSObject</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#Script11">Script</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Language</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Optional. The script language. Add-on Manager supports PowerShell scripts 
+ only.</p>
+                    </td>
+                </tr>
+            </table>
+            <h3><a name="Script11"></a>Script</h3>
+            <p class="Body">Contains a script to run before the un-installation of a 
+ Active Roles object.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#OnPreUninstallObject">OnPreUninstallObject</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <h3 class="body"><a name="OnPostUninstallObject"></a>OnPostUninstallObject</h3>
+            <p class="Body">Describes a script to run before the un-installation of a 
+ Active Roles object.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#ARSObject">ARSObject</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#Script12">Script</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1">
+                        <p>Language</p>
+                    </td>
+                    <td colspan="1" rowspan="1">
+                        <p>Optional. The script language. Add-on Manager supports PowerShell scripts 
+ only.</p>
+                    </td>
+                </tr>
+            </table>
+            <h3><a name="Script12"></a>Script</h3>
+            <p class="Body">Contains a script to run after the un-installation of an 
+ Active Roles object.</p>
+            <p class="Body"><b style="font-weight: bold;">Parent Element</b>: <a href="#OnPostUninstallObject">OnPostUninstallObject</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None</p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None</p>
+            <p class="body">&#160;</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

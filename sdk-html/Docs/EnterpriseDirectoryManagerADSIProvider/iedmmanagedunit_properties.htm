@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles ADSI Provider|ADSI Provider Reference|Interfaces|Active Roles-Specific Interfaces|Managed Unit and Dynamic Group Interfaces|IEDMManagedUnit" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>IEDMManagedUnit properties</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanageradsiprovider.htm">Active Roles ADSI Provider</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="edmadsiproviderreference.htm">ADSI Provider Reference</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">IEDMManagedUnit properties</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1>IEDMManagedUnit Properties</h1>
+            <p class="Body">The <b>IEDMManagedUnit</b> interface has the following properties. 
+ </p>
+            <table>
+                <tr>
+                    <th style="text-align: left;width: 30%;" align="left" width="30%">
+                        <p class="TableHeading">Property</p>
+                    </th>
+                    <th style="text-align: left;width: 70%;" align="left" width="70%">
+                        <p class="TableHeading">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;">MemberShipRules</b> (Deprecated)</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Access: Read/Write. </p>
+                        <p class="TableBody">Sets and returns an array of membership rules for Managed 
+ Unit. The elements of the array can be processed using the <b><a href="iedmmembershiprule.htm">IEDMMembershipRule</a></b>interface.</p>
+                        <p class="note"><b style="font-weight: bold;">Note:</b>
+                        </p>
+                        <p class="note">The <b>MemberShipRules</b> property is considered obsolete. 
+ While this property is still supported in the current version of 
+ Active Roles, it may be removed in the future. When writing new scripts, 
+ you should avoid using this property. When modifying existing scripts, 
+ you are strongly encouraged to remove any dependency on this property. 
+ Use the <b>MemberShipRuleCollection</b> property instead.&#160; </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody"><b style="font-weight: bold;">MemberShipRuleCollection</b>
+                        </p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Access: Read-only. </p>
+                        <p class="TableBody">Returns an object used to represent the <b>IEDMMembershipRuleCollection</b> 
+ interface. The returned object comprises information about membership 
+ rules for Managed Unit. For more information, see <b><a href="iedmmembershiprulecollection.htm">IEDMMembershipRuleCollection</a></b>. 
+ </p>
+                    </td>
+                </tr>
+            </table>
+            <h2>Example Code </h2>
+            <p class="Body">For examples illustrating the use of the <b>MembershipRuleCollection</b> 
+ property, please refer to <b><a href="iedmmembershiprule.htm">IEDMMembershipRule</a>.</b></p>
+            <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc85">
+                <param name="Command" value="Related Topics,MENU" />
+                <param name="Item1" value="IEDM;iedm.htm" />
+                <param name="Item2" value="IEDMMembershipRule;iedmmembershiprule.htm" />
+            </object><a class="MCRelatedTopics" href="javascript:mc85.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

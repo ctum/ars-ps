@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Web Interface|How to..." MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Creating a Custom Icon for Directory Object</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_CreateCustomIcons" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="webinterface.htm">Web Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="howto.htm">How to...</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Creating a Custom Icon for Directory Object</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor284"></a>
+                <MadCap:concept term="a_CreateCustomIcons" />Creating a Custom Icon for Directory Object</h1>
+            <p class="Body">This topic explains how you can create a custom icon for 
+ directory objects of the specified class.</p>
+            <p class="Body">To create the custom icon, use the following procedure to 
+ make the appropriate changes to the attribute <b>edsaWISettings</b> of 
+ the object WorkingCopy residing in the Interface Settings container.</p>
+            <p class="Procedure"> <b>To create a custom icon for directory 
+ objects</b></p>
+            <ol>
+                <li class="kadov-P-CNumberedList" value="1">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Write">Save</a> 
+ the value of the attribute <b>edsaWISettings</b> into a text file.</p>
+                </li>
+                <li class="kadov-P-CNumberedList" value="2">
+                    <p class="NumberedList">Open this file 
+ with any XML editor, such as XML Spy, and find the element CustomObjectIcons.</p>
+                </li>
+                <li class="kadov-P-CNumberedList" value="3">
+                    <p class="NumberedList">For the element 
+ CustomObjectIcons, insert the child element Icon in the following way:<br /><br />
+	&lt;Icon ObjectClass=<i>strClassName</i> BigIconFileName=<i>strBigIconFName</i> 
+ SmallIconFileName=<i>strSmallIconFName</i> /&gt;<br />
+	Where:<i><br />
+	strClassName </i>- The name of the object class to which the custom 
+ icon will apply.<i><br />
+	strBigIconFName</i> - The file name for the big custom icon.&#160;<i><br />
+	strSmallIconFName</i> - The file name for the small custom icon.&#160;<br /><br />
+	For detailed information about attributes of the element Icon, refer 
+ to <a href="interfacesettings.htm#Icon">Interface Settings</a>. When finished, 
+ save the file.</p>
+                </li>
+                <li class="kadov-P-CNumberedList" value="4">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Read">Save 
+ changes</a> to the attribute <b>edsaWISettings</b>.</p>
+                </li>
+                <li class="kadov-P-CNumberedList" value="5">
+                    <p class="NumberedList"><a href="reloadwi.htm">Reload 
+ the Web Interface</a>.</p>
+                </li>
+            </ol>
+            <h2>Example</h2>
+            <p class="Body">The following code snippet illustrates how to create your 
+ custom icons for User objects.</p><pre class="code" xml:space="preserve">
+<p class="Syntax">&lt;CustomObjectIcons&gt;
+ &#160;&lt;Icon ObjectClass="user" BigIconFileName="customUser_big.gif" SmallIconFileName="customUser_small.gif" /&gt;
+&lt;/CustomObjectIcons&gt;</p>
+</pre>
+            <p class="note"><b>Note:</b>
+            </p>
+            <p class="note">The files customUser_big.gif and customUser_small.gif must 
+ be saved into the folder <i>&lt;WI folder&gt;</i>\Public\images, where 
+ &lt;WI folder&gt; refers to the folder where the Web Interface is installed. 
+ </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

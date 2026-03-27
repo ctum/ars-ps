@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Snap-in|Extending Active Roles Snap-in|Extending Active Roles snap-in with Display Specifiers" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Extending Context Menu</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_ExtendingContextMenuDS" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="edmsnapin.htm">Snap-in</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="extendingenterprisedirectorymanagersnapin.htm">Extending Active Roles Snap-in</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Extending Context Menu</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor321"></a>
+                <MadCap:concept term="a_ExtendingContextMenuDS" />Extending Context Menu</h1>
+            <p class="Body">Active Roles allows you to add an item to the context menu 
+ displayed for directory objects. A context menu item can be added by implementing 
+ a COM in-proc server known as a <i>context menu extension</i>. A context 
+ menu item can also be added that invokes any file started with the ShellExecute 
+ API, such as an application or Web page URL. This is known as a <i>static 
+ context menu item</i>.</p>
+            <h2>Extending the Context Menu With a Context Menu Extension</h2>
+            <p class="Body">A context menu extension is a COM in-proc server that implements 
+ certain interfaces and is registered with Active Directory. </p>
+            <p class="Procedure"> <b>To create and install a context menu 
+ extension</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Create the context 
+ menu extension DLL. A context menu extension is a COM in-proc server that, 
+ at a minimum, implements the <b>IShellExtInit</b> and <b>IContextMenu</b> 
+ interfaces. In addition, you can implement the <b><a href="iedmextinit.htm">IEDMExtInit</a></b> 
+ interface that defines a method allowing you to get the name of Administration 
+ Service to which the Active Roles snap-in is currently connected. For 
+ more information, see the <a href="http://msdn.microsoft.com/library">MSDN 
+ library</a> and Related Topics.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Install and register 
+ the context menu sheet extension on computers where the context menu extension 
+ is used. For information about how to register the context menu extension, 
+ refer to <a href="registeringcomobjects.htm">Registering COM Objects</a>.</p>
+                </li>
+            </ol>
+            <h2>Extending the Context Menu With a Static Context Menu Item</h2>
+            <p class="Body">A static context menu item can be used to invoke any file 
+ started with the<b> ShellExecute</b> API, such as an application or Web 
+ page URL. To accomplished this, the static context menu item for a particular 
+ object class must be registered in the appropriate display specifier so 
+ that the static context menu item is added to the context menu of objects 
+ of that class.</p>
+            <h3>Registering a Static Context Menu Item in a Display Specifier</h3>
+            <p class="Body">Active Roles provides two display specifier attributes edsaEDMSContextMenu 
+ and edsaLDAPContextMenu that a static context menu extension item can 
+ be registered under. These attributes identify the static context menu 
+ items to display in the Active Roles snap-in. The attributes also identify 
+ programs of files executed by the Active Roles snap-in when you click 
+ the appropriate menu items.</p>
+            <p class="Body">All of these attributes are multi-valued and they require 
+ the following format:</p><pre xml:space="preserve">
+<p class="Syntax">&lt;order number&gt;,&lt;item name&gt;,&lt;command&gt;</p>
+</pre>
+            <p class="Body">The &lt;order number&gt; is an unsigned number that represents 
+ the item's position in the context menu. When a context menu is displayed, 
+ the values are sorted using a comparison of each value's &lt;order number&gt;. 
+ If more than one value has the same &lt;order number&gt;, those context 
+ menu extensions are loaded in the order they are read from Active Directory. 
+ If possible, use a non-existing &lt;order number&gt;, that is, one that 
+ has not been used by other values in the property. There is no prescribed 
+ starting position, and gaps are allowed in the &lt;order number&gt; sequence.</p>
+            <p class="Body">The &lt;item name&gt; is the string displayed in the context 
+ menu. The &lt;item name&gt; can include one "&amp;" character 
+ that precedes the keyboard shortcut character for the menu item. This 
+ will cause the preceded character to be underlined. For example, if the 
+ &lt;item name&gt; is "My&amp;Item", the menu text will be displayed 
+ as "MyItem", the "I" will be underlined and "I" 
+ will be the keyboard shortcut for the menu item.</p>
+            <p class="Body">The &lt;command&gt; is the program or file executed by the 
+ Active Roles snap-in. Either the full path must be specified or the file 
+ must exist in the computer's path environment variable. The file is invoked 
+ using the <b>ShellExecute</b> function. The &lt;command&gt; cannot contain 
+ additional parameters, for example, Notepad.exe Myfile.txt. Because <b>ShellExecute</b> 
+ is used, any file or address that can be passed to <b>ShellExecute</b> 
+ can be used for &lt;command&gt;. For example, if &lt;command&gt; contains 
+ "c:\Myfile.txt", c:\Myfile.txt will be opened with the application 
+ associated with the .txt extension. Likewise, if &lt;command&gt; contains 
+ "http://www.mycompany.com", the default Web browser is opened 
+ and will display the specified web page. Paths and application names with 
+ spaces are allowed.</p>
+            <p class="note"><b style="font-weight: bold;">Important:</b>
+            </p>
+            <p class="note">If &lt;command&gt; is an application, such as a VBScript 
+ file (.vbs), the selected object's ADsPath and class are passed as command 
+ line arguments, separated by a space. When you employ the attribute edsaEDMSContextMenu, 
+ the ADSPath argument is passed as an <a href="../EnterpriseDirectoryManagerADSIProvider/bindingadsiobject.htm">Active 
+ Roles binding string </a>(such as EDMS://&lt;DC name&gt;/&lt;object's 
+ DN&gt;). When you employ the attribute edsaLDAPContextMenu, the ADSPath 
+ argument is passed as an LDAP binding string (such as LDAP://&lt;DC name&gt;/&lt;object's 
+ DN&gt;).</p>
+            <p class="Body">For more information, and an example of a static context 
+ menu item, see <a href="addingstaticcontextmenuitemds.htm">Adding a Static 
+ Context Menu Item</a>.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc343">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="Adding Context Menu Item;addingcontextmenuitemds.htm" />
+                    <param name="Item2" value="Adding Static Context Menu Item;addingstaticcontextmenuitemds.htm" />
+                    <param name="Item3" value="Display Specifiers;displayspecifiers.htm" />
+                    <param name="Item4" value="IEDMExtInit;iedmextinit.htm" />
+                    <param name="Item5" value="Registering Property Page and Context Menu Extensions;registeringcomobjects.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc343.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

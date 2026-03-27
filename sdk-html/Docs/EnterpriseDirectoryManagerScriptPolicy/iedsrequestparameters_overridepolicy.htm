@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>IEDsRequestParameters::OverridePolicy</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_IEDsRequestParametersOverridePolicy" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor47"></a>
+                <MadCap:concept term="a_IEDsRequestParametersOverridePolicy" />IEDsRequestParameters::OverridePolicy</h1>
+            <p class="Body">The <b>OverridePolicy</b> method allows you to disable the 
+ specified event handler within the specified script policy.</p><pre class="syntax" xml:space="preserve">
+<p class="Syntax"><b style="font-weight: bold;">Sub</b>  <b>OverridePolicy(byVal </b>PolicyID<b>)</b></p>
+</pre>
+            <h3>Arguments</h3>
+            <dl>
+                <p class="Body"><i style="font-style: italic;">PolicyID</i>
+                </p>
+                <dd>
+                    <p class="Body">[in] Required. Identifies the policy within which you 
+ want to override an event handler.</p>
+                </dd>
+            </dl>
+            <h3>Remarks</h3>
+            <p class="Body">When you call this method within an event handler, only the 
+ event handler of the same type in the script policy identified with the 
+ <i>PolicyID</i> identifier will be disabled. Event handlers of other types 
+ will be not affected. </p>
+            <h2>Example Code</h2>
+            <p class="Body">The following code snippets (Policy Script 1 and Policy Script 
+ 2) illustrate how you can disable the onPreModify event handler in Policy 
+ Script 2. In this example, the Policy Script 1 is thought to be processed 
+ earlier than the Policy Script 2. Otherwise, the use of the <b>OverridePolicy</b> 
+ method takes no effect. </p>
+            <p class="Body"><b style="font-weight: bold;">Policy Script 1</b> </p><pre class="code" xml:space="preserve">
+<p class="Syntax"><span style="color: #0000ff;">[VBScript]</span>
+Sub onPreModify(Request)
+' Here goes your code
+'
+' Disable the onPreModify event handler in the Policy Script 2 
+If Request.Class = "user" Then 
+ &#160;&#160;&#160;Request.OverridePolicy "Script2"
+End If
+End Sub<span style="color: #0000ff;">  </span></p>
+
+<p class="Syntax"><span style="color: #0000ff;">[PowerShell]</span>
+function onPreModify($Request)
+{
+ # Here goes your code
+ #
+ # Disable the onPreModify event handler in the Policy Script 2
+if($Request.Class -eq "user")
+ {
+ &#160;$Request.OverridePolicy("Script2")
+ }
+}</p>
+</pre>
+            <p class="Body"><b style="font-weight: bold;">Policy Script 2</b> </p><pre class="code" xml:space="preserve">
+<p class="Syntax"><span style="color: #0000ff;">[VBScript]</span>
+Sub onPreModify(Request)
+' Here goes your code
+'
+End Sub
+' Identify the Policy
+Function onGetPolicyMarker()
+ &#160;onGetPolicyMarker="Script2" 
+End Function<span style="color: #0000ff;">  </span></p>
+
+<p class="Syntax"><span style="color: #0000ff;">[PowerShell]</span>
+function onPreModify($Request)
+ &#160;{
+ &#160;&#160;# Here goes your code
+ &#160;&#160;#
+ &#160;}
+ &#160;&#160;# Identify the Policy
+function onGetPolicyMarker()
+ {
+ &#160;return "Script2"
+ }</p>
+</pre>
+            <p class="Body">To label a policy script, in VBScript, use the onGetPolicyMarker 
+ <b>Function</b> procedure with no arguments, as it is shown in the example 
+ above. That function must return a policy identifier (any string). The 
+ policy ID should be unique for each policy script. For more information, 
+ please refer to <a href="usingpolicyid.htm">Using Policy Identifiers</a>.</p>
+            <p class="note"><b style="font-weight: bold;">Note:</b>
+            </p>
+            <p class="note">The <b>OverridePolicy</b> method disables only the specified 
+ event handler within the specified policy. For information about how to 
+ completely override a policy (for example, one from the Active Roles 
+ built-in policies listed in this <a href="../EnterpriseDirectoryManagerADSIProvider/iedmpolicyentry.htm">table</a>), 
+ refer to <a href="overridingbuiltinpolicies.htm">Overriding Active Roles Built-In Policies</a>, <a href="usingpolicyid.htm">Using Policy 
+ Identifiers</a>.&#160;</p>
+            <p>
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc433">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="IADs;iadspolicy.htm" />
+                    <param name="Item2" value="IADsPropertyList;iadspropertylist.htm" />
+                    <param name="Item3" value="IEDM;../EnterpriseDirectoryManagerADSIProvider/iedm.htm" />
+                    <param name="Item4" value="Using Request Parameters;usingrequestparameters.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc433.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

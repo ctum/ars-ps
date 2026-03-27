@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Script Policies, Scheduled Tasks and Workflows" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Understanding Terminology</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_UnderstandingTerminology" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanagerscriptpolicy.htm">Script Policies, Scheduled Tasks and Workflows</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Understanding Terminology</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor415"></a>
+                <MadCap:concept term="a_UnderstandingTerminology" />Understanding Terminology </h1>
+            <p class="Body">This topic defines some basic terms used in the 
+ Active Roles script policy, scheduled tasks, approval rules, and entitlement 
+ profile.</p>
+            <h2>Script Policy and Scheduled Tasks Related Terms</h2>
+            <h3>Administrative Policy</h3>
+            <p class="Body">The term <i>administrative policy</i> refers to a set of 
+ rules that constrain the interaction that an Active Roles 
+ user wants to have with an object. These may be requirements to only accept 
+ data changes that meet certain format conditions (<i>property validation 
+ policy</i>), running scripts that supplement administrative actions (<i>script 
+ policy</i>), or creating additional objects, such as user mailboxes and 
+ home folders, when Active Roles creates directory objects. 
+ </p>
+            <h3><a name="PolicyScript"></a> Policy Scripts</h3>
+            <p class="Body">Script policy is based on running custom scripts referred 
+ to as <i>policy scripts</i>. The policy scripts are stored in the Active 
+ Roles configuration database and replicated to all Administration Services 
+ configured as replication partners. Each policy script includes one or 
+ more <a href="understandingeventhandlers.htm">event handlers</a>, which 
+ are procedures Administration Service activates upon client requests to 
+ perform administrative actions such as the creation, modification, or 
+ deletion of objects. Using policy scripts makes it easy to define a wide 
+ range of constrains, trigger additional actions, and combine a number 
+ of administrative tasks into a single batch. When executed by the Administration 
+ Service, those scripts can use the objects exposed by the Service, such 
+ as <b><a href="dirobj.htm">DirObj</a></b>, <a href="eventlogobject.htm"><b>EventLog</b></a>, 
+ and <b><a href="cryptographyobject.htm">Cryptography</a></b>. </p>
+            <h3>Events and Event Handlers</h3>
+            <p class="Body">In the script policy, <i>events</i> refer to actions that 
+ occur in response to particular administrative operations requested by 
+ Active Roles clients. <i>Event handlers</i> are functions 
+ within a policy script that have a predefined syntax and serve as procedures 
+ to be activated by Administration Service whenever particular events occur. 
+ Event handlers divide into two categories: "pre-event" handlers 
+ and "post-event" handlers. Administration Service triggers "pre-event" 
+ handlers before it commits the requested changes, and triggers "post-event" 
+ handlers immediately after the changes are successfully committed. </p>
+            <h3><a name="SchTask"></a>Scheduled Task</h3>
+            <p class="Body">The term <i>scheduled task</i> refers to a script the Administration 
+ Service executes at scheduled time. The scheduled task scripts are stored 
+ in the Active Roles configuration database and replicated to all Administration 
+ Services configured as replication partners. When executed by the Administration 
+ Service, those scripts can use the objects exposed by the Service, such 
+ as <a href="objecttask.htm"><b>Task</b></a> and <a href="eventlogobject.htm"><b>EventLog</b></a>.</p>
+            <h3>Library Scripts</h3>
+            <p class="Body">The term <i>library script</i> refers to a script that contains 
+ functions (<b>Sub</b> or <b>Function</b> procedures, as applied to VBScript) 
+ available for other scripts. For example, a function saved into a library 
+ script can be called by several policy or scheduled task scripts. This 
+ makes your source codes more compact. </p>
+            <h3>Script Modules</h3>
+            <p class="Body"> Active Roles stores policy scripts, library 
+ scripts and scheduled task scripts in the Active Roles configuration Database 
+ as <i>script modules</i>. You can develop script modules using any scripting 
+ language supported by the Microsoft Windows Script Host, such as Windows 
+ PowerShell, VBScript and JScript.</p>
+            <p class="Body">For policy scripts, each module defines one or no handler 
+ for each event. When configuring a script policy, you first select a script 
+ module to add it into the Policy Object, and then select events upon which 
+ the script will be activated. If the script does not specify event handlers 
+ for some of the events you have selected, the script takes no effect when 
+ those events occur.</p>
+            <p class="Body">When configuring a scheduled task, you first specify the 
+ schedule, and then select a script module you want the Administration 
+ Service to run.</p>
+            <h2>Approval Activity Related Terms</h2>
+            <h3>Approval Rule</h3>
+            <p class="Body">Ensemble of settings created by the Administrator to configure 
+ approval activity in a workflow. Approval rules are used to specify the 
+ operations that are subject to approval, as well as who is authorized 
+ to complete approval tasks.</p>
+            <h3>Operation Requiring Approval</h3>
+            <p class="Body">According to the approval rules conditions, some changes 
+ attempted in Active Directory (such as object creation, deprovisioning, 
+ deletion, etc.) may require approval to be performed. If this is the case, 
+ the approval rule creates an entity called operation, which becomes a 
+ part of the approval activity and serves as the basis for approval tasks 
+ generation.</p>
+            <h3><a name="ApprovalCondit"></a>Approval Conditions</h3>
+            <p class="Body">The criteria that an approval rule uses to determine whether 
+ or not an operation is subject to approval. If these conditions are met 
+ the approval activity starts.</p>
+            <h3><a name="Initiator"></a>Initiator</h3>
+            <p class="Body">A user that initiated an approval-dependant operation.</p>
+            <h3><a name="Approvers"></a>Approvers</h3>
+            <p class="Body">Users or groups of users designated to complete approval 
+ tasks by approving or rejecting operations. One or more Approvers are 
+ assigned by Administrator when configuring an approval rule.</p>
+            <p class="Body">&#160;</p>
+            <p class="Note" style="font-weight: bold;">Note</p>
+            <p class="Note">For more information, see "Approval Activity" the 
+ in Active Roles Administrator Guide.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc303">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="Understanding Access to In-Process Request;understandingaccessinprocessrequest.htm" />
+                    <param name="Item2" value="Understanding Event Handlers;understandingeventhandlers.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc303.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

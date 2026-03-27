@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles Schema" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Exchange Related Attributes</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_ExchangeAttributes" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="edmschema.htm">Active Roles Schema</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Exchange Related Attributes</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor48"></a>
+                <MadCap:concept term="a_ExchangeAttributes" />Exchange Related Attributes </h1>
+            <p class="Body">In addition to the standard Exchange-related attributes, 
+ Active Roles defines the following attributes to extend the management 
+ of Exchange Server. The Active Roles ADSI Provider can be used 
+ to access all Exchange-related attributes, both those defined by Exchange 
+ Server and those defined by Active Roles itself. </p>
+            <p class="Body"><b style="font-weight: bold;">edsaAdminGroup</b> &#160; </p>
+            <p class="Body">Syntax: Multi-value Case Ignore String.</p>
+            <p class="Body">Access: Read-only. Applies to all recipients. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies a list of Administrative Groups that are defined 
+ in the recipient's Exchange Organization. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaAllExchangeTasks</b> &#160; 
+ </p>
+            <p class="Body">Syntax: Multi-value Case Ignore String.</p>
+            <p class="Body">Access: Read-only. Applies to all recipients. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies a list of all Exchange tasks related to the recipient's 
+ object class. The list contains lDAPDisplayNames of Active Roles-specific 
+ attributes used to initiate Exchange tasks related to the recipient's 
+ object class. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaCreateMsExchMailbox</b> 
+ &#160; </p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Write-only. Applies to user objects. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Setting this attribute to TRUE initiates the Exchange task 
+ 'Create Mailbox'.This task requires that you set the following standard 
+ Exchange attributes: mailNickname and homeMDB </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaDeleteEmail</b> &#160; 
+ </p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Write-only. Applies to all mail-enabled recipients. 
+ </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Setting this attribute to TRUE initiates the Exchange task 
+ 'Delete E-Mail Addresses'. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaDeleteMailbox</b> &#160; 
+ </p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Write-only. Applies to all mail-enabled recipients. 
+ </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Setting this attribute to TRUE initiates the Exchange task 
+ 'Delete Mailbox'. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaEstablishEmail</b> &#160; 
+ </p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Write-only. Applies to all mail-enabled recipients. 
+ </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Setting this attribute to TRUE initiates the Exchange task 
+ 'Establish E-Mail Addresses'. This task requires that the following attributes 
+ have been set: edsaAdminGroup, mailNickname, and targetAddress. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaEstablishGroupEmail</b> 
+ &#160; </p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Write-only. Applies to groups. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Setting this attribute to TRUE initiates the Exchange task 
+ 'Establish E-mail Addresses'. This task requires that the following attributes 
+ have been set: edsaAdminGroup, mailNickname. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaExchangeTasksAvailable</b> 
+ &#160; </p>
+            <p class="Body">Syntax: Multi-value Case Ignore String</p>
+            <p class="Body">Access: Read-only. Applies to all recipients. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies a list of all possibleExchange tasks for the recipient. 
+ The list contains lDAPDisplayNames of Active Roles-specific attributes 
+ used to initiate Exchange tasks that can actually be performed on the 
+ recipient, and depends on the recipient's object class and Exchange-related 
+ attributes previously set for the recipient. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaHideMembership</b> </p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Write-only. Applies to groups.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Setting this attribute to TRUE initiates the Exchange task 
+ 'Hide Membership'. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaHomeMDB</b> </p>
+            <p class="Body">Syntax: DN string.</p>
+            <p class="Body">Access: Read/Write. Applies to mailbox-enabled user objects.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Auxiliary attribute for the Exchange task 'Move Mailbox'. 
+ The client should set this attribute instead of explicitly setting the 
+ homeMDB attribute when performing the 'Move Mailbox' task. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaIsMsExchangePresent</b>
+            </p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Read-only. Applies to all recipients. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies whether Exchange is present in current configuration. 
+ You can get a list of all possible Exchange Tasks for the recipient by 
+ reading the attribute edsaExchangeTasksAvailable.<br />When this attribute is set to TRUE, Exchange administration support is 
+ enabled in the Active Roles snap-in. Otherwise, Exchange administration 
+ support is disabled. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaMailboxSecurityDescriptor</b>
+            </p>
+            <p class="Body">Syntax: Security descriptor.</p>
+            <p class="Body">Access: Read/Write. Applies to mailbox-enabled user objects. 
+ </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies permissions assigned to security principals for 
+ administrative operations on the user's mailbox. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaMoveMailbox</b> &#160; 
+ </p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Write-only. Applies to mailbox-enabled user objects.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Setting this attribute to TRUE initiates the Exchange task 
+ 'Move Mailbox Exchange'. This task requires that you set the attribute 
+ edsaHomeMDB to specify the mailbox destination. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaMsExchMixedMode</b>
+            </p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Read-only. Applies to all recipients.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">If the recipient's Exchange Organization is in mixed mode, 
+ this attribute is set to TRUE. Otherwise, the attribute value is not specified. 
+ </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaRemoveAllMsExchAttributes</b>
+            </p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Write-only. Applies to all recipients. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Setting this attribute to TRUE initiates the Exchange task 
+ 'Remove Exchange Attributes Exchange'. This task removes all Exchange 
+ settings from the selected recipient object. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsaUnhideMembership</b> </p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Write-only. Applies to groups. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Setting this attribute to TRUE initiates the Exchange task 
+ 'Unhide Membership'. </p>
+            <p class="Body">&#160;</p>
+            <h2><span>Mailbox Attributes</span>
+            </h2>
+            <p class="Body"><b><span style="font-weight: normal;">This section lists 
+ the attributes specific to mailboxes on Exchange 2013 or later.</span></b>
+            </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsva-MsExch-ConvertToLinkedMailbox</b>&#160; 
+ </p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Write-only. Applies to users. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">On a user account associated with a mailbox of the User Mailbox 
+ &#160;type, set 
+ this attribute to TRUE in order to change the type of the mailbox to Linked 
+ Mailbox.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsva-MsExch-CreateLinkedMailbox</b>&#160; 
+ </p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Write-only. Applies to users. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Setting this attribute to TRUE creates a linked mailbox.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsva-MsExch-CreateEquipmentMailbox</b>&#160; 
+ </p>
+            <p class="Body">Syntax: Boolean</p>
+            <p class="Body">Access: Write-only. Applies to users.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Setting this attribute to TRUE creates an equipment mailbox.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsva-MsExch-SharedMailbox</b>&#160; 
+ </p>
+            <p class="Body">Syntax: SID. Multivalued.</p>
+            <p class="Body">Access: Read/Write. Applies to users. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Lists the security identifiers of the user accounts that 
+ are allowed to access a given shared mailbox. When configuring a user 
+ object with a shared mailbox, a client can use this attribute to retrieve 
+ or change the list of mailbox users.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsva-MsExch-CreateRoomMailbox</b>
+            </p>
+            <p class="Body">Syntax: Boolean</p>
+            <p class="Body">Access: Write-only. Applies to users.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Set this attribute to TRUE creates a room mailbox.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsva-MsExch-MailboxDatabasesXML</b>&#160; 
+ </p>
+            <p class="Body">Syntax: String(Teletex).</p>
+            <p class="Body">Access: Read-only. Applies to Server Configuration Containers 
+ (the edsConfigurationContainer object class). </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Contains XML information about the mailbox stores or databases 
+ that exist in the Exchange organization.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsva-MsExch-MailboxType</b>
+            </p>
+            <p class="Body">Syntax:Integer</p>
+            <p class="Body">Access: Read-only. Applies to users. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Contains a numeric value that identifies the type of the 
+ mailbox, if any, associated with the user object. A client cannot set 
+ this attribute; it can only get the attribute value. This attribute can 
+ take the following values:</p>
+            <ul>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">0</span>: 
+ Mailbox does not exist;</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">1</span>: 
+ User mailbox;</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">2</span>: 
+ Legacy mailbox (pre-Exchange 2007);</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">3</span>: 
+ Linked mailbox;</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">4</span>: 
+ Shared mailbox;</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">5</span>: 
+ Room mailbox;</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">6</span>: 
+ Equipment mailbox.</p>
+                </li>
+            </ul>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsva-MsExch-MailboxTypeDescription</b>&#160; 
+ </p>
+            <p class="Body">Syntax: Case ignore string.</p>
+            <p class="Body">Access: Read-only. Applies to users. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Contains the mailbox type name, such as User Mailbox, &#160;Equipment 
+ Mailbox, etc. (see the <span style="font-weight: bold;">edsva-MsExch-MailboxType</span> 
+ attributedescription).</p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsva-MsExch-ResourceCustomProperties</b>&#160; 
+ </p>
+            <p class="Body">Syntax: Case ignore string. Multivalued</p>
+            <p class="Body">Access: Read/Write. Applies to users. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Lists the resource custom properties assigned to a given 
+ equipment or room mailbox. When configuring a user object with an equipment 
+ or room mailbox, a client can use this attribute to get or set the resource 
+ custom properties on the mailbox.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsva-MsExch-ResourceCapacity</b>&#160; 
+ </p>
+            <p class="Body">Syntax: Integer.</p>
+            <p class="Body">Access: Read/Write. Applies to users. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the resource capacity for a given equipment or 
+ room mailbox. Attribute value is a non-negative integer in the range from 
+ 0 through 2,147,483,647. When configuring a user object with an equipment 
+ or room mailbox, a client can use this attribute to get or set the resource 
+ capacity on the mailbox.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><b style="font-weight: bold;">edsva-MsExch-SharedMailboxUsers</b>&#160; 
+ </p>
+            <p class="Body">Syntax: SID. Multivalued.</p>
+            <p class="Body">Access: Read/Write. Applies to users. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Lists the security identifiers of the user accounts that 
+ are allowed to access a given shared mailbox. When configuring a user 
+ object with a shared mailbox, a client can use this attribute to retrieve 
+ or change the list of mailbox users.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;"><span style="font-weight: bold;">edsva-MsExch-AutoReplyState</span>
+            </p>
+            <p class="Body">Syntax: Case Ignore String.</p>
+            <p class="Body">Access: Write-only.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies whether to enable the mailbox for Automatic Replies. 
+ Possible values: </p>
+            <ul>
+                <li class="kadov-p-CListBulletTight">
+                    <p class="ListBulletTight"><span style="font-weight: bold;">Enabled</span> 
+ &#160;The mailbox 
+ sends automatic replies until this attribute is cleared or set to <span style="font-weight: bold;">Disabled</span>.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">Disabled</span> 
+ &#160;The mailbox 
+ does not send automatic replies; same as &lt;not set&gt;.</p>
+                </li>
+            </ul>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-AutoReplyExternalAudience</p>
+            <p class="Body">Syntax: Case Ignore String.</p>
+            <p class="Body">Access: Write-only.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies whether to send Automatic Replies to senders outside 
+ of the organization. Possible values:</p>
+            <ul>
+                <li class="kadov-p-CListBulletTight">
+                    <p class="ListBulletTight"><span style="font-weight: bold;">Known</span> 
+ &#160;Auto-reply 
+ to My Contacts only.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">All</span> 
+ &#160;Auto-reply 
+ to all external senders.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">None</span> 
+ &#160;Do not 
+ auto-reply to external senders; same as &lt;not set&gt;.</p>
+                </li>
+            </ul>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-AutoReplyExternalMessage</p>
+            <p class="Body">Syntax: Case Ignore String.</p>
+            <p class="Body">Access: Write-only.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the Automatic Replies message to be sent to senders 
+ outside of the organization.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-AutoReplyInternalMessage</p>
+            <p class="Body">Syntax: Case Ignore String.</p>
+            <p class="Body">Access: Write-only.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the Automatic Replies message to be sent to senders 
+ within the organization.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-EnableArchiveMailbox</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Write-only.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Set this attribute to TRUE to create an archive mailbox for 
+ the mailbox user. </p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-DisableArchiveMailbox</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Write-only.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Set this attribute to TRUE to disconnect the archive mailbox 
+ from the mailbox user.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-ArchiveMailboxName</p>
+            <p class="Body">Syntax: Case Ignore String.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the name of the mailbox user's archive mailbox.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-ArchiveMailboxDatabase</p>
+            <p class="Body">Syntax: DN String.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the Exchange mailbox database that contains the 
+ mailbox user's archive mailbox.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-ArchiveMailboxQuota</p>
+            <p class="Body">Syntax: Integer.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the mailbox user's archive mailbox size at which 
+ messages will no longer be accepted.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-ArchiveMailboxWarningQuota</p>
+            <p class="Body">Syntax: Integer.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the mailbox user's archive mailbox size at which 
+ a warning message is sent to the user.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-EnableCalendarAttendant</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies whether the Calendar Attendant is enabled on the 
+ mailbox.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-RemoveForwardedMeetingNotifications</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies whether the Calendar Attendant removes the meeting 
+ forwarding notifications.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-RemoveOldMeetingMessages</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies whether the Calendar Attendant removes old and 
+ redundant updates and responses.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-AddNewRequestsTentatively</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies whether the Calendar Attendant marks incoming meeting 
+ requests as "Tentative" on the calendar.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-ProcessExternalMeetingMessages</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies whether the Calendar Attendant processes meeting 
+ requests that originate outside the Exchange organization.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-SharingPolicyDN</p>
+            <p class="Body">Syntax: DN String.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Identifies the sharing policy that applies to the mailbox.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-RoleAssignmentPolicyDN</p>
+            <p class="Body">Syntax: DN String.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Identifies the management role assignment policy that applies 
+ to the mailbox.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-AddressBookPolicyDN</p>
+            <p class="Body">Syntax: DN String.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Identifies the address book policy that applies to the mailbox.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-RejectMessagesFrom</p>
+            <p class="Body">Syntax: Multi-value DN String.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the Exchange recipients that are not allowed to 
+ send messages to this mailbox. The mailbox will not accept messages from 
+ these senders.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-AcceptMessagesOnlyFrom</p>
+            <p class="Body">Syntax: Multi-value DN String.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the Exchange recipients that are allowed to send 
+ messages to this mailbox. If this attribute is not set, the mailbox accepts 
+ messages from all senders except those specified by the edsva-MsExch-RejectMessagesFrom 
+ attribute.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-RequireSenderAuthentication</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies whether the mailbox requires all senders to be 
+ authenticated.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-MailboxItemsTotal</p>
+            <p class="Body">Syntax: Integer.</p>
+            <p class="Body">Access: Read-only.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Identifies the total number of items held in the mailbox.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-MailboxLastLoggedOnBy</p>
+            <p class="Body">Syntax: DN String.</p>
+            <p class="Body">Access: Read-only.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Identifies the user account most recently used to log on 
+ to this mailbox.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-MailboxSize</p>
+            <p class="Body">Syntax: String.</p>
+            <p class="Body">Access: Read-only.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Identifies the current size of the mailbox.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-MailboxLastModified</p>
+            <p class="Body">Syntax: DateTime.</p>
+            <p class="Body">Access: Read-only.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Identifies the last date and time that a configuration change 
+ was made to the mailbox.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-MailboxMoveRequestScope</p>
+            <p class="Body">Syntax: Integer.</p>
+            <p class="Body">Access: Write-only.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">When initiating a mailbox move request, use this attribute 
+ to specify whether you want to move both the primary mailbox and archive 
+ mailbox, or only the archive mailbox. If you don't set this attribute, 
+ the mailbox move request is configured to move only the primary mailbox. 
+ If you want to move the archive mailbox only, set this attribute to 1. 
+ If you want to move both primary mailbox and archive mailbox, set this 
+ attribute to 2.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-ArchiveMailboxEnabled</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Read-only.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">When set to TRUE, indicates that an archive mailbox is enabled 
+ for this mailbox user.</p>
+            <p class="body">&#160;</p>
+            <h2 class="Body"><span>Unified Messaging Related Attributes</span>
+            </h2>
+            <p class="Body" style="font-weight: normal;"><b><span style="font-weight: normal;">This 
+ section lists the attributes specific to Unified Messaging.</span></b>
+            </p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-UM-IsEnabled</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Read-only. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Retrieve this attribute to check if Unified Messaging (UM) 
+ is enabled for the user. The attribute value of TRUE indicates that UM 
+ is enabled.</p>
+            <p class="Body" style="font-weight: bold;">&#160;</p>
+            <p class="Body" style="font-weight: bold;">EDSVA-MsExch-UM-Enable</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Write-only. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Setting this attribute to TRUE enables Unified Messaging 
+ (UM) for the user.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-UM-Disable</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Write-only. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Setting this attribute to TRUE disables Unified Messaging 
+ (UM) for the user.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-UM-PINReset</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Write-only. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Setting this attribute to TRUE resets the Outlook Voice Access 
+ PIN for the Unified Messaging (UM) enabled user.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-UM-MailboxPolicyDN</p>
+            <p class="Body">Syntax: DN string.</p>
+            <p class="Body">Access: Read/Write. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the distinguished name of the Unified Messaging 
+ (UM) mailbox policy that is associated with the UM-enabled user.</p>
+            <p class="body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-UM-PIN</p>
+            <p class="Body">Syntax: Case Ignore String.</p>
+            <p class="Body">Access: Read/Write. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Use this attribute to specify the Outlook Voice Access PIN 
+ for the Unified Messaging (UM) enabled user.</p>
+            <p class="body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-UM-PINResetOnFirstLogon</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Read/Write. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Setting this attribute to TRUE forces the user to reset the 
+ Outlook Voice Access PIN when the user accesses the Unified Messaging 
+ system from a telephone.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-UM-ExtensionNumbers</p>
+            <p class="Body">Syntax: Multi-value Case Ignore String.</p>
+            <p class="Body">Access: Read/Write. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Use this attribute to specify the Outlook Voice Access PIN 
+ for the Unified Messaging (UM) enabled user.</p>
+            <p class="body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-UM-SIPAddress</p>
+            <p class="Body">Syntax: Case Ignore String.</p>
+            <p class="Body">Access: Read/Write. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies the Session Initiation Protocol (SIP) address or 
+ E.164 address for the UM-enabled user.</p>
+            <p class="body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-UM-LockedOut</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Read/Write. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Retrieve this attribute to check if the Unified Messaging 
+ (UM) lockout status of the user's mailbox. The attribute value of TRUE 
+ indicates that the user is locked out of their UM mailbox due to a number 
+ of attempts to input an incorrect Outlook Voice Access PIN.</p>
+            <p class="body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-UM-AutomaticSpeechRecognitionEnabled</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Read/Write. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies whether Automatic Speech Recognition (ASR) is enabled 
+ for the user's Unified Messaging mailbox.</p>
+            <p class="body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-UM-CallsFromNonUsersAllowed</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Read/Write. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies whether to allow incoming calls from unauthenticated 
+ callers through an auto attendant to be transferred to the Unified Messaging 
+ (UM) enabled user.</p>
+            <p class="body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-UM-FaxEnabled</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Read/Write. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specify whether the Unified Messaging (UM) enabled user is 
+ allowed to receive incoming faxes.</p>
+            <p class="body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-UM-AnonymousCallersCanLeaveMessages</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Read/Write. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies whether, for diverted calls without a caller ID, 
+ the caller is allowed to leave a message in the user's Unified Messaging 
+ (UM) mailbox.</p>
+            <p class="body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-UM-CallAnsweringRulesEnabled</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Read/Write. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies whether or not the Unified Messaging (UM) enabled 
+ user is allowed to create personal auto attendants by setting up Call 
+ Answering Rules for their user account.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-UM-OperatorExtensionNumber</p>
+            <p class="Body">Syntax: Case Ignore String.</p>
+            <p class="Body">Access: Read/Write. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specify the extension number of the personal operator (assistant) 
+ for the Unified Messaging (UM) enabled user.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-UM-DialPlanDN</p>
+            <p class="Body">Syntax: DN string.</p>
+            <p class="Body">Access: Read/Write. </p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">When adding a Unified Messaging (UM) address or extension 
+ for an UM-enabled user, use this attribute to specify the distinguished 
+ name of the UM dial plan to be associated with that address or extension.</p>
+            <p class="Body">&#160;</p>
+            <h2 class="Body"><span>Distribution Group Attributes</span>
+            </h2>
+            <p class="Body" style="font-weight: normal;"><b><span style="font-weight: normal;">This 
+ section lists the attributes specific to distribution groups on Exchange 
+ 2013 or later.</span></b>
+            </p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-MemberJoinRestriction</p>
+            <p class="Body">Syntax: Integer.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies whether owner approval is required to join the 
+ distribution group. The attribute value can be one of the following:</p>
+            <ul>
+                <li class="kadov-p-CListBulletTight">
+                    <p class="ListBulletTight"><span style="font-weight: bold;">0</span> 
+ (Open) - Anyone can join the group without being approved by the group 
+ owners.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">1</span> 
+ (Closed) - Members can be added only by the group owners.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">2</span> 
+ (ApprovalRequired) - Approval by group owners is required to join the 
+ group.</p>
+                </li>
+            </ul>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-MemberDepartRestriction</p>
+            <p class="Body">Syntax: Integer.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies whether owner approval is required to leave the 
+ distribution group. The attribute value can be one of the following:</p>
+            <ul>
+                <li class="kadov-p-CListBulletTight">
+                    <p class="ListBulletTight"><span style="font-weight: bold;">0</span> 
+ (Open) - Anyone can leave the group without being approved by the group 
+ owners.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">1</span> 
+ (Closed) - Members can be removed only by the group owners.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">2</span> 
+ (ApprovalRequired) - Approval by group owners is required to leave the 
+ group.</p>
+                </li>
+            </ul>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-ModerationEnabled</p>
+            <p class="Body">Syntax: Boolean.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">When set to TRUE on a distribution group, indicates that 
+ messages sent to that group have to be approved by a moderator.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-ModerationNotificationSending</p>
+            <p class="Body">Syntax: Integer.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies whether notifications are sent to users when they 
+ send a message to the moderated distribution group. The attribute value 
+ can be one of the following:</p>
+            <ul>
+                <li class="kadov-P-CListBulletTight">
+                    <p class="ListBulletTight"><span style="font-weight: bold;">0</span> 
+ (Always) - Notifications are sent to all external and internal senders.</p>
+                </li>
+                <li class="kadov-P-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">1</span> 
+ (Internal) - Notifications are sent only to the senders who are internal 
+ to the Exchange organization.</p>
+                </li>
+                <li class="kadov-P-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">2</span> 
+ (Never) - Notifications are not sent, except that the message is rejected 
+ by the moderator.</p>
+                </li>
+            </ul>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-ModeratedBy</p>
+            <p class="Body">Syntax: Multi-value DN String.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Identifies the persons who are responsible for moderating 
+ the messages sent to this distribution group.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-BypassModerationFor</p>
+            <p class="Body">Syntax: Multi-value DN String.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Identifies the senders whose messages do not require approval 
+ by the moderators of the distribution group.</p>
+            <p class="Body">&#160;</p>
+            <p class="Body" style="font-weight: bold;">edsva-MsExch-UseMAPIRichTextFormat</p>
+            <p class="Body">Syntax: Integer.</p>
+            <p class="Body">Access: Read/Write.</p>
+            <p class="Body">Searchable: No.</p>
+            <p class="Body">Specifies how messages in the MAPI rich text format (RTF) 
+ are handled for this mail recipient. The attribute value can be one of 
+ the following:</p>
+            <ul>
+                <li class="kadov-P-CListBulletTight">
+                    <p class="ListBulletTight"><span style="font-weight: bold;">0</span> 
+ (Never) - All messages are sent in plain text.</p>
+                </li>
+                <li class="kadov-P-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">1</span> 
+ (Always) - All messages are sent in RTF.</p>
+                </li>
+                <li class="kadov-P-CListBullet">
+                    <p class="ListBullet"><span style="font-weight: bold;">2</span> 
+ (UseDefaultSettings) - Messages are sent in either RTF or plain text, 
+ depending on the settings of the MAPI client from which the message is 
+ sent.</p>
+                </li>
+            </ul>
+            <p class="Body">&#160;</p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc391">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="Understanding ADSI Objects and Schema;understandingadsiobjectsandschema.htm" />
+                    <param name="Item2" value="Understanding Active Roles ADSI Provider;understandingedmadsiprovider.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc391.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

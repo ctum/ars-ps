@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles ADSI Provider|Using ADSI Provider|Advanced" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Using Virtual Attributes</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_UsingVirtualAttributes" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanageradsiprovider.htm">Active Roles ADSI Provider</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="usingedmadsiprovider.htm">Using ADSI Provider</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Using Virtual Attributes</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor120"></a>
+                <MadCap:concept term="a_UsingVirtualAttributes" />Using Virtual Attributes</h1>
+            <p class="Body">Active Roles allows you to extend the Active Roles Schema 
+ so that additional properties can be handled for existing object classes. 
+ Those properties are stored in the virtual attributes you can create with 
+ the Add Virtual Attribute Wizard provided by the Active Roles console.</p>
+            <p class="Body">This topic describes how to create virtual attributes and 
+ how to manipulate with their values.</p>
+            <h2>Types of Virtual Attributes</h2>
+            <p class="Body">Active Roles supports the following types of virtual attributes 
+ (VA):</p>
+            <ul>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><i style="font-style: italic;">Built-in 
+ virtual attributes</i>: Built-in VAs are created at the Active Roles Administration 
+ Service installation time. These attributes are only calculated when used 
+ and are not stored in the Active Roles configuration database. The objects 
+ that represent the built-in VAs (objects of the attributeSchema type ) 
+ are stored&#160; in the container:<br />
+	"CN=Schema,CN=Application Configuration,cn=Configuration".<br />
+	The built-in VAs are not cached and cannot be searched. You can access 
+ and modify these attributes using the <b>Get</b>, <b>GetEx</b>, <b>Put</b>, 
+ <b>PutEx</b> methods of the <b><a href="iads.htm">IADs</a></b> 
+ interface. The built-in VAs for some object classes are described in <a href="edmschema.htm">Active Roles Schema</a>.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><i style="font-style: italic;">Custom 
+ virtual attributes(CVA)</i>: These attributes can be created using the 
+ Active Roles snap-in. The attribute values are not stored in the Active 
+ Roles configuration database. The CVAs are calculated using values of 
+ the designated AD attributes of the directory object in question. You 
+ can also have Active Roles store the attribute values in the external 
+ databases, such as the HR database of your organization. The objects that 
+ represent the CVAs (objects of the attributeSchema type) are stored in 
+ the container:<br />
+	"CN=Virtual Attributes,CN=Server Configuration, cn=Configuration".<br />
+	CVAs are not cached and cannot be searched. To get/set the CVA values, 
+ you should apply the special policy scripts (see <a href="#ApplyCVA">Applying 
+ Custom Virtual Attributes</a>).<span style="font-weight: bold;"><br />
+	Note</span>: You can retrieve the distinguished name for the container 
+ that stores the custom VAs using the <span style="font-weight: bold;">edsvaVirtualAttributesDN</span> 
+ property of the <span style="font-weight: bold;">rootDSE</span> object. 
+ For details, refer to "Binding to Active Roles-specific objects" 
+ in Related Topics.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet"><i style="font-style: italic;">Stored 
+ custom virtual attributes (SCVA)</i>: These attributes can be created 
+ using the Active Roles snap-in. Unlike the custom virtual attributes, 
+ the values of SCVAs are stored in the Active Roles configuration database. 
+ You can access and modify the SCVAs using the <b><a href="iads.htm">IADs</a></b> 
+ interface or using the <b>Advanced Properties</b> dialog box for the object 
+ in question. To get/set the SCVA values, you don't need apply the special 
+ policy scripts. Note that use of the SCVAs can result in a considerable 
+ increase in the Active Roles database size.</p>
+                </li>
+            </ul>
+            <h2><a name="CreateVA"></a> Creation of Virtual Attributes </h2>
+            <p class="Body">The procedure for creation of a new CVA or SCVA includes 
+ the following steps: </p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Choose a name 
+ for the attribute.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Determine the 
+ syntax of the attribute.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">Decide whether 
+ the attribute needs to be a single-valued or multi-valued attribute.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList">Determine the 
+ object classes to which you want the virtual attribute to apply.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="5">
+                    <p class="NumberedList">Decide whether 
+ the attribute will be CVA or SCVA.</p>
+                </li>
+            </ol>
+            <p class="Body">The Active Roles snap-in provides the Add Virtual Attribute 
+ Wizard that allows you to easily create a new virtual attribute to be 
+ applied to the desired object classes.</p>
+            <p class="Procedure"> <b>To create a VA with Active Roles snap-in</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Choose the Advanced mode for Active Roles snap-in 
+ display: </p>
+                    <ul>
+                        <li class="kadov-p-CSubBullet">
+                            <p class="SubBullet">On the <b>View</b> 
+ menu, click <b>Mode</b>, and then in the <b>View Mode</b> dialog box, 
+ select the <b>Advanced Mode</b> option and click <b>OK</b>.</p>
+                        </li>
+                    </ul>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Start the Add 
+ Virtual Attribute Wizard:</p>
+                </li>
+                <ul>
+                    <li class="kadov-p-CSubBullet">
+                        <p class="SubBullet">In the console 
+ tree, expand the <b>Configuration</b> node, expand the <b>Server Configuration</b> 
+ node, right-click <b>Virtual Attributes</b>, point to <b>New</b>, and 
+ then click <b>Virtual Attribute</b>.</p>
+                    </li>
+                </ul>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">In the <b>Attribute Identification</b> window, 
+ do the following: </p>
+                    <ul>
+                        <li class="kadov-p-CSubBullet">
+                            <p class="SubBullet">In the <b>Common-Name</b> 
+ and <b>LDAP Display Name</b> text boxes, specify the common name and the 
+ LDAP display name, respectively, for a new attribute. </p>
+                        </li>
+                        <li class="kadov-p-CSubBullet">
+                            <p class="SubBullet">In the <b>Unique 
+ X.500 object ID</b> text box, optionally, change the default value for 
+ the attributeID property (OID) for the new attribute. The wizard prompts 
+ for the OID value built upon base OIDs generated for Active Roles. If 
+ you want to generate your own value, you may use Microsoft's Oidgen tool 
+ (oidgen.exe). </p>
+                        </li>
+                        <li class="kadov-p-CSubBullet">
+                            <p class="SubBullet">In the <b>Schema 
+ ID GUID</b> text box, optionally, change the default value for the schemaIDGUID 
+ property. The wizard prompts for the schemaIDGUID value randomly generated 
+ by Active Roles. If you want the new attribute to have the fixed schemaIDGUID 
+ property, replace the default value with your own value. For example, 
+ you can generate GUID with the Microsoft Platform SDK's Uuidgen (uuidgen.exe) 
+ tool. </p>
+                        </li>
+                    </ul>
+                    <p class="Body">When finished, click <b>Next</b>. </p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList">In the <b>Attribute Syntax</b> window, do the 
+ following: </p>
+                    <ul>
+                        <li class="kadov-p-CSubBullet">
+                            <p class="SubBullet">In the <b>Syntax</b> 
+ list, click the syntax to which you want the virtual attribute to conform.</p>
+                        </li>
+                        <li class="kadov-p-CSubBullet">
+                            <p class="SubBullet">Select the <b>Multi-valued</b> 
+ check box to make the virtual attribute multi-valued. Otherwise, leave 
+ this check box cleared. </p>
+                        </li>
+                    </ul>
+                    <p class="Body">When finished, click <b>Next</b>. </p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="5">
+                    <p class="NumberedList">In the <b>Object 
+ Classes</b> window, under <b>Select object classes</b>, select check boxes 
+ next to the object classes to which you want the virtual attribute to 
+ apply. To display all available object classes, select the <b>Show all 
+ possible classes</b> check box. When finished, click <b>Next</b>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="6">
+                    <p class="NumberedList">In the <b>Attribute 
+ Storage</b> window, select the <b>Store values of this attribute in the 
+ Active Roles Administration database</b> check box if you want to create 
+ a new SCVA. Otherwise, leave this check box cleared.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="7">
+                    <p class="NumberedList">Click <b>Finish</b> 
+ to complete the wizard.</p>
+                </li>
+            </ol>
+            <p class="Body">Once you have created a VA, you can view or modify its properties 
+ with the Active Roles snap-in in the following way: </p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">In the console 
+ tree, expand the <b>Configuration</b> node, expand the <b>Server Configuration</b> 
+ node, and then click <b>Virtual Attributes</b>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">In the details 
+ pane, right-click the VA in question, and then click <b>Properties</b>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">On the <b>General</b>, 
+ <b>Syntax</b> and <b>Classes</b> tabs of the <b>Properties</b> dialog 
+ box, view or modify the desired properties of the VA.</p>
+                </li>
+            </ol>
+            <h2><a name="ApplyCVA"></a>Applying Custom Virtual Attributes</h2>
+            <p class="Body">To process values of the custom VAs with methods provided 
+ by the <b><a href="iads.htm">IADs</a></b> 
+ interface, you should develop and apply a policy script that handles the 
+ attribute value. The policy script may include the onPostGet, onPreModify 
+ or onPreSearch <a href="../EnterpriseDirectoryManagerScriptPolicy/eventhandlers.htm">event 
+ handlers</a> that allow you to manipulate the CVA value when the Active 
+ Roles client sends the request to get, modify or search for the VA, respectively.</p>
+            <p class="Body">To apply the CVA, perform the following steps:</p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList"><a href="#CreateVA">Create 
+ the CVA</a>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Develop the appropriate 
+ policy script.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">Apply the policy 
+ script (follow the procedure in <a href="../EnterpriseDirectoryManagerScriptPolicy/applyingpolicyscriptsexamples.htm">Applying 
+ Policy Scripts</a>).</p>
+                </li>
+            </ol>
+            <h3><b style="font-weight: bold;">Reading <span style="font-weight: bold;">Virtual 
+ Attributes Programmatically</span></b>
+            </h3>
+            <p class="Body" style="font-weight: normal;"><b><span style="font-weight: normal;">To 
+ read ordinary attributes from a script, you normally use the </span></b><span style="font-weight: bold;">Get</span> method, for instance <span class="SyntaxChar">Get("description")</span>. 
+ Although this operator is not applicable to virtual attributes. &#160;To 
+ read virtual attributes, you must use the <a href="iads.htm">GetInfoEx</a> 
+ method instead.</p>
+            <h3><b style="font-weight: bold;">Usi<span style="font-weight: bold;">ng 
+ Virtual Attributes in Searches</span></b>
+            </h3>
+            <p class="Body" style="font-weight: normal;">You can safely use in searches the built-in 
+ virtual attributes which are marked as searchable in <a href="edmschema.htm" style="font-weight: normal;">Active 
+ Roles Schema</a>. Also, any custom virtual attributes marked as stored 
+ can be used in searches. The custom non-stored virtual attributes are 
+ not searchable and cannot be used in searches.</p>
+            <h3><b style="font-weight: bold;">Sample Policy Script</b>
+            </h3>
+            <p class="Body">The policy script below enforces the following administrative 
+ policy:<br />
+When the Active Roles client sends the request to modify the custom VA 
+ edsvaUserMaritalStatus, the script retrieves the value of that attribute 
+ from the object <b>Request</b>, and then stores it in the AD attribute 
+ extensionAttribute2. When the Active Roles client sends the request to 
+ retrieve the custom VA edsvaUserMaritalStatus, the policy script reads 
+ the value of the AD attribute extensionAttribute2, and then sets the property 
+ edsvaUserMaritalStatus in the object <b>Request </b>to the retrieved value.<br />
+For more information about the object <b>Request</b>, refer to <a href="../EnterpriseDirectoryManagerScriptPolicy/gettingpropertyvalues.htm">Getting 
+ In-Process Property Values</a> and <a href="../EnterpriseDirectoryManagerScriptPolicy/settingpropertyvalues.htm">Setting 
+ In-Process Property Values</a>.</p>
+            <p class="note"><b style="font-weight: bold;">Note:</b>
+            </p>
+            <p class="note">The attribute extensionAttribute2 is added to the AD schema 
+ only if you have installed Microsoft Exchange Server. Otherwise, you should 
+ use any other available attribute to store the value of the VA edsvaUserMaritalStatus. 
+ </p><pre xml:space="preserve">
+<p class="Syntax">Sub onPostGet(Request)
+ Dim buf
+ &#160;' Retrieve the processed object class
+ If Request.Class &lt;&gt; "user" Then Exit Sub
+ &#160;' Verify whether the VA edsvaUserMaritalStatus is requested
+ If Request.IsAttributeRequested("edsvaUserMaritalStatus") Then
+ &#160;&#160;&#160;strUserDN=Request.ADsPath
+ &#160;&#160;&#160;&#160;' Bind to the processed user object
+ &#160;&#160;&#160;Set objUser = GetObject(strUserDN)
+ &#160;&#160;&#160;&#160;' Retrieve the value of the attribute extensionAttribute2
+ &#160;&#160;&#160;&#160;' and set the attribute edsvaUserMaritalStatus in the object Request to that value
+ &#160;&#160;&#160;objUser.GetInfoEx Array("extensionAttribute2"),0
+ &#160;&#160;&#160;buf=objUser.Get("extensionAttribute2")
+ &#160;&#160;&#160;Request.Put "edsvaUserMaritalStatus", buf
+ End If
+End Sub
+Sub onPreModify(Request)
+ Dim buf
+ &#160;' Retrieve the processed object class
+ If Request.Class &lt;&gt; "user" Then Exit Sub
+ &#160;&#160;&#160;buf=Request.Get("edsvaUserMaritalStatus")
+ &#160;' Verify whether the VA edsvaUserMaritalStatus is requested
+ If buf &lt;&gt; vbEmpty Then
+ &#160;&#160;&#160;strUserDN=Request.ADsPath
+ &#160;&#160;&#160;&#160;' Bind to the processed user object
+ &#160;&#160;&#160;Set objUser = GetObject(strUserDN)
+ &#160;&#160;&#160;&#160;' Set the attribute extensionAttribute2 to the value retrieved from
+ &#160;&#160;&#160;&#160;' the request to modify the VA edsvaUserMaritalStatus
+ &#160;&#160;&#160;objUser.Put "extensionAttribute2", buf
+ &#160;&#160;&#160;objUser.SetInfo
+ End If
+End Sub</p>
+</pre>
+            <h3><b style="font-weight: bold;">Sample Custom Scripts</b>
+            </h3>
+            <p class="Body">The following custom scripts illustrate how you can set and 
+ get values of custom VAs for the user Blair, Joseph residing in the OU 
+ Users in the domain mycompany.com.</p>
+            <p class="Body">The following script sets the value of the attribute edsvaUserMaritalStatus 
+ to "Married".</p><pre xml:space="preserve">
+<p class="Syntax">' Set the user DN
+strUserDN="EDMS://CN=Blair\, Joseph,CN=Users,DC=mycompany,DC=com"
+Set usr=GetObject(strUserDN)
+ ' Load the VA in question to the cache and set its value
+usr.GetInfoEx Array("edsvaUserMaritalStatus"),0
+usr.Put "edsvaUserMaritalStatus","Married"
+usr.SetInfo</p>
+</pre>
+            <p class="Body">The following script gets the value of the attribute edsvaUserMaritalStatus.</p><pre xml:space="preserve">
+<p class="Syntax">' Set the user DN
+strUserDN="EDMS://CN=Blair\, Joseph,CN=Users,DC=mycompany,DC=com"
+Set usr=GetObject(strUserDN)
+ ' Load the VA in question to the cache and get its value
+usr.GetInfoEx Array("edsvaUserMaritalStatus"),0
+on error resume next
+strStatus=usr.Get("edsvaUserMaritalStatus")
+MsgBox "User's marital status: " + strStatus
+on error goto 0</p>
+</pre>
+            <p class="note"><b style="font-weight: bold;">Important:</b>
+            </p>
+            <p class="note">To use these custom scripts, you should first <a href="#CreateVA">create 
+ the custom VA</a> (LDAP display name: edsvaUserMaritalStatus; single-valued; 
+ syntax: CaseIgnoreString; applies to: Users ), create the Policy Object 
+ that enforces the above script policy, and then link that Policy Object 
+ to the OU Users.</p>
+            <p class="Body">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc24">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="Binding to Active Roles-Specific Objects;bindingedmobject.htm" />
+                    <param name="Item2" value=" Active Roles Schema;edmschema.htm" />
+                    <param name="Item3" value="IADs;iads.htm" />
+                    <param name="Item4" value="IADsContainer;iadscontainer.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc24.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

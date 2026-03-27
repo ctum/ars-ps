@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Web Interface|How to..." MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Creating Entry</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_CreateEntry" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="webinterface.htm">Web Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="howto.htm">How to...</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Creating Entry</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor307"></a>
+                <MadCap:concept term="a_CreateEntry" />Creating an Auto Entry</h1>
+            <p class="Body">This topic explains how you can create an auto <i>entry</i>. 
+ An entry is a group of form elements such as text boxes, check boxes, 
+ option buttons, and command buttons. Each entry is used to view and modify 
+ a value of a certain object property. An auto entry depends on the syntax 
+ of the directory object's property viewed or modified with that entry.</p>
+            <p class="Body">To create the auto entry, use the following procedure to 
+ make the appropriate changes to the attributes <b><a href="entriesxml.htm">edsaWIEntries</a></b> 
+ and <a href="formsxml.htm"><b>edsaWIForms</b></a> of the object WorkingCopy 
+ residing in the Customization Settings container.</p>
+            <p class="Procedure"> <b>To make changes to the attribute edsaWIForms</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Write">Save</a> 
+ the value of the <b>edsaWIForms </b>attribute into a text file.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Open this file 
+ with any XML editor, such as XML Spy, and find the FormTab element &#160;that 
+ defines a tab you want to contain the entry to be created.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">For the FormTab 
+ element, insert the child element FormEntry in the following way:<br /><br />
+	&lt;FormEntry ID=<i>strID</i>&gt;<br />
+	Where:<i><br />
+	strID</i> - Unique identifier of the entry. The entry must be also 
+ defined in the attribute <a href="entriesxml.htm"><b>edsaWIEntries</b></a>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Read">Save 
+ changes</a> to the attribute <b>edsaWIForms</b>.</p>
+                </li>
+            </ol>
+            <p class="Procedure"><b>To make changes to the attribute edsaWIEntries</b>
+            </p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Write">Save</a> 
+ the value of the <b>edsaWIEntries </b>attribute into a text file.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Open this file 
+ with any XML editor, such as XML Spy, and insert the FormEntry element 
+ in the following way:<br /><br />
+	&lt;FormEntry ID=<i>strID</i> ResID=<i>strResID</i> Properties=<i>strLdap</i> 
+ SingleValue=<i>bSingle</i> ReadOnly=<i>bRead</i> EntryType=<i>intType</i> 
+ &gt;<br />
+	&lt;/FormEntry&gt;<br />
+	Where:<i><br />
+	strID</i> - Unique identifier of the entry. The <a href="formsxml.htm">edsaWIForms</a> 
+ attribute must contain the <a href="formsxml.htm#FormEntry">FormEntry</a> 
+ element with the same ID.<i><br />
+	strResID</i> - Identifier of the string constant containing the caption 
+ of the entry when it is displayed on the form, such as <b>Description</b> 
+ on the <b>User Properties</b> form.<i><br />
+	strLdap</i> - A comma-separated list of the object property's ldapDisplayNames 
+ used by the entry.<i><br />
+	bSingle</i> - A boolean attribute that specifies whether an object's 
+ multi-valued property associated with the entry will be processed as a 
+ single-valued property.<i><br />
+	bRead</i> - A boolean attribute that specifies whether an object's 
+ multi-valued property associated with the entry will be processed as a 
+ single-valued property.<i><br />
+	intType</i> - The entry type.<br />
+	For more information about attributes of the element FormEntry, refer 
+ to <a href="entriesxml.htm#FormEntry">The Entries Settings</a>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Read">Save 
+ changes</a> to the attribute <b>edsaWIEntries</b>.&#160; </p>
+                </li>
+            </ol>
+            <p class="StepNote"><b style="font-weight: bold;">Note:</b>
+            </p>
+            <p class="StepNote">&#160;</p>
+            <p class="StepNote">For changes to take effect, <a href="reloadwi.htm">reload 
+ the Web Interface</a>.</p>
+            <h2>Example</h2>
+            <p class="Body">The following example illustrates how to create an auto entry 
+ and place it on the <b>General</b> tab in the <b>Computer Properties</b> 
+ dialog box.</p>
+            <p class="Body">This following snippet must be added to the <b>edsaWIForms 
+ </b>attribute.&#160;</p><pre class="code" xml:space="preserve">
+<p class="Syntax">&#160;&#160;&#160;&#160;&lt;Form ID="ComputerProperties" FormType="1" ResID="WIS_FORM_COMPUTER_PROPERTIES" TargetClass="computer" DescriptionResID=""&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;FormTab ID="general" ResID="WIS_UP_GENERAL"&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;FormEntry ID="sAMAccountNameComp"/&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;FormEntry ID="dNSHostName"/&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;FormEntry ID="role"/&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;FormEntry ID="description"/&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;FormEntry ID="trustForDelegation"/&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;' Add a custom entry
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;FormEntry ID="MyCustomEntry"/&gt;
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/FormTab&gt;
+ &#160;&#160;&#160;&lt;/Form&gt;</p>
+</pre>
+            <p class="Body">This following snippet must be added to the <b>edsaWIEntries 
+ </b>attribute. </p><pre class="code" xml:space="preserve">
+<p class="Syntax">&#160;&lt;FormEntry ID="MyCustomEntry" ResID="CST_EXCHANGE_PRESENT" Properties="edsaIsMsExchangePresent" SingleValue="True" ReadOnly="True"
+EntryType="1" DontShowCaption="False" &gt;
+&lt;/FormEntry&gt;
+ &#160;</p>
+</pre>
+            <p class="note"><b style="font-weight: bold;">Note:</b>
+            </p>
+            <p class="note">The constants WIS_FORM_COMPUTER_PROPERTIES, WIS_UP_GENERAL, 
+ and CST_EXCHANGE_PRESENT must be defined in the language settings stored 
+ in <b><a href="languagefiles.htm">edsaWIStrings</a></b>.</p>
+            <p class="note">&#160;</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

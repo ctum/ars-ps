@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Web Interface|How to...|Developing Custom Web Pages" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Developing custom ASP .NET page</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_CreateForm" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="webinterface.htm">Web Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="howto.htm">How to...</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Developing custom ASP .NET page</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor187"></a>
+                <MadCap:concept term="a_CreateForm" />Developing custom ASP .NET page</h1>
+            <p class="Body">This topic explains how you can deploy your custom .NET web 
+ pages to the Web Interface.</p>
+            <p class="Body">You can develop your custom .aspx page and deploy it to the 
+ Web Interface. The page can be developed using any from the following 
+ languages: C#, VB.NET, JScript.NET. Before deploying your custom page, 
+ it must be compiled using the ASP.NET compilation tool aspnet_compiler.exe.</p>
+            <p class="Procedure"><a name="ToDeploy"></a><b>To deploy a custom 
+ page</b>
+            </p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Create your custom 
+ page and save it to any folder on the computer that runs the Web Interface. 
+ For example, create the page <span style="font-style: italic;">Hello.aspx</span> 
+ (see <a href="#Example">Example</a>) and save it to the folder <span style="font-style: italic;">C:\MyWebPages</span>. 
+ Assume the Web Interface is deployed in the virtual directory <span style="font-style: italic;">ARSWI</span> 
+ of the default web site.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Click <span style="font-weight: bold;">Start</span>, 
+ point to <span style="font-weight: bold;">Programs</span> -&gt; <span style="font-weight: bold;">Microsoft .Net Framework SDK</span>, and then 
+ click <span style="font-weight: bold;">SDK Command Prompt.</span></p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">In the<span style="font-weight: bold;"> 
+ SDK Command Prompt </span>window, type the following syntaxes at the command 
+ prompt:</p>
+                </li>
+                <ul>
+                    <li class="kadov-p">cd C:\MyWebPages</li>
+                    <li class="kadov-p">aspnet_compiler -p . -v /ARSWI compiled_page</li>
+                    <p class="Note"><span style="font-weight: bold;">Note</span>: The 
+ compiled page will be saved in the folder <span style="font-style: italic;">compiled_page</span> 
+ residing within the folder <span style="font-style: italic;">C:\MyWebPages</span>.</p>
+                </ul>
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList">Copy all files 
+ and folders from the folder C:\MyWebPages\compiled_page to the Public 
+ subfolder of the Web Interface installation folder.</p>
+                </li>
+            </ol>
+            <p class="Procedure"><b>To view a custom page</b>
+            </p>
+            <ul>
+                <li class="kadov-p">Using a web browser, open the page http://<span style="font-style: italic;">&lt;WI computer&gt;</span>/&lt;<span style="font-style: italic;">VirtualDir&gt;</span>/&lt;<span style="font-style: italic;">CustomPage</span>&gt;<br />	where &lt;WI computer&gt; refers to the network name of the computer 
+ running the Web Interface; &lt;VirtualDir&gt; refers to the virtual directory 
+ of the default web site where the Web Interface is deployed; <span style="font-style: italic;">&lt;CustomPage&gt;</span> 
+ refers to your custom page name compiled with the ASP.NET compilation 
+ tool aspnet_compiler.exe.</li>
+            </ul>
+            <h2><a name="Example"></a>Example</h2>
+            <p class="Body">The following is a sample custom page Hello.aspx.</p><pre class="code" xml:space="preserve">
+<p class="Syntax">&lt;%@ Page Language="C#" %&gt;
+&lt;html&gt;
+ &#160;&lt;head&gt;
+ &#160;&#160;&#160;&lt;title&gt;It's compiled aspx page&lt;/title&gt;
+ &#160;&lt;/head&gt;
+ &#160;&lt;body&gt;
+ &#160;&#160;&#160;&lt;h4&gt;Hello World!!!&lt;/h4&gt;
+ &#160;&lt;/body&gt;
+&lt;/html&gt;</p>
+</pre>
+            <p class="Body">To view this custom page, perform the steps from the procedure 
+ "<a href="#ToDeploy">To deploy a custom page</a>", and then 
+ open the page http://localhost/ARSWI/Hello.aspx with a web browser.</p>
+            <p class="Body"><span class="QuestBlue">Note</span>
+            </p>
+            <p class="Note">To open your custom ASP .NET page with the Command Menu related 
+ to an object you are administering with the Web Interface, use the appropriate 
+ procedures available in <a href="creatingpageviewcommand.htm">Developing 
+ Custom ASP Web Page</a>.</p>
+            <p class="Body">&#160;</p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

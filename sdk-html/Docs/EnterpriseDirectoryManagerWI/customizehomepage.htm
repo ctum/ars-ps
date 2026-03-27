@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Web Interface|How to..." MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Customize the Web Interface home page</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_CustomizeHomePage" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="webinterface.htm">Web Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="howto.htm">How to...</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Customize the Web Interface home page</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor474"></a>
+                <MadCap:concept term="a_CustomizeHomePage" />Customize the Web Interface Home Page</h1>
+            <p class="Body">This topic explains how you can add your custom items to 
+ the Web Interface home page. By default, the home page includes 4 items 
+ (Directory Management, Customization, Settings, Approval).</p>
+            <p class="Body">To customize the home page, use the following procedure to 
+ make the appropriate changes to the attribute <b>edsaWISettings</b> of 
+ the object WorkingCopy residing in the Interface Settings container. </p>
+            <p class="Procedure"> <b>To add an item to the Web Interface 
+ home page</b></p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Write">Save</a> 
+ the value of the attribute <b>edsaWISettings</b> into a text file.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Open this file 
+ with any XML editor, such as XML Spy, and find the element TaskBoxes.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">For the element 
+ TaskBoxes, insert the child element Item in the following way:<br /><br />
+	&lt;Item ID=<i>ItemID</i> Location="default" IcontPath=<span style="font-style: italic;">strIconPath</span> IconHoverPath= <span style="font-style: italic;">strIconHoverPath</span> 
+ Header=<i>strHeaderConst</i><br />
+	Description=<i>strDescrConst</i>, NavigateUrl=<i>URL,</i> NavigateCommand=<i>Command</i>/&gt;<br />
+	Where:<span style="font-style: italic;"><br />
+	ItemID</span> - Required. Unique identifier of the item.<br />
+	strIconPath - Required. Path and file name of an icon file that contains 
+ the icon image assigned to this item.<i><br />
+	strHeaderConst</i> - Required. Path and file name of an icon file that 
+ contains the icon image displayed when you move the mouse pointer into 
+ the item area.<i><br />
+	strHeaderConst </i>- Optional. Identifier of the string constant containing 
+ a header of the item.<i><br />
+	strDescrConst</i> - Optional. Identifier of the string constant containing 
+ a description of the item.<i><br />
+	URL</i> - Optional. Contains a shortcut to a Web page to be opened 
+ after clicking the item.<i><br />
+	Command</i> - Optional. Contains a code snippet to be run when you 
+ click the item area.<br /><br />
+	For detailed information about attributes of the element Item, refer 
+ to <a href="interfacesettings.htm#Item">Interface Settings</a>. When finished, 
+ save the file.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="4">
+                    <p class="NumberedList"><a href="specifyingsettings.htm#Read">Save 
+ changes</a> to the attribute <b>edsaWISettings</b>.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="5">
+                    <p class="NumberedList"><a href="reloadwi.htm">Reload 
+ the Web Interface</a>.</p>
+                </li>
+            </ol>
+            <h2>Example</h2>
+            <p class="Body">The following code snippet illustrates how to add a custom 
+ item MyItem on the WI home page. The constants CST_XXX must be set in 
+ the <b><a href="languagefiles.htm">edsaWIStrings</a></b> attribute of 
+ the object WorkingCopy residing in the Customization Settings container.</p><pre class="code" xml:space="preserve">
+<p class="Syntax">&lt;TaskBoxes&gt;
+ ' .......
+ ' Default items are described here
+ ' .......
+ &#160;&#160;&#160;&lt;Item ID="MyItem" Location="default" IcontPath="~/CustomImages/myicon.gif" IconHoverPath="~/CustomImages/myiconhover.gif"
+ &#160;&#160;&#160;&#160;&#160;Header="CST_HOME_MYITEM_HEADER"
+ &#160;&#160;&#160;&#160;&#160;Description="CST_HOME_MYITEM_DESCRIPTION" NavigateUrl="~/Customization/MY.aspx" NavigateCommand="" /&gt;
+&lt;/TaskBoxes&gt;</p>
+</pre>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

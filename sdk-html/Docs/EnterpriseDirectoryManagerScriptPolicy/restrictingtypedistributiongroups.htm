@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Restricting the Scope of Groups</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_RestrictingTypeDistributionGroups" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor257"></a>
+                <MadCap:concept term="a_RestrictingTypeDistributionGroups" />Restricting the Scope of Groups</h1>
+            <p class="Body">File name: RestrictGroupScope.ps1</p>
+            <p class="Body">Event Handlers: onCheckPropertyValues</p>
+            <p class="Body">This sample script enforces the following policy: Creation 
+ of universal groups is not allowed, that is, the script does not allow 
+ an administrator to create a security or distribution universal group 
+ as well as to make an existing non-universal group universal.</p>
+            <p class="Body"><span class="QuestBlue">Note</span>
+            </p>
+            <p class="Note">The onCheckPropertyValues <a href="eventhandlers.htm">event 
+ handler</a> is activated upon the following events:</p>
+            <ul>
+                <li class="kadov-p-CNoteBullet">
+                    <p class="NoteBullet">Clicking the <span style="font-weight: bold;">Next</span> button in the New Object Wizard</p>
+                </li>
+                <li class="kadov-p-CNoteBullet">
+                    <p class="NoteBullet">Clicking the <span style="font-weight: bold;">Apply</span>/<span style="font-weight: bold;">OK</span> 
+ button in the object <span style="font-weight: bold;">Properties</span> 
+ dialog box</p>
+                </li>
+                <li class="kadov-p-CNoteBullet">
+                    <p class="NoteBullet">Checking an object 
+ for policy compliance (for details, refer to "Checking for Policy 
+ Compliance" in Active Roles Help.</p>
+                </li>
+            </ul>
+            <p class="Note">Thus, this script policy can be used only if you create or 
+ modify groups using the Active Roles snap-in or Web Interface. When 
+ creating or modifying groups using your custom ADSI scripts, this script 
+ policy has no effect.</p>
+            <h3>Demonstrated Techniques</h3>
+            <ul>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">How to determine 
+ the class of the in-processed object.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">How to retrieve the 
+ object properties specified in the <span style="font-weight: bold;"><a href="requestobject.htm">Request</a></span> object.</p>
+                </li>
+                <li class="kadov-p-CListBullet">
+                    <p class="ListBullet">How to send an error 
+ message to an Active Roles client.</p>
+                </li>
+            </ul>
+            <h3>How It Works</h3>
+            <p class="Body">The script works when you create, modify or check a policy 
+ compliance for a group &#160;residing 
+ within a directory folder to which the administrative policy is applied.</p>
+            <p class="Body">The script performs the following steps:</p>
+            <ol>
+                <li class="kadov-p-CNumberedList" value="1">
+                    <p class="NumberedList">Retrieves the 
+ in-processed object class specified in the <span style="font-weight: bold;">Request</span> 
+ object. If this object class is not "group", terminates without 
+ raising an error.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="2">
+                    <p class="NumberedList">Retrieves the 
+ value of the "groupType" property for the processed group using 
+ the <span style="font-weight: bold;">Get</span> method implemented by 
+ the <span style="font-weight: bold;"><a href="requestobject.htm">Request</a></span> 
+ object.</p>
+                </li>
+                <li class="kadov-p-CNumberedList" value="3">
+                    <p class="NumberedList">If the group 
+ scope is not Universal, terminates without raising an error. Otherwise, 
+ the script displays the "You cannot create Universal groups in this 
+ folder" error message.<span style="font-style: italic;"><br />
+	To continue, an administrator must specify other group scope, such 
+ as "Domain local" or "Global."</span></p>
+                </li>
+            </ol>
+            <p class="ListBullet">
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc434">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="Event Handlers;eventhandlers.htm" />
+                    <param name="Item2" value="Request Object;requestobject.htm" />
+                    <param name="Item3" value="Skeleton Script;skeletonscript.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc434.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

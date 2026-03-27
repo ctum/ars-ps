@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Active Roles ADSI Provider|Using ADSI Provider" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>Connecting to a Service</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_ConnectingServer" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="enterprisedirectorymanageradsiprovider.htm">Active Roles ADSI Provider</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="usingedmadsiprovider.htm">Using ADSI Provider</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Connecting to a Service</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor205"></a>
+                <MadCap:concept term="a_ConnectingServer" />Connecting to a Service </h1>
+            <p class="Body">When binding to a directory object, ADSI Provider establishes 
+ a connection to the Active Roles Administration Service. The Administration 
+ service to which the provider will connect, depends on the way you bind 
+ to the directory object (see <a href="bindingadsiobject.htm">Binding to 
+ Active Directory Objects</a>).</p>
+            <p class="Body">You can have the provider connect to the specified Administration 
+ service (see <a href="#Specified">Connecting to the Specified Service</a>). 
+ You can also let the provider select the service using the binding information 
+ you have supplied (see <a href="#Selected">Automatic Selecting a Service 
+ to Connect To</a>). In the latter case, you can get the name of the connected 
+ service (see <a href="#Determining">Determining the Connected Service 
+ Name</a>).</p>
+            <h2><a name="Specified"></a>Connecting to the Specified Service</h2>
+            <p class="Body">To ensure that the provider will connect to the Administration 
+ service running on the specified computer, you should specify the computer 
+ name in the binding string and bind to the object with the <b>OpenDSObject</b> 
+ method of the <b><a href="iadsopendsobject.htm">IADsOpenDSObject</a></b> 
+ interface as shown in the following example:</p><pre xml:space="preserve">
+<p class="Syntax">Const ADS_EDMSERVER_BIND = 32768
+Set openDS = GetObject("EDMS:")
+Set objUser = openDS.OpenDSObject("EDMS://MyComputer.mycompany.com/CN=John Smith,OU=Research,DC=Gamp,DC=com",_
+"Administrator", "password", _
+ADS_EDMSERVER_BIND)</p>
+</pre>
+            <p class="Body">MyComputer.mycompany.com is the DNS name of the Administration 
+ service computer to which you want the provider to connect. If no Administration 
+ service is running on the computer MyComputer.mycompany.com, the <b>OpenDSObject</b> 
+ method raises an error.</p>
+            <p class="note"><b style="font-weight: bold;">Important:</b>
+            </p>
+            <p class="note">To ensure that the provider will connect to the specified 
+ service, the last argument of the <b>OpenDSObject</b> method must be set 
+ to 32768.</p>
+            <p class="note"><b style="font-weight: bold;">Note:</b>
+            </p>
+            <p class="note">If the binding string passed to the <b>OpenDSObject</b> method 
+ does not define the service computer name, the provider will connect to 
+ the service running on the local computer.</p>
+            <h2><a name="Selected"></a>Automatic Selecting a Service to Connect to</h2>
+            <p class="Body">The provider will automatically select a service to which 
+ to connect when you bind to a directory object with the <b>GetObject</b> 
+ function. The provider will also automatically select a service when you 
+ bind to a directory object using the <b>OpenDSObject</b> method with the 
+ binding flag set to 0 (see the table in <b><a href="iadsopendsobject.htm">IADsOpenDSObject</a></b>).</p>
+            <p class="Body">To clarify the provider's behavior, consider the following 
+ examples.</p>
+            <h3><b style="font-weight: bold;">Examples</b>
+            </h3>
+            <p class="Body">The following VBScript code snippet illustrates how to bind 
+ to the user John Smith using the binding string that does not specify 
+ the service name:</p><pre xml:space="preserve">
+<p class="Syntax">Set objUser = GetObject("EDMS://CN=John Smith,OU=Research,DC=Gamp,DC=com")</p>
+</pre>
+            <p class="Body">The provider first tries to connect to the Administration 
+ service running on the local computer. If no Active Roles Administration 
+ Service is running on that computer, the provider will search the forest 
+ to which the domain Gamp.com belongs for any Administration service managing 
+ that domain. If no Administration service is found, the provider will 
+ search the forest to which belongs the current user's home domain. </p>
+            <p class="Body">The following VBScript code snippet illustrates how to bind 
+ to the user John Smith using the binding string that specifies a server 
+ name:</p><pre xml:space="preserve">
+<p class="Syntax">Set objUser = GetObject("EDMS://myServer.mycompany.com/CN=John Smith,OU=Research,DC=Gamp,DC=com")</p>
+</pre>
+            <p class="Body">In this scenario, the provider first tries to connect to 
+ the Administration service running on the computer myServer.mycompany.com, 
+ if any. If this operation fails, the provider searches the forest to which 
+ the domain Gamp.com belongs for any Administration service managing that 
+ domain.&#160; If no Administration service is found, the provider will 
+ search the forest to which the domain mycompany.com belongs. If no Administration 
+ service is found, the provider will search the forest to which the current 
+ user's home domain belongs.&#160;</p>
+            <p class="note"><b style="font-weight: bold;">Notes:</b>
+            </p>
+            <p class="note">When you bind to a directory object using the <b>OpenDSObject</b> 
+ method with the last argument different than 32768, the provider will 
+ select a service in the same way as described above for the <b>GetObject</b> 
+ function.</p>
+            <h2><a name="Determining"></a>Determining the Connected Service Name</h2>
+            <p class="Body">When binding to a directory object using methods described 
+ in <a href="#Selected">Automatic Selecting a Service to Connect to</a>, 
+ the provider automatically connects to the appropriate service. To get 
+ the name of that service, use the <b>GetOption</b> method provided by 
+ the <b>IADsObjectOptions</b> interface as shown in the following code 
+ snippet.</p><pre xml:space="preserve">
+<p class="Syntax">Const ADS_OPTION_SERVERNAME = 0
+Set objUser = GetObject("EDMS://CN=John Smith,OU=Research,DC=Gamp,DC=com")
+strServiceName = objUser.GetOption(ADS_OPTION_SERVERNAME)
+MsgBox "The connected service name: " + strServiceName</p>
+</pre>
+            <p class="Body">When you pass the zero value (the ADS_OPTION_SERVERNAME value 
+ from the enumeration ADS_OPTION_ENUM) to the <b>GetOption</b> method, 
+ it returns the DNS name of the Administration service used for the current 
+ binding to the directory object. For more information about the <b>IADsObjectOptions</b> 
+ interface, refer to the <a href="http://msdn.microsoft.com/library">MSDN 
+ library</a>.</p>
+            <p>
+                <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc16">
+                    <param name="Command" value="Related Topics,MENU" />
+                    <param name="Item1" value="Accessing Properties of ADSI Objects;accessingpropertiesadsiobjects.htm" />
+                    <param name="Item2" value="Binding to Active Directory Objects;bindingadsiobject.htm" />
+                    <param name="Item3" value="Connecting to ADSI Provider with ADO;bindingadsiproviderusingado.htm" />
+                    <param name="Item4" value="Modifying Properties of ADSI Objects;modifyingpropertiesadsiobjects.htm" />
+                </object><a class="MCRelatedTopics" href="javascript:mc16.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+            </p>
+            <h4>&#160;</h4>
+        </div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>

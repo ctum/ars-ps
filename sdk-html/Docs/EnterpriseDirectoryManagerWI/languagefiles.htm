@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:medium="non-print" MadCap:InPreviewMode="false" MadCap:PreloadImages="false" MadCap:RuntimeFileType="Topic" MadCap:TargetType="HtmlHelp" MadCap:tocPath="Active Roles SDK|Web Interface|References|Customizing Active Roles Web Interface|Customization Settings Format" MadCap:PathToHelpSystem="../../" MadCap:HelpSystemFileName="EDMSDKDOC.xml" MadCap:SearchType="Stem">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta http-equiv="Content-Type" content="text/html; charset=Windows-1252" /><title>The Language Settings</title>
+        <link href="../../SkinSupport/Slideshow.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../SkinSupport/MadCap.css" rel="stylesheet" type="text/css" MadCap:generated="True" />
+        <link href="../../Resources/Stylesheets/CommonStyles_DoNotEdit.css" rel="stylesheet" type="text/css" />
+        <script src="../../SkinSupport/MadCapEffects.js" type="text/javascript">
+        </script>
+        <script src="../../SkinSupport/MadCapEffectsMenu.js" type="text/javascript">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/jquery-1.12.4.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapGlobal.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapSlideshow.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapMerging.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapAliasFile.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapUtilities.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBody.js">
+        </script>
+        <script type="text/javascript" src="../../SkinSupport/MadCapHighlighter.js">
+        </script>
+        <meta name="MS-HAID" content="a_LanguageFiles" />
+    </head>
+    <body><iframe id="mctoolbar_1736137587_0" name="mctoolbar_1736137587_0" title="Toolbar" frameborder="0" scrolling="no" style="width: 100%; height: 28px; visibility: hidden;" allowTransparency="true" MadCap:buttonItems="Back|Forward" src="../../Skin/Toolbar.htm" class="MCTopicToolbar_0"></iframe>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0"><a class="MCBreadcrumbsLink" href="../IntroducingEDMSoftwareDevelopmentKit/edmsdk.htm">Active Roles SDK</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="webinterface.htm">Web Interface</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="WIReference.htm">References</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">The Language Settings</span>
+            </div>
+        </div>
+        <div role="main" id="mc-main-content">
+            <h1><a name="aanchor39"></a>
+                <MadCap:concept term="a_LanguageFiles" />The Language Settings</h1>
+            <p class="Body">This&#160;topic provides information about&#160;the language 
+ settings stored in the <b>edsaWIStrings</b> attribute. This attribute 
+ contains names and values of the string constants used in the Web Interface 
+ customization settings such as the <a href="commandsxml.htm">menus settings</a>, 
+ <a href="entriesxml.htm">entries settings</a> and <a href="formsxml.htm">forms 
+ settings</a>. </p>
+            <h2>Built-in Language Settings </h2>
+            <p class="Body">The built-in language settings define language for displaying 
+ all menus, commands, and forms associated with the Web Interface, as well 
+ as tool tips and help. The built-in language settings are stored in language 
+ files (.lng) located in the locale specific containers, for example: </p>
+            <p class="Body">'<i>&lt;WI folder&gt;</i>\Public\LanguageFiles\1033\' - for 
+ US-English<br />
+'<i>&lt;WI folder&gt;</i>\Public\LanguageFiles\1031\' - for German<br />
+'<i>&lt;WI folder&gt;</i>\Public\LanguageFiles\1036\' - for French </p>
+            <p class="Body">The <i>&lt;WI folder&gt;</i> refers to the folder where the 
+ Web Interface is installed. </p>
+            <p class="note"><b style="font-weight: bold;">Important:</b>
+            </p>
+            <p class="note">By default, the Web Interface setup only installs the US-English 
+ language files. To use other languages, install the Language Pack for 
+ Active Roles. </p>
+            <p class="note"><b style="font-weight: bold;">Note:</b>
+            </p>
+            <p class="note">We don't recommend that you modify the built-in language 
+ files. Define your custom string constants in the <b>edsaWIStrings </b>property. 
+ </p>
+            <h2><a name="CustomLangFile"></a>Custom Language Settings </h2>
+            <p class="Body">After you add a new string constant to any customization 
+ setting, define that constant in the <b>edsaWIStrings </b>attribute. </p>
+            <p class="note"><b style="font-weight: bold;">Important:</b>
+            </p>
+            <p class="note">After you modify <b>edsaWIStrings</b>, for changes to take 
+ effect, <a href="reloadwi.htm">reload the Web Interface</a>. </p>
+            <p class="note"><b style="font-weight: bold;">Note:</b>
+            </p>
+            <p class="note">We <i>strongly</i> recommend that the names of your custom 
+ string constants, such as identifiers or function names, begin with the 
+ prefix cst_, for example cst_employeeID, cst_jobDescriptionIDControl, 
+ etc. </p>
+            <h3>XML Elements </h3>
+            <p class="Body">The <b>edsaWIStrings </b>attribute stores information in 
+ the Extensible Markup Language (XML) format.&#160; XML elements you can 
+ use are listed below. </p>
+            <p class="Body"><a name="Resources"></a><span style="font-weight: bold;">Resources</span>
+            </p>
+            <p class="Body">Describes the collection of string constants used in the 
+ Web Interface customization settings. </p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: None </p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: <a href="#Res">Res</a></p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: None </p>
+            <p class="Body">&#160;</p>
+            <p class="Body"><a name="Res"></a><span style="font-weight: bold;">Res</span>
+            </p>
+            <p class="Body">Describes a string constant. </p>
+            <p class="Body"><b style="font-weight: bold;">Parent Elements</b>: <a href="#Resources">Resources</a></p>
+            <p class="Body"><b style="font-weight: bold;">Child Elements</b>: None </p>
+            <p class="Body"><b style="font-weight: bold;">Attributes</b>: </p>
+            <table>
+                <tr>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Name</p>
+                    </th>
+                    <th>
+                        <p class="TableHeading" style="text-align: left;" align="left">Description</p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">ID</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. The string constant's identifier. The identifiers 
+ cannot begin with a number, and can only contain "A-Z", "a-z", 
+ "0-9", and the underscore character.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="TableBody">Value</p>
+                    </td>
+                    <td>
+                        <p class="TableBody">Required. The string constant's value.</p>
+                    </td>
+                </tr>
+            </table>
+            <h2>Example</h2>
+            <p class="Body">The following snippet illustrates the use of the XML elements 
+ in the language settings.</p><pre class="code" xml:space="preserve">
+<p class="Syntax">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;Resources&gt;
+ &#160;&#160;&#160;&lt;Res ID="WIS_STAT_APPLY_FORM_SUC" Value="The operation was successfully completed."/&gt;
+ &#160;&#160;&#160;&lt;Res ID="WIS_STAT_DELETE_SUC" Value="Object was successfully deleted."/&gt;
+&lt;/Resources&gt;</p>
+</pre>
+            <object classid="clsid:ADB880A6-D8FF-11CF-9377-00AA003B7A11" type="application/x-oleobject" id="mc363">
+                <param name="Command" value="Related Topics,MENU" />
+                <param name="Item1" value="The Commands Settings;commandsxml.htm" />
+                <param name="Item2" value="Customization Settings Format;customizationfilesedmwi.htm" />
+                <param name="Item3" value="The Entries Settings;entriesxml.htm" />
+                <param name="Item4" value="The Forms Settings;formsxml.htm" />
+                <param name="Item5" value="Specifying Customization Settings;specifyingsettings.htm" />
+            </object><a class="MCRelatedTopics" href="javascript:mc363.Click()"><img src="../../SkinSupport/RelatedTopics.gif" style="border: none;margin-right: 5px;" alt="Related Topics Link Icon" />Related Topics</a>
+
+
+ &#160; 
+
+</div>
+        <script type="text/javascript" src="../../SkinSupport/MadCapBodyEnd.js">
+        </script>
+    </body>
+</html>
